@@ -1,7 +1,21 @@
 {
-  "sourceLanguage" : "en",
+  "sourceLanguage" : "gl-ES",
   "strings" : {
+    "accept" : {
 
+    },
+    "error" : {
+
+    },
+    "error-message" : {
+
+    },
+    "Home" : {
+
+    },
+    "retry" : {
+
+    }
   },
   "version" : "1.0"
 }
