@@ -23,4 +23,8 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
             return mutableRequest
         }
     }
+    
+    public func fetchNews() async throws -> [String] {
+        return []
+    }
 }

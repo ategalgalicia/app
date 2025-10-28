@@ -10,10 +10,19 @@
     "error-message" : {
 
     },
-    "Home" : {
+    "news-header-title" : {
+
+    },
+    "news-no-data" : {
 
     },
     "retry" : {
+
+    },
+    "tab-home" : {
+
+    },
+    "tab-news" : {
 
     }
   },
