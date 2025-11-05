@@ -39,35 +39,36 @@ struct CenterView: View {
     }
     
     var body: some View {
-        contentView
-            .navigationTitle(center.city)
-            .navigationBarTitleDisplayMode(.large)
-    }
-    
-    // MARK: ViewBuilders
-    
-    @ViewBuilder
-    private var contentView: some View {
         List {
             Section {
                 ForEach(center.categories) {
                     cell($0)
                 }
             } header: {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(center.address)
-                    ForEach(center.phone, id: \.self) {
-                        Text($0)
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(center.city)
+                        .font(.title)
+                        .fontWeight(.semibold)
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(center.address)
+                        HStack {
+                            ForEach(center.phone, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        if let email = center.email {
+                            Text(email)
+                        }
                     }
-                    if let email = center.email {
-                        Text(email)
-                    }
+                    .font(.footnote)
                 }
-                .font(.subheadline)
-                .fontWeight(.semibold)
+                .padding(.bottom, 16)
             }
         }
     }
+    
+    // MARK: ViewBuilders
     
     @ViewBuilder
     private func cell(_ item: AtegalCore.Category) -> some View {
@@ -76,15 +77,11 @@ struct CenterView: View {
             navigationPath.append(.navigateToCategory)
         } label: {
             HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(item.title)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                }
-                .padding(.vertical, 4)
+                Text(item.title)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 
                 Spacer()
-                
                 Image(systemName: "chevron.right")
             }
         }

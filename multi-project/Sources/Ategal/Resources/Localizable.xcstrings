@@ -1,10 +1,10 @@
 {
   "sourceLanguage" : "gl-ES",
   "strings" : {
-    "accept" : {
+    "(%@)" : {
 
     },
-    "activity-title" : {
+    "accept" : {
 
     },
     "error" : {
@@ -17,6 +17,9 @@
 
     },
     "news-no-data" : {
+
+    },
+    "resource-header-title" : {
 
     },
     "retry" : {

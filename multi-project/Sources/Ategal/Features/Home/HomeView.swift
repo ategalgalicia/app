@@ -169,38 +169,37 @@ struct HomeViewAsync: View {
 @Observable
 @MainActor
 class HomeDataModel {
-    
-    @ObservationIgnored
-    let centers: [Center]
-    
+    var centers: [Center] = []
     var centerSelected: Center? = nil
     var categorySelected: AtegalCore.Category? = nil
     var activitySelected: Activity? = nil
     
     init() async throws {
         self.centers = [
-            MockHome.center(id: "0001"),
-            MockHome.center(id: "0002"),
-            MockHome.center(id: "0003")
+            readFromBundleFor(center: "santiago"),
+            readFromBundleFor(center: "coruna"),
+            readFromBundleFor(center: "ferrol"),
+            readFromBundleFor(center: "ourense"),
+            readFromBundleFor(center: "padron"),
+            readFromBundleFor(center: "vigo"),
         ]
     }
     
-    func getCenter(for id: Center.ID) -> Center {
-        guard let center = centers.first(where: { $0.id == id }) else { fatalError() }
-        return center
+    private func readFromBundleFor(center: String) -> Center {
+        let url = Bundle.module.url(forResource: center, withExtension: "json")
+        if let url {
+            logger.info("Reading JSON found \(url.absoluteString)")
+        } else {
+            logger.info("Reading JSON failed no URL")
+        }
+        guard let url,
+              let json = try? Data(contentsOf: url, options: .mappedIfSafe),
+              let preferences = try? JSONDecoder().decode(Center.self, from: json) else {
+            fatalError()
+        }
+        return preferences
     }
     
-    func getCategory(for id: AtegalCore.Category.ID, centerID: Center.ID) -> AtegalCore.Category {
-        let center = getCenter(for: centerID)
-        guard let category = center.categories.first(where: { $0.id == id }) else { fatalError() }
-        return category
-    }
-    
-    func getActivity(for id: Activity.ID, centerID: Center.ID, categoryID: AtegalCore.Category.ID) -> Activity {
-        let category = getCategory(for: categoryID, centerID: centerID)
-        guard let activity = category.activities.first(where: { $0.id == id }) else { fatalError() }
-        return activity
-    }
     
     /// For Preview
     static func mock() -> HomeDataModel {

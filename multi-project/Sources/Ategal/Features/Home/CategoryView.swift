@@ -41,7 +41,7 @@ struct CategoryView: View {
     var body: some View {
         contentView
             .navigationTitle(category.title)
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: ViewBuilders
@@ -51,32 +51,79 @@ struct CategoryView: View {
         List {
             Section {
                 ForEach(category.activities) {
-                    cell($0)
+                    activityCell($0)
                 }
-            } header: {
-                Text("activity-title")
+            }
+            if let resources = category.resources, !resources.isEmpty {
+                Section {
+                    ForEach(resources) {
+                        resourceCell($0)
+                    }
+                } header: {
+                    Text("resource-header-title")
+                }
             }
         }
     }
     
     @ViewBuilder
-    private func cell(_ item: Activity) -> some View {
+    private func activityCell(_ item: Activity) -> some View {
         Button {
             dataModel.activitySelected = item
             navigationPath.append(.navigateToActivity)
         } label: {
             HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(item.title)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                }
-                .padding(.vertical, 4)
+                Text(item.title.lowercased().capitalized)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 
                 Spacer()
-                
                 Image(systemName: "chevron.right")
             }
+        }
+    }
+    
+    @ViewBuilder
+    private func resourceCell(_ item: Resource) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(item.title.lowercased().capitalized)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                
+                if let description = item.description {
+                    Text(description)
+                        .font(.footnote)
+                }
+            }
+            
+            VStack(alignment: .leading, spacing: 4) {
+                if let address = item.address {
+                    Text(address)
+                }
+                if let web = item.web {
+                    Button {
+                        print(1)
+                    } label: {
+                        Text(web)
+                    }
+                }
+                if let phone = item.phone {
+                    HStack {
+                        ForEach(phone, id: \.self) { item in
+                            Button {
+                                print(1)
+                            } label: {
+                                Text(item)
+                            }
+                        }
+                        if let contact = item.contact {
+                            Text("(\(contact))")
+                        }
+                    }
+                }
+            }
+            .font(.footnote)
         }
     }
 }

@@ -1,0 +1,184 @@
+{
+  "id": "03",
+  "city": "Padrón",
+  "address": "Campo do Souto, 2, 15900. Padrón",
+  "phone": [
+    "981811329"
+  ],
+  "email": "cruz.taboada@padron.gal",
+  "categories": [
+    {
+      "id": "01",
+      "title": "Cultural",
+      "activities": [
+        {
+          "title": "ARTE",
+          "schedule": "Mércores 17:00-18:30",
+          "description": "Nas nosas clases de Historia da Arte non é preciso ter coñecementos previos, abonda con manter a curiosidade. Irás descubrindo, dun xeito ameno, visual e comprensible. Poderás identificar estilos e creadores e entender que fai especial a cada cadro, escultura ou edificio. Ao relacionar a arte coa vida, verás como cada período histórico amosa a súa sociedade, valores e sentimentos. Realizaranse visitas a museos e exposicións, cobrando un novo sentido.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        },
+        {
+          "title": "HISTORIA DE ESPAÑA E DE GALICIA",
+          "schedule": "Mércores 18:30-19:30",
+          "description": "Achegamento á historia de España e Galicia con explicacións, charlas participativas, imaxes e anécdotas. Inclúe visitas culturais e viaxes para unha visión directa e práctica do patrimonio.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        },
+        {
+          "title": "INGLÉS (Nivel 0)",
+          "schedule": "Venres 16:00-17:30",
+          "description": "Curso para iniciar os primeiros pasos no inglés sen coñecementos previos. Aprendizaxe de vocabulario e estruturas básicas para comunicación en situacións cotiás. Sesións prácticas e dinámicas, adaptadas ao ritmo do grupo.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        },
+        {
+          "title": "INGLÉS (Nivel 1)",
+          "schedule": "Venres 17:30-19:00",
+          "description": "Ampliación de vocabulario e práctica de estruturas máis complexas para gañar confianza ao falar, escribir e comprender. Clases participativas con conversación, lecturas, audios e xogos de rol.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        }
+      ],
+      "resources": [
+        {
+          "title": "IV Ciclo Universidade de Santiago. Programa para maiores da USC",
+          "web": "https://www.usc.gal/es/admision/cuarto-ciclo",
+          "phone": [
+            "881814588"
+          ],
+          "contact": "Esther",
+          "description": "Pode acceder calquera persoa maior de 50 anos independentemente da súa formación previa."
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Saúde",
+      "activities": [
+        {
+          "title": "XIMNASIA DE MANTEMENTO",
+          "schedule": "Padrón: Luns e mércores 09:00-09:50, 09:55-10:45, 10:55-11:45; Luns 17:30-18:30 e mércores 16:30-17:30 | Carcacia: Martes e xoves 09:30-10:30 | Extramundi: Martes e xoves 19:00-20:00 | Angueira de Suso: Luns e mércores 17:00-18:00",
+          "description": "Actividade divertida e saudable para fortalecer músculos, mellorar a flexibilidade e activar o corpo no día a día, adaptada ao ritmo de cada persoa.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        },
+        {
+          "title": "ESCOLA DE ESPALDA",
+          "schedule": "Padrón: Luns 16:30-17:30 e Venres 16:30-17:30 | Extramundi: Luns e venres 17:45-18:45",
+          "description": "Actividade para mellorar a postura, fortalecer a zona lumbar e aliviar tensións con exercicios suaves e adaptados.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        },
+        {
+          "title": "MEMORIA",
+          "schedule": "Padrón: Luns 17:00-18:30 | Carcacía: Mércores 18:30-20:00 | Angueira de Suso: Luns 18:45-20:15",
+          "description": "Exercicios prácticos baseados en xogos de lembranza para estimular a memoria e favorecer a atención.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        },
+        {
+          "title": "NEURONUP",
+          "schedule": "A elexir polo alumnado",
+          "description": "Sesións personalizadas de estimulación cognitiva online (plataforma profesional con máis de 13 anos de experiencia).",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "mfares@ategal.com"
+        }
+      ],
+      "resources": [
+        {
+          "title": "Medicina Emocional: Estefanía Zardoya",
+          "web": "https://estefaniazardoya.es/",
+          "phone": [
+            "665986828"
+          ]
+        },
+        {
+          "title": "Clínica Dental Macía",
+          "web": "https://dentalmacia.com/es/",
+          "phone": [
+            "981521090"
+          ],
+          "description": "Centro de benestar integral con máis de 25 anos de experiencia."
+        },
+        {
+          "title": "Podóloga Cepeda",
+          "web": "https://copoga.com/clinica/es/115",
+          "phone": [
+            "981585758"
+          ],
+          "contact": "Celia"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Lecer",
+      "activities": [
+        {
+          "title": "SAÍDAS E VISITAS CULTURAIS",
+          "schedule": "Actualizadas mensualmente",
+          "description": "Actividades culturais complementarias: visitas a museos e exposicións, celebracións, viaxes culturais e conferencias.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        },
+        {
+          "title": "Faite Voluntario/a en ATEGAL",
+          "schedule": "Personalizable",
+          "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social. Infórmate para colaborar.",
+          "address": "Campo do Souto, 2, 15900. Padrón",
+          "phone": [
+            "981811329"
+          ],
+          "email": "cruz.taboada@padron.gal"
+        }
+      ],
+      "resources": [
+        {
+          "title": "Oficina de Voluntariado. Xunta de Galicia",
+          "web": "https://voluntariadogalego.org/es",
+          "phone": [
+            "981546997"
+          ],
+          "contact": "Teresa"
+        },
+        {
+          "title": "IGAXES",
+          "web": "https://www.igaxes.org/es/",
+          "phone": [
+            "618376874"
+          ],
+          "contact": "Chelo",
+          "description": "Apoio escolar a nenos e nenas."
+        }
+      ]
+    }
+  ]
+}
