@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import AtegalCore
 
 enum ContentTab: String, Hashable {
     case home, news
@@ -15,20 +16,25 @@ struct ContentView: View {
     
     @State
     var tab = ContentTab.home
+    
+    @State
+    var navigationCenterPath: [HomeRoute] = []
+    @State
+    var navigationNewsPath: [NewsRoute] = []
 
     @Bindable
     var world: World
 
     var body: some View {
         TabView(selection: $tab) {
-            NavigationStack {
-                HomeViewAsync()
+            NavigationStack(path: $navigationCenterPath) {
+                HomeViewAsync(navigationPath: $navigationCenterPath)
             }
             .tabItem { Label("tab-home", systemImage: "house.fill") }
             .tag(ContentTab.home)
             
-            NavigationStack {
-                NewsViewAsync()
+            NavigationStack(path: $navigationNewsPath) {
+                NewsViewAsync(navigationPath: $navigationNewsPath)
             }
             .tabItem { Label("tab-news", systemImage: "house.fill") }
             .tag(ContentTab.news)
