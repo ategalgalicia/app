@@ -7,8 +7,7 @@ import AtegalCore
 
 struct ActivityView: View {
     
-    @Bindable
-    var dataSource: HomeDataSource
+    @Bindable var dataSource: HomeDataSource
     
     private var activity: Center.Category.Activity {
         dataSource.activitySelected!
@@ -18,12 +17,10 @@ struct ActivityView: View {
         ScrollView {
             contentView
         }
-        .actionView {
-            actionView
-        }
+        .background(ColorsPalette.background)
+        .tint(ColorsPalette.primary)
+        .actionView { actionView }
     }
-    
-    // MARK: ViewBuilders
     
     @ViewBuilder
     private var contentView: some View {
@@ -31,15 +28,19 @@ struct ActivityView: View {
             Text(activity.title)
                 .font(.title2)
                 .fontWeight(.semibold)
+                .foregroundStyle(ColorsPalette.textPrimary)
             
             Text(activity.description)
                 .font(.subheadline)
+                .foregroundStyle(ColorsPalette.textSecondary)
             
             Text(activity.schedule)
                 .font(.subheadline)
+                .foregroundStyle(ColorsPalette.textSecondary)
             
             Text(activity.address)
                 .font(.subheadline)
+                .foregroundStyle(ColorsPalette.textSecondary)
             
             HStack {
                 ForEach(activity.phone, id: \.self) { item in
@@ -47,6 +48,7 @@ struct ActivityView: View {
                         print(1)
                     } label: {
                         Text(item)
+                            .foregroundStyle(ColorsPalette.primary)
                     }
                 }
             }
@@ -65,10 +67,11 @@ struct ActivityView: View {
                     Text(email)
                         .font(.headline)
                         .fontWeight(.bold)
+                        .foregroundStyle(ColorsPalette.primary)
                 }
             }
         )
-        .buttonStyle(.borderedProminent)
         .frame(maxWidth: .infinity, minHeight: 48)
+        .tint(ColorsPalette.primary)
     }
 }

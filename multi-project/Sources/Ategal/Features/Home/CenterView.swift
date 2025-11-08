@@ -7,11 +7,8 @@ import AtegalCore
 
 struct CenterView: View {
     
-    @Bindable
-    var dataSource: HomeDataSource
-    
-    @Binding
-    var navigationPath: [HomeRoute]
+    @Bindable var dataSource: HomeDataSource
+    @Binding var navigationPath: [HomeRoute]
     
     private var center: Center {
         dataSource.centerSelected!
@@ -28,7 +25,8 @@ struct CenterView: View {
                     Text(center.city)
                         .font(.title)
                         .fontWeight(.semibold)
-                    
+                        .foregroundStyle(ColorsPalette.textPrimary)
+
                     VStack(alignment: .leading, spacing: 4) {
                         Text(center.address)
                         HStack {
@@ -41,13 +39,16 @@ struct CenterView: View {
                         }
                     }
                     .font(.footnote)
+                    .foregroundStyle(ColorsPalette.textSecondary)
                 }
                 .padding(.bottom, 16)
             }
         }
+        .listRowBackground(Color.clear)
+        .scrollContentBackground(.hidden)
+        .background(ColorsPalette.background)
+        .tint(ColorsPalette.primary)
     }
-    
-    // MARK: ViewBuilders
     
     @ViewBuilder
     private func cell(_ item: Center.Category) -> some View {
@@ -59,10 +60,14 @@ struct CenterView: View {
                 Text(item.title)
                     .font(.subheadline)
                     .fontWeight(.semibold)
-                
+                    .foregroundStyle(ColorsPalette.textPrimary)
+
                 Spacer()
                 Image(systemName: "chevron.right")
+                    .foregroundStyle(ColorsPalette.primary)
             }
+            .padding(.vertical, 8)
         }
+        .listRowBackground(ColorsPalette.cardBackground)
     }
 }

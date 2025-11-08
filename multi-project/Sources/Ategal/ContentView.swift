@@ -46,6 +46,8 @@ struct ContentView: View {
             .tag(ContentTab.news)
         }
         .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
+        .tint(ColorsPalette.primary)
+        .background(ColorsPalette.background)
     }
 }
 

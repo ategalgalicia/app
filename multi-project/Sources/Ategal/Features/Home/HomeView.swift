@@ -88,10 +88,7 @@ struct HomeView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity)
-        .actionView {
-            actionView
-                .padding(.bottom, 48)
-        }
+        .actionView { actionView }
     }
     
     @ViewBuilder
@@ -108,10 +105,7 @@ struct HomeView: View {
                 .frame(width: icon, height: icon)
                 .scaleEffect(didAnimate ? 1 : 0.9)
                 .opacity(didAnimate ? 1 : 0)
-                .animation(
-                    .easeOut(duration: 0.4).delay(0.3),
-                    value: didAnimate
-                )
+                .animation(.easeOut(duration: 0.4).delay(0.3), value: didAnimate)
         }
     }
     
@@ -144,8 +138,7 @@ struct HomeView: View {
             Image("xunta-icon", bundle: .module)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 50)
-                .padding(16)
+                .frame(height: 100)
         }
     }
 }

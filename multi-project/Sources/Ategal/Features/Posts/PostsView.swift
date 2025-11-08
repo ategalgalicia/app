@@ -49,8 +49,9 @@ struct PostsView: View {
                 case .navigateToPost:
                     PostView(dataSource: dataSource)
                 }
-
             }
+            .background(ColorsPalette.background)
+            .tint(ColorsPalette.primary)
     }
     
     // MARK: ViewBuilders
@@ -59,16 +60,22 @@ struct PostsView: View {
     private var contentView: some View {
         if !dataSource.posts.isEmpty {
             List {
-                Section(header: Text("news-header-title")) {
+                Section(header:
+                    Text("news-header-title")
+                        .foregroundStyle(ColorsPalette.textSecondary)
+                ) {
                     ForEach(dataSource.posts) {
                         cell($0)
                     }
                 }
             }
+            .listRowBackground(Color.clear)
+            .scrollContentBackground(.hidden)
         } else {
             Text("news-no-data")
                 .font(.title3)
                 .fontWeight(.semibold)
+                .foregroundStyle(ColorsPalette.textPrimary)
         }
     }
     
@@ -82,17 +89,21 @@ struct PostsView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(item.date.formatted())
                         .font(.caption)
+                        .foregroundStyle(ColorsPalette.textSecondary)
                     
                     Text(item.title)
                         .font(.subheadline)
                         .fontWeight(.semibold)
+                        .foregroundStyle(ColorsPalette.textPrimary)
                 }
                 .padding(.vertical, 4)
                 
                 Spacer()
                 Image(systemName: "chevron.right")
+                    .foregroundStyle(ColorsPalette.primary)
             }
         }
+        .listRowBackground(ColorsPalette.cardBackground)
     }
 }
 

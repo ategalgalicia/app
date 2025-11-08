@@ -7,20 +7,19 @@ import AtegalCore
 
 struct CategoryView: View {
     
-    @Bindable
-    var dataSource: HomeDataSource
+    @Bindable var dataSource: HomeDataSource
+    @Binding var navigationPath: [HomeRoute]
     
-    @Binding
-    var navigationPath: [HomeRoute]
-    
-    private var category: Center.Category {
-        dataSource.categorySelected!
-    }
+    private var category: Center.Category { dataSource.categorySelected! }
     
     var body: some View {
         contentView
             .navigationTitle(category.title)
             .navigationBarTitleDisplayMode(.inline)
+            .listRowBackground(Color.clear)
+            .scrollContentBackground(.hidden)
+            .background(ColorsPalette.background)
+            .tint(ColorsPalette.primary)
     }
     
     // MARK: ViewBuilders
@@ -40,6 +39,7 @@ struct CategoryView: View {
                     }
                 } header: {
                     Text("resource-header-title")
+                        .foregroundStyle(ColorsPalette.textSecondary)
                 }
             }
         }
@@ -55,11 +55,15 @@ struct CategoryView: View {
                 Text(item.title.lowercased().capitalized)
                     .font(.subheadline)
                     .fontWeight(.semibold)
-                
+                    .foregroundStyle(ColorsPalette.textPrimary)
+
                 Spacer()
                 Image(systemName: "chevron.right")
+                    .foregroundStyle(ColorsPalette.primary)
             }
+            .padding(.vertical, 8)
         }
+        .listRowBackground(ColorsPalette.cardBackground)
     }
     
     @ViewBuilder
@@ -69,40 +73,44 @@ struct CategoryView: View {
                 Text(item.title.lowercased().capitalized)
                     .font(.subheadline)
                     .fontWeight(.semibold)
+                    .foregroundStyle(ColorsPalette.textPrimary)
                 
                 if let description = item.description {
                     Text(description)
                         .font(.footnote)
+                        .foregroundStyle(ColorsPalette.textSecondary)
                 }
             }
             
             VStack(alignment: .leading, spacing: 4) {
                 if let address = item.address {
                     Text(address)
+                        .foregroundStyle(ColorsPalette.textSecondary)
                 }
                 if let web = item.web {
-                    Button {
-                        print(1)
-                    } label: {
+                    Button(action: { print("open web") }) {
                         Text(web)
+                            .underline(false)
+                            .foregroundStyle(ColorsPalette.primary)
                     }
                 }
                 if let phone = item.phone {
                     HStack {
-                        ForEach(phone, id: \.self) { item in
-                            Button {
-                                print(1)
-                            } label: {
-                                Text(item)
+                        ForEach(phone, id: \.self) { number in
+                            Button(action: { print("call \(number)") }) {
+                                Text(number)
+                                    .foregroundStyle(ColorsPalette.primary)
                             }
                         }
                         if let contact = item.contact {
                             Text("(\(contact))")
+                                .foregroundStyle(ColorsPalette.textSecondary)
                         }
                     }
                 }
             }
             .font(.footnote)
         }
+        .listRowBackground(ColorsPalette.cardBackground)
     }
 }

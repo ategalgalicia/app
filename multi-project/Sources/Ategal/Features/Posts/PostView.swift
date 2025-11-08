@@ -30,5 +30,7 @@ struct PostView: View {
             .frame(maxWidth: .infinity)
             .padding(16)
         }
+        .background(ColorsPalette.background)
+        .tint(ColorsPalette.primary)
     }
 }
