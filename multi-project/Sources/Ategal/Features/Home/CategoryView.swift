@@ -17,7 +17,7 @@ import AtegalCore
     
     NavigationStack {
         CategoryView(
-            dataModel: .mock(),
+            dataSource: .mock(),
             navigationPath: $navigationPath
         )
     }
@@ -29,13 +29,13 @@ import AtegalCore
 struct CategoryView: View {
     
     @Bindable
-    var dataModel: HomeDataModel
+    var dataSource: HomeDataSource
     
     @Binding
     var navigationPath: [HomeRoute]
     
     private var category: AtegalCore.Category {
-        dataModel.categorySelected!
+        dataSource.categorySelected!
     }
     
     var body: some View {
@@ -69,7 +69,7 @@ struct CategoryView: View {
     @ViewBuilder
     private func activityCell(_ item: Activity) -> some View {
         Button {
-            dataModel.activitySelected = item
+            dataSource.activitySelected = item
             navigationPath.append(.navigateToActivity)
         } label: {
             HStack {

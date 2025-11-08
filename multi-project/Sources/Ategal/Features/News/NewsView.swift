@@ -17,7 +17,7 @@ import AtegalCore
     
     NavigationStack {
         NewsView(
-            dataSource: .init(),
+            dataSource: .mock(),
             navigationPath: $navigationPath
         )
     }
@@ -27,7 +27,7 @@ import AtegalCore
 // MARK: NewsRoute
 
 enum NewsRoute: Hashable {
-    case navigateToPost(id: Post.ID)
+    case navigateToPost
 }
 
 // MARK: NewsView
@@ -46,10 +46,8 @@ struct NewsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: NewsRoute.self) { route in
                 switch route {
-                case .navigateToPost(let id):
-                    if let post = dataSource.news.first(where: { $0.id == id }) {
-                        PostView(post: post)
-                    }
+                case .navigateToPost:
+                    PostView(dataSource: dataSource)
                 }
 
             }
@@ -75,11 +73,12 @@ struct NewsView: View {
     @ViewBuilder
     private func cell(_ item: Post) -> some View {
         Button {
-            navigationPath.append(.navigateToPost(id: item.id))
+            dataSource.selected = item
+            navigationPath.append(.navigateToPost)
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(item.subtitle)
+                    Text(item.date.formatted())
                         .font(.caption)
                     
                     Text(item.title)
@@ -103,9 +102,11 @@ struct NewsViewAsync: View {
     @Binding
     var navigationPath: [NewsRoute]
     
+    let apiClient: AtegalAPIClient
+    
     var body: some View {
         AsyncView {
-            NewsDataSource()
+            try await NewsDataSource(apiClient: apiClient)
         } content: {
             NewsView(
                 dataSource: $0,
@@ -121,32 +122,37 @@ struct NewsViewAsync: View {
 @MainActor
 class NewsDataSource {
     
-    let news: [Post]
+    var selected: Post? = nil
+    var news: [Post]
     
     init(apiClient: AtegalAPIClient) async throws {
-//        let result = try await apiClient.fetchNews()
-        self.news = MockNews.news//try await result.dataModel
+        let result = try await apiClient.fetchNews()
+        self.news = result
     }
     
     /// For Preview
-    init() {
+    static func mock() -> NewsDataSource {
+        .init()
+    }
+    private init() {
         self.news = MockNews.news
     }
 }
 
 // MARK: NewsDataSource
 
-enum MockNews {
+private enum MockNews {
     
     static var news: [Post] {
-        [post(id: "1"), post(id: "2"), post(id: "3")]
+        [post(id: 1), post(id: 2), post(id: 3)]
     }
     
     static func post(id: Post.ID) -> Post {
         .init(
             id: id,
+            date: .now,
             title: "Las Aulas Senior de Galicia se unen a la conmemoración del Día de la Mujer",
-            subtitle: "19/04/2025"
+            content: "Las Aulas Senior de Galicia se unen a la conmemoración del Día de la Mujer"
         )
     }
 }

@@ -17,7 +17,7 @@ import AtegalCore
     
     NavigationStack {
         HomeView(
-            dataModel: .mock(),
+            dataSource: .mock(),
             navigationPath: $navigationPath
         )
     }
@@ -37,7 +37,7 @@ enum HomeRoute: Hashable {
 struct HomeView: View {
     
     @Bindable
-    var dataModel: HomeDataModel
+    var dataSource: HomeDataSource
     
     @Binding
     var navigationPath: [HomeRoute]
@@ -48,7 +48,7 @@ struct HomeView: View {
     var icon: CGFloat = 150
     
     private var center: AtegalCore.Center {
-        dataModel.centerSelected!
+        dataSource.centerSelected!
     }
     
     var body: some View {
@@ -58,13 +58,13 @@ struct HomeView: View {
             .navigationDestination(for: HomeRoute.self) { route in
                 switch route {
                 case .navigateToCenter:
-                    CenterView(dataModel: dataModel, navigationPath: $navigationPath)
+                    CenterView(dataSource: dataSource, navigationPath: $navigationPath)
                     
                 case .navigateToCategory:
-                    CategoryView(dataModel: dataModel, navigationPath: $navigationPath)
+                    CategoryView(dataSource: dataSource, navigationPath: $navigationPath)
                     
                 case .navigateToActivity:
-                    ActivityView(dataModel: dataModel)
+                    ActivityView(dataSource: dataSource)
                 }
             }
             .task {
@@ -92,9 +92,9 @@ struct HomeView: View {
     @ViewBuilder
     private var centersView: some View {
         ZStack {
-            ForEach(0..<dataModel.centers.count, id: \.self) { index in
-                let degrees = Double(index) / Double(dataModel.centers.count) * 360 - 90
-                button(dataModel.centers[index], angle: .degrees(degrees), index: index)
+            ForEach(0..<dataSource.centers.count, id: \.self) { index in
+                let degrees = Double(index) / Double(dataSource.centers.count) * 360 - 90
+                button(dataSource.centers[index], angle: .degrees(degrees), index: index)
             }
             
             Image("logo-icon", bundle: .module)
@@ -113,7 +113,7 @@ struct HomeView: View {
     @ViewBuilder
     private func button(_ item: Center, angle: Angle, index: Int) -> some View {
         Button {
-            dataModel.centerSelected = item
+            dataSource.centerSelected = item
             navigationPath.append(.navigateToCenter)
         } label: {
             Text(item.city)
@@ -154,21 +154,21 @@ struct HomeViewAsync: View {
     
     var body: some View {
         AsyncView {
-            try await HomeDataModel()
+            try await HomeDataSource()
         } content: {
             HomeView(
-                dataModel: $0,
+                dataSource: $0,
                 navigationPath: $navigationPath
             )
         }
     }
 }
 
-// MARK: HomeDataModel
+// MARK: HomeDataSource
 
 @Observable
 @MainActor
-class HomeDataModel {
+class HomeDataSource {
     var centers: [Center] = []
     var centerSelected: Center? = nil
     var categorySelected: AtegalCore.Category? = nil
@@ -202,7 +202,7 @@ class HomeDataModel {
     
     
     /// For Preview
-    static func mock() -> HomeDataModel {
+    static func mock() -> HomeDataSource {
         .init()
     }
     private init() {
@@ -214,7 +214,7 @@ class HomeDataModel {
     }
 }
 
-enum MockHome {
+private enum MockHome {
     
     static func center(id: Center.ID) -> Center {
         .init(

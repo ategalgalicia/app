@@ -12,7 +12,7 @@ import AtegalCore
 #Preview {
     NavigationStack {
         ActivityView(
-            dataModel: .mock()
+            dataSource: .mock()
         )
     }
 }
@@ -23,10 +23,10 @@ import AtegalCore
 struct ActivityView: View {
     
     @Bindable
-    var dataModel: HomeDataModel
+    var dataSource: HomeDataSource
     
     private var activity: Activity {
-        dataModel.activitySelected!
+        dataSource.activitySelected!
     }
     
     var body: some View {

@@ -12,7 +12,7 @@ import AtegalCore
 #Preview {
     NavigationStack {
         PostView(
-            post: MockNews.post(id: "01")
+            dataSource: .mock()
         )
     }
 }
@@ -22,17 +22,25 @@ import AtegalCore
 
 struct PostView: View {
     
-    let post: Post
+    @Bindable
+    var dataSource: NewsDataSource
+    
+    private var post: Post {
+        dataSource.selected!
+    }
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text(post.subtitle)
+                Text(post.date.formatted())
                     .font(.caption)
                 
                 Text(post.title)
                     .font(.subheadline)
                     .fontWeight(.semibold)
+                
+                Text(post.content)
+                    .font(.footnote)
             }
             .frame(maxWidth: .infinity)
             .padding(16)

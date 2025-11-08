@@ -28,13 +28,18 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $tab) {
             NavigationStack(path: $navigationCenterPath) {
-                HomeViewAsync(navigationPath: $navigationCenterPath)
+                HomeViewAsync(
+                    navigationPath: $navigationCenterPath
+                )
             }
             .tabItem { Label("tab-home", systemImage: "house.fill") }
             .tag(ContentTab.home)
             
             NavigationStack(path: $navigationNewsPath) {
-                NewsViewAsync(navigationPath: $navigationNewsPath)
+                NewsViewAsync(
+                    navigationPath: $navigationNewsPath,
+                    apiClient: world.apiClient
+                )
             }
             .tabItem { Label("tab-news", systemImage: "house.fill") }
             .tag(ContentTab.news)
@@ -49,7 +54,7 @@ struct ContentViewAsync: View {
     
     var body: some View {
         AsyncView {
-            World()
+            await World()
         } content: {
             ContentView(world: $0)
         }

@@ -17,7 +17,7 @@ import AtegalCore
     
     NavigationStack {
         CenterView(
-            dataModel: .mock(),
+            dataSource: .mock(),
             navigationPath: $navigationPath
         )
     }
@@ -29,13 +29,13 @@ import AtegalCore
 struct CenterView: View {
     
     @Bindable
-    var dataModel: HomeDataModel
+    var dataSource: HomeDataSource
     
     @Binding
     var navigationPath: [HomeRoute]
     
     private var center: Center {
-        dataModel.centerSelected!
+        dataSource.centerSelected!
     }
     
     var body: some View {
@@ -73,7 +73,7 @@ struct CenterView: View {
     @ViewBuilder
     private func cell(_ item: AtegalCore.Category) -> some View {
         Button {
-            dataModel.categorySelected = item
+            dataSource.categorySelected = item
             navigationPath.append(.navigateToCategory)
         } label: {
             HStack {

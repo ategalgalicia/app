@@ -4,19 +4,17 @@
 
 import SwiftUI
 
-struct AsyncView<Data, Content: View>: View {
-    let load: () async throws -> Data
-
+@MainActor
+struct AsyncView<Data: Sendable, Content: View>: View {
+    let load: @Sendable () async throws -> Data
     private let content: (Data) -> Content
 
-    @State
-    var data: Data?
-    
-    @State
-    var error: Error?
+    @State var data: Data?
+    @State var error: Error?
+    @State var taskToken = UUID()
 
     init(
-        load: @escaping () async throws -> Data,
+        load: @escaping @Sendable () async throws -> Data,
         @ViewBuilder content: @escaping (Data) -> Content
     ) {
         self.load = load
@@ -35,27 +33,30 @@ struct AsyncView<Data, Content: View>: View {
                     .transition(.opacity)
             }
         }
-        .task {
+        .task(id: taskToken) {
             await loadData()
         }
     }
 
-    // MARK: Actions
-
-    @MainActor
     private func loadData() async {
         guard data == nil else { return }
         do {
             let result = try await load()
-            self.data = result
+            await MainActor.run {
+                self.error = nil
+                self.data = result
+            }
         } catch {
-            self.error = error
+            await MainActor.run {
+                self.data = nil
+                self.error = error
+            }
         }
     }
 
     private func reload() {
         data = nil
         error = nil
-        Task { await loadData() }
+        taskToken = UUID()
     }
 }
