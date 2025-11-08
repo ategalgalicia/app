@@ -18,7 +18,7 @@ struct ContentView: View {
     var tab = ContentTab.home
     
     @State
-    var navigationCenterPath: [HomeRoute] = []
+    var navigationHomePath: [HomeRoute] = []
     @State
     var navigationNewsPath: [NewsRoute] = []
 
@@ -27,10 +27,8 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $tab) {
-            NavigationStack(path: $navigationCenterPath) {
-                HomeViewAsync(
-                    navigationPath: $navigationCenterPath
-                )
+            NavigationStack(path: $navigationHomePath) {
+                HomeView($navigationHomePath)
             }
             .tabItem { Label("tab-home", systemImage: "house.fill") }
             .tag(ContentTab.home)

@@ -23,19 +23,17 @@ public protocol APIClientFetcher {
 
 // MARK: URLSessionFetcher
 
-actor URLSessionFetcher: APIClientFetcher {
+final class URLSessionFetcher: APIClientFetcher, @unchecked Sendable {
     private let session: URLSession
-    
-    init(session: URLSession = .shared) {
+
+    init(session: URLSession = URLSession(configuration: .default, delegate: nil, delegateQueue: nil)) {
         self.session = session
     }
-    
+
     func fetchData(with request: URLRequest) async throws -> APIClientResponse {
         let (data, response) = try await session.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw APIClientError.badServerResponse
-        }
-        return .init(data: data, httpResponse: httpResponse)
+        guard let http = response as? HTTPURLResponse else { throw APIClientError.badServerResponse }
+        return .init(data: data, httpResponse: http)
     }
 }
 

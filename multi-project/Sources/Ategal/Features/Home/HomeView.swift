@@ -16,10 +16,7 @@ import AtegalCore
     var navigationPath: [HomeRoute] = []
     
     NavigationStack {
-        HomeView(
-            dataSource: .mock(),
-            navigationPath: $navigationPath
-        )
+        HomeView($navigationPath)
     }
 }
 #endif
@@ -36,8 +33,13 @@ enum HomeRoute: Hashable {
 
 struct HomeView: View {
     
-    @Bindable
+    @State
     var dataSource: HomeDataSource
+    
+    init(_ navigationPath: Binding<[HomeRoute]>) {
+        self.dataSource = HomeDataSource()
+        self._navigationPath = navigationPath
+    }
     
     @Binding
     var navigationPath: [HomeRoute]
@@ -45,9 +47,9 @@ struct HomeView: View {
     @State
     var didAnimate = false
     
-    var icon: CGFloat = 150
+    private var icon: CGFloat = 150
     
-    private var center: AtegalCore.Center {
+    private var center: Center {
         dataSource.centerSelected!
     }
     
@@ -145,25 +147,6 @@ struct HomeView: View {
     }
 }
 
-// MARK: Async
-
-struct HomeViewAsync: View {
-    
-    @Binding
-    var navigationPath: [HomeRoute]
-    
-    var body: some View {
-        AsyncView {
-            try await HomeDataSource()
-        } content: {
-            HomeView(
-                dataSource: $0,
-                navigationPath: $navigationPath
-            )
-        }
-    }
-}
-
 // MARK: HomeDataSource
 
 @Observable
@@ -174,7 +157,7 @@ class HomeDataSource {
     var categorySelected: AtegalCore.Category? = nil
     var activitySelected: Activity? = nil
     
-    init() async throws {
+    init() {
         self.centers = [
             readFromBundleFor(center: "santiago"),
             readFromBundleFor(center: "coruna"),
@@ -200,17 +183,9 @@ class HomeDataSource {
         return preferences
     }
     
-    
     /// For Preview
     static func mock() -> HomeDataSource {
-        .init()
-    }
-    private init() {
-        self.centers = [
-            MockHome.center(id: "0001"),
-            MockHome.center(id: "0002"),
-            MockHome.center(id: "0003")
-        ]
+        HomeDataSource()
     }
 }
 
