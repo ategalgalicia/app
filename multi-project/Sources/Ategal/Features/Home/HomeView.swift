@@ -187,8 +187,8 @@ class HomeDataModel {
     
     private func readFromBundleFor(center: String) -> Center {
         let url = Bundle.module.url(forResource: center, withExtension: "json")
-        if let url {
-            logger.info("Reading JSON found \(url.absoluteString)")
+        if url != nil {
+            logger.info("Reading JSON for \(center)")
         } else {
             logger.info("Reading JSON failed no URL")
         }
