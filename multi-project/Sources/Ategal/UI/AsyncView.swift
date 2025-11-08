@@ -2,7 +2,11 @@
 //  Created by Michele Restuccia on 23/10/25.
 //
 
+#if os(Android)
+import SkipFuseUI
+#else
 import SwiftUI
+#endif
 
 @MainActor
 struct AsyncView<Data: Sendable, Content: View>: View {

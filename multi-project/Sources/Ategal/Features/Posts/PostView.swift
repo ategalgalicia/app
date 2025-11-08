@@ -5,25 +5,10 @@
 import SwiftUI
 import AtegalCore
 
-#if canImport(Darwin)
-
-// MARK: Previews
-
-#Preview {
-    NavigationStack {
-        PostView(
-            dataSource: .mock()
-        )
-    }
-}
-#endif
-
-// MARK: PostView
-
 struct PostView: View {
     
     @Bindable
-    var dataSource: NewsDataSource
+    var dataSource: PostsDataSource
     
     private var post: Post {
         dataSource.selected!

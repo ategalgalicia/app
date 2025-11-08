@@ -18,24 +18,24 @@ struct ContentView: View {
     var tab = ContentTab.home
     
     @State
-    var navigationHomePath: [HomeRoute] = []
+    var navigationHome: [HomeRoute] = []
     @State
-    var navigationNewsPath: [NewsRoute] = []
+    var navigationPost: [PostRoute] = []
 
     @Bindable
     var world: World
 
     var body: some View {
         TabView(selection: $tab) {
-            NavigationStack(path: $navigationHomePath) {
-                HomeView($navigationHomePath)
+            NavigationStack(path: $navigationHome) {
+                HomeView($navigationHome)
             }
             .tabItem { Label("tab-home", systemImage: "house.fill") }
             .tag(ContentTab.home)
             
-            NavigationStack(path: $navigationNewsPath) {
-                NewsViewAsync(
-                    navigationPath: $navigationNewsPath,
+            NavigationStack(path: $navigationPost) {
+                PostsAsyncView(
+                    navigationPath: $navigationPost,
                     apiClient: world.apiClient
                 )
             }

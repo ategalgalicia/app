@@ -13,7 +13,7 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
         super.init(environment: environment, fetcher: networkFetcher)
     }
     
-    public func fetchNews() async throws -> [Post] {
+    public func fetchPosts() async throws -> [Post] {
         try await fetch(
             AtegalAPI.getPosts,
             as: [Post].self

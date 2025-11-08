@@ -5,27 +5,6 @@
 import SwiftUI
 import AtegalCore
 
-#if canImport(Darwin)
-
-// MARK: Previews
-
-#Preview {
-    
-    @Previewable
-    @State
-    var navigationPath: [HomeRoute] = []
-    
-    NavigationStack {
-        CategoryView(
-            dataSource: .mock(),
-            navigationPath: $navigationPath
-        )
-    }
-}
-#endif
-
-// MARK: CategoryView
-
 struct CategoryView: View {
     
     @Bindable

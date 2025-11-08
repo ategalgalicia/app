@@ -5,27 +5,6 @@
 import SwiftUI
 import AtegalCore
 
-#if canImport(Darwin)
-
-// MARK: Previews
-
-#Preview {
-    
-    @Previewable
-    @State
-    var navigationPath: [HomeRoute] = []
-    
-    NavigationStack {
-        CenterView(
-            dataSource: .mock(),
-            navigationPath: $navigationPath
-        )
-    }
-}
-#endif
-
-// MARK: CenterView
-
 struct CenterView: View {
     
     @Bindable

@@ -8,6 +8,13 @@ import Foundation
 import FoundationNetworking
 #endif
 
+// MARK: APIClientFetcher
+
+public protocol APIClientFetcher {
+    func fetchData(with request: URLRequest) async throws -> APIClientResponse
+}
+
+
 // MARK: APIClientResponse
 
 public struct APIClientResponse: Sendable {
@@ -15,25 +22,22 @@ public struct APIClientResponse: Sendable {
     let httpResponse: HTTPURLResponse
 }
 
-// MARK: APIClientFetcher
+// MARK: APIClientDelegate
 
-public protocol APIClientFetcher {
-    func fetchData(with request: URLRequest) async throws -> APIClientResponse
+public protocol APIClientDelegate: AnyObject {
+    func didReceiveUnauthorized() async
 }
 
 // MARK: URLSessionFetcher
 
-final class URLSessionFetcher: APIClientFetcher, @unchecked Sendable {
-    private let session: URLSession
-
-    init(session: URLSession = URLSession(configuration: .default, delegate: nil, delegateQueue: nil)) {
-        self.session = session
-    }
-
-    func fetchData(with request: URLRequest) async throws -> APIClientResponse {
-        let (data, response) = try await session.data(for: request)
-        guard let http = response as? HTTPURLResponse else { throw APIClientError.badServerResponse }
-        return .init(data: data, httpResponse: http)
+extension URLSession: APIClientFetcher {
+    
+    public func fetchData(with request: URLRequest) async throws -> APIClientResponse {
+        let (data, response) = try await data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIClientError.badServerResponse
+        }
+        return .init(data: data, httpResponse: httpResponse)
     }
 }
 

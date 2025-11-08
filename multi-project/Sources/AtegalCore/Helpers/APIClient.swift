@@ -8,11 +8,7 @@ import Foundation
 import FoundationNetworking
 #endif
 
-public protocol APIClientDelegate: AnyObject {
-    func didReceiveUnauthorized() async
-}
-
-public class APIClient {
+open class APIClient: @unchecked Sendable {
     
     private let fetcher: APIClientFetcher
     private let environment: Environment
@@ -24,7 +20,7 @@ public class APIClient {
         environment: Environment,
         fetcher: APIClientFetcher? = nil
     ) {
-        self.fetcher = fetcher ?? URLSessionFetcher()
+        self.fetcher = fetcher ?? URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
         self.environment = environment
     }
     
@@ -33,20 +29,16 @@ public class APIClient {
             let request = try createUrlRequest(endpoint)
             return try await perform(request, as: type)
         } catch APIClientError.tokenFailed {
-            // Ask delegate to refresh credentials, then one last attempt
             await delegate?.didReceiveUnauthorized()
-            
-            // Optional small backoff to avoid thundering herds
-            // try? await Task.sleep(nanoseconds: 200_000_000) // 200ms
-            
             let retryRequest = try createUrlRequest(endpoint)
-            // If this throws, we propagate (max 2 attempts total)
             return try await perform(retryRequest, as: type)
         } catch {
             throw error
         }
     }
 }
+
+// MARK: Extensions
 
 private extension APIClient {
 

@@ -13,10 +13,10 @@ import AtegalCore
     
     @Previewable
     @State
-    var navigationPath: [NewsRoute] = []
+    var navigationPath: [PostRoute] = []
     
     NavigationStack {
-        NewsView(
+        PostsView(
             dataSource: .mock(),
             navigationPath: $navigationPath
         )
@@ -24,27 +24,27 @@ import AtegalCore
 }
 #endif
 
-// MARK: NewsRoute
+// MARK: PostRoute
 
-enum NewsRoute: Hashable {
+enum PostRoute: Hashable {
     case navigateToPost
 }
 
-// MARK: NewsView
+// MARK: PostsView
 
-struct NewsView: View {
+struct PostsView: View {
     
     @Bindable
-    var dataSource: NewsDataSource
+    var dataSource: PostsDataSource
     
     @Binding
-    var navigationPath: [NewsRoute]
+    var navigationPath: [PostRoute]
     
     var body: some View {
         contentView
             .navigationTitle("tab-news")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: NewsRoute.self) { route in
+            .navigationDestination(for: PostRoute.self) { route in
                 switch route {
                 case .navigateToPost:
                     PostView(dataSource: dataSource)
@@ -57,16 +57,18 @@ struct NewsView: View {
     
     @ViewBuilder
     private var contentView: some View {
-        List {
-            if !dataSource.news.isEmpty {
+        if !dataSource.posts.isEmpty {
+            List {
                 Section(header: Text("news-header-title")) {
-                    ForEach(dataSource.news) {
+                    ForEach(dataSource.posts) {
                         cell($0)
                     }
                 }
-            } else {
-                Text("news-no-data")
             }
+        } else {
+            Text("news-no-data")
+                .font(.title3)
+                .fontWeight(.semibold)
         }
     }
     
@@ -88,27 +90,26 @@ struct NewsView: View {
                 .padding(.vertical, 4)
                 
                 Spacer()
-                
                 Image(systemName: "chevron.right")
             }
         }
     }
 }
 
-// MARK: Async
+// MARK: PostsAsyncView
 
-struct NewsViewAsync: View {
+struct PostsAsyncView: View {
     
     @Binding
-    var navigationPath: [NewsRoute]
+    var navigationPath: [PostRoute]
     
     let apiClient: AtegalAPIClient
     
     var body: some View {
         AsyncView {
-            try await NewsDataSource(apiClient: apiClient)
+            try await PostsDataSource(apiClient: apiClient)
         } content: {
-            NewsView(
+            PostsView(
                 dataSource: $0,
                 navigationPath: $navigationPath
             )
@@ -116,43 +117,43 @@ struct NewsViewAsync: View {
     }
 }
 
-// MARK: NewsDataSource
+// MARK: PostsDataSource
 
 @Observable
 @MainActor
-class NewsDataSource {
+class PostsDataSource {
     
     var selected: Post? = nil
-    var news: [Post]
+    var posts: [Post]
     
     init(apiClient: AtegalAPIClient) async throws {
-        let result = try await apiClient.fetchNews()
-        self.news = result
+        let result = try await apiClient.fetchPosts()
+        self.posts = result
     }
     
     /// For Preview
-    static func mock() -> NewsDataSource {
+    static func mock() -> PostsDataSource {
         .init()
     }
     private init() {
-        self.news = MockNews.news
+        self.posts = MockPosts.news
     }
 }
 
-// MARK: NewsDataSource
+// MARK: MockPosts
 
-private enum MockNews {
+private enum MockPosts {
     
     static var news: [Post] {
         [post(id: 1), post(id: 2), post(id: 3)]
     }
     
-    static func post(id: Post.ID) -> Post {
+    static private func post(id: Post.ID) -> Post {
         .init(
             id: id,
             date: .now,
             title: "Las Aulas Senior de Galicia se unen a la conmemoración del Día de la Mujer",
-            content: "Las Aulas Senior de Galicia se unen a la conmemoración del Día de la Mujer"
+            content: "Por el Día Internacional de las Personas Mayores, desde Ategal celebramos un acto conmemorativo en Fisterra. Durante la jornada, los asistentes pudieron disfrutar de una conferencia impartida por la gestora cultural y comisaria de arte Paula Cabaleiro; así como de una comida de confraternidad con actuación musical"
         )
     }
 }

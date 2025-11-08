@@ -5,21 +5,6 @@
 import SwiftUI
 import AtegalCore
 
-#if canImport(Darwin)
-
-// MARK: Previews
-
-#Preview {
-    NavigationStack {
-        ActivityView(
-            dataSource: .mock()
-        )
-    }
-}
-#endif
-
-// MARK: ActivityView
-
 struct ActivityView: View {
     
     @Bindable
