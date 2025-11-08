@@ -10,7 +10,7 @@ struct ActivityView: View {
     @Bindable
     var dataSource: HomeDataSource
     
-    private var activity: Activity {
+    private var activity: Center.Category.Activity {
         dataSource.activitySelected!
     }
     

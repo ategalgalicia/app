@@ -13,7 +13,7 @@ struct CategoryView: View {
     @Binding
     var navigationPath: [HomeRoute]
     
-    private var category: AtegalCore.Category {
+    private var category: Center.Category {
         dataSource.categorySelected!
     }
     
@@ -46,7 +46,7 @@ struct CategoryView: View {
     }
     
     @ViewBuilder
-    private func activityCell(_ item: Activity) -> some View {
+    private func activityCell(_ item: Center.Category.Activity) -> some View {
         Button {
             dataSource.activitySelected = item
             navigationPath.append(.navigateToActivity)
@@ -63,7 +63,7 @@ struct CategoryView: View {
     }
     
     @ViewBuilder
-    private func resourceCell(_ item: Resource) -> some View {
+    private func resourceCell(_ item: Center.Category.Resource) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title.lowercased().capitalized)

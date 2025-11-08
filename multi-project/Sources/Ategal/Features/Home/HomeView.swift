@@ -16,7 +16,10 @@ import AtegalCore
     var navigationPath: [HomeRoute] = []
     
     NavigationStack {
-        HomeView($navigationPath)
+        HomeView(
+            navigationPath: $navigationPath,
+            apiClient: .init(environment: .init(host: .production))
+        )
     }
 }
 #endif
@@ -33,16 +36,16 @@ enum HomeRoute: Hashable {
 
 struct HomeView: View {
     
-    @State
-    var dataSource: HomeDataSource
+    @Binding
+    var navigationPath: [HomeRoute]
     
-    init(_ navigationPath: Binding<[HomeRoute]>) {
-        self.dataSource = HomeDataSource()
+    init(navigationPath: Binding<[HomeRoute]>, apiClient: AtegalAPIClient) {
+        self.dataSource = HomeDataSource(apiClient: apiClient)
         self._navigationPath = navigationPath
     }
     
-    @Binding
-    var navigationPath: [HomeRoute]
+    @State
+    var dataSource: HomeDataSource
     
     @State
     var didAnimate = false

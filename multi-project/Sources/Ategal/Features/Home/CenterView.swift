@@ -50,7 +50,7 @@ struct CenterView: View {
     // MARK: ViewBuilders
     
     @ViewBuilder
-    private func cell(_ item: AtegalCore.Category) -> some View {
+    private func cell(_ item: Center.Category) -> some View {
         Button {
             dataSource.categorySelected = item
             navigationPath.append(.navigateToCategory)

@@ -28,7 +28,10 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $tab) {
             NavigationStack(path: $navigationHome) {
-                HomeView($navigationHome)
+                HomeView(
+                    navigationPath: $navigationHome,
+                    apiClient: world.apiClient
+                )
             }
             .tabItem { Label("tab-home", systemImage: "house.fill") }
             .tag(ContentTab.home)

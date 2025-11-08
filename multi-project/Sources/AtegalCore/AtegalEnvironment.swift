@@ -25,11 +25,3 @@ public struct AtegalEnvironment: Environment, Sendable {
         return URL(string: urlString)!
     }
 }
-
-// MARK: MockGoBarberEnvironment
-
-struct MockAtegalEnvironment: Environment, Sendable {
-    var baseURL: URL = URL(
-        string: "https://ategal.com/wp-json/wp/v2/"
-    )!
-}
