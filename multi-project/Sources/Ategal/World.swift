@@ -6,9 +6,7 @@ import Foundation
 import AtegalCore
 import SkipFuse; import SkipFuseUI
 
-@Observable
-@MainActor
-class World {
+struct World {
     
     let apiClient: AtegalAPIClient
     init() {

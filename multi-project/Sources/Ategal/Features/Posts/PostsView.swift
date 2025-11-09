@@ -42,16 +42,16 @@ struct PostsView: View {
     
     var body: some View {
         contentView
-            .navigationTitle("tab-news")
-            .navigationBarTitleDisplayMode(.inline)
+            .background(ColorsPalette.background)
+            .tint(ColorsPalette.primary)
+            .navigationTitle("tab-posts")
+            .navigationBarTitleDisplayMode(.large)
             .navigationDestination(for: PostRoute.self) { route in
                 switch route {
                 case .navigateToPost:
                     PostView(dataSource: dataSource)
                 }
             }
-            .background(ColorsPalette.background)
-            .tint(ColorsPalette.primary)
     }
     
     // MARK: ViewBuilders
@@ -59,51 +59,33 @@ struct PostsView: View {
     @ViewBuilder
     private var contentView: some View {
         if !dataSource.posts.isEmpty {
-            List {
-                Section(header:
-                    Text("news-header-title")
-                        .foregroundStyle(ColorsPalette.textSecondary)
-                ) {
-                    ForEach(dataSource.posts) {
-                        cell($0)
-                    }
-                }
-            }
-            .listRowBackground(Color.clear)
-            .scrollContentBackground(.hidden)
+            listView
         } else {
-            Text("news-no-data")
-                .font(.title3)
-                .fontWeight(.semibold)
-                .foregroundStyle(ColorsPalette.textPrimary)
+            emptyView
         }
     }
     
     @ViewBuilder
-    private func cell(_ item: Post) -> some View {
-        Button {
-            dataSource.selected = item
-            navigationPath.append(.navigateToPost)
-        } label: {
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(item.date.formatted())
-                        .font(.caption)
-                        .foregroundStyle(ColorsPalette.textSecondary)
-                    
-                    Text(item.title)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(ColorsPalette.textPrimary)
+    private var listView: some View {
+        ScrollView {
+            ContentList(
+                items: dataSource.posts,
+                title: \.title,
+                onTap: {
+                    dataSource.selected = $0
+                    navigationPath.append(.navigateToPost)
                 }
-                .padding(.vertical, 4)
-                
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(ColorsPalette.primary)
-            }
+            )
+            .padding(16)
         }
-        .listRowBackground(ColorsPalette.cardBackground)
+    }
+    
+    @ViewBuilder
+    private var emptyView: some View {
+        Text("posts-no-data")
+            .font(.title3)
+            .fontWeight(.semibold)
+            .foregroundStyle(ColorsPalette.textPrimary)
     }
 }
 

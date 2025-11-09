@@ -13,7 +13,7 @@ let logger: Logger = Logger(subsystem: "mr.ategal.app", category: "Ategal")
     }
 
     public var body: some View {
-        ContentViewAsync()
+        ContentView()
     }
 }
 

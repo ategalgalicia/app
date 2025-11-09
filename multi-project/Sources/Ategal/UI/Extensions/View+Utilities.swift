@@ -23,8 +23,57 @@ extension View {
             self
             Spacer()
             content()
-                .ignoresSafeArea(.keyboard, edges: .bottom)
         }
+        .background(ColorsPalette.background)
         #endif
+    }
+}
+
+extension View {
+    
+    func cornerBackground(_ radius: CGFloat = 16) -> some View {
+        self
+            .background(ColorsPalette.cardBackground)
+            .clipShape(RoundedRectangle(cornerRadius: radius, style: .continuous))
+    }
+    
+    /// Displays the ATEGAL home toolbar title in the center.
+    func toolbarForHome() -> some View {
+        modifier(HomeTitleModifier())
+    }
+}
+
+// MARK: HomeTitleModifier
+
+struct HomeTitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        #if canImport(Darwin)
+        content
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    label
+                }
+            }
+        #else
+        VStack(spacing: 0) {
+            label
+            Spacer()
+            content
+        }
+        .background(ColorsPalette.background)
+        #endif
+    }
+    
+    private var label: some View {
+        VStack(alignment: .center) {
+            Text("ategal-title")
+                .font(.title3)
+                .fontWeight(.semibold)
+                .foregroundColor(ColorsPalette.textPrimary)
+
+            Text("ategal-subtitle")
+                .font(.footnote)
+                .foregroundColor(ColorsPalette.textSecondary)
+        }
     }
 }

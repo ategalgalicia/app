@@ -21,9 +21,12 @@ struct ContentView: View {
     var navigationHome: [HomeRoute] = []
     @State
     var navigationPost: [PostRoute] = []
-
-    @Bindable
-    var world: World
+    
+    private let world: World
+    
+    init() {
+        self.world = World()
+    }
 
     var body: some View {
         TabView(selection: $tab) {
@@ -42,24 +45,11 @@ struct ContentView: View {
                     apiClient: world.apiClient
                 )
             }
-            .tabItem { Label("tab-news", systemImage: "house.fill") }
+            .tabItem { Label("tab-posts", systemImage: "list.bullet") }
             .tag(ContentTab.news)
         }
         .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
         .tint(ColorsPalette.primary)
         .background(ColorsPalette.background)
-    }
-}
-
-// MARK: Async
-
-struct ContentViewAsync: View {
-    
-    var body: some View {
-        AsyncView {
-            await World()
-        } content: {
-            ContentView(world: $0)
-        }
     }
 }

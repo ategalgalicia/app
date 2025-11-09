@@ -1,35 +1,108 @@
 {
   "sourceLanguage" : "gl-ES",
   "strings" : {
-    "(%@)" : {
+    "accept" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar"
+          }
+        }
+      }
+    },
+    "activity-call-to-action" : {
 
     },
-    "accept" : {
-
+    "ategal-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actividades culturais, educativas e sociais"
+          }
+        }
+      }
+    },
+    "ategal-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ATEGAL"
+          }
+        }
+      }
     },
     "error" : {
-
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro"
+          }
+        }
+      }
     },
     "error-message" : {
-
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Produciuse un erro. Téntao de novo máis tarde"
+          }
+        }
+      }
     },
-    "news-header-title" : {
-
-    },
-    "news-no-data" : {
-
+    "posts-no-data" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai publicacións dispoñibles"
+          }
+        }
+      }
     },
     "resource-header-title" : {
-
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recursos"
+          }
+        }
+      }
     },
     "retry" : {
-
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reintentar"
+          }
+        }
+      }
     },
     "tab-home" : {
-
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicio"
+          }
+        }
+      }
     },
-    "tab-news" : {
-
+    "tab-posts" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Publicacións"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

@@ -10,69 +10,68 @@ struct CategoryView: View {
     @Bindable var dataSource: HomeDataSource
     @Binding var navigationPath: [HomeRoute]
     
-    private var category: Center.Category { dataSource.categorySelected! }
+    private var category: Center.Category {
+        dataSource.categorySelected!
+    }
     
     var body: some View {
-        contentView
-            .navigationTitle(category.title)
-            .navigationBarTitleDisplayMode(.inline)
-            .listRowBackground(Color.clear)
-            .scrollContentBackground(.hidden)
-            .background(ColorsPalette.background)
-            .tint(ColorsPalette.primary)
+        ScrollView {
+            VStack(spacing: 32) {
+                activitiesView
+                resourceView
+            }
+            .padding(16)
+        }
+        .background(ColorsPalette.background)
+        .tint(ColorsPalette.primary)
+        .navigationTitle(category.title)
+        .navigationBarTitleDisplayMode(.large)
     }
     
     // MARK: ViewBuilders
     
     @ViewBuilder
-    private var contentView: some View {
-        List {
-            Section {
-                ForEach(category.activities) {
-                    activityCell($0)
-                }
+    private var activitiesView: some View {
+        ContentList(
+            items: category.activities,
+            title: \.title,
+            onTap: {
+                dataSource.activitySelected = $0
+                navigationPath.append(.navigateToActivity)
             }
-            if let resources = category.resources, !resources.isEmpty {
-                Section {
-                    ForEach(resources) {
-                        resourceCell($0)
-                    }
-                } header: {
-                    Text("resource-header-title")
-                        .foregroundStyle(ColorsPalette.textSecondary)
-                }
-            }
-        }
+        )
     }
     
     @ViewBuilder
-    private func activityCell(_ item: Center.Category.Activity) -> some View {
-        Button {
-            dataSource.activitySelected = item
-            navigationPath.append(.navigateToActivity)
-        } label: {
-            HStack {
-                Text(item.title.lowercased().capitalized)
-                    .font(.subheadline)
+    private var resourceView: some View {
+        if let resources = category.resources, !resources.isEmpty {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("resource-header-title")
+                    .font(.headline)
                     .fontWeight(.semibold)
                     .foregroundStyle(ColorsPalette.textPrimary)
-
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(ColorsPalette.primary)
+                
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(resources) {
+                        resourceCell($0)
+                        if $0.id != resources.last?.id {
+                            Divider()
+                                .foregroundStyle(ColorsPalette.textTertiary)
+                        }
+                    }
+                }
+                .cornerBackground()
             }
-            .padding(.vertical, 8)
         }
-        .listRowBackground(ColorsPalette.cardBackground)
     }
     
     @ViewBuilder
     private func resourceCell(_ item: Center.Category.Resource) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(item.title.lowercased().capitalized)
+                Text(item.title)
                     .font(.subheadline)
-                    .fontWeight(.semibold)
+                    .fontWeight(.medium)
                     .foregroundStyle(ColorsPalette.textPrimary)
                 
                 if let description = item.description {
@@ -88,7 +87,9 @@ struct CategoryView: View {
                         .foregroundStyle(ColorsPalette.textSecondary)
                 }
                 if let web = item.web {
-                    Button(action: { print("open web") }) {
+                    Button {
+                        print("open web")
+                    } label: {
                         Text(web)
                             .underline(false)
                             .foregroundStyle(ColorsPalette.primary)
@@ -97,13 +98,15 @@ struct CategoryView: View {
                 if let phone = item.phone {
                     HStack {
                         ForEach(phone, id: \.self) { number in
-                            Button(action: { print("call \(number)") }) {
+                            Button {
+                                print("call \(number)")
+                            } label: {
                                 Text(number)
                                     .foregroundStyle(ColorsPalette.primary)
                             }
                         }
                         if let contact = item.contact {
-                            Text("(\(contact))")
+                            Text(contact)
                                 .foregroundStyle(ColorsPalette.textSecondary)
                         }
                     }
@@ -111,6 +114,6 @@ struct CategoryView: View {
             }
             .font(.footnote)
         }
-        .listRowBackground(ColorsPalette.cardBackground)
+        .padding(16)
     }
 }

@@ -58,8 +58,9 @@ struct HomeView: View {
     
     var body: some View {
         contentView
-            .navigationTitle("tab-home")
-            .navigationBarTitleDisplayMode(.inline)
+            .background(ColorsPalette.background)
+            .tint(ColorsPalette.primary)
+            .toolbarForHome()
             .navigationDestination(for: HomeRoute.self) { route in
                 switch route {
                 case .navigateToCenter:
@@ -116,10 +117,11 @@ struct HomeView: View {
             navigationPath.append(.navigateToCenter)
         } label: {
             Text(item.city)
-                .font(.subheadline)
-                .foregroundColor(.black)
+                .font(.headline)
+                .foregroundStyle(ColorsPalette.textPrimary)
                 .padding(16)
         }
+        .cornerBackground()
         .scaleEffect(didAnimate ? 1 : 0.8)
         .opacity(didAnimate ? 1 : 0)
         .animation(

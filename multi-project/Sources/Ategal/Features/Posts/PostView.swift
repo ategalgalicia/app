@@ -18,19 +18,21 @@ struct PostView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Text(post.date.formatted())
-                    .font(.caption)
+                    .font(.footnote)
                 
                 Text(post.title)
-                    .font(.subheadline)
+                    .font(.headline)
                     .fontWeight(.semibold)
                 
                 Text(post.content)
-                    .font(.footnote)
+                    .font(.subheadline)
             }
-            .frame(maxWidth: .infinity)
             .padding(16)
+            .frame(maxWidth: .infinity)
         }
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
+        .navigationTitle("ategal-title")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

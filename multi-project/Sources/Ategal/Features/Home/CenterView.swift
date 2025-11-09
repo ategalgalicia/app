@@ -7,67 +7,49 @@ import AtegalCore
 
 struct CenterView: View {
     
-    @Bindable var dataSource: HomeDataSource
-    @Binding var navigationPath: [HomeRoute]
+    @Bindable
+    var dataSource: HomeDataSource
+    
+    @Binding
+    var navigationPath: [HomeRoute]
     
     private var center: Center {
         dataSource.centerSelected!
     }
     
     var body: some View {
-        List {
-            Section {
-                ForEach(center.categories) {
-                    cell($0)
+        ScrollView {
+            ContentList(
+                headerView: headerView,
+                items: center.categories,
+                title: \.title,
+                onTap: {
+                    dataSource.categorySelected = $0
+                    navigationPath.append(.navigateToCategory)
                 }
-            } header: {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text(center.city)
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(ColorsPalette.textPrimary)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(center.address)
-                        HStack {
-                            ForEach(center.phone, id: \.self) {
-                                Text($0)
-                            }
-                        }
-                        if let email = center.email {
-                            Text(email)
-                        }
-                    }
-                    .font(.footnote)
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                }
-                .padding(.bottom, 16)
-            }
+            )
+            .padding(16)
         }
-        .listRowBackground(Color.clear)
-        .scrollContentBackground(.hidden)
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
+        .navigationTitle(center.city)
+        .navigationBarTitleDisplayMode(.large)
     }
     
     @ViewBuilder
-    private func cell(_ item: Center.Category) -> some View {
-        Button {
-            dataSource.categorySelected = item
-            navigationPath.append(.navigateToCategory)
-        } label: {
+    private var headerView: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(center.address)
             HStack {
-                Text(item.title)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(ColorsPalette.textPrimary)
-
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(ColorsPalette.primary)
+                ForEach(center.phone, id: \.self) {
+                    Text($0)
+                }
             }
-            .padding(.vertical, 8)
+            if let email = center.email {
+                Text(email)
+            }
         }
-        .listRowBackground(ColorsPalette.cardBackground)
+        .font(.subheadline)
+        .foregroundStyle(ColorsPalette.textSecondary)
     }
 }
