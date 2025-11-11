@@ -20,6 +20,7 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
             readFromBundle("ferrol"),
             readFromBundle("ourense"),
             readFromBundle("padron"),
+            readFromBundle("lalin"),
             readFromBundle("vigo")
         ]
     }
