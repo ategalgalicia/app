@@ -31,6 +31,17 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
             as: [Post].self
         )
     }
+    
+    public func fetchCalendarEvents() async throws -> [Event] {
+        let data = try await fetch(
+            AtegalAPI.getCalendarEvents,
+            as: Data.self
+        )
+        guard let ics = String(data: data, encoding: .utf8) else {
+            throw URLError(.cannotDecodeContentData)
+        }
+        return ics.parseAsCalendar()
+    }
 }
 
 private extension AtegalAPIClient {

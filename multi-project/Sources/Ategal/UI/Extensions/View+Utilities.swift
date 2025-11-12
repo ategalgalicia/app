@@ -31,9 +31,9 @@ extension View {
 
 extension View {
     
-    func cornerBackground(_ radius: CGFloat = 16) -> some View {
+    func cornerBackground(_ color: Color = ColorsPalette.cardBackground, radius: CGFloat = 16) -> some View {
         self
-            .background(ColorsPalette.cardBackground)
+            .background(color)
             .clipShape(RoundedRectangle(cornerRadius: radius, style: .continuous))
     }
     

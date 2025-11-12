@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "gl-ES",
   "strings" : {
+    "" : {
+
+    },
     "accept" : {
       "localizations" : {
         "gl-ES" : {
@@ -13,6 +16,26 @@
     },
     "activity-call-to-action" : {
 
+    },
+    "add-event-calendar-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O evento foi engadido ao teu calendario"
+          }
+        }
+      }
+    },
+    "add-event-calendar-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Evento engadido"
+          }
+        }
+      }
     },
     "ategal-subtitle" : {
       "localizations" : {
@@ -80,6 +103,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reintentar"
+          }
+        }
+      }
+    },
+    "tab-calendar" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Próximos eventos"
           }
         }
       }

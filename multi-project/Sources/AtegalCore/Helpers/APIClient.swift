@@ -127,12 +127,16 @@ private extension APIClient {
     }
     
     private func makeDecoder<T: Decodable>(data: Data, type: T.Type) async throws -> T {
-        do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .useDefaultKeys
-            return try decoder.decode(T.self, from: data)
-        } catch {
-            throw APIClientError.failParseJSON
+        if T.self == Data.self {
+            return data as! T
+        } else {
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .useDefaultKeys
+                return try decoder.decode(T.self, from: data)
+            } catch {
+                throw APIClientError.failParseJSON
+            }
         }
     }
     

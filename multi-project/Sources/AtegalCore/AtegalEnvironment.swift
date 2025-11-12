@@ -19,9 +19,10 @@ public struct AtegalEnvironment: Environment, Sendable {
         let urlString: String = {
             switch host {
             case .production:
-                return "https://ategal.com/wp-json/wp/v2/"
+                return "https://www.ategal.com/"
             }
         }()
         return URL(string: urlString)!
     }
 }
+//let url = URL(string: "https://ategal.com/?post_type=tribe_events&ical=1&eventDisplay=list")!
