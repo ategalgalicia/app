@@ -124,15 +124,10 @@ struct CalendarView: View {
     
     @ViewBuilder
     private func cell(for event: Event) -> some View {
-        #if os(Android)
-        Link(destination: CalendarService.shared.url(for: event)) {
-            label(for: event)
-        }
-        .cornerBackground()
-        #else
+        #if canImport(Darwin)
         AsyncButton(
             action: {
-                try await CalendarService.shared.addToCalendar(event: event)
+                try await ExternalActions.shared.addToAppleCalendar(event: event)
             },
             label: {
                 label(for: event)
@@ -142,6 +137,11 @@ struct CalendarView: View {
                 subtitle: "add-event-calendar-subtitle"
             )
         )
+        .cornerBackground()
+        #else
+        Link(destination: ExternalActions.shared.url(for: event)) {
+            label(for: event)
+        }
         .cornerBackground()
         #endif
     }

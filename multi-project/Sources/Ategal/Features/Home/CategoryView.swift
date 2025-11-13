@@ -67,7 +67,7 @@ struct CategoryView: View {
     
     @ViewBuilder
     private func resourceCell(_ item: Center.Category.Resource) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
                     .font(.subheadline)
@@ -81,37 +81,12 @@ struct CategoryView: View {
                 }
             }
             
-            VStack(alignment: .leading, spacing: 4) {
-                if let address = item.address {
-                    Text(address)
-                        .foregroundStyle(ColorsPalette.textSecondary)
-                }
-                if let web = item.web {
-                    Button {
-                        print("open web")
-                    } label: {
-                        Text(web)
-                            .underline(false)
-                            .foregroundStyle(ColorsPalette.primary)
-                    }
-                }
-                if let phone = item.phone {
-                    HStack {
-                        ForEach(phone, id: \.self) { number in
-                            Button {
-                                print("call \(number)")
-                            } label: {
-                                Text(number)
-                                    .foregroundStyle(ColorsPalette.primary)
-                            }
-                        }
-                        if let contact = item.contact {
-                            Text(contact)
-                                .foregroundStyle(ColorsPalette.textSecondary)
-                        }
-                    }
-                }
-            }
+            LinkView(
+                phoneNumbers: item.phone ?? [],
+                email: nil,
+                website: item.web,
+                address: item.address
+            )
             .font(.footnote)
         }
         .padding(16)

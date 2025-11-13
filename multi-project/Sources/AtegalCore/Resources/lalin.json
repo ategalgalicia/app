@@ -1,9 +1,9 @@
 {
   "id": "07",
   "city": "Lalín",
-  "address": "Lalín Arena, Avenida José Cuíña, 42, Lalín",
+  "address": "Avenida José Cuíña, 42",
   "phone": [
-    "986 78 70 60"
+    "986787060"
   ],
   "email": "administracion@ategal.com",
   "categories": [
@@ -45,7 +45,7 @@
           "title": "CURSOS INFORMÁTICA ENTIDADES . FUNDACIÓN ESPLAI",
           "web": "https://fundacionesplai.org/",
           "phone": ["986201871"],
-          "contact": "Contacto Miguel",
+          "contact": "Miguel",
           "description": "Fundación Esplai Ciudadanía Comprometida é unha entidade sen fin de lucro que desenvolve proxectos e programas para promover o empoderamento cidadán dende a perspectiva dos dereitos, a inclusión e a transformación social mediante o traballo en rede, a acción socioeducativa e a inclusión no ámbito das TIC"
         },
         {

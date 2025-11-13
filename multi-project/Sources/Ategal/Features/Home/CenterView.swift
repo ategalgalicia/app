@@ -19,37 +19,28 @@ struct CenterView: View {
     
     var body: some View {
         ScrollView {
-            ContentList(
-                headerView: headerView,
-                items: center.categories,
-                title: \.title,
-                onTap: {
-                    dataSource.categorySelected = $0
-                    navigationPath.append(.navigateToCategory)
-                }
-            )
+            VStack(alignment: .leading, spacing: 24) {
+                ContentList(
+                    items: center.categories,
+                    title: \.title,
+                    onTap: {
+                        dataSource.categorySelected = $0
+                        navigationPath.append(.navigateToCategory)
+                    }
+                )
+                LinkView(
+                    phoneNumbers: center.phone,
+                    email: center.email,
+                    website: nil,
+                    address: center.address
+                )
+                .font(.headline)
+            }
             .padding(16)
         }
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .navigationTitle(center.city)
         .navigationBarTitleDisplayMode(.large)
-    }
-    
-    @ViewBuilder
-    private var headerView: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(center.address)
-            HStack {
-                ForEach(center.phone, id: \.self) {
-                    Text($0)
-                }
-            }
-            if let email = center.email {
-                Text(email)
-            }
-        }
-        .font(.subheadline)
-        .foregroundStyle(ColorsPalette.textSecondary)
     }
 }

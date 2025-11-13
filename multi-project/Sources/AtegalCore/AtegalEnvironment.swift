@@ -25,4 +25,3 @@ public struct AtegalEnvironment: Environment, Sendable {
         return URL(string: urlString)!
     }
 }
-//let url = URL(string: "https://ategal.com/?post_type=tribe_events&ical=1&eventDisplay=list")!
