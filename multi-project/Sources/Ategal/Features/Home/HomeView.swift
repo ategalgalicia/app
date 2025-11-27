@@ -61,14 +61,18 @@ struct HomeView: View {
             .background(ColorsPalette.background)
             .tint(ColorsPalette.primary)
             .toolbarForHome()
-            .navigationDestination(for: HomeRoute.self) { route in
-                switch route {
+            .navigationDestination(for: HomeRoute.self) {
+                switch $0 {
                 case .navigateToCenter:
-                    CenterView(dataSource: dataSource, navigationPath: $navigationPath)
-                    
+                    CenterView(
+                        dataSource: dataSource,
+                        navigationPath: $navigationPath
+                    )
                 case .navigateToCategory:
-                    CategoryView(dataSource: dataSource, navigationPath: $navigationPath)
-                    
+                    CategoryView(
+                        dataSource: dataSource,
+                        navigationPath: $navigationPath
+                    )
                 case .navigateToActivity:
                     ActivityView(dataSource: dataSource)
                 }
@@ -99,14 +103,17 @@ struct HomeView: View {
                 let degrees = Double(index) / Double(dataSource.centers.count) * 360 - 90
                 button(dataSource.centers[index], angle: .degrees(degrees), index: index)
             }
-            
-            Image("logo-icon", bundle: .module)
-                .resizable()
-                .scaledToFit()
-                .frame(width: icon, height: icon)
-                .scaleEffect(didAnimate ? 1 : 0.9)
-                .opacity(didAnimate ? 1 : 0)
-                .animation(.easeOut(duration: 0.4).delay(0.3), value: didAnimate)
+            Link(
+                destination: URL(string: "https://www.ategal.com/somos/")!
+            ) {
+                Image("logo-icon", bundle: .module)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: icon, height: icon)
+                    .scaleEffect(didAnimate ? 1 : 0.9)
+                    .opacity(didAnimate ? 1 : 0)
+                    .animation(.easeOut(duration: 0.4).delay(0.3), value: didAnimate)
+            }
         }
     }
     
@@ -117,9 +124,10 @@ struct HomeView: View {
             navigationPath.append(.navigateToCenter)
         } label: {
             Text(item.city)
-                .font(.headline)
-                .foregroundStyle(ColorsPalette.textPrimary)
-                .padding(16)
+                .font(.title3)
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .padding(.vertical, 8)
+                .padding(.horizontal, 12)
         }
         .cornerBackground()
         .scaleEffect(didAnimate ? 1 : 0.8)

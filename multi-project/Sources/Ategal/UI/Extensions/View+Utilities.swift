@@ -65,15 +65,16 @@ struct HomeTitleModifier: ViewModifier {
     }
     
     private var label: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 4) {
             Text("ategal-title")
-                .font(.title3)
+                .font(.title)
                 .fontWeight(.semibold)
                 .foregroundColor(ColorsPalette.textPrimary)
 
             Text("ategal-subtitle")
-                .font(.footnote)
+                .font(.subheadline)
                 .foregroundColor(ColorsPalette.textSecondary)
         }
+        .padding(.top, 16)
     }
 }

@@ -20,6 +20,7 @@ struct LinkView: View {
                         Link(destination: url) {
                             Label {
                                 Text(number)
+                                    .underline(true)
                             } icon: {
                                 Image(systemName: "phone.fill")
                                     .foregroundStyle(ColorsPalette.primary)
@@ -32,6 +33,7 @@ struct LinkView: View {
                 Link(destination: url) {
                     Label {
                         Text(email)
+                            .underline(true)
                     } icon: {
                         Image(systemName: "envelope.fill")
                             .foregroundStyle(ColorsPalette.primary)
@@ -42,6 +44,7 @@ struct LinkView: View {
                 Link(destination: url) {
                     Label {
                         Text(address)
+                            .underline(true)
                             .multilineTextAlignment(.leading)
                     } icon: {
                         Image(systemName: "mappin.circle.fill")
@@ -53,7 +56,7 @@ struct LinkView: View {
                 Link(destination: url) {
                     Label {
                         Text(website)
-                            .underline(false)
+                            .underline(true)
                             .multilineTextAlignment(.leading)
                     } icon: {
                         Image(systemName: "star.fill")
@@ -62,7 +65,9 @@ struct LinkView: View {
                 }
             }
         }
-        .foregroundStyle(ColorsPalette.textSecondary)
-        .font(.headline)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .foregroundStyle(ColorsPalette.textPrimary)
+        .font(.subheadline)
+        .fontWeight(.bold)
     }
 }

@@ -81,16 +81,16 @@ struct CalendarView: View {
         } label: {
             VStack(spacing: 6) {
                 Text(date.formatted(.dateTime.month(.abbreviated)))
-                    .font(.footnote)
+                    .font(.headline)
                     .foregroundStyle(selected ? ColorsPalette.background : ColorsPalette.textSecondary)
                 
                 Text(verbatim: "\(dataSource.calendar.component(.day, from: date))")
-                    .font(.headline)
+                    .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundStyle(selected ? ColorsPalette.background : ColorsPalette.textPrimary)
                 
                 Text(date.formatted(.dateTime.weekday(.abbreviated)))
-                    .font(.footnote)
+                    .font(.headline)
                     .foregroundStyle(selected ? ColorsPalette.background.opacity(0.9) : ColorsPalette.textSecondary)
             }
             .padding(16)
@@ -140,18 +140,18 @@ struct CalendarView: View {
     private func label(for event: Event) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(event.title)
-                .font(.subheadline)
+                .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .lineLimit(2)
             
             Text(event.startDate.formatted(date: .abbreviated, time: .shortened))
-                .font(.footnote)
+                .font(.headline)
                 .foregroundStyle(ColorsPalette.textSecondary)
             
             if let description = event.description, !description.isEmpty {
                 Text(description)
-                    .font(.caption)
+                    .font(.subheadline)
                     .foregroundStyle(ColorsPalette.textSecondary)
             }
         }

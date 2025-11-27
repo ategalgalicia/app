@@ -9,12 +9,14 @@ public struct Post: Identifiable, Sendable {
     public let date: Date
     public let title: String
     public let content: String
+    public let imageURL: URL?
 
-    public init(id: Int, date: Date, title: String, content: String) {
+    public init(id: Int, date: Date, title: String, content: String, imageURL: URL?) {
         self.id = id
         self.date = date
         self.title = title
         self.content = content
+        self.imageURL = imageURL
     }
 }
 
@@ -44,8 +46,9 @@ extension Post: Decodable {
             return parsedDate
         }()
         title = try decodeRendered(for: .title)
-        let htmlContent = try decodeRendered(for: .content)
-        content = htmlContent.stripped
+        let rawHTML = try decodeRendered(for: .content)
+        imageURL = rawHTML.firstImageURL
+        content = rawHTML.stripped
         
         func decodeRendered(for key: CodingKeys) throws -> String {
             try container.decode(RenderedText.self, forKey: key).rendered
@@ -103,5 +106,18 @@ private extension String {
             .replacingOccurrences(of: " *\n *", with: "\n", options: .regularExpression)
             .replacingOccurrences(of: "\n{3,}", with: "\n\n", options: .regularExpression)
             .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    var firstImageURL: URL? {
+        let pattern = "<img[^>]*src=[\"']([^\"']+)[\"'][^>]*>"
+        guard
+            let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive),
+            let match = regex.firstMatch(in: self, range: NSRange(startIndex..., in: self)),
+            match.numberOfRanges >= 2,
+            let range = Range(match.range(at: 1), in: self)
+        else {
+            return nil
+        }
+        return URL(string: String(self[range]))
     }
 }

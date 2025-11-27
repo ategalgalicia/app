@@ -48,20 +48,15 @@ struct CategoryView: View {
         if let resources = category.resources, !resources.isEmpty {
             VStack(alignment: .leading, spacing: 16) {
                 Text("resource-header-title")
-                    .font(.headline)
+                    .font(.title3)
                     .fontWeight(.semibold)
                     .foregroundStyle(ColorsPalette.textPrimary)
                 
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: 8) {
                     ForEach(resources) {
                         resourceCell($0)
-                        if $0.id != resources.last?.id {
-                            Divider()
-                                .foregroundStyle(ColorsPalette.textTertiary)
-                        }
                     }
                 }
-                .cornerBackground()
             }
         }
     }
@@ -69,49 +64,32 @@ struct CategoryView: View {
     @ViewBuilder
     private func resourceCell(_ item: Center.Category.Resource) -> some View {
         VStack(alignment: .leading, spacing: 16) {
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text(item.title)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.headline)
                     .foregroundStyle(ColorsPalette.textPrimary)
                 
                 if let description = item.description {
                     Text(description)
-                        .font(.footnote)
+                        .font(.subheadline)
                         .foregroundStyle(ColorsPalette.textSecondary)
                 }
             }
-            
             LinkView(
                 phoneNumbers: item.phone ?? [],
                 email: nil,
                 website: item.web,
                 address: item.address
             )
-            .font(.footnote)
         }
         .padding(16)
+        .cornerBackground()
     }
     
     @ViewBuilder
     private var moreInfoView: some View {
         if let center = dataSource.centerSelected {
-            VStack(alignment: .leading, spacing: 16) {
-                Text("more-info-header-title")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(ColorsPalette.textPrimary)
-                
-                LinkView(
-                    phoneNumbers: center.phone,
-                    email: center.email,
-                    website: nil,
-                    address: center.address
-                )
-                .padding(16)
-                .cornerBackground()
-                .font(.footnote)
-            }
+            MoreInfoView(center: center)
         }
     }
 }

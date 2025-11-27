@@ -18,7 +18,7 @@ struct ContentList<Item: Identifiable>: View {
                 } label: {
                     HStack {
                         Text(item[keyPath: title].lowercased().capitalized)
-                            .font(.subheadline)
+                            .font(.title3)
                             .fontWeight(.medium)
                             .foregroundStyle(ColorsPalette.textPrimary)
                             .multilineTextAlignment(.leading)

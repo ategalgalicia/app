@@ -28,13 +28,7 @@ struct CenterView: View {
                         navigationPath.append(.navigateToCategory)
                     }
                 )
-                LinkView(
-                    phoneNumbers: center.phone,
-                    email: center.email,
-                    website: nil,
-                    address: center.address
-                )
-                .font(.headline)
+                MoreInfoView(center: center)
             }
             .padding(16)
         }

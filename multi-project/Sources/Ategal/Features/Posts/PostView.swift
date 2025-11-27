@@ -17,15 +17,17 @@ struct PostView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                asyncImageView
+                
                 Text(post.date.formatted())
-                    .font(.footnote)
+                    .font(.subheadline)
                 
                 Text(post.title)
-                    .font(.headline)
+                    .font(.title)
                     .fontWeight(.semibold)
                 
                 Text(post.content)
-                    .font(.subheadline)
+                    .font(.headline)
             }
             .padding(16)
             .frame(maxWidth: .infinity)
@@ -34,5 +36,24 @@ struct PostView: View {
         .tint(ColorsPalette.primary)
         .navigationTitle("ategal-title")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    @ViewBuilder
+    private var asyncImageView: some View {
+        AsyncImage(url: post.imageURL) { phase in
+            ZStack {
+                Rectangle()
+                    .fill(ColorsPalette.cardBackground)
+                    .opacity((phase.image == nil) ? 1 : 0)
+                
+                phase.image?
+                    .resizable()
+                    .scaledToFill()
+                    .clipped()
+                    .transition(.opacity)
+            }
+            .animation(.easeInOut(duration: 0.25), value: phase.image != nil)
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 }

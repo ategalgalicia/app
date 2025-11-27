@@ -27,26 +27,22 @@ struct ActivityView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Text(activity.title.lowercased().capitalized)
-                    .font(.title)
+                    .font(.largeTitle)
                     .fontWeight(.semibold)
                     .foregroundStyle(ColorsPalette.textPrimary)
                 
                 Text(activity.schedule)
-                    .font(.headline)
+                    .font(.title3)
                     .foregroundStyle(ColorsPalette.textSecondary)
                 
                 Text(activity.description)
-                    .font(.subheadline)
+                    .font(.headline)
                     .foregroundStyle(ColorsPalette.textSecondary)
                 
-                LinkView(
-                    phoneNumbers: activity.phone,
-                    email: activity.email,
-                    website: nil,
-                    address: activity.address
-                )
-                .padding(.top, 16)
-                .font(.headline)
+                if let center = dataSource.centerSelected {
+                    MoreInfoView(center: center)
+                        .padding(.top, 16)
+                }
             }
             .padding(16)
         }
