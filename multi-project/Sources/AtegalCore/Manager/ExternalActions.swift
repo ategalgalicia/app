@@ -11,15 +11,25 @@ public class ExternalActions {
     
     private init() {}
     
-    @MainActor
     public func url(for event: Event, duration: TimeInterval = 3600) -> URL {
         func enc(_ s: String) -> String {
             s.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? s
         }
-        let startMs = Int64(event.startDate.timeIntervalSince1970 * 1000)
-        let endMs   = Int64(event.startDate.addingTimeInterval(duration).timeIntervalSince1970 * 1000)
-        let q = "title=\(enc(event.title))&desc=\(enc(event.description ?? ""))&start=\(startMs)&end=\(endMs)"
-        return URL(string: "ategal://calendar/add?\(q)")!
+
+        let endDate = event.startDate.addingTimeInterval(duration)
+
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
+
+        let startStr = formatter.string(from: event.startDate)
+        let endStr   = formatter.string(from: endDate)
+
+        let base = "https://calendar.google.com/calendar/render"
+        let query = "action=TEMPLATE&text=\(enc(event.title))&details=\(enc(event.description ?? ""))&dates=\(startStr)/\(endStr)"
+
+        return URL(string: "\(base)?\(query)")!
     }
     
     @MainActor

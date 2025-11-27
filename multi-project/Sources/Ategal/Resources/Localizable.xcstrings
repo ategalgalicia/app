@@ -74,6 +74,16 @@
         }
       }
     },
+    "more-info-header-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quedouche algunha dúbida? Podes contactar connosco"
+          }
+        }
+      }
+    },
     "posts-no-data" : {
       "localizations" : {
         "gl-ES" : {

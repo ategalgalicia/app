@@ -19,6 +19,7 @@ struct CategoryView: View {
             VStack(spacing: 32) {
                 activitiesView
                 resourceView
+                moreInfoView
             }
             .padding(16)
         }
@@ -90,5 +91,27 @@ struct CategoryView: View {
             .font(.footnote)
         }
         .padding(16)
+    }
+    
+    @ViewBuilder
+    private var moreInfoView: some View {
+        if let center = dataSource.centerSelected {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("more-info-header-title")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(ColorsPalette.textPrimary)
+                
+                LinkView(
+                    phoneNumbers: center.phone,
+                    email: center.email,
+                    website: nil,
+                    address: center.address
+                )
+                .padding(16)
+                .cornerBackground()
+                .font(.footnote)
+            }
+        }
     }
 }

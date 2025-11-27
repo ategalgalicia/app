@@ -63,5 +63,6 @@ struct LinkView: View {
             }
         }
         .foregroundStyle(ColorsPalette.textSecondary)
+        .font(.headline)
     }
 }
