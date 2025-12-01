@@ -13,6 +13,7 @@
 		499CD43B2AC5B799001AE8D8 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F90C2B2A52156200F06D93 /* Main.swift */; };
 		499CD4402AC5B799001AE8D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F90C2F2A52156300F06D93 /* Assets.xcassets */; };
 		7F5B28412EDE0B3E00D590DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F5B28402EDE0B3E00D590DB /* GoogleService-Info.plist */; };
+		7F703CDD2EDE509D0016E63F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7F703CDC2EDE509D0016E63F /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +35,7 @@
 		493609562A6B7EAE00C401E2 /* Ategal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Ategal; path = ..; sourceTree = "<group>"; };
 		496BDBEB2B89A47800C09264 /* Ategal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ategal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		496BDBED2B8A7E9C00C09264 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = ../Sources/Ategal/Resources/Localizable.xcstrings; sourceTree = "<group>"; };
-		496EB72F2A6AE4DE00C1253A /* Skip.env */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Skip.env; path = ../Skip.env; sourceTree = "<group>"; };
+		496EB72F2A6AE4DE00C1253A /* Skip.env */ = {isa = PBXFileReference; lastKnownFileType = text; name = Skip.env; path = ../Skip.env; sourceTree = "<group>"; };
 		496EB72F2A6AE4DE00C1253B /* Ategal.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Ategal.xcconfig; sourceTree = "<group>"; };
 		496EB72F2A6AE4DE00C1253C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		499AB9082B0581F4005E8330 /* plugins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = plugins; path = ../../Intermediates.noindex/BuildToolPluginIntermediates; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +43,7 @@
 		49F90C2F2A52156300F06D93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49F90C312A52156300F06D93 /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Entitlements.plist; sourceTree = "<group>"; };
 		7F5B28402EDE0B3E00D590DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7F703CDC2EDE509D0016E63F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,19 +83,20 @@
 				496BDBED2B8A7E9C00C09264 /* Localizable.xcstrings */,
 				493609562A6B7EAE00C401E2 /* Ategal */,
 				49F90C2A2A52156200F06D93 /* App */,
-				49AB54462B066A7E007B79B2 /* SkipStone */,
 				496BDBEC2B89A47800C09264 /* Products */,
+				49AB54462B066A7E007B79B2 /* SkipStone */,
 			);
 			sourceTree = "<group>";
 		};
 		49F90C2A2A52156200F06D93 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				49F90C312A52156300F06D93 /* Entitlements.plist */,
+				7F5B28402EDE0B3E00D590DB /* GoogleService-Info.plist */,
+				4900101C2BACEA710000DE33 /* Info.plist */,
 				49F90C2B2A52156200F06D93 /* Main.swift */,
 				49F90C2F2A52156300F06D93 /* Assets.xcassets */,
-				49F90C312A52156300F06D93 /* Entitlements.plist */,
-				4900101C2BACEA710000DE33 /* Info.plist */,
-				7F5B28402EDE0B3E00D590DB /* GoogleService-Info.plist */,
+				7F703CDC2EDE509D0016E63F /* PrivacyInfo.xcprivacy */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				7F5B28412EDE0B3E00D590DB /* GoogleService-Info.plist in Resources */,
 				499CD4402AC5B799001AE8D8 /* Assets.xcassets in Resources */,
+				7F703CDD2EDE509D0016E63F /* PrivacyInfo.xcprivacy in Resources */,
 				496BDBEE2B8A7E9C00C09264 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
