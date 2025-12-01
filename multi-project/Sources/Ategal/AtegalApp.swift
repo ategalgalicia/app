@@ -1,6 +1,7 @@
 import Foundation
-import SkipFuse
 import SwiftUI
+import SkipFuse
+import AtegalCore
 
 /// A logger for the Ategal module.
 let logger: Logger = Logger(subsystem: "mr.ategal.app", category: "Ategal")
@@ -28,10 +29,12 @@ let logger: Logger = Logger(subsystem: "mr.ategal.app", category: "Ategal")
 
     /* SKIP @bridge */public func onInit() {
         logger.debug("onInit")
+        Tracking.bootstrap()
     }
 
     /* SKIP @bridge */public func onLaunch() {
         logger.debug("onLaunch")
+        Tracking.trackEvent()
     }
 
     /* SKIP @bridge */public func onResume() {

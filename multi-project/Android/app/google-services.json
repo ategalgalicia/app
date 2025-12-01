@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69644722184",
+    "project_id": "ategal-1b923",
+    "storage_bucket": "ategal-1b923.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69644722184:android:78b51d9b496b787b6df1bd",
+        "android_client_info": {
+          "package_name": "mr.ategal.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU6eMklvutCySkiSEPUvGLBE_jAuVU-WA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
