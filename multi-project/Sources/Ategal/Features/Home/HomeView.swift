@@ -125,7 +125,7 @@ struct HomeView: View {
         } label: {
             Text(item.city)
                 .font(.title3)
-                .foregroundStyle(ColorsPalette.textSecondary)
+                .foregroundStyle(ColorsPalette.textPrimary)
                 .padding(.vertical, 8)
                 .padding(.horizontal, 12)
         }

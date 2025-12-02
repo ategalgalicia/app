@@ -13,15 +13,15 @@
       "activities": [
         {
           "title": "HISTORIA DA ARTE",
-          "schedule": "Hora e día: martes 17:30 a 19:00h",
-          "description": "Nas nosas clases de Historia da Arte non é preciso ter coñecementos previos, abonda con manter a curiosidade. Irás descubrindo, dun xeito ameno, visual e comprensible,. Poderás identificar estilos e creadores, entendendo que fai especial a cada cadro, escultura ou edificio.\nAo relacionar a arte coa vida, verás como cada período histórico amosa a súa sociedade, os seus valores e sentimentos.\nAsí, gozarás da arte con outros ollos realizando visitas a museos, exposicións cobrarando un novo sentido.",
+          "schedule": "Hora e día: martes 17:30h a 19:00h",
+          "description": "Nas nosas clases de Historia da Arte non é preciso ter coñecementos previos sobre arte, abonda con manter a curiosidade. Irás aprendendo e descubrindo dun xeito ameno, visual e comprensible. Poderás identificar estilos e creadores, entendendo que fai especial a cada cadro, escultura ou edificio.\nAo relacionar a arte coa vida, verás como cada período histórico amosa a súa sociedade, os seus valores e sentimentos.\nAsí, gozarás da arte con outros ollos realizando visitas a museos e exposicións cobrando un novo sentido.",
           "address": "Lalín Arena, Avenida José Cuíña 42, Lalín",
           "phone": ["986 78 70 60"],
           "email": "administracion@ategal.com"
         },
         {
           "title": "INGLÉS",
-          "schedule": "Hora e día: venres de 10:30 a 11:30h; Venres de 11:30 a 12:30",
+          "schedule": "Hora e día: venres de 10:30h a 11:30h; Venres de 11:30h a 12:30h",
           "description": "Neste curso, aprenderás a falar en inglés sobre a túa vida, os teus plans e o que pasa ao teu redor. Practicarás os tempos verbais básicos e máis usados, descubrirás vocabulario útil (sobre saúde, tecnoloxía, cultura, roupa, etc.) e mellorarás a túa capacidade para expresar opinións, dar consellos e participar en pequenas conversacións. Ao rematar, poderás comunicarte con máis fluidez e confianza en situacións da vida diaria.",
           "address": "Espazo Xove Lalín, Rúa Penatoares 2, Lalín.",
           "phone": ["986 78 70 60"],
@@ -39,7 +39,7 @@
           "address": "Rúa Memorias dun Neno Labrego 14-2º 36500 - Lalin - Pontevedra",
           "phone": ["652366146"],
           "email": "asociacioncarabelolalin@gmail.com",
-          "description": "Asociación de voluntariado sen ánimo de lucro co obxectivo principal de apoio á inclusión a familias en risco de exclusión social."
+          "description": "Asociación de voluntariado sen fin de lucro co obxectivo principal de apoio á inclusión a familias en risco de exclusión social."
         },
         {
           "title": "CURSOS INFORMÁTICA ENTIDADES - FUNDACIÓN ESPLAI",
@@ -62,7 +62,7 @@
       "activities": [
         {
           "title": "INFORMÁTICA DE INICIACIÓN",
-          "schedule": "Hora e día: mércores e venres de 10:30 a 11:30h",
+          "schedule": "Hora e día: mércores e venres de 10:30h a 11:30h",
           "description": "Unha clase de novas tecnoloxías de nivel inicial é un punto de partida para familiarizarse co uso básico do ordenador e do móbil. Aprenderás de maneira sinxela e práctica a manexar ferramentas útiles para o día a día, gañando confianza no mundo dixital. Aplicacións como a cámara, whatsapp, correo electrónico, etc.",
           "address": "Aula Cemit. Rúa do Parque, s/n, en el Auditorio Municipal, Lalín.",
           "phone": ["986787060"],
@@ -70,7 +70,7 @@
         },
         {
           "title": "INFORMÁTICA DE AVANZADO",
-          "schedule": "Hora e día: mércores e venres de 11:30 a 12:30h",
+          "schedule": "Hora e día: mércores e venres de 11:30h a 12:30h",
           "description": "Unha clase de novas tecnoloxías de nivel avanzado permite afondar no uso de ferramentas dixitais, explorando aplicacións máis complexas e solucións prácticas. Potenciarás as túas competencias tecnolóxicas, mellorando a produtividade, a seguridade en liña e a xestión eficiente da información. Ferramentas de almacenamento na nube, redes Sociais, google calendar, etc.",
           "address": "Aula Cemit. Rúa do Parque, s/n, en el Auditorio Municipal, Lalín.",
           "phone": ["986 78 70 60"],
@@ -78,16 +78,16 @@
         },
         {
           "title": "PINTURA",
-          "schedule": "Hora e día: martes de 10:00 a 11:30h",
-          "description": "Esta actividade é unha clase práctica na cal a través de distintas técnicas : aclírico, óleo, carbonciño, etc (a elixir). Lugar onde se comparte cos/as e compañeiros/as un espazo de socialización para crear arte, onde se activa a creatividade e a imaxinación, así como un ambiente agradable e participativo.",
+          "schedule": "Hora e día: martes de 10:00h a 11:30h",
+          "description": "Esta actividade é unha clase práctica na cal a través de distintas técnicas : acrílico, óleo, carbonciño, etc (a elixir) poderás expresarte. Lugar onde se comparte cos/as e compañeiros/as un espazo de socialización para crear arte, onde se activa a creatividade e a imaxinación, así como un ambiente agradable e participativo.",
           "address": "Lalín Arena, Avenida José Cuíña, 42, Lalín",
           "phone": ["986 78 70 60"],
           "email": "administracion@ategal.com"
         },
         {
           "title": "ACUARELA",
-          "schedule": "Hora e día: martes de 11:45 a 13:15h",
-          "description": "espazo creativo no que, paso a paso, experimentas coas cores, a auga e o papel. Aprendes técnicas básicas e efectos de luz e transparencias, ao tempo que desenvolves a túa expresión persoal nun ambiente relaxado e inspirado.",
+          "schedule": "Hora e día: martes de 11:45h a 13:15h",
+          "description": "Espazo creativo no que, paso a paso, experimentas coas cores, a auga e o papel. Aprendes técnicas básicas e efectos de luz e transparencias ao tempo que desenvolves a túa expresión persoal nun ambiente relaxado e inspirado.",
           "address": "Lalín Arena, Avenida José Cuíña, 42, Lalín",
           "phone": ["986 78 70 60"],
           "email": "administracion@ategal.com"
@@ -100,8 +100,8 @@
       "activities": [
         {
           "title": "MEMORIA",
-          "schedule": "Hora e día: xoves de 16:00 a 17:30h; Xoves de 17:30 a 19:00h",
-          "description": "Un lugar pensado para realizar actividades prácticas a través de xogos de memoria, utilizando imaxes, palabras e situacións da vida diaria como estímulo. A finalidade é exercitar a memoria tanto inmediata coma a prolongada, fortalecer as funcións cognitivas, mellorar a atención e fomentar a participación nun contorno entretido e motivador.",
+          "schedule": "Hora e día: xoves de 16:00h a 17:30h; Xoves de 17:30h a 19:00h",
+          "description": "Un lugar pensado para realizar actividades prácticas a través de xogos de memoria, utilizando imaxes, palabras e situacións da vida diaria como estímulo. A finalidade é exercitar a memoria tanto inmediata coma a prolongada, fortalecer as funcións cognitivas, mellorar a atención e fomentar a participación nunha contorna entretida e motivadora.",
           "address": "Lalín Arena, Avenida José Cuíña, 42, Lalín",
           "phone": ["986 78 70 60"],
           "email": "administracion@ategal.com"
@@ -110,7 +110,7 @@
           "title": "NEURONUP",
           "schedule": "Hora e día: a elexir polo alumnado",
           "description": "O alumnado, dende a Aula ou dende o fogar, pode realizar sesión personalizadas de estimulación cognitiva online nunha plataforma feita por Psicólogos con máis de 13 anos de experiencia e avalada por múltiples profesionais. Máis información coa nosa psicóloga: Mª José Fares Varela.\nwww.neuronup.com",
-          "address": "Rúa Virxe da Cerca,31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca,31, 15703. Santiago de Compostela",
           "phone": ["981581533", "618184344"],
           "email": "mfares@ategal.com"
         }
@@ -171,7 +171,7 @@
         {
           "title": "SAÍDAS E VISITAS CULTURAIS",
           "schedule": "Hora e día: actualizadas mensualmente",
-          "description": "Dende a Sede organízanse actividades culturais complementarias como visita a museos e exposición, celebración, viaxes culturais, conferencias, etc.",
+          "description": "Dende a Sede organízanse actividades culturais complementarias como visita a museos e exposicións, celebracións, viaxes culturais, conferencias, etc.",
           "address": "Rúa Virxe da Cerca,31, 15702. Santiago de Compostela",
           "phone": ["981581533", "618184344"],
           "email": "nrey@ategal.com"

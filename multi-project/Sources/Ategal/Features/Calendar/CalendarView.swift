@@ -145,7 +145,7 @@ struct CalendarView: View {
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .lineLimit(2)
             
-            Text(event.startDate.formatted(date: .abbreviated, time: .shortened))
+            Text(event.startDate.formatted())
                 .font(.headline)
                 .foregroundStyle(ColorsPalette.textSecondary)
             

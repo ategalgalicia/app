@@ -21,13 +21,16 @@ struct PostView: View {
                 
                 Text(post.date.formatted())
                     .font(.subheadline)
+                    .foregroundStyle(ColorsPalette.textSecondary)
                 
                 Text(post.title)
                     .font(.title)
                     .fontWeight(.semibold)
+                    .foregroundStyle(ColorsPalette.textPrimary)
                 
                 Text(post.content)
                     .font(.headline)
+                    .foregroundStyle(ColorsPalette.textSecondary)
             }
             .padding(16)
             .frame(maxWidth: .infinity)

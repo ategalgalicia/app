@@ -1,7 +1,7 @@
 {
   "id": "01",
   "city": "Santiago",
-  "address": "Rúa Virxe da Cerca 31, 15702",
+  "address": "Rúa Virxe da Cerca 31, 15703",
   "phone": [
     "981581533",
     "618184344"
@@ -14,9 +14,9 @@
       "activities": [
         {
           "title": "ITALIANO INICIAL",
-          "schedule": "Luns 11:30 a 12:30",
-          "description": "A finalidade desta actividade non so descubriras a lingua e a cultura italianas, va mais alá. cun enfoque práctico e entretido, aprenderás italiano con facilidade mentres te preparas para viaxar con seguridade e confianza. En cada clase, mergullaraste no mellor de Italia: a música i, as películas icónicas e as receitas tradicionais máis deliciosas.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Luns 11:30h a 12:30h",
+          "description": "A finalidade desta actividade non é so que descubras a lingua e a cultura italianas, va mais alá. Cun enfoque práctico e entretido, aprenderás italiano con facilidade mentres te preparas para viaxar con seguridade e confianza. En cada clase, mergullaraste no mellor de Italia: a música, as películas icónicas e as receitas tradicionais máis deliciosas.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -25,9 +25,9 @@
         },
         {
           "title": "INGLÉS",
-          "schedule": "Luns e Mércores, Nivel medio 17:00 a 18:00, Nivel avanzado 18:00 a 19:00, Nivel inicial 19:00 a 20:00",
-          "description": "Con este curso, aprenderás a falar con máis confianza sobre a túa vida, os teus plans e o que está a suceder no mundo. Practicarás os tempos verbais máis importantes do inglés, descubrirás novo vocabulario útil (sobre saúde, tecnoloxía, cultura, roupa, etc.) e perfeccionarás a túa capacidade para expresar a túa opinión, dar consellos e debater diferentes puntos de vista. Ao final do curso, serás capaz de expresarte en conversas da vida real con maior fluidez e confianza. O temario proposto adaptado a cada nivel é flexible e pode ir adaptándose seg os intereses do grupo.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Luns e Mércores, Nivel medio 17:00h a 18:00h, Nivel avanzado 18:00h a 19:00h, Nivel inicial 19:00h a 20:00h",
+          "description": "Con este curso aprenderás a falar con máis confianza sobre a túa vida, os teus plans e o que está a suceder no mundo. Practicarás os tempos verbais máis importantes do inglés, descubrirás novo vocabulario útil (sobre saúde, tecnoloxía, cultura, roupa, etc.) e perfeccionarás a túa capacidade para expresar a túa opinión, dar consellos e debater diferentes puntos de vista. Ao final do curso, serás capaz de expresarte en conversas da vida real con maior fluidez e confianza. O temario proposto adaptado a cada nivel é flexible e pode ir adaptándose segundo os intereses do grupo.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -36,9 +36,9 @@
         },
         {
           "title": "CULTURA FRANCÓFONA",
-          "schedule": "martes de 18:00 a 19:00h",
+          "schedule": "Martes de 18:00h a 19:00h",
           "description": "Descubre o mundo francófono: máis alá do francés, unha cultura que che levará nunha viaxe a través do cine, a música, os sabores e as tradicións. O alumnado participará no proceso de aprendizaxe a través do traballo de campo, descubrindo cidades e países de fala francesa, transformando esta experiencia nunha forma de aprendizaxe inmersiva e cooperativa.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -47,9 +47,9 @@
         },
         {
           "title": "LITERATURA",
-          "schedule": "luns de 18:00 a 19:00h",
+          "schedule": "luns de 18:00h a 19:00h",
           "description": "Un espazo para reconectar con grandes obras, autores inesquecibles e, sobre todo, coa túa propia creatividade. A de viaxes no tempo: dos mitos clásicos á literatura contemporánea, encontros con autores: Cervantes, García Márquez, Borges, Lorca... e moitos máis, lecturas compartidas nun ambiente amigable e íntimo.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -58,9 +58,9 @@
         },
         {
           "title": "HISTORIA",
-          "schedule": "xoves de 19:00 a 20:00",
-          "description": "Queres aprender a través da man narrada da profesora dunha maneira distinta as etapas da Historia de Galicia e España? Empaparaste de cultura a de charlas, imaxes,anécdotas roteiros pola cidade, visitas culturais, viaxes que che ver a historia coñecida dende outra perspectiva.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Xoves de 19:00h a 20:00h",
+          "description": "Queres aprender a través da man narrada da profesora dunha maneira distinta as etapas da Historia de Galicia e España? Empaparaste de cultura, de charlas, imaxes, anécdotas, roteiros pola cidade, visitas culturais, viaxes ... tes que ver a historia coñecida dende outra perspectiva.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -69,9 +69,9 @@
         },
         {
           "title": "HISTORIA DE ARTE",
-          "schedule": "mércores de 19:00 a 20:00",
+          "schedule": "Mércores de 19:00h a 20:00h",
           "description": "Nas nosas clases de Historia da Arte, non necesitas saber nada de arte, só ter curiosidade. Aprenderás dun xeito claro, visual e entretido, viaxando no tempo, dende as pinturas rupestres ata a arte moderna, recoñecerás estilos e artistas e comprenderás o que fai que unha pintura, escultura ou edificio sexa único.Conectando a arte e a vida, aprenderás como cada época reflicte a súa sociedade, os seus valores e as súas emocións. Gozarás da arte: os museos, as exposicións e mesmo a arte da túa cidade adquirirán un novo significado.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -93,7 +93,7 @@
           "phone": [
             "622274110"
           ],
-          "description": "Entidade de Utilidade Pública que promove a difusión da educacións, a ciencia e a cultura."
+          "description": "Entidade de Utilidade Pública que promove a difusión da educación, a ciencia e a cultura."
         },
         {
           "title": "IV Ciclo Universidade de Santiago. Programa para maiores da USC",
@@ -139,9 +139,9 @@
       "activities": [
         {
           "title": "TECNOLOXÍA INICIAL/BÁSICO",
-          "schedule": "Martes e xoves de 11:30 a 12:30h",
+          "schedule": "Martes e xoves de 11:30h a 12:30h",
           "description": "Este curso está deseñado para persoas que queiran iniciarse no mundo da tecnoloxía dun xeito cómodo e sen complicacións. Ao longo do curso, ensinarémosche paso a paso como usar as funcións básicas do teu teléfono móbil e as aplicacións máis útiles para o uso diario",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -150,9 +150,9 @@
         },
         {
           "title": "TECNOLOXÍA AVANZADO",
-          "schedule": "Martes e xoves de 18:00 a 19:00h",
-          "description": "Neste curso, axudarémosche a afondar no uso de ferramentas dixitais tanto no teu teléfono móbil como no teu ordenador. Aprenderás a xestionar ficheiros na nube, mellorarás as túas habilidades en aplicacións como WhatsApp e correo electrónico, e dominarás programas de ofimática como Word e Excel. Ademais, mostrarémosche como navegar por internet de forma máis eficiente e segura, así como como usar aplicacións útiles na túa vida diaria.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Martes e xoves de 18:00h a 19:00h",
+          "description": "Neste curso axudarémosche a afondar no uso de ferramentas dixitais tanto no teu teléfono móbil como no teu ordenador. Aprenderás a xestionar ficheiros na nube, mellorarás as túas habilidades en aplicacións como WhatsApp e correo electrónico, e dominarás programas de ofimática como Word e Excel. Ademais, mostrarémosche como navegar por internet de forma máis eficiente e segura, así como como usar aplicacións útiles na túa vida diaria.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -161,9 +161,9 @@
         },
         {
           "title": "TECNOLOXÍA TEMÁTICA",
-          "schedule": "Martes e xoves de 18:00 a 19:00h",
-          "description": "Ao longo deste curso, aprenderás a usar ferramentas que facilitarán a túa organización persoal, mellorarán a túa edición de fotos e vídeos e descubrirás o potencial creativo das aplicacións de deseño e música. Ademais, familiarizaraste coa intelixencia artificial e como aplicala para realizar tarefas cotiás de forma máis rápida e sinxela, como xestionar citas médicas, facer compras seguras ou planificar as túas finanzas.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Martes e xoves de 18:00h a 19:00h",
+          "description": "Ao longo deste curso aprenderás a usar ferramentas que facilitarán a túa organización persoal, mellorarán a túa edición de fotos e vídeos e descubrirás o potencial creativo das aplicacións de deseño e música. Ademais, familiarizaraste coa intelixencia artificial e como aplicala para realizar tarefas cotiás de forma máis rápida e sinxela, como xestionar citas médicas, facer compras seguras ou planificar as túas finanzas.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -173,8 +173,8 @@
         {
           "title": "PINTURA",
           "schedule": "Luns de 17:00 a 19:00h",
-          "description": "Esta actividade é unha clase práctica na cal a través de distintas técnicas : aclírico, óleo, carbonciño, etc (a elixir). Lugar onde se comparte cos/as e compañeiros/as un espazo de socialización para crear arte, onde se activa a creatividade e a imaxinación, así como un ambiente agradable e participativo.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "description": "Esta actividade é unha clase práctica na cal a través de distintas técnicas: acrílico, óleo, carbonciño, etc (a elixir) podrás expresarte. Lugar onde se comparte cos/as e compañeiros/as un espazo de socialización para crear arte, onde se activa a creatividade e a imaxinación así como un ambiente agradable e participativo.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -183,9 +183,9 @@
         },
         {
           "title": "ACUARELA",
-          "schedule": "venres de 11:30 a 13:00h",
+          "schedule": "Venres de 11:30h a 13:00h",
           "description": "Espazo creativo no que, paso a paso, experimentas coas cores, a auga e o papel. Aprendes técnicas básicas e efectos de luz e transparencias, ao tempo que desenvolves a túa expresión persoal nun ambiente relaxado e inspirado.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -194,9 +194,9 @@
         },
         {
           "title": "RESTAURACIÓN",
-          "schedule": "venres de 11:00 a 13:00h",
-          "description": "Esta actividade convídate non só a “restaurar” un moble ou un obxecto antigo, senón tamén a “transformalo” esteticamente segundo o gusto desexado: moderno, vintage, rústico, shabby chic, etc. O/A profesor/a mostrarache e guiarache no uso de diferentes técnicas, como: limpeza e desinfección, lixado e ferramentas, reparación de gretas, aplicación de tinguiduras, ceras, vernices ou pinturas decorativas, técnicas especiais: decapado, pátinas, envellecemento, tapizado, etc",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Venres de 11:00h a 13:00h",
+          "description": "Esta actividade convídate non só a “restaurar” un moble ou un obxecto antigo, senón tamén a “transformalo” esteticamente segundo o gusto desexado: moderno, vintage, rústico, shabby chic, etc. A profesora mostrarache e guiarache no uso de diferentes técnicas como: limpeza e desinfección, lixado e ferramentas, reparación de gretas, aplicación de tinguiduras, ceras, vernices ou pinturas decorativas, técnicas especiais: decapado, pátinas, envellecemento, tapizado, etc",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -205,9 +205,9 @@
         },
         {
           "title": "CORO/MÚSICA INSTRUMENTAL",
-          "schedule": "luns e mércores de 17:30 a 18:30",
-          "description": "Con esta actividade, ofrecemos un espazo para o desfrute, a aprendizaxe e o intercambio a través do canto en grupo, acompañado da práctica dun instrumento se se desexa, promovendo a expresión artística e o benestar emocional. Poderás aprender repertorios musicais, fortalecer a axilidade mental e preparar pezas musicais para ensaios ou presentacións, xerando unha sensación de satisfacción, fomentando o entusiasmo pola aprendizaxe.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Luns e mércores de 17:30h a 18:30h",
+          "description": "Con esta actividade ofrecemos un espazo para o desfrute, a aprendizaxe e o intercambio a través do canto en grupo, acompañado da práctica dun instrumento se se desexa, promovendo a expresión artística e o benestar emocional. Poderás aprender repertorios musicais, fortalecer a axilidade mental e preparar pezas musicais para ensaios ou presentacións, xerando unha sensación de satisfacción, fomentando o entusiasmo pola aprendizaxe.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -222,9 +222,9 @@
       "activities": [
         {
           "title": "IOGA",
-          "schedule": "Luns de 11:30 a 12:30h. Martes e xoves de 10:30 a 11:30h",
-          "description": "O ioga Hatha é unha práctica que combina movemento físico, respiración e relaxación. Está deseñada para manter o corpo activo, a mente tranquila e mellorar a calidade de vida.Os principais beneficios que se pretende con esta actividade: manter as articulacións móbiles, fortalecer as costas, as pernas e os brazos, mellorar o equilibrio e a postura, axudar a respirar mellor e a relaxar a mente, promovendo o benestar emocional.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Luns de 11:30h a 12:30h. Martes e xoves de 10:30h a 11:30h",
+          "description": "O ioga Hatha é unha práctica que combina movemento físico, respiración e relaxación. Está deseñada para manter o corpo activo, a mente tranquila e mellorar a calidade de vida. Os principais beneficios que se pretende con esta actividade son: manter as articulacións móbiles, fortalecer as costas, as pernas e os brazos, mellorar o equilibrio e a postura, axudar a respirar mellor e a relaxar a mente, promovendo o benestar emocional.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -233,9 +233,9 @@
         },
         {
           "title": "PILATES",
-          "schedule": "Mércores e venres de 11:00 a 12:00h",
-          "description": "Esta activade mantente activo, áxil e con máis enerxía na túa vida diaria, os beneficios que notarás: Fortalecemento de músculos e articulacións sen forzar o teu corpo, mellora na túa postura e o teu equilibrio, reducindo o risco de caídas, gañar flexibilidade e mobilidade para sentirte máis libre nos teus movementos, momentos de relaxación e benestar. A través de exercicios sinxelos, con apoio en cadeira e colchoneta, adaptados a cada persoa.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "schedule": "Mércores e venres de 11:00h a 12:00h",
+          "description": "Esta activade mantente activo, áxil e con máis enerxía na túa vida diaria, os beneficios que notarás son: fortalecemento de músculos e articulacións sen forzar o teu corpo, mellora na túa postura e o teu equilibrio, reducindo o risco de caídas, gañar flexibilidade e mobilidade para sentirte máis libre nos teus movementos, momentos de relaxación e benestar. As sesións realízanse a través de exercicios sinxelos, con apoio en cadeira e colchoneta, adaptados a cada persoa.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -244,9 +244,9 @@
         },
         {
           "title": "XIMNASIA",
-          "schedule": "martes e xoves de 19:00 a 20:00h",
+          "schedule": "Martes e xoves de 19:00h a 20:00h",
           "description": "Combinacións de exercicios baseados en xestos da vida cotiá e a práctica deportiva, fortalecendo ós músculos a través do traballo de forza e resistencia, desenvolvendo a capacidade aeróbica a través de exercicios dinámicos, mellora da flexibilidade e mobilidade articular e coordinación xeral (equilibrio, ritmo). Promovendo así a corrección postural e as habilidades mentais: atención, percepción, concentración.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -254,9 +254,9 @@
         },
         {
           "title": "MEMORIA",
-          "schedule": "xoves de 17:30 a 19:00",
+          "schedule": "Xoves de 17:30h a 19:00h",
           "description": "Espazo onde se levan a cabo exercicios prácticos baseado en xogos de lembranza, onde se empregan imaxes, palabras e experiencias cotiás para estimular a memoria a curto e longo prazo. O obxectivo é reforzar as capacidades cognitivas, favorecer a atención e promover a participación nun ambiente lúdico e motivador.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -265,9 +265,9 @@
         },
         {
           "title": "NEURONUP",
-          "schedule": "a elexir polo alumnado",
+          "schedule": "A elexir polo alumnado",
           "description": "O alumnado, dende a Aula ou dende o fogar, pode realizar sesión personalizadas de estimulación cognitiva online nunha plataforma feita por Psicólogos con máis de 13 anos de experiencia e avalada por múltiples profesionais. Máis información coa nosa psicóloga: Mª José Fares Varela. www.neuronup.com",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -360,8 +360,8 @@
         {
           "title": "SAÍDAS E VISITAS CULTURAIS",
           "schedule": "personalizable",
-          "description": "Dende a Sede organízanse actividades culturais complementarias como visita a museos e exposición, celebración, viaxes culturais, conferencias, etc.",
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "description": "Dende a Sede organízanse actividades culturais complementarias como visita a museos e exposicións, celebracións, viaxes culturais, conferencias, etc.",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "phone": [
             "981581533",
             "618184344"
@@ -376,7 +376,7 @@
             "981581533",
             "618184344"
           ],
-          "address": "Rúa Virxe da Cerca 31, 15702. Santiago de Compostela",
+          "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
           "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867.Traballamos na área cultural e social, fundamentalmente. Infórmate como colaborar."
         },
         {
