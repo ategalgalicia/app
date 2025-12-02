@@ -4,5 +4,5 @@
 require('dotenv')
 Dotenv.load '../../Skip.env'
 app_identifier(ENV['PRODUCT_BUNDLE_IDENTIFIER'])
-
-# apple_id("my@email")
+apple_id("michele.restuccia@icloud.com")
+team_id("ZA86YUX638")

@@ -9,13 +9,21 @@ lane :assemble do |options|
   ENV["SKIP_ZERO"] = "true"
   build_app(
     scheme: "Ategal App",
+    configuration: "Release",
     sdk: "iphoneos",
     xcconfig: "fastlane/AppStore.xcconfig",
     xcargs: "-skipPackagePluginValidation -skipMacroValidation",
     derived_data_path: "../.build/Darwin/DerivedData",
     output_directory: "../.build/fastlane/Darwin",
     skip_archive: ENV["FASTLANE_SKIP_ARCHIVE"] == "YES",
-    skip_codesigning: ENV["FASTLANE_SKIP_CODESIGNING"] == "YES"
+    skip_codesigning: ENV["FASTLANE_SKIP_CODESIGNING"] == "YES",
+    export_method: "app-store",
+    export_options: {
+      provisioningProfiles: {
+        # 👇 BUNDLE ID => nombre EXACTO del provisioning
+        "mr.ategal.app" => "release_2/12/2025"
+      }
+    }
   )
 end
 
@@ -27,7 +35,7 @@ lane :release do |options|
 
   # if you have an apikey.json file (https://developer.apple.com/documentation/appstoreconnectapi/creating-api-keys-for-app-store-connect-api), fastlane can automatically fetch certificates and the ASC authentication information
   #get_certificates(api_key_path: "fastlane/apikey.json")
-  get_provisioning_profile(api_key_path: "fastlane/apikey.json")
+  #get_provisioning_profile(api_key_path: "fastlane/apikey.json")
 
   assemble
 
