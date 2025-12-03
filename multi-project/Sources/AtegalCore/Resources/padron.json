@@ -13,7 +13,7 @@
       "activities": [
         {
           "title": "ARTE",
-          "schedule": "Mércores 17:00h a 18:30h",
+          "schedule": ["Mércores 17:00h a 18:30h"],
           "description": "Nas nosas clases de Historia da Arte non é preciso ter coñecementos previos, abonda con manter a curiosidade. Irás descubrindo, dun xeito ameno, visual e comprensible. Poderás identificar estilos e creadores e entender que fai especial a cada cadro, escultura ou edificio. Ao relacionar a arte coa vida, verás como cada período histórico amosa a súa sociedade, valores e sentimentos. Realizaranse visitas a museos e exposicións, cobrando un novo sentido.",
           "address": "Campo do Souto, 2, 15900. Padrón",
           "phone": [
@@ -23,7 +23,7 @@
         },
         {
           "title": "HISTORIA DE ESPAÑA E DE GALICIA",
-          "schedule": "Mércores 18:30h a 19:30h",
+          "schedule": ["Mércores 18:30h a 19:30h"],
           "description": "Achegamento á historia de España e Galicia con explicacións, charlas participativas, imaxes e anécdotas. Inclúe visitas culturais e viaxes para unha visión directa e práctica do patrimonio.",
           "address": "Campo do Souto 2, 15900. Padrón",
           "phone": [
@@ -33,7 +33,7 @@
         },
         {
           "title": "INGLÉS (Nivel 0)",
-          "schedule": "Venres 16:00h a 17:30h",
+          "schedule": ["Venres 16:00h a 17:30h"],
           "description": "Curso para iniciar os primeiros pasos no inglés sen coñecementos previos. Aprendizaxe de vocabulario e estruturas básicas para comunicación en situacións cotiás. Sesións prácticas e dinámicas, adaptadas ao ritmo do grupo.",
           "address": "Campo do Souto, 2, 15900. Padrón",
           "phone": [
@@ -43,7 +43,7 @@
         },
         {
           "title": "INGLÉS (Nivel 1)",
-          "schedule": "Venres 17:30h-19:00h",
+          "schedule": ["Venres 17:30h-19:00h"],
           "description": "Ampliación de vocabulario e práctica de estruturas máis complexas para gañar confianza ao falar, escribir e comprender. Clases participativas con conversación, lecturas, audios e xogos de rol.",
           "address": "Campo do Souto 2, 15900. Padrón",
           "phone": [
@@ -70,7 +70,19 @@
       "activities": [
         {
           "title": "XIMNASIA DE MANTEMENTO",
-          "schedule": "Padrón: Luns e mércores 09:00h-09:50h, 09:55h-10:45h, 10:55h-11:45h; Luns 17:30h-18:30h e mércores 16:30h-17:30h | Carcacia: Martes e xoves 09:30h-10:30h | Extramundi: Martes e xoves 19:00h-20:00h | Angueira de Suso: Luns e mércores 17:00h-18:00h",
+          "schedule": [
+              "Padrón:",
+              "Luns e mércores",
+              "09:00h-09:50h, 09:55h-10:45h, 10:55h-11:45h",
+              "Luns 17:30h-18:30h",
+              "Mércores 16:30h-17:30h",
+              " Carcacia:",
+              "Martes e xoves 09:30h-10:30h",
+              "Extramundi:",
+              "Martes e xoves 19:00h-20:00h",
+              "Angueira de Suso:",
+              "Luns e mércores 17:00h-18:00h"
+          ],
           "description": "Actividade divertida e saudable para fortalecer músculos, mellorar a flexibilidade e activar o corpo no día a día, adaptada ao ritmo de cada persoa.",
           "address": "Campo do Souto 2, 15900. Padrón",
           "phone": [
@@ -80,7 +92,12 @@
         },
         {
           "title": "ESCOLA DE ESPALDA",
-          "schedule": "Padrón: Luns 16:30h a 17:30h e Venres 16:30h a 17:30h | Extramundi: Luns e venres 17:45h a 18:45h",
+          "schedule": [
+              "Padrón:",
+              "Luns 16:30h a 17:30h e Venres 16:30h a 17:30h",
+              "Extramundi:",
+              "Luns e venres 17:45h a 18:45h"
+          ],
           "description": "Actividade para mellorar a postura, fortalecer a zona lumbar e aliviar tensións con exercicios suaves e adaptados.",
           "address": "Campo do Souto, 2, 15900. Padrón",
           "phone": [
@@ -90,7 +107,14 @@
         },
         {
           "title": "MEMORIA",
-          "schedule": "Padrón: Luns 17:00h a 18:30h | Carcacía: Mércores 18:30h a 20:00h | Angueira de Suso: Luns 18:45h a 20:15h",
+          "schedule": [
+              "Padrón",
+              "Luns 17:00h a 18:30h",
+              "Carcacía:",
+              "Mércores 18:30h a 20:00h",
+              "Angueira de Suso:",
+              "Luns 18:45h a 20:15h"
+          ],
           "description": "Exercicios prácticos baseados en xogos de lembranza para estimular a memoria e favorecer a atención.",
           "address": "Campo do Souto 2, 15900. Padrón",
           "phone": [
@@ -100,7 +124,7 @@
         },
         {
           "title": "NEURONUP",
-          "schedule": "A elexir polo alumnado",
+          "schedule": ["A elexir polo alumnado"],
           "description": "Sesións personalizadas de estimulación cognitiva online (plataforma profesional con máis de 13 anos de experiencia).",
           "address": "Campo do Souto, 2, 15900. Padrón",
           "phone": [
@@ -141,7 +165,7 @@
       "activities": [
         {
           "title": "SAÍDAS E VISITAS CULTURAIS",
-          "schedule": "Actualizadas mensualmente",
+          "schedule": ["Actualizadas mensualmente"],
           "description": "Actividades culturais complementarias: visitas a museos e exposicións, celebracións, viaxes culturais e conferencias.",
           "address": "Campo do Souto 2, 15900. Padrón",
           "phone": [
@@ -151,7 +175,7 @@
         },
         {
           "title": "Faite Voluntario/a en ATEGAL",
-          "schedule": "Personalizable",
+          "schedule": ["Personalizable"],
           "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social. Infórmate para colaborar.",
           "address": "Campo do Souto, 2, 15900. Padrón",
           "phone": [

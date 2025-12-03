@@ -14,7 +14,7 @@
       "activities": [
         {
           "title": "INGLÉS",
-          "schedule": "Luns 17:15h a 18:15h",
+          "schedule": ["Luns 17:15h a 18:15h"],
           "description": "Inglés práctico para a vida cotiá. Clases nivel básico-medio con predominio do oral, vocabulario enfocado ás viaxes, lecer, internet, música, cine.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -25,7 +25,7 @@
         },
         {
           "title": "HISTORIA DA ARTE",
-          "schedule": "Mércores 17:30h a 18:30h",
+          "schedule": ["Mércores 17:30h a 18:30h"],
           "description": "Análise dos distintos períodos artísticos e dos artistas e obras máis destacadas ao longo da historia. Faranse monográficos, visitas e presentacións audiovisuais.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -36,7 +36,7 @@
         },
         {
           "title": "LITERATURA",
-          "schedule": "Mércores 18:30h a 19:30h",
+          "schedule": ["Mércores 18:30h a 19:30h"],
           "description": "Literatura no mundo, ficcións comparadas, paradigmas históricos da interpretación literaria, lectura e análise de textos.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -47,7 +47,7 @@
         },
         {
           "title": "VISIÓNS DA HISTORIA",
-          "schedule": "Xoves 18:00h a 19:00h",
+          "schedule": ["Xoves 18:00h a 19:00h"],
           "description": "Análise dos distintos períodos históricos, centrándose en acontecementos ou persoeiros destacados ou silenciados.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -58,7 +58,7 @@
         },
         {
           "title": "UN TEMA, UNHA HORA",
-          "schedule": "Venres 17:15h a 18:15h",
+          "schedule": ["Venres 17:15h a 18:15h"],
           "description": "Actividade de lectura, escoita e debate sobre temas actuais, fragmentos literarios ou biografías, con material facilitado na aula.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -125,7 +125,7 @@
       "activities": [
         {
           "title": "INFORMÁTICA XERAL",
-          "schedule": "Venres 16:30h a 17:30h",
+          "schedule": ["Venres 16:30h a 17:30h"],
           "description": "Coñecementos básicos nivel usuario de informática. Banca online, xestións administrativas, internet segura, intelixencia artificial. (Se facilita o ordenador na aula).",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -136,7 +136,7 @@
         },
         {
           "title": "MANEXO DE MÓBIL E TABLETA",
-          "schedule": "Venres 17:30h a 18:30h",
+          "schedule": ["Venres 17:30h a 18:30h"],
           "description": "Manexo básico de móbil e tablet: conexión, xestión de apps, cámara e seguridade. Necesario traer dispositivo Android ou tablet.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -147,7 +147,7 @@
         },
         {
           "title": "DEBUXO E PINTURA",
-          "schedule": "Luns 17:30h a 19:30h",
+          "schedule": ["Luns 17:30h a 19:30h"],
           "description": "Aprende as nocións básicas en debuxo e pintura ou perfecciona técnicas como óleo, pastel ou acuarela, desenvolvendo a imaxinación e habilidades motoras.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -158,7 +158,7 @@
         },
         {
           "title": "CANTA CON NÓS",
-          "schedule": "Luns 18:30h a 20:00h",
+          "schedule": ["Luns 18:30h a 20:00h"],
           "description": "Clase grupal de canto, técnicas de respiración e expresión corporal, co obxectivo de interpretar unha canción en grupo ao final do curso.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -169,7 +169,7 @@
         },
         {
           "title": "COLORTERAPIA",
-          "schedule": "Venres 17:00h a 18:30h",
+          "schedule": ["Venres 17:00h a 18:30h"],
           "description": "Actividade de colorear semellante ás mandalas. Mellora concentración, atención e creatividade. Materiais fornecidos na aula.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -180,7 +180,7 @@
         },
         {
           "title": "BAILE",
-          "schedule": "Martes e Xoves 17:00h a 18:00h",
+          "schedule": ["Martes e Xoves 17:00h a 18:00h"],
           "description": "Clases de baile grupal con quecemento, aprendizaxe de coreografías e estiramentos. Mellora memoria e coordinación.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -197,7 +197,7 @@
       "activities": [
         {
           "title": "TAICHÍ",
-          "schedule": "Martes e Xoves 10:00h a 11:00h",
+          "schedule": ["Martes e Xoves 10:00h a 11:00h"],
           "description": "Disciplina ancestral que ofrece relaxación, reduce o estrés e mellora a flexibilidade e equilibrio mental.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -208,7 +208,7 @@
         },
         {
           "title": "XIMNASIA",
-          "schedule": "Luns e Xoves 11:30h a 12:30h",
+          "schedule": ["Luns e Xoves 11:30h a 12:30h"],
           "description": "Ximnasia suave adaptada con traballos de forza, equilibrio, elasticidade e coordinación, con distintos materiais.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -219,7 +219,7 @@
         },
         {
           "title": "OBRADOIRO DE MEMORIA",
-          "schedule": "Xoves 18:15h a 19:15h",
+          "schedule": ["Xoves 18:15h a 19:15h"],
           "description": "Exercicios de escritura, orais e dinámicas para traballar memoria, linguaxe e psicomotricidade fina.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -230,7 +230,7 @@
         },
         {
           "title": "XIMNASIA CEREBRAL",
-          "schedule": "Venres 18:30h a 19:30h",
+          "schedule": ["Venres 18:30h a 19:30h"],
           "description": "Exercicios e xogos para mellorar concentración, memoria e coordinación entre mente e corpo.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -241,7 +241,7 @@
         },
         {
           "title": "OBRADOIRO DE BENESTAR EMOCIONAL",
-          "schedule": "Martes 18:15h a 20:15h",
+          "schedule": ["Martes 18:15h a 20:15h"],
           "description": "Clase grupal para potenciar o benestar emocional e aprender estratexias para xestionar emocións.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -252,7 +252,7 @@
         },
         {
           "title": "NEURONUP",
-          "schedule": "A elexir polo alumnado",
+          "schedule": ["A elexir polo alumnado"],
           "description": "Sesións personalizadas de estimulación cognitiva online. Máis información coa psicóloga Mª José Fares Varela.",
           "web": "https://www.neuronup.com",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -288,7 +288,7 @@
       "activities": [
         {
           "title": "SAÍDAS E VISITAS CULTURAIS",
-          "schedule": "Actualizadas mensualmente",
+          "schedule": ["Actualizadas mensualmente"],
           "description": "Actividades culturais complementarias: visitas a museos, exposicións, celebracións e viaxes culturais.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [
@@ -299,7 +299,7 @@
         },
         {
           "title": "Faite Voluntario/a en ATEGAL",
-          "schedule": "Personalizable",
+          "schedule": ["Personalizable"],
           "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia. Infórmate como colaborar.",
           "address": "Rúa Travesa do Pino 2, 36205 Vigo",
           "phone": [

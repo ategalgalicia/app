@@ -21,7 +21,7 @@ public struct Center: Decodable, Identifiable, Hashable {
         public struct Activity: Decodable, Identifiable, Hashable {
             public var id: String { "\(title)|\(schedule)" }
             public let title: String
-            public let schedule: String
+            public let schedule: [String]
             public let description: String
             public let address: String
             public let phone: [String]

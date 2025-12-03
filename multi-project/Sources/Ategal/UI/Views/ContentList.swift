@@ -17,10 +17,9 @@ struct ContentList<Item: Identifiable>: View {
                     onTap?(item)
                 } label: {
                     HStack {
-                        Text(item[keyPath: title].lowercased().capitalized)
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .foregroundStyle(ColorsPalette.textPrimary)
+                        Text(item[keyPath: title].lowercased().capitalizedFirst)
+                            .font(.headline)
+                            .foregroundStyle(ColorsPalette.textSecondary)
                             .multilineTextAlignment(.leading)
 
                         Spacer()

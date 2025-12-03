@@ -13,7 +13,7 @@
         "activities": [
           {
             "title": "INFORMÁTICA PARA MAIORES",
-            "schedule": "Venres de 16:00h a 18:00h",
+            "schedule": ["Venres de 16:00h a 18:00h"],
             "description": "Espazo onde se levan a cabo aprendizaxes técnicas nas novas tecnoloxías, correo electrónico, relacións institucionais, e-saúde, banca electrónica, redes sociais, acercamento á familia (whatsapp, videoconferencias, …)",
             "address": "Espazo Lorenzo Varela Rúa Falcatrueiros, S/N, 27551. Monterroso",
             "phone": [
@@ -37,7 +37,7 @@
       "activities": [
         {
           "title": "XIMNASIA DE MANTEMENTO",
-          "schedule": "Luns, mércores e xoves de 16:00h a 19:00h",
+          "schedule": ["Luns, mércores e xoves de 16:00h a 19:00h"],
           "description": "Combinacións de exercicios baseados en xestos da vida cotiá e a práctica deportiva, fortalecendo ós músculos a través do traballo de forza e resistencia, desenvolvendo a capacidade aeróbica a través de exercicios dinámicos, mellora da flexibilidade e mobilidade articular e coordinación xeral (equilibrio, ritmo). Promovendo así a corrección postural e as habilidades mentais: atención, percepción, concentración",
           "address": "Espazo Lorenzo Varela Rúa Falcatrueiros, S/N, 27551. Monterroso",
           "phone": [
@@ -47,7 +47,7 @@
         },
         {
           "title": "OBRADOIRO DE MEMORIA",
-          "schedule": "Martes e xoves das 16:00h ás 20:00h",
+          "schedule": ["Martes e xoves das 16:00h ás 20:00h"],
           "description": "Espazo onde se levan a cabo exercicios prácticos baseado en xogos de lembranza, onde se empregan imaxes, palabras e experiencias cotiás para estimular a memoria a curto e longo prazo. O obxectivo é reforzar as capacidades cognitivas, favorecer a atención e promover a participación nun ambiente lúdico e motivador.",
           "address": "Espazo Lorenzo Varela Rúa Falcatrueiros, S/N, 27551. Monterroso",
           "phone": [

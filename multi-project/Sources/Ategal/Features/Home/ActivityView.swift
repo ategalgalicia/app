@@ -26,18 +26,25 @@ struct ActivityView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text(activity.title.lowercased().capitalized)
+                Text(activity.title.lowercased().capitalizedFirst)
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .foregroundStyle(ColorsPalette.textPrimary)
                 
-                Text(activity.schedule)
-                    .font(.title3)
-                    .foregroundStyle(ColorsPalette.textSecondary)
+                VStack(alignment: .leading, spacing: 16) {
+                    ForEach(activity.schedule, id: \.self) { schedule in
+                        Text(schedule)
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(ColorsPalette.textSecondary)
+                    }
+                }
+                .padding(16)
+                .cornerBackground()
                 
                 Text(activity.description)
-                    .font(.headline)
-                    .foregroundStyle(ColorsPalette.textSecondary)
+                    .font(.subheadline)
+                    .foregroundStyle(ColorsPalette.textPrimary)
                 
                 if let center = dataSource.centerSelected {
                     MoreInfoView(center: center)

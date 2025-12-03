@@ -14,21 +14,6 @@ struct LinkView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            if !phoneNumbers.isEmpty {
-                ForEach(phoneNumbers, id: \.self) { number in
-                    if let url = ExternalActions.shared.phoneURL(for: number) {
-                        Link(destination: url) {
-                            Label {
-                                Text(number)
-                                    .underline(true)
-                            } icon: {
-                                Image(systemName: "phone.fill")
-                                    .foregroundStyle(ColorsPalette.primary)
-                            }
-                        }
-                    }
-                }
-            }
             if let email, let url = ExternalActions.shared.emailURL(to: email) {
                 Link(destination: url) {
                     Label {
@@ -37,6 +22,7 @@ struct LinkView: View {
                     } icon: {
                         Image(systemName: "envelope.fill")
                             .foregroundStyle(ColorsPalette.primary)
+                            .frame(width: 24)
                     }
                 }
             }
@@ -49,6 +35,7 @@ struct LinkView: View {
                     } icon: {
                         Image(systemName: "mappin.circle.fill")
                             .foregroundStyle(ColorsPalette.primary)
+                            .frame(width: 24)
                     }
                 }
             }
@@ -61,6 +48,23 @@ struct LinkView: View {
                     } icon: {
                         Image(systemName: "star.fill")
                             .foregroundStyle(ColorsPalette.primary)
+                            .frame(width: 24)
+                    }
+                }
+            }
+            if !phoneNumbers.isEmpty {
+                ForEach(phoneNumbers, id: \.self) { number in
+                    if let url = ExternalActions.shared.phoneURL(for: number) {
+                        Link(destination: url) {
+                            Label {
+                                Text(number)
+                                    .underline(true)
+                            } icon: {
+                                Image(systemName: "phone.fill")
+                                    .foregroundStyle(ColorsPalette.primary)
+                                    .frame(width: 24)
+                            }
+                        }
                     }
                 }
             }
@@ -68,6 +72,6 @@ struct LinkView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .foregroundStyle(ColorsPalette.textPrimary)
         .font(.subheadline)
-        .fontWeight(.bold)
+        .fontWeight(.regular)
     }
 }

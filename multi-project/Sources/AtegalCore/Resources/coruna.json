@@ -13,7 +13,7 @@
       "activities": [
         {
           "title": "INGLÉS PARA VIAXEIROS",
-          "schedule": "Martes e Xoves 17:00-18:00",
+          "schedule": ["Martes e Xoves 17:00-18:00"],
           "description": "Está deseñado para persoas que desexen adquirir vocabulario e expresións básicas de inglés útiles para viaxar. Céntrase en situacións prácticas como saudar, pedir comida, navegar polo aeroporto, facer reservas de hotel e preguntar por indicacións. A través de actividades sinxelas, gravacións de audio, xogos e simulacións, promove a confianza á hora de comunicarse noutra lingua. O curso prioriza a comprensión e o uso oral, adaptándose ao ritmo e ao nivel do grupo, cun enfoque divertido e funcional.",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -23,7 +23,7 @@
         },
         {
           "title": "HISTORIA DA LITERATURA",
-          "schedule": "Venres 12:00-13:00",
+          "schedule": ["Venres 12:00-13:00"],
           "description": "A actividade aborda a literatura de distintas épocas , en paralelo coa historia da arte do mesmo período. O curso explora o contexto histórico e cultural, as ideas do humanismo e a influencia da literatura. Tamén analiza os principais autores e obras de Italia, Inglaterra, Francia e España, destacando o seu impacto na evolución da literatura europea. A metodoloxía combina apuntamentos de clase, lecturas comentadas e material audiovisual para fomentar o gozo e a participación.",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -33,7 +33,7 @@
         },
         {
           "title": "SOCIEDADE E ARTE",
-          "schedule": "Luns e Mércores 12:00-13:00",
+          "schedule": ["Luns e Mércores 12:00-13:00"],
           "description": "Céntrase no estudo das distintas etapas da historia e arte, abarcando o seu contexto histórico e cultural, así como as principais características do movemento en Italia, España e outros países europeos. Analízanse as disciplinas da arquitectura, a escultura e a pintura, xunto coas obras e os artistas máis representativos da época.. Todo isto faise cunha abordaxe participativa e accesible para o alumnado. ",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -105,7 +105,11 @@
       "activities": [
         {
           "title": "NOVAS TECNOLOXÍAS",
-          "schedule": "Luns e Mércores 18:00-19:00; Martes e Xoves 12:00-13:00 e 17:00-19:00; Mércores e Venres 11:00-12:00",
+          "schedule": [
+              "Luns e Mércores 18:00-19:00",
+              "Martes e Xoves 12:00-13:00 e 17:00-19:00",
+              "Mércores e Venres 11:00-12:00"
+          ],
           "description": "Uso básico de dispositivos móbiles, ordenadores e intelixencia artificial. A través de clases prácticas e accesibles, os participantes aprenderán a manexar os seus dispositivos para comunicarse, buscar información, organizar a súa vida diaria e manterse conectados. Tamén explorarán como usar asistentes virtuais (como Siri ou Alexa), tradutores automáticos e ferramentas como ChatGPT para resolver dúbidas ou facilitar tarefas cotiás. O curso promove a autonomía dixital, a seguridade en liña e o aproveitamento da tecnoloxía moderna para mellorar a súa calidade de vida",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -115,7 +119,7 @@
         },
         {
           "title": "RONDALLA E CORO",
-          "schedule": "Martes 10:00-12:00",
+          "schedule": ["Martes 10:00-12:00"],
           "description": "Dirixido a persoas apaixonadas pola música e o canto que desexen participar nunha actividade musical en grupo. Combina a aprendizaxe e a práctica do canto coral coa interpretación de instrumentos tradicionais de rondalla como guitarras, laúdes e bandurrias. Abórdase unha variedade de repertorios, desde música popular ata pezas tradicionais, fomentando a coordinación, a memoria musical e o gozo colectivo. O curso promove a expresión artística, a camaradería e o benestar emocional a través da música. ",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -125,7 +129,7 @@
         },
         {
           "title": "PINTURA E DEBUXO",
-          "schedule": "Luns 17:00-19:00",
+          "schedule": ["Luns 17:00-19:00"],
           "description": "Deseñado para persoas interesadas na arte, este programa explora diversas técnicas como o óleo, a acuarela, o lapis, o carboncillo e a pintura sobre tea. A través de exercicios prácticos e guiados, abórdanse aspectos como a cor, a luz, a proporción e a composición. Foméntase a expresión persoal, a relaxación e o desenvolvemento de habilidades artísticas nun ambiente divertido adaptado ao ritmo de cada persoa. ",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -141,7 +145,10 @@
       "activities": [
         {
           "title": "TAICHI",
-          "schedule": "Martes e Xoves 10:00-11:00 e 12:00-13:00; Luns e Xoves 19:00-20:00",
+          "schedule": [
+              "Martes e Xoves 10:00-11:00 e 12:00-13:00",
+              "Luns e Xoves 19:00-20:00"
+          ],
           "description": "É o deporte máis practicado no mundo. Orixinalmente unha arte marcial chinesa, presenta movementos lentos, fluídos e harmoniosos. Relaxante e revitalizante. Ofrece meditación en movemento. O chi kung, unha técnica terapéutica de ximnasia chinesa, tamén se practica a miúdo na mesma clase. As clases están adaptadas a este grupo de idade e ensínanse de pé (sen traballo no chan). A clase da tarde é de nivel avanzado. Permite unha mellora constante na complexidade técnica e, en niveis máis avanzados, utilízanse abanos e espadas, así como traballo en parella.",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -151,7 +158,7 @@
         },
         {
           "title": "IOGA E PILATES",
-          "schedule": "Luns e Mércores 11:30-12:30",
+          "schedule": ["Luns e Mércores 11:30-12:30"],
           "description": "Unha combinación de ámbalas dúas disciplinas, adaptada á persoa e características desta. O ioga é unha antiga disciplina hindú baseada en posturas estáticas divididas en es tiramentos musculares, posturas de forza, equilibrios (tanto de pé como no chan sobre unha colchón eta), exercicios de respiración e relaxación. O Pilates é en si mesmo unha combinación de ioga e ximnasia moderna con traballo constante para mellorar a postura corporal. ",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -161,7 +168,7 @@
         },
         {
           "title": "XIMNASIA SUAVE",
-          "schedule": "Venres 12:00-13:00",
+          "schedule": ["Venres 12:00-13:00"],
           "description": "Esta é a clase máis suave, tanto física como tecnicamente. Os exercicios que traballan todo o corpo realízanse de pé e sentado nunha cadeira (sen traballo no chan) para mellorar a mobilidade, a axilidade, o equilibrio e a forza.",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -171,7 +178,7 @@
         },
         {
           "title": "KIN-JO",
-          "schedule": "Venres 19:30-20:30",
+          "schedule": ["Venres 19:30-20:30"],
           "description": "É a disciplina máis moderna que combina a sabedoría do Tai Chi, o Ioga e as artes marciais clásicas para rexenerar e liberar toda a tensión. Tamén se lle chama a arte marcial da felicidade. O primeiro nivel é moi suave e doado de aprender. Despois aumenta progresivamente en dificultade física e técnica. En niveis máis avanzados, practícase cunha vara de bambú e tamén cunha espada e un escudo de madeira.",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -181,7 +188,7 @@
         },
         {
           "title": "MEMORIA PARA MAIORES",
-          "schedule": "Mércores e Venres 17:00-18:00",
+          "schedule": ["Mércores e Venres 17:00-18:00"],
           "description": "obxectivo mellorar a memoria e outras funcións cognitivas en adultos maiores a través de técnicas prácticas como flashcards, imaxes e xogos mentais. Combínase coa plataforma dixital NeuronUP, que ofrece exercicios interactivos personalizados. O obxectivo é estimular a mente, promover a autonomía e mellorar a calidade de vida dun xeito ameno e adaptado ao ritmo de cada persoa.",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -191,7 +198,7 @@
         },
         {
           "title": "NEURONUP",
-          "schedule": "A elexir polo alumnado",
+          "schedule": ["A elexir polo alumnado"],
           "description": "O alumnado, dende a Aula ou dende o fogar, pode realizar sesión personalizadas de estimulación cognitiva online nunha plataforma feita por Psicólogos con máis de 13 anos de experiencia e avalada por múltiples profesionais. Máis información coa nosa psicóloga: Mª José Fares Varela.",
           "web": "https://www.neuronup.com",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -275,7 +282,7 @@
       "activities": [
         {
           "title": "SAÍDAS E VISITAS CULTURAIS",
-          "schedule": "Actualizadas mensualmente",
+          "schedule": ["Actualizadas mensualmente"],
           "description": "Dende a Sede organízanse actividades culturais complementarias como visita a museos e exposición, celebración, viaxes culturais, conferencias, etc.",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [
@@ -285,7 +292,7 @@
         },
         {
           "title": "Faite Voluntario/a en ATEGAL",
-          "schedule": "Personalizable",
+          "schedule": ["Personalizable"],
           "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social, fundamentalmente. Infórmate como colaborar.",
           "address": "Rúa Fonseca 8, 15004 A Coruña",
           "phone": [

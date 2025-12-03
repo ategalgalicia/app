@@ -14,7 +14,7 @@
       "activities": [
         {
           "title": "FRANCÉS",
-          "schedule": "Martes e Xoves , 18:00h a 19:00h",
+          "schedule": ["Martes e Xoves 18:00h a 19:00h"],
           "description": "Nas aulas de Francés, brindamos a posibilidade de aprender o idioma de man dunha profesora nativa. Isto implica non só a calidade na pronuncia do aprendido, senón tamén o poder aproximarse ás expresións locais ou costumes dos lugares francófonos que o noso alumnado desexe visitar.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -25,7 +25,12 @@
         },
         {
           "title": "HISTORIA DA ARTE",
-          "schedule": "Xoves 17:00h a 18:30h; Xoves 18:30h a 20:00h; Venres 17:00h a 18:30h; Venres 18:30h a 20:00h",
+          "schedule": [
+              "Xoves 17:00h a 18:30h",
+              "Xoves 18:30h a 20:00h",
+              "Venres 17:00h a 18:30h",
+              "Venres 18:30h a 20:00h"
+          ],
           "description": "As nosas clases de Historia da arte buscan entender a arte e a súa evolución explorando as relacións entre historia, cultura e creatividade, implicando ao noso alumnado con temas e actividades que resulten atractivas para os seus intereses: xogos, repaso da actualidade, visita a exposicións, excursións… Ademais, poñemos á súa disposición todos os contidos, incluídas as gravacións de cada sesión, na nosa plataforma.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -36,7 +41,7 @@
         },
         {
           "title": "HISTORIAS DA HISTORIA",
-          "schedule": "Mércores , 17:00h a 18:30h",
+          "schedule": ["Mércores, 17:00h a 18:30h"],
           "description": "Ofrecemos unha actividade dedicada a tratar temas históricos desde un punto de vista diferente, abarcando desde asuntos de actualidade ata personaxes e feitos de calquera outra época e lugar. Todos os nosos contidos desenvólvense buscando a participación do alumnado e poñendo á súa disposición na nosa plataforma todo o material utilizado en clase.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -47,7 +52,7 @@
         },
         {
           "title": "CLUBE DE CINEMA",
-          "schedule": "Luns de 18:00h a 19:30h",
+          "schedule": ["Luns de 18:00h a 19:30h"],
           "description": "Ver películas é unha das actividades de lecer que máis adoitamos practicar tanto en salas públicas como nas nosas casas. O obxectivo do noso Club de Cinema é coñecer a fondo a linguaxe cinematográfica para saber ver e comentar películas redescubriendo o cinema de sempre sen perder de vista as novas tendencias.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -111,7 +116,7 @@
       "activities": [
         {
           "title": "INFORMÁTICA",
-          "schedule": "Luns de 18:00h a 20:00h",
+          "schedule": ["Luns de 18:00h a 20:00h"],
           "description": "Coas nosas clases de Informática, o alumnado poderá obter unha base consistente no ámbito tecnolóxico, que está cada vez máis presente nas nosas vidas. Ensinámoslles sobre as diferentes ferramentas, desde ofimática ata detectar o spam e as páxinas web que poidan proporcionar información incorrecta, ademais traballamos cos móbiles para sacarlles o máximo proveito.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -128,7 +133,7 @@
       "activities": [
         {
           "title": "XIMNASIA",
-          "schedule": "Luns e Mércores de 11:00h a 12:00h",
+          "schedule": ["Luns e Mércores de 11:00h a 12:00h"],
           "description": "O envellecemento activo é aquello que os nosos alumnos buscan, polo que lles proporcionamos o poder exercitar o corpo coas nosas clases de Ximnasia. Estes exercicios, sinxelos pero eficaces, son ideais para quen busca mellorar a resistencia física e manterse en forma.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -139,7 +144,7 @@
         },
         {
           "title": "TALLERES DE MEMORIA",
-          "schedule": "Mércores de 18:30h a 19:30h",
+          "schedule": ["Mércores de 18:30h a 19:30h"],
           "description": "Breve descrición:\nNon só nos preocupamos pola saúde física, no noso Obradoiro de memoria buscamos exercitar a mente. Procuramos traballar distintas áreas da memoria ben con exercicios ou xogos axeitados para iso.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -150,7 +155,7 @@
         },
         {
           "title": "NEURONUP",
-          "schedule": "a elexir polo alumnado",
+          "schedule": ["A elexir polo alumnado"],
           "description": "O alumnado, dende a Aula ou dende o fogar, pode realizar sesión personalizadas de estimulación cognitiva online nunha plataforma feita por Psicólogos con máis de 13 anos de experiencia e avalada por múltiples profesionais. Máis información coa nosa psicóloga: Mª José Fares Varela.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -230,7 +235,7 @@
       "activities": [
         {
           "title": "SAÍDAS E VISITAS CULTURAIS",
-          "schedule": "actualizadas mensualmente",
+          "schedule": ["Actualizadas mensualmente"],
           "description": "Breve descrición:\nDende a Sede organízanse actividades culturais complementarias como visita a museos e exposición, celebración, viaxes culturais, conferencias, etc.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
@@ -241,7 +246,7 @@
         },
         {
           "title": "Faite Voluntario/a en ATEGAL",
-          "schedule": "personalizable",
+          "schedule": ["Personalizable"],
           "description": "Breve descrición:\nATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867.\nTraballamos na área cultural e social, fundamentalmente. Infórmate como colaborar.",
           "address": "Galiano 17, 1º, 15402 Ferrol",
           "phone": [
