@@ -35,6 +35,6 @@ struct CenterView: View {
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .navigationTitle(center.city)
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

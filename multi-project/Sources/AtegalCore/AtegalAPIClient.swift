@@ -18,10 +18,10 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
             readFromBundle("santiago"),
             readFromBundle("coruna"),
             readFromBundle("ferrol"),
-            readFromBundle("ourense"),
-            readFromBundle("monterroso"),
-            readFromBundle("padron"),
             readFromBundle("lalin"),
+            readFromBundle("monterroso"),
+            readFromBundle("ourense"),
+            readFromBundle("padron"),
             readFromBundle("vigo")
         ]
     }

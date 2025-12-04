@@ -11,30 +11,41 @@ struct ContentList<Item: Identifiable>: View {
     let onTap: Handler?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 8) {
             ForEach(items) { item in
                 Button {
                     onTap?(item)
                 } label: {
-                    HStack {
-                        Text(item[keyPath: title].lowercased().capitalizedFirst)
-                            .font(.headline)
-                            .foregroundStyle(ColorsPalette.textSecondary)
-                            .multilineTextAlignment(.leading)
-
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundStyle(ColorsPalette.primary)
-                    }
-                    .padding(16)
-                    
+                    row(for: item)
                 }
-                if item.id != items.last?.id {
-                    Divider()
-                        .foregroundStyle(ColorsPalette.textTertiary)
-                }
+                .buttonStyle(.plain)
+                .cornerBackground()
             }
         }
-        .cornerBackground()
+    }
+    
+    // MARK: ViewBuilders
+    
+    @ViewBuilder
+    private func row(for item: Item) -> some View {
+        let titleText = item[keyPath: title]
+        
+        HStack(spacing: 16) {
+            Text(titleText)
+                .font(.body.weight(.regular))
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .multilineTextAlignment(.leading)
+
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+                .foregroundStyle(ColorsPalette.primary)
+                .accessibilityHidden(true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
+        .contentRectangleShape()
+        .combinedAccessibility()
+        .accessibilityLabel(Text(titleText))
     }
 }

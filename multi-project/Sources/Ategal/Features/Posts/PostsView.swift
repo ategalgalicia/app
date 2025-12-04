@@ -45,7 +45,8 @@ struct PostsView: View {
             .background(ColorsPalette.background)
             .tint(ColorsPalette.primary)
             .navigationTitle("tab-posts")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
+            .accessibilityHeading(.h1)
             .navigationDestination(for: PostRoute.self) { route in
                 switch route {
                 case .navigateToPost:
@@ -77,15 +78,22 @@ struct PostsView: View {
                 }
             )
             .padding(16)
+            .combinedAccessibility()
         }
     }
     
     @ViewBuilder
     private var emptyView: some View {
-        Text("posts-no-data")
-            .font(.title3)
-            .fontWeight(.semibold)
-            .foregroundStyle(ColorsPalette.textPrimary)
+        ScrollView {
+            VStack {
+                Text("posts-no-data")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .accessibilityLabel("posts-no-data")
+                    .accessibilityHeading(.h2)
+            }
+            .padding(16)
+        }
     }
 }
 

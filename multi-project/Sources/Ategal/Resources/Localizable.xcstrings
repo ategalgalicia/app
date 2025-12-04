@@ -14,6 +14,36 @@
         }
       }
     },
+    "activity-search" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actividades"
+          }
+        }
+      }
+    },
+    "activity-search-bar" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca una actividad"
+          }
+        }
+      }
+    },
+    "activity-search-picker-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elixe a cidade onde queres facer esta actividade"
+          }
+        }
+      }
+    },
     "add-event-calendar-subtitle" : {
       "localizations" : {
         "gl-ES" : {
@@ -34,12 +64,12 @@
         }
       }
     },
-    "ategal-subtitle" : {
+    "Ategal" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actividades culturais, educativas e sociais"
+            "value" : "Ategal"
           }
         }
       }
@@ -49,7 +79,30 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ATEGAL"
+            "value" : "Ategal"
+          }
+        }
+      }
+    },
+    "calendar-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calendario"
+          }
+        }
+      }
+    },
+    "category-title" : {
+
+    },
+    "center-list-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toca un centro para descubrir as actividades que ofrece"
           }
         }
       }
@@ -70,6 +123,96 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Produciuse un erro. Téntao de novo máis tarde"
+          }
+        }
+      }
+    },
+    "home-activity-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idiomas, cultura, saúde e máis…"
+          }
+        }
+      }
+    },
+    "home-activity-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar por actividades"
+          }
+        }
+      }
+    },
+    "home-calendar-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descubre que facer hoxe preto de ti"
+          }
+        }
+      }
+    },
+    "home-calendar-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar por días"
+          }
+        }
+      }
+    },
+    "home-center-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explora as actividades do teu centro"
+          }
+        }
+      }
+    },
+    "home-center-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar por cidade"
+          }
+        }
+      }
+    },
+    "home-partner-message" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciativa realizada gracias ao apoio da Xunta de Galicia"
+          }
+        }
+      }
+    },
+    "home-question-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explora actividades por día, cidade ou categoría"
+          }
+        }
+      }
+    },
+    "home-question-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Que queres facer hoxe?"
           }
         }
       }
@@ -114,16 +257,6 @@
         }
       }
     },
-    "tab-calendar" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próximos eventos"
-          }
-        }
-      }
-    },
     "tab-home" : {
       "localizations" : {
         "gl-ES" : {
@@ -140,6 +273,86 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Publicacións"
+          }
+        }
+      }
+    },
+    "tab-who-we-are" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quen somos"
+          }
+        }
+      }
+    },
+    "who-we-are-contact" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Como contactar"
+          }
+        }
+      }
+    },
+    "who-we-are-contact-description" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se tes dúbidas ou queres máis información, podes:\n• Chamarnos ao teléfono do teu centro\n• Enviar un correo electrónico á administración\n• Preguntar directamente no centro en horario de oficina"
+          }
+        }
+      }
+    },
+    "who-we-are-description" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ATEGAL é unha asociación cultural para persoas maiores, que organiza actividades formativas, culturais e de ocio en diferentes centros de Galicia."
+          }
+        }
+      }
+    },
+    "who-we-are-what-we-do" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Que facemos"
+          }
+        }
+      }
+    },
+    "who-we-are-what-we-do-description" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ofrecemos actividades de:\n• Cultura (historia da arte, literatura, música…)\n• Idiomas (inglés, italiano, francés…)\n• Saúde e benestar\n• Tecnoloxía e competencias dixitais\n\nO noso obxectivo é aprender, manterse activo e compartir tempo con outras persoas."
+          }
+        }
+      }
+    },
+    "who-we-are-where" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onde estamos"
+          }
+        }
+      }
+    },
+    "who-we-are-where-description" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temos centros en distintas cidades de Galicia, sendo Santiago de Compostela a sede principal, así como en:\n• A Coruña\n• Ferrol\n• Lalín\n• Monterroso\n• Ourense\n• Padrón\n• Vigo"
           }
         }
       }

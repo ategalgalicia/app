@@ -119,7 +119,7 @@ public extension ExternalActions {
             ekEvent.calendar = cal
         } else {
             let cal = EKCalendar(for: .event, eventStore: store)
-            cal.title = "Ategal"
+            cal.title = "ategal-title"
             cal.source = store.defaultCalendarForNewEvents?.source
                 ?? store.sources.first(where: { $0.sourceType == .local })
                 ?? store.sources.first!

@@ -42,8 +42,8 @@ struct CalendarView: View {
         contentView
             .tint(ColorsPalette.primary)
             .background(ColorsPalette.background)
-            .navigationTitle("tab-calendar")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("calendar-title")
+            .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: ViewBuilders
@@ -140,18 +140,17 @@ struct CalendarView: View {
     private func label(for event: Event) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(event.title)
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(.headline.bold())
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .lineLimit(2)
             
             Text(event.startDate.formatted())
-                .font(.subheadline)
+                .font(.subheadline.weight(.regular))
                 .foregroundStyle(ColorsPalette.textSecondary)
             
             if let description = event.description, !description.isEmpty {
                 Text(description)
-                    .font(.subheadline)
+                    .font(.subheadline.weight(.regular))
                     .foregroundStyle(ColorsPalette.textSecondary)
             }
         }

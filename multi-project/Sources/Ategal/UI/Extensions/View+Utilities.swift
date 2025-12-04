@@ -27,9 +27,40 @@ extension View {
         .background(ColorsPalette.background)
         #endif
     }
-}
-
-extension View {
+    
+    @ViewBuilder
+    func lineSpacing(value: CGFloat = 6) -> some View {
+        #if canImport(Darwin)
+        self.lineSpacing(value)
+        #else
+        self
+        #endif
+    }
+    
+    @ViewBuilder
+    func contentRectangleShape() -> some View {
+        #if canImport(Darwin)
+        self.contentShape(Rectangle())
+        #else
+        self
+        #endif
+    }
+    
+    @ViewBuilder
+    func platformSearchable(text: Binding<String>, prompt: LocalizedStringKey) -> some View {
+        #if canImport(Darwin)
+        self.searchable(
+            text: text,
+            placement: .toolbar,
+            prompt: prompt
+        )
+        #else
+        self.searchable(
+            text: text,
+            prompt: prompt
+        )
+        #endif
+    }
     
     func cornerBackground(_ color: Color = ColorsPalette.cardBackground, radius: CGFloat = 16) -> some View {
         self
@@ -37,44 +68,29 @@ extension View {
             .clipShape(RoundedRectangle(cornerRadius: radius, style: .continuous))
     }
     
-    /// Displays the ATEGAL home toolbar title in the center.
-    func toolbarForHome() -> some View {
-        modifier(HomeTitleModifier())
+    func toolbarWithDismissButton(shouldShowDismissButton: Bool = true) -> some View {
+        modifier(ToolbarWithDismissButton(shouldShowDismissButton: shouldShowDismissButton))
     }
 }
 
-// MARK: HomeTitleModifier
+//MARK: ToolbarWithDismissButton
 
-struct HomeTitleModifier: ViewModifier {
+struct ToolbarWithDismissButton: ViewModifier {
+    @Environment(\.dismiss) var dismiss
+    let shouldShowDismissButton: Bool
+    
     func body(content: Content) -> some View {
-        #if canImport(Darwin)
         content
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    label
+                if shouldShowDismissButton {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button { dismiss() }
+                        label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(ColorsPalette.textPrimary)
+                        }
+                    }
                 }
             }
-        #else
-        VStack(spacing: 0) {
-            label
-            Spacer()
-            content
-        }
-        .background(ColorsPalette.background)
-        #endif
-    }
-    
-    private var label: some View {
-        VStack(alignment: .center, spacing: 4) {
-            Text("ategal-title")
-                .font(.title)
-                .fontWeight(.semibold)
-                .foregroundColor(ColorsPalette.textPrimary)
-
-            Text("ategal-subtitle")
-                .font(.subheadline)
-                .foregroundColor(ColorsPalette.textSecondary)
-        }
-        .padding(.top, 16)
     }
 }

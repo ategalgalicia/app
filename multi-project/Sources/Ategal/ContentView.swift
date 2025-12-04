@@ -6,7 +6,7 @@ import SwiftUI
 import AtegalCore
 
 enum ContentTab: String, Hashable {
-    case home, calendar, posts
+    case home, whoWeAre, posts
 }
 
 struct ContentView: View {
@@ -40,12 +40,10 @@ struct ContentView: View {
             .tag(ContentTab.home)
             
             NavigationStack {
-                CalendarAsyncView(
-                    apiClient: world.apiClient
-                )
+                WhoWeAreView()
             }
-            .tabItem { Label("tab-calendar", systemImage: "calendar") }
-            .tag(ContentTab.calendar)
+            .tabItem { Label("tab-who-we-are", systemImage: "person.crop.circle") }
+            .tag(ContentTab.whoWeAre)
             
             NavigationStack(path: $navigationPost) {
                 PostsAsyncView(
@@ -53,11 +51,12 @@ struct ContentView: View {
                     apiClient: world.apiClient
                 )
             }
-            .tabItem { Label("tab-posts", systemImage: "list.bullet") }
+            .tabItem { Label("tab-posts", systemImage: "pencil") }
             .tag(ContentTab.posts)
         }
         .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
         .tint(ColorsPalette.primary)
         .background(ColorsPalette.background)
+        .applyAccessibility()
     }
 }

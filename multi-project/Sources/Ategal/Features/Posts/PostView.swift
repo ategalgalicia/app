@@ -20,26 +20,31 @@ struct PostView: View {
                 asyncImageView
                 
                 Text(post.date.formatted())
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundStyle(ColorsPalette.textSecondary)
                 
                 Text(post.title)
-                    .font(.title)
-                    .fontWeight(.semibold)
+                    .font(.title2.bold())
                     .foregroundStyle(ColorsPalette.textPrimary)
+                    .multilineTextAlignment(.leading)
+                    .accessibilityHeading(.h1)
                 
                 Text(post.content)
-                    .font(.headline)
+                    .font(.body)
                     .foregroundStyle(ColorsPalette.textSecondary)
+                    .multilineTextAlignment(.leading)
+                    .lineSpacing()
             }
             .padding(16)
-            .frame(maxWidth: .infinity)
+            .combinedAccessibility()
         }
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .navigationTitle("ategal-title")
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    // MARK: ViewBuilders
     
     @ViewBuilder
     private var asyncImageView: some View {
@@ -58,5 +63,6 @@ struct PostView: View {
             .animation(.easeInOut(duration: 0.25), value: phase.image != nil)
         }
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .accessibilityHidden(true)
     }
 }

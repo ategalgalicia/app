@@ -1,5 +1,5 @@
 //
-//  Created by Michele Restuccia on 23/10/25.
+//  Created by Michele Restuccia on 3/12/25.
 //
 
 import SwiftUI
@@ -20,6 +20,7 @@ import AtegalCore
             navigationPath: $navigationPath,
             apiClient: .init(environment: .init(host: .production))
         )
+        .dynamicTypeSize(.large ... .accessibility5)
     }
 }
 #endif
@@ -27,9 +28,12 @@ import AtegalCore
 // MARK: HomeRoute
 
 enum HomeRoute: Hashable {
+    case navigateToCalendar
+    case navigateToCenterList
     case navigateToCenter
     case navigateToCategory
     case navigateToActivity
+    case navigateToSearch
 }
 
 // MARK: HomeView
@@ -39,116 +43,194 @@ struct HomeView: View {
     @Binding
     var navigationPath: [HomeRoute]
     
-    init(navigationPath: Binding<[HomeRoute]>, apiClient: AtegalAPIClient) {
-        self.dataSource = HomeDataSource(apiClient: apiClient)
-        self._navigationPath = navigationPath
-    }
-    
     @State
     var dataSource: HomeDataSource
     
-    @State
-    var didAnimate = false
+    let apiClient: AtegalAPIClient
     
-    private var icon: CGFloat = 150
-    
-    private var center: Center {
-        dataSource.centerSelected!
+    init(navigationPath: Binding<[HomeRoute]>, apiClient: AtegalAPIClient) {
+        self.apiClient = apiClient
+        self._navigationPath = navigationPath
+        self._dataSource = State(initialValue: HomeDataSource(apiClient: apiClient))
     }
     
     var body: some View {
-        contentView
-            .background(ColorsPalette.background)
-            .tint(ColorsPalette.primary)
-            .toolbarForHome()
-            .navigationDestination(for: HomeRoute.self) {
-                switch $0 {
-                case .navigateToCenter:
-                    CenterView(
-                        dataSource: dataSource,
-                        navigationPath: $navigationPath
-                    )
-                case .navigateToCategory:
-                    CategoryView(
-                        dataSource: dataSource,
-                        navigationPath: $navigationPath
-                    )
-                case .navigateToActivity:
-                    ActivityView(dataSource: dataSource)
-                }
+        ScrollView {
+            VStack(spacing: 16) {
+                questionView
+                actionView
+                partnerView
             }
-            .task {
-                guard !didAnimate else { return }
-                didAnimate = true
+            .padding(.horizontal, 16)
+        }
+        .background(ColorsPalette.background)
+        .tint(ColorsPalette.primary)
+        .navigationTitle("ategal-title")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(for: HomeRoute.self) {
+            switch $0 {
+            case .navigateToCalendar:
+                CalendarAsyncView(apiClient: apiClient)
+            case .navigateToCenterList:
+                CenterListView(
+                    dataSource: dataSource,
+                    navigationPath: $navigationPath
+                )
+            case .navigateToCenter:
+                CenterView(
+                    dataSource: dataSource,
+                    navigationPath: $navigationPath
+                )
+            case .navigateToCategory:
+                CategoryView(
+                    dataSource: dataSource,
+                    navigationPath: $navigationPath
+                )
+            case .navigateToActivity:
+                ActivityView(dataSource: dataSource)
+                
+            case .navigateToSearch:
+                ActivitySearchView(
+                    dataSource: dataSource,
+                    navigationPath: $navigationPath
+                )
             }
+        }
     }
     
     // MARK: ViewBuilders
     
     @ViewBuilder
-    private var contentView: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            centersView
-            Spacer()
-        }
-        .frame(maxWidth: .infinity)
-        .actionView { actionView }
-    }
-    
-    @ViewBuilder
-    private var centersView: some View {
-        ZStack {
-            ForEach(0..<dataSource.centers.count, id: \.self) { index in
-                let degrees = Double(index) / Double(dataSource.centers.count) * 360 - 90
-                button(dataSource.centers[index], angle: .degrees(degrees), index: index)
-            }
-            Link(
-                destination: URL(string: "https://www.ategal.com/somos/")!
-            ) {
-                Image("logo-icon", bundle: .module)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: icon, height: icon)
-                    .scaleEffect(didAnimate ? 1 : 0.9)
-                    .opacity(didAnimate ? 1 : 0)
-                    .animation(.easeOut(duration: 0.4).delay(0.3), value: didAnimate)
-            }
-        }
-    }
-    
-    @ViewBuilder
-    private func button(_ item: Center, angle: Angle, index: Int) -> some View {
-        Button {
-            dataSource.centerSelected = item
-            navigationPath.append(.navigateToCenter)
-        } label: {
-            Text(item.city)
-                .font(.title3)
+    private var questionView: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("home-question-title")
+                .font(.largeTitle.bold())
                 .foregroundStyle(ColorsPalette.textPrimary)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 12)
+                .multilineTextAlignment(.leading)
+                .accessibilityAddTraits(.isHeader)
+            
+            Text("home-question-subtitle")
+                .font(.title3)
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .multilineTextAlignment(.leading)
+                .lineSpacing()
+                .combinedAccessibility()
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
         .cornerBackground()
-        .scaleEffect(didAnimate ? 1 : 0.8)
-        .opacity(didAnimate ? 1 : 0)
-        .animation(
-            .easeOut(duration: 0.6).delay(Double(index) * 0.15),
-            value: didAnimate
-        )
-        .offset(
-            x: CGFloat(cos(angle.radians)) * 140,
-            y: CGFloat(sin(angle.radians)) * 140
-        )
     }
     
     @ViewBuilder
     private var actionView: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 0) {
+            itemView(
+                title: "home-calendar-title",
+                subtitle: "home-calendar-subtitle",
+                image: "calendar",
+                color: .red,
+                onTap: { navigationPath.append(.navigateToCalendar) }
+            )
+            itemView(
+                title: "home-center-title",
+                subtitle: "home-center-subtitle",
+                image: "mappin.circle.fill",
+                color: .mint,
+                onTap: { navigationPath.append(.navigateToCenterList) }
+            )
+            itemView(
+                title: "home-activity-title",
+                subtitle: "home-activity-subtitle",
+                image: "list.bullet",
+                color: .indigo,
+                onTap: { navigationPath.append(.navigateToSearch) }
+            )
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .cornerBackground()
+    }
+    
+    @ViewBuilder
+    private func itemView(
+        title: LocalizedStringKey,
+        subtitle: LocalizedStringKey,
+        image: String,
+        color: Color,
+        onTap: VoidHandler?
+    ) -> some View {
+        Button {
+            onTap?()
+        } label: {
+            HStack(spacing: 16) {
+                Image(systemName: image)
+                    .font(.system(size: 26, weight: .semibold))
+                    .foregroundStyle(color)
+                    .padding(16)
+                    .cornerBackground(color.opacity(0.15))
+                    .accessibilityHidden(true)
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(title)
+                        .font(.headline.bold())
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                        .multilineTextAlignment(.leading)
+                    
+                    Text(subtitle)
+                        .font(.subheadline)
+                        .foregroundStyle(ColorsPalette.textSecondary)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                }
+                .combinedAccessibility()
+            }
+            .contentRectangleShape()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(16)
+        }
+        .tint(ColorsPalette.textPrimary)
+        .accessibility(label: title, hint: subtitle)
+    }
+    
+    @ViewBuilder
+    private var partnerView: some View {
+        VStack(alignment: .center, spacing: 8) {
             Image("xunta-icon", bundle: .module)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 100)
+                .frame(height: 60)
+                .accessibilityHidden(true)
+            
+            Text("home-partner-message")
+                .multilineTextAlignment(.center)
+                .font(.caption2)
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .combinedAccessibility()
+                .frame(width: 120)
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.vertical, 16)
+    }
+}
+
+@Observable
+@MainActor
+class HomeDataSource {
+    var centers: [Center]
+    var activitiesByTitle: [String: [Center]] = [:]
+    
+    var centerSelected: Center? = nil
+    var categorySelected: Center.Category? = nil
+    var activitySelected: Center.Category.Activity? = nil
+        
+    init(apiClient: AtegalAPIClient) {
+        self.centers = apiClient.fetchCenters()
+        
+        centers.forEach { center in
+            center.categories.forEach { category in
+                category.activities.forEach { activity in
+                    activitiesByTitle[activity.title, default: []].append(center)
+                }
+            }
         }
     }
 }

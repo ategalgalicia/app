@@ -7,40 +7,46 @@ import AtegalCore
 
 struct CategoryView: View {
     
-    @Bindable var dataSource: HomeDataSource
-    @Binding var navigationPath: [HomeRoute]
+    @Bindable
+    var dataSource: HomeDataSource
+    
+    @Binding
+    var navigationPath: [HomeRoute]
     
     private var category: Center.Category {
         dataSource.categorySelected!
     }
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 32) {
-                activitiesView
-                resourceView
-                moreInfoView
-            }
-            .padding(16)
-        }
-        .background(ColorsPalette.background)
-        .tint(ColorsPalette.primary)
-        .navigationTitle(category.title)
-        .navigationBarTitleDisplayMode(.large)
+        contentView
+            .background(ColorsPalette.background)
+            .tint(ColorsPalette.primary)
+            .navigationTitle(category.title)
+            .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: ViewBuilders
     
     @ViewBuilder
-    private var activitiesView: some View {
-        ContentList(
-            items: category.activities,
-            title: \.title,
-            onTap: {
-                dataSource.activitySelected = $0
-                navigationPath.append(.navigateToActivity)
+    private var contentView: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                Text("category-title")
+                    
+                ContentList(
+                    items: category.activities,
+                    title: \.title,
+                    onTap: {
+                        dataSource.activitySelected = $0
+                        navigationPath.append(.navigateToActivity)
+                    }
+                )
+                
+                resourceView
+                moreInfoView
             }
-        )
+            .padding(16)
+        }
     }
     
     @ViewBuilder
