@@ -32,6 +32,9 @@ struct CategoryView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 Text("category-title")
+                    .font(.title3)
+                    .fontWeight(.regular)
+                    .foregroundStyle(ColorsPalette.textPrimary)
                     
                 ContentList(
                     items: category.activities,
@@ -52,10 +55,10 @@ struct CategoryView: View {
     @ViewBuilder
     private var resourceView: some View {
         if let resources = category.resources, !resources.isEmpty {
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 24) {
                 Text("resource-header-title")
                     .font(.title3)
-                    .fontWeight(.semibold)
+                    .fontWeight(.regular)
                     .foregroundStyle(ColorsPalette.textPrimary)
                 
                 VStack(alignment: .leading, spacing: 8) {
@@ -73,7 +76,7 @@ struct CategoryView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(item.title)
                     .font(.headline)
-                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .foregroundStyle(ColorsPalette.textSecondary)
                 
                 if let description = item.description {
                     Text(description)

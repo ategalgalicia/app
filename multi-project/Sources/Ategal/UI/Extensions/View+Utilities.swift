@@ -51,7 +51,7 @@ extension View {
         #if canImport(Darwin)
         self.searchable(
             text: text,
-            placement: .toolbar,
+            placement: .navigationBarDrawer(displayMode: .always),
             prompt: prompt
         )
         #else

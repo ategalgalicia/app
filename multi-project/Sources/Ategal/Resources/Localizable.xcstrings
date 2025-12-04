@@ -95,14 +95,31 @@
       }
     },
     "category-title" : {
-
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explora actividades ou procura un recurso que che interese"
+          }
+        }
+      }
     },
     "center-list-title" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Toca un centro para descubrir as actividades que ofrece"
+            "value" : "Selecciona un centro e descubre os cursos, recursos e actividades que ofrece"
+          }
+        }
+      }
+    },
+    "center-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona unha categoría para explorar cursos, recursos e actividades relacionadas"
           }
         }
       }

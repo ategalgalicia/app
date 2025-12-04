@@ -26,6 +26,9 @@ struct CenterListView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 Text("center-list-title")
+                    .font(.title3)
+                    .fontWeight(.regular)
+                    .foregroundStyle(ColorsPalette.textPrimary)
                     
                 ContentList(
                     items: dataSource.centers,

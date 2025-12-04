@@ -10,10 +10,10 @@ struct MoreInfoView: View {
     let center: Center
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 24) {
             Text("more-info-header-title")
                 .font(.title3)
-                .fontWeight(.semibold)
+                .fontWeight(.regular)
                 .foregroundStyle(ColorsPalette.textPrimary)
             
             LinkView(
