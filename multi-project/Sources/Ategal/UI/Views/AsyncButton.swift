@@ -13,7 +13,8 @@ struct AsyncButton<Label: View>: View {
         case none
         case confirmation(
             title: LocalizedStringKey,
-            subtitle: LocalizedStringKey? = nil
+            subtitle: LocalizedStringKey? = nil,
+            isOK: Bool
         )
     }
     
@@ -44,8 +45,9 @@ struct AsyncButton<Label: View>: View {
         .errorToast(error: $taskError)
         .successToast(
             isPresented: $showSuccessToast,
-            title: completion.txt.title,
-            subtitle: completion.txt.subtite
+            isOK: completion.tuple.isOK,
+            title: completion.tuple.title,
+            subtitle: completion.tuple.subtite
         )
     }
     
@@ -91,10 +93,10 @@ struct AsyncButton<Label: View>: View {
 
 private extension AsyncButton.Completion {
     
-    var txt: (title: LocalizedStringKey, subtite: LocalizedStringKey?) {
+    var tuple: (title: LocalizedStringKey, subtite: LocalizedStringKey?, isOK: Bool) {
         switch self {
-        case .confirmation(let title, let subtitle): return (title, subtitle)
-        case .none: return ("accept", nil)
+        case let .confirmation(title, subtitle, isOK): return (title, subtitle, isOK)
+        case .none: return ("accept", nil, false)
         }
     }
 }

@@ -18,7 +18,8 @@ import AtegalCore
     NavigationStack {
         HomeView(
             navigationPath: $navigationPath,
-            apiClient: .init(environment: .init(host: .production))
+            apiClient: .init(environment: .init(host: .production)),
+            centers: []
         )
         .dynamicTypeSize(.large ... .accessibility5)
     }
@@ -29,8 +30,8 @@ import AtegalCore
 
 enum HomeRoute: Hashable {
     case navigateToCalendar
-    case navigateToCenterList
-    case navigateToCenter
+    case navigateToCityList
+    case navigateToCategoryList
     case navigateToCategory
     case navigateToActivity
     case navigateToSearch
@@ -48,10 +49,10 @@ struct HomeView: View {
     
     let apiClient: AtegalAPIClient
     
-    init(navigationPath: Binding<[HomeRoute]>, apiClient: AtegalAPIClient) {
+    init(navigationPath: Binding<[HomeRoute]>, apiClient: AtegalAPIClient, centers: [Center]) {
         self.apiClient = apiClient
         self._navigationPath = navigationPath
-        self._dataSource = State(initialValue: HomeDataSource(apiClient: apiClient))
+        self._dataSource = State(initialValue: HomeDataSource(centers: centers))
     }
     
     var body: some View {
@@ -71,13 +72,13 @@ struct HomeView: View {
             switch $0 {
             case .navigateToCalendar:
                 CalendarAsyncView(apiClient: apiClient)
-            case .navigateToCenterList:
-                CenterListView(
+            case .navigateToCityList:
+                CityListView(
                     dataSource: dataSource,
                     navigationPath: $navigationPath
                 )
-            case .navigateToCenter:
-                CenterView(
+            case .navigateToCategoryList:
+                CategoryListView(
                     dataSource: dataSource,
                     navigationPath: $navigationPath
                 )
@@ -136,7 +137,7 @@ struct HomeView: View {
                 subtitle: "home-center-subtitle",
                 image: "mappin.circle.fill",
                 color: .mint,
-                onTap: { navigationPath.append(.navigateToCenterList) }
+                onTap: { navigationPath.append(.navigateToCityList) }
             )
             itemView(
                 title: "home-activity-title",
@@ -193,11 +194,11 @@ struct HomeView: View {
     
     @ViewBuilder
     private var partnerView: some View {
-        VStack(alignment: .center, spacing: 8) {
+        VStack(alignment: .center, spacing: 0) {
             Image("xunta-icon", bundle: .module)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 60)
+                .frame(height: 40)
                 .accessibilityHidden(true)
             
             Text("home-partner-message")
@@ -205,10 +206,10 @@ struct HomeView: View {
                 .font(.caption2)
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .combinedAccessibility()
-                .frame(width: 120)
+                .frame(width: 100)
         }
         .frame(maxWidth: .infinity, alignment: .center)
-        .padding(.vertical, 16)
+        .padding(.vertical, 24)
     }
 }
 
@@ -222,8 +223,8 @@ class HomeDataSource {
     var categorySelected: Center.Category? = nil
     var activitySelected: Center.Category.Activity? = nil
         
-    init(apiClient: AtegalAPIClient) {
-        self.centers = apiClient.fetchCenters()
+    init(centers: [Center]) {
+        self.centers = centers
         
         centers.forEach { center in
             center.categories.forEach { category in

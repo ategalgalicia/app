@@ -2,6 +2,8 @@
   "id": "05",
   "city": "Ferrol",
   "address": "Galiano 17, 1º, 15402",
+  "latitude": 43.4850,
+  "longitude": -8.2345,
   "phone": [
     "981356202",
     "634910118"

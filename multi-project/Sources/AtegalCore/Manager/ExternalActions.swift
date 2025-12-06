@@ -98,35 +98,51 @@ import UIKit
 public extension ExternalActions {
 
     @MainActor
-    func addToAppleCalendar(event: Event) async throws {
+    func addToAppleCalendar(event: Event) async -> Bool {
         let store = EKEventStore()
         do {
             try await store.requestFullAccessToEvents()
         } catch {
-            if let url = URL(string: UIApplication.openSettingsURLString) {
-                await UIApplication.shared.open(url)
-            }
-            throw error
+            return false
         }
-
         let ekEvent = EKEvent(eventStore: store)
         ekEvent.title = event.title
         ekEvent.notes = event.description
         ekEvent.startDate = event.startDate
         ekEvent.endDate = event.startDate.addingTimeInterval(60 * 60)
+        let calendar = try? findCalendar(in: store)
 
-        if let cal = store.defaultCalendarForNewEvents ?? store.calendars(for: .event).first(where: { $0.allowsContentModifications }) {
-            ekEvent.calendar = cal
-        } else {
-            let cal = EKCalendar(for: .event, eventStore: store)
-            cal.title = "ategal-title"
-            cal.source = store.defaultCalendarForNewEvents?.source
-                ?? store.sources.first(where: { $0.sourceType == .local })
-                ?? store.sources.first!
-            try store.saveCalendar(cal, commit: true)
-            ekEvent.calendar = cal
+        guard let calendar else { return false }
+        ekEvent.calendar = calendar
+        do {
+            try store.save(ekEvent, span: .thisEvent, commit: true)
+            return true
+        } catch {
+            return false
         }
-        try store.save(ekEvent, span: .thisEvent, commit: true)
+    }
+
+    private func findCalendar(in store: EKEventStore) throws -> EKCalendar? {
+        if let calendar = store.defaultCalendarForNewEvents
+            ?? store.calendars(for: .event).first(where: { $0.allowsContentModifications }) {
+            return calendar
+        }
+        let newCalendar = EKCalendar(for: .event, eventStore: store)
+        newCalendar.title = "ategal-title"
+        let sources = store.sources
+        guard let source =
+            store.defaultCalendarForNewEvents?.source ??
+            sources.first(where: { $0.sourceType == .local }) ??
+            sources.first(where: { $0.sourceType == .calDAV }) ??
+            sources.first(where: { $0.sourceType == .exchange }) ??
+            sources.first
+        else {
+            return nil
+        }
+
+        newCalendar.source = source
+        try store.saveCalendar(newCalendar, commit: true)
+        return newCalendar
     }
 }
 #endif

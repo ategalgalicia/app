@@ -2,6 +2,8 @@
   "id": "04",
   "city": "Ourense",
   "address": "Rúa Progreso 66, 32003",
+  "latitude": 42.3362,
+  "longitude": -7.8658,
   "phone": [
     "988215077",
     "634910125"

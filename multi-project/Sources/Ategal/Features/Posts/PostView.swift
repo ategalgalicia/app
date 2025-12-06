@@ -40,7 +40,7 @@ struct PostView: View {
         }
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
-        .navigationTitle("ategal-title")
+        .navigationTitle("tab-posts")
         .navigationBarTitleDisplayMode(.inline)
     }
     

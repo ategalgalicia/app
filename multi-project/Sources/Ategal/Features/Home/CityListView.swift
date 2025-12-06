@@ -5,7 +5,7 @@
 import SwiftUI
 import AtegalCore
 
-struct CenterListView: View {
+struct CityListView: View {
     
     @Bindable
     var dataSource: HomeDataSource
@@ -17,7 +17,7 @@ struct CenterListView: View {
         contentView
             .background(ColorsPalette.background)
             .tint(ColorsPalette.primary)
-            .navigationTitle("ategal-title")
+            .navigationTitle("city-list-title")
             .navigationBarTitleDisplayMode(.inline)
     }
     
@@ -25,17 +25,25 @@ struct CenterListView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                Text("center-list-title")
-                    .font(.title3)
-                    .fontWeight(.regular)
-                    .foregroundStyle(ColorsPalette.textPrimary)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("ategal-title")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                    
+                    Text("city-list-subtitle")
+                        .font(.title3)
+                        .fontWeight(.regular)
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                }
                     
                 ContentList(
                     items: dataSource.centers,
                     title: \.city,
                     onTap: {
                         dataSource.centerSelected = $0
-                        navigationPath.append(.navigateToCenter)
+                        navigationPath.append(.navigateToCategoryList)
                     }
                 )
             }

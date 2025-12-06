@@ -1,7 +1,9 @@
 {
   "id": "07",
   "city": "Lalín",
-  "address": "Avenida José Cuíña 42",
+  "address": "Avenida José Cuíña, 42",
+  "latitude": 42.6898,
+  "longitude": -8.1357,
   "phone": [
     "986787060"
   ],

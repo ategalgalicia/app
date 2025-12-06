@@ -2,6 +2,8 @@
   "id": "02",
   "city": "Vigo",
   "address": "Rúa Travesa do Pino 2, 36205",
+  "latitude": 42.2252,
+  "longitude": -8.7238,
   "phone": [
     "986481600",
     "606627511"

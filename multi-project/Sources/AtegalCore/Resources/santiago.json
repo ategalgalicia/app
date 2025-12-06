@@ -2,6 +2,8 @@
   "id": "01",
   "city": "Santiago",
   "address": "Rúa Virxe da Cerca 31, 15703",
+  "latitude": 42.8764,
+  "longitude": -8.5455,
   "phone": [
     "981581533",
     "618184344"

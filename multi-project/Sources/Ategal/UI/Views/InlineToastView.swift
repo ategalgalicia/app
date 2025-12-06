@@ -6,15 +6,25 @@ import SwiftUI
 
 extension View {
     
-    func successToast(isPresented: Binding<Bool>, title: LocalizedStringKey, subtitle: LocalizedStringKey? = nil) -> some View {
-        inlineToast(
-            isPresented: isPresented,
-            configuration: .init(
-                kind: .success(title: title, subtite: subtitle),
-                anchor: .top,
-                animationAnchor: .bottom
+    @ViewBuilder
+    func successToast(
+        isPresented: Binding<Bool>,
+        isOK: Bool,
+        title: LocalizedStringKey,
+        subtitle: LocalizedStringKey? = nil
+    ) -> some View {
+        if isOK {
+            self.inlineToast(
+                isPresented: isPresented,
+                configuration: .init(
+                    kind: .success(title: title, subtite: subtitle),
+                    anchor: .top,
+                    animationAnchor: .bottom
+                )
             )
-        )
+        } else {
+            self
+        }
     }
     
     func errorToast(error: Binding<Error?>) -> some View {
@@ -43,7 +53,6 @@ extension View {
                     configuration: configuration,
                     handler: { isPresented.wrappedValue = false }
                 )
-//                .transition(CustomTransition(anchor: configuration.animationAnchor))
             }
             if configuration.anchor == .top {
                 self.frame(maxWidth: .infinity, alignment: configuration.alignment)

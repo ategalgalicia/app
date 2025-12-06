@@ -14,6 +14,26 @@
         }
       }
     },
+    "activity-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inscríbete"
+          }
+        }
+      }
+    },
+    "activity-action-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se queres apuntarte a un curso, podes escribirnos ou chamarnos. Estaremos encantados de axudarte co rexistro."
+          }
+        }
+      }
+    },
     "activity-search" : {
       "localizations" : {
         "gl-ES" : {
@@ -94,7 +114,7 @@
         }
       }
     },
-    "category-title" : {
+    "category-subtitle" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -104,7 +124,47 @@
         }
       }
     },
-    "center-list-title" : {
+    "category-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Categoría"
+          }
+        }
+      }
+    },
+    "categoryList-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona unha categoría para explorar cursos, recursos e actividades relacionadas"
+          }
+        }
+      }
+    },
+    "categoryList-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Categorías"
+          }
+        }
+      }
+    },
+    "center-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Navegar ata o centro"
+          }
+        }
+      }
+    },
+    "city-list-subtitle" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -114,12 +174,12 @@
         }
       }
     },
-    "center-title" : {
+    "city-list-title" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona unha categoría para explorar cursos, recursos e actividades relacionadas"
+            "value" : "Centros"
           }
         }
       }
@@ -209,7 +269,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Iniciativa realizada gracias ao apoio da Xunta de Galicia"
+            "value" : "Realizada gracias ao apoio da Xunta de Galicia"
           }
         }
       }
@@ -250,6 +310,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Non hai publicacións dispoñibles"
+          }
+        }
+      }
+    },
+    "posts-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artigos, noticias e reflexións para manterte ao día"
           }
         }
       }
@@ -364,12 +434,22 @@
         }
       }
     },
+    "who-we-are-where-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir"
+          }
+        }
+      }
+    },
     "who-we-are-where-description" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Temos centros en distintas cidades de Galicia, sendo Santiago de Compostela a sede principal, así como en:\n• A Coruña\n• Ferrol\n• Lalín\n• Monterroso\n• Ourense\n• Padrón\n• Vigo"
+            "value" : "Temos centros en distintas cidades de Galicia, sendo Santiago de Compostela a sede principal."
           }
         }
       }

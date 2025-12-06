@@ -1,11 +1,13 @@
 # Configuration file for https://skip.tools project
 #
 # Kotlin dependencies and Gradle build options for this module can be configured here
-#build:
-#  contents:
-#    - block: 'dependencies'
-#      contents:
-#        - 'implementation("androidx.compose.runtime:runtime")'
+
+build:
+  contents:
+    - block: 'dependencies'
+      contents:
+        - 'implementation("com.google.maps.android:maps-compose:6.12.2")'
+        - 'implementation("com.google.android.gms:play-services-maps:19.2.0")'
 
 # this is a natively-compiled SkipFuse module
 skip:

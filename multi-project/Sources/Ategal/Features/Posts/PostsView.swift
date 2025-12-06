@@ -69,14 +69,29 @@ struct PostsView: View {
     @ViewBuilder
     private var listView: some View {
         ScrollView {
-            ContentList(
-                items: dataSource.posts,
-                title: \.title,
-                onTap: {
-                    dataSource.selected = $0
-                    navigationPath.append(.navigateToPost)
+            VStack(alignment: .leading, spacing: 24) {
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("ategal-title")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                    
+                    Text("posts-subtitle")
+                        .font(.title3)
+                        .fontWeight(.regular)
+                        .foregroundStyle(ColorsPalette.textPrimary)
                 }
-            )
+                    
+                ContentList(
+                    items: dataSource.posts,
+                    title: \.title,
+                    onTap: {
+                        dataSource.selected = $0
+                        navigationPath.append(.navigateToPost)
+                    }
+                )
+            }
             .padding(16)
             .combinedAccessibility()
         }

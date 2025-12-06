@@ -112,19 +112,23 @@ struct CalendarView: View {
         .padding(.horizontal, 16)
     }
     
+    @State
+    var isOK: Bool = false
+    
     @ViewBuilder
     private func cell(for event: Event) -> some View {
         #if canImport(Darwin)
         AsyncButton(
             action: {
-                try await ExternalActions.shared.addToAppleCalendar(event: event)
+                isOK = await ExternalActions.shared.addToAppleCalendar(event: event)
             },
             label: {
                 label(for: event)
             },
             completion: .confirmation(
                 title: "add-event-calendar-title",
-                subtitle: "add-event-calendar-subtitle"
+                subtitle: "add-event-calendar-subtitle",
+                isOK: isOK
             )
         )
         .cornerBackground()

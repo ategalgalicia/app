@@ -21,7 +21,7 @@ struct CategoryView: View {
         contentView
             .background(ColorsPalette.background)
             .tint(ColorsPalette.primary)
-            .navigationTitle(category.title)
+            .navigationTitle("category-title")
             .navigationBarTitleDisplayMode(.inline)
     }
     
@@ -31,10 +31,18 @@ struct CategoryView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                Text("category-title")
-                    .font(.title3)
-                    .fontWeight(.regular)
-                    .foregroundStyle(ColorsPalette.textPrimary)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(category.title)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                    
+                    Text("category-subtitle")
+                        .font(.title3)
+                        .fontWeight(.regular)
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                }
                     
                 ContentList(
                     items: category.activities,

@@ -83,3 +83,8 @@ android {
         }
     }
 }
+
+dependencies {
+    implementation("com.google.maps.android:maps-compose:6.12.2")
+    implementation("com.google.android.gms:play-services-maps:19.2.0")
+}

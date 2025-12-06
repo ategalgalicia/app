@@ -2,6 +2,8 @@
   "id": "06",
   "city": "A Coruña",
   "address": "Rúa Fonseca 8, 15004",
+  "latitude": 43.3616,
+  "longitude": -8.4046,
   "phone": [
     "981216096"
   ],

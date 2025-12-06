@@ -9,7 +9,9 @@ import SkipFuse; import SkipFuseUI
 struct World {
     
     let apiClient: AtegalAPIClient
+    let centers: [Center]
     init() {
         self.apiClient = .init(environment: .init(host: .production))
+        self.centers = apiClient.fetchCenters()
     }
 }

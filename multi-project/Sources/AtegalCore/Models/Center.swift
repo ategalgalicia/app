@@ -8,6 +8,8 @@ public struct Center: Decodable, Identifiable, Hashable {
     public let id: String
     public let city: String
     public let address: String
+    public let latitude: Double
+    public let longitude: Double
     public let phone: [String]
     public let email: String?
     public let categories: [Category]
