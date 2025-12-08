@@ -44,7 +44,10 @@ struct WhoWeAreView: View {
                     title: "who-we-are-what-we-do",
                     systemImage: "person",
                     content: {
-                        subtitleView("who-we-are-what-we-do-description")
+                        VStack(spacing: 16) {
+                            subtitleView("who-we-are-what-we-do-description")
+                            webButton
+                        }
                     }
                 )
                 
@@ -84,6 +87,12 @@ struct WhoWeAreView: View {
                 .frame(width: 80, height: 80)
                 .accessibilityHidden(true)
             
+            Text("ategal-title")
+                .font(.title.weight(.bold))
+                .foregroundStyle(ColorsPalette.textPrimary)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .center)
+            
             Text("who-we-are-description")
                 .font(.subheadline.weight(.regular))
                 .foregroundStyle(ColorsPalette.textSecondary)
@@ -117,7 +126,6 @@ struct WhoWeAreView: View {
                     .multilineTextAlignment(.leading)
                     .accessibilityHeading(.h2)
             }
-            
             content()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -172,5 +180,34 @@ struct WhoWeAreView: View {
             .foregroundStyle(ColorsPalette.textSecondary)
             .multilineTextAlignment(.leading)
             .lineSpacing()
+    }
+    
+    @ViewBuilder
+    private var webButton: some View {
+        Link(destination: URL(string: "https://www.ategal.com")!) {
+            HStack(alignment: .center, spacing: 8) {
+                Text("who-we-are-what-we-do-action")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .multilineTextAlignment(.leading)
+                
+                Spacer()
+                
+                Text("who-we-are-where-action")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .foregroundColor(ColorsPalette.textTertiary)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .buttonStyle(.plain)
+                    .cornerBackground(ColorsPalette.primary)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .cornerBackground(ColorsPalette.background.opacity(0.95))
+        .cornerBorder()
     }
 }

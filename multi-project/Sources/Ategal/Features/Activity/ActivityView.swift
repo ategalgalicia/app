@@ -76,12 +76,11 @@ struct ActivityView: View {
             presentigSheet = true
         } label: {
             Text("activity-action")
-                .font(.subheadline)
-                .fontWeight(.medium)
+                .font(.headline)
+                .fontWeight(.semibold)
                 .frame(maxWidth: .infinity)
                 .foregroundColor(ColorsPalette.textTertiary)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
+                .padding(16)
         }
         .cornerBackground(ColorsPalette.primary)
         .buttonStyle(.plain)

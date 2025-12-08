@@ -2,8 +2,8 @@
     "id": "03",
     "city": "Padrón",
     "address": "Campo do Souto 2, 15900",
-    "latitude": 42.7370,
-    "longitude": -8.6295,
+    "latitude": 42.73648543362009,
+    "longitude": -8.660552760370905,
     "phone": [
         "981811329"
     ],
@@ -14,18 +14,22 @@
             "title": "Cultural",
             "activities": [
                 {
-                    "title": "ARTE",
-                    "schedule": ["Mércores 17:00h a 18:30h"],
-                    "description": "Nas nosas clases de Historia da Arte non é preciso ter coñecementos previos, abonda con manter a curiosidade. Irás descubrindo, dun xeito ameno, visual e comprensible. Poderás identificar estilos e creadores e entender que fai especial a cada cadro, escultura ou edificio. Ao relacionar a arte coa vida, verás como cada período histórico amosa a súa sociedade, valores e sentimentos. Realizaranse visitas a museos e exposicións, cobrando un novo sentido.",
-                    "address": "Campo do Souto, 2, 15900. Padrón",
+                    "title": "Arte",
+                    "schedule": [
+                        "Mércores 17:00h a 18:30h"
+                    ],
+                    "description": "Nas nosas clases de Historia da Arte non é preciso ter coñecementos previos, abonda con manter a curiosidade. Irás descubrindo, dun xeito ameno, visual e comprensible. Poderás identificar estilos e creadores e entender que fai especial a cada cadro, escultura ou edificio. Ao relacionar a arte coa vida, verás como cada período histórico amosa a súa sociedade, os seus valores e sentimentos. Realizaranse visitas a museos e exposicións, cobrando un novo sentido.",
+                    "address": "Campo do Souto 2, 15900. Padrón",
                     "phone": [
                         "981811329"
                     ],
                     "email": "cruz.taboada@padron.gal"
                 },
                 {
-                    "title": "HISTORIA DE ESPAÑA E DE GALICIA",
-                    "schedule": ["Mércores 18:30h a 19:30h"],
+                    "title": "Historia de España e de Galicia",
+                    "schedule": [
+                        "Mércores 18:30h a 19:30h"
+                    ],
                     "description": "Achegamento á historia de España e Galicia con explicacións, charlas participativas, imaxes e anécdotas. Inclúe visitas culturais e viaxes para unha visión directa e práctica do patrimonio.",
                     "address": "Campo do Souto 2, 15900. Padrón",
                     "phone": [
@@ -34,18 +38,22 @@
                     "email": "cruz.taboada@padron.gal"
                 },
                 {
-                    "title": "INGLÉS (Nivel 0)",
-                    "schedule": ["Venres 16:00h a 17:30h"],
-                    "description": "Curso para iniciar os primeiros pasos no inglés sen coñecementos previos. Aprendizaxe de vocabulario e estruturas básicas para comunicación en situacións cotiás. Sesións prácticas e dinámicas, adaptadas ao ritmo do grupo.",
-                    "address": "Campo do Souto, 2, 15900. Padrón",
+                    "title": "Inglés (nivel 0)",
+                    "schedule": [
+                        "Venres 16:00h a 17:30h"
+                    ],
+                    "description": "Curso para iniciar os primeiros pasos no inglés sen coñecementos previos. Aprendizaxe de vocabulario e estruturas básicas para a comunicación en situacións cotiás. Sesións prácticas e dinámicas, adaptadas ao ritmo do grupo.",
+                    "address": "Campo do Souto 2, 15900. Padrón",
                     "phone": [
                         "981811329"
                     ],
                     "email": "cruz.taboada@padron.gal"
                 },
                 {
-                    "title": "INGLÉS (Nivel 1)",
-                    "schedule": ["Venres 17:30h-19:00h"],
+                    "title": "Inglés (nivel 1)",
+                    "schedule": [
+                        "Venres 17:30h a 19:00h"
+                    ],
                     "description": "Ampliación de vocabulario e práctica de estruturas máis complexas para gañar confianza ao falar, escribir e comprender. Clases participativas con conversación, lecturas, audios e xogos de rol.",
                     "address": "Campo do Souto 2, 15900. Padrón",
                     "phone": [
@@ -62,7 +70,7 @@
                         "881814588"
                     ],
                     "contact": "Esther",
-                    "description": "Pode acceder calquera persoa maior de 50 anos independentemente da súa formación previa."
+                    "description": "Pode acceder calquera persoa maior de 50 anos, independentemente da súa formación previa."
                 }
             ]
         },
@@ -71,14 +79,14 @@
             "title": "Saúde",
             "activities": [
                 {
-                    "title": "XIMNASIA DE MANTEMENTO",
+                    "title": "Ximnasia de mantemento",
                     "schedule": [
                         "Padrón:",
                         "Luns e mércores",
                         "09:00h-09:50h, 09:55h-10:45h, 10:55h-11:45h",
                         "Luns 17:30h-18:30h",
                         "Mércores 16:30h-17:30h",
-                        " Carcacia:",
+                        "Carcacía:",
                         "Martes e xoves 09:30h-10:30h",
                         "Extramundi:",
                         "Martes e xoves 19:00h-20:00h",
@@ -93,24 +101,24 @@
                     "email": "cruz.taboada@padron.gal"
                 },
                 {
-                    "title": "ESCOLA DE ESPALDA",
+                    "title": "Escola de costas",
                     "schedule": [
                         "Padrón:",
-                        "Luns 16:30h a 17:30h e Venres 16:30h a 17:30h",
+                        "Luns 16:30h a 17:30h e venres 16:30h a 17:30h",
                         "Extramundi:",
                         "Luns e venres 17:45h a 18:45h"
                     ],
                     "description": "Actividade para mellorar a postura, fortalecer a zona lumbar e aliviar tensións con exercicios suaves e adaptados.",
-                    "address": "Campo do Souto, 2, 15900. Padrón",
+                    "address": "Campo do Souto 2, 15900. Padrón",
                     "phone": [
                         "981811329"
                     ],
                     "email": "cruz.taboada@padron.gal"
                 },
                 {
-                    "title": "MEMORIA",
+                    "title": "Memoria",
                     "schedule": [
-                        "Padrón",
+                        "Padrón:",
                         "Luns 17:00h a 18:30h",
                         "Carcacía:",
                         "Mércores 18:30h a 20:00h",
@@ -125,10 +133,12 @@
                     "email": "cruz.taboada@padron.gal"
                 },
                 {
-                    "title": "NEURONUP",
-                    "schedule": ["A elexir polo alumnado"],
+                    "title": "NeuronUP",
+                    "schedule": [
+                        "A elexir polo alumnado"
+                    ],
                     "description": "Sesións personalizadas de estimulación cognitiva online (plataforma profesional con máis de 13 anos de experiencia).",
-                    "address": "Campo do Souto, 2, 15900. Padrón",
+                    "address": "Campo do Souto 2, 15900. Padrón",
                     "phone": [
                         "981811329"
                     ],
@@ -137,10 +147,12 @@
             ],
             "resources": [
                 {
-                    "title": "Medicina Emocional. Estefanía Zardoya",
+                    "title": "Medicina emocional. Estefanía Zardoya",
                     "web": "https://estefaniazardoya.es/",
-                    "phone": ["665986828"],
-                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: MEDICINADELASCAUSAS"
+                    "phone": [
+                        "665986828"
+                    ],
+                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021, cando empeza o seu proxecto persoal: Medicina de las causas."
                 },
                 {
                     "title": "Clínica Dental Macía",
@@ -165,8 +177,10 @@
             "title": "Lecer",
             "activities": [
                 {
-                    "title": "SAÍDAS E VISITAS CULTURAIS",
-                    "schedule": ["Actualizadas mensualmente"],
+                    "title": "Saídas e visitas culturais",
+                    "schedule": [
+                        "Actualizadas mensualmente"
+                    ],
                     "description": "Actividades culturais complementarias: visitas a museos e exposicións, celebracións, viaxes culturais e conferencias.",
                     "address": "Campo do Souto 2, 15900. Padrón",
                     "phone": [
@@ -175,10 +189,12 @@
                     "email": "cruz.taboada@padron.gal"
                 },
                 {
-                    "title": "Faite Voluntario/a en ATEGAL",
-                    "schedule": ["Personalizable"],
+                    "title": "Faite voluntario/a en ATEGAL",
+                    "schedule": [
+                        "Personalizable"
+                    ],
                     "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social. Infórmate para colaborar.",
-                    "address": "Campo do Souto, 2, 15900. Padrón",
+                    "address": "Campo do Souto 2, 15900. Padrón",
                     "phone": [
                         "981811329"
                     ],
@@ -195,7 +211,7 @@
                     "contact": "Teresa"
                 },
                 {
-                    "title": "IGAXES",
+                    "title": "Igaxes",
                     "web": "https://www.igaxes.org/es/",
                     "phone": [
                         "618376874"

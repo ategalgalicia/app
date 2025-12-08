@@ -13,10 +13,11 @@ extension View {
         self
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: radius, style: .continuous))
+            .cornerBorder()
     }
     
     func cornerBorder(
-        _ color: Color = ColorsPalette.textSecondary.opacity(0.4),
+        _ color: Color = ColorsPalette.border,
         width: CGFloat = 1,
         radius: CGFloat = 16
     ) -> some View {
@@ -27,6 +28,10 @@ extension View {
     
     func toolbarWithDismissButton(shouldShowDismissButton: Bool = true) -> some View {
         modifier(ToolbarWithDismissButton(shouldShowDismissButton: shouldShowDismissButton))
+    }
+
+    func primaryTitle() -> some View {
+        modifier(PrimaryTitleModifier())
     }
 }
 
@@ -49,5 +54,14 @@ struct ToolbarWithDismissButton: ViewModifier {
                     }
                 }
             }
+    }
+}
+
+struct PrimaryTitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.title3)
+            .fontWeight(.regular)
+            .foregroundStyle(ColorsPalette.textPrimary)
     }
 }

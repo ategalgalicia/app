@@ -26,22 +26,21 @@ struct LinkView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            if let email, let url = ExternalActions.shared.emailURL(to: email) {
-                Link(destination: url) {
-                    LinkButton(txt: email, icon: "envelope.fill")
-                }
-            }
             if !phoneNumbers.isEmpty {
                 ForEach(phoneNumbers, id: \.self) { number in
                     if let url = ExternalActions.shared.phoneURL(for: number) {
-                        Link(destination: url) {
-                            LinkButton(txt: number, icon: "phone.fill")
-                        }
+                        LinkButton(title: number, kind: .icon("phone.fill"), url: url)
                     }
                 }
             }
+            if let email, let url = ExternalActions.shared.emailURL(to: email) {
+                LinkButton(title: email, kind: .icon("envelope.fill"), url: url)
+            }
             if let address {
                 MapLinkButton(address: address, lat: 0, lon: 0)
+            }
+            if let website, let url = ExternalActions.shared.websiteURL(from: website) {
+                LinkButton(title: website, kind: .icon("star.fill"), url: url)
             }
         }
     }
@@ -61,7 +60,7 @@ struct MapLinkButton: View {
         Button {
             showDirectionsDialog = true
         } label: {
-            LinkButton(txt: address, icon: "mappin.circle.fill")
+            CTAButton(title: address, kind: .icon("mappin.circle.fill"))
         }
         .confirmationDialog(
             "", isPresented: $showDirectionsDialog,
@@ -81,41 +80,8 @@ struct MapLinkButton: View {
         }
         #else
         if let url = ExternalActions.shared.androidMapsURL(for: address) {
-            Link(destination: url) {
-                LinkButton(txt: address, icon: "mappin.circle.fill")
-            }
+            LinkButton(title: address, kind: .icon("mappin.circle.fill"), url: url)
         }
         #endif
-    }
-}
-
-struct LinkButton: View {
-    
-    let txt: String
-    let icon: String
-    
-    var body: some View {
-        HStack(alignment: .center, spacing: 8) {
-            Text(txt)
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundStyle(ColorsPalette.textPrimary)
-                .multilineTextAlignment(.leading)
-            
-            Spacer()
-            
-            Image(systemName: icon)
-                .foregroundStyle(ColorsPalette.textTertiary)
-                .frame(width: 24)
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                .cornerBackground(ColorsPalette.primary)
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
-        .cornerBackground(ColorsPalette.background.opacity(0.95))
-        .cornerBorder()
     }
 }

@@ -111,7 +111,8 @@ struct ActivitySearchView: View {
                         .cornerBackground(ColorsPalette.background)
                 }
             }
-            .padding(16)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
         }
     }
     

@@ -31,37 +31,65 @@ struct CategoryListView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(center.city)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(ColorsPalette.textPrimary)
-                    
-                    Text("categoryList-subtitle")
-                        .font(.title3)
-                        .fontWeight(.regular)
-                        .foregroundStyle(ColorsPalette.textPrimary)
-                }
-                    
-                ContentList(
-                    items: center.categories,
-                    title: \.title,
-                    onTap: {
-                        dataSource.categorySelected = $0
-                        navigationPath.append(.navigateToCategory)
-                    }
-                )
-                
-                LinkView(
-                    phoneNumbers: center.phone,
-                    email: center.email,
-                    address: center.address
-                )
-                
-                MapView(place: center.place)
+                listView
+                contactView
+                mapView
             }
             .padding(16)
         }
+    }
+    
+    @ViewBuilder
+    private var listView: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(center.city)
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundStyle(ColorsPalette.textPrimary)
+            
+            Text("categoryList-subtitle")
+                .primaryTitle()
+        }
+            
+        ContentList(
+            items: center.categories,
+            title: \.title,
+            onTap: {
+                dataSource.categorySelected = $0
+                navigationPath.append(.navigateToCategory)
+            }
+        )
+    }
+    
+    @ViewBuilder
+    private var contactView: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("categoryList-footer")
+                .primaryTitle()
+            
+            LinkView(
+                phoneNumbers: center.phone,
+                email: center.email
+            )
+            .padding(16)
+            .cornerBackground()
+        }
+        .padding(.top, 16)
+    }
+    
+    @ViewBuilder
+    private var mapView: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("categoryList-footer-map")
+                .primaryTitle()
+            
+            VStack(alignment: .leading, spacing: 8) {
+                MapView(place: center.place)
+                LinkView(address: center.address)
+            }
+            .padding(16)
+            .cornerBackground()
+        }
+        .padding(.top, 16)
     }
 }

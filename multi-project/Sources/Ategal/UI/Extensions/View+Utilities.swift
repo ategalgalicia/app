@@ -74,4 +74,17 @@ extension View {
         self.presentationDetents([.large])
         #endif
     }
+    
+    @ViewBuilder
+    func tabBarMinimizeBehavior() -> some View {
+        #if canImport(Darwin)
+        if #available(iOS 26.0, *) {
+            self.tabBarMinimizeBehavior(.onScrollDown)
+        } else {
+            self
+        }
+        #else
+        self
+        #endif
+    }
 }

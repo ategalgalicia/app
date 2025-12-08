@@ -2,8 +2,8 @@
     "id": "02",
     "city": "Vigo",
     "address": "Rúa Travesa do Pino 2, 36205",
-    "latitude": 42.2252,
-    "longitude": -8.7238,
+    "latitude": 42.23209543784488,
+    "longitude": -8.708009204569558,
     "phone": [
         "986481600",
         "606627511"
@@ -15,9 +15,11 @@
             "title": "Cultural",
             "activities": [
                 {
-                    "title": "INGLÉS",
-                    "schedule": ["Luns 17:15h a 18:15h"],
-                    "description": "Inglés práctico para a vida cotiá. Clases nivel básico-medio con predominio do oral, vocabulario enfocado ás viaxes, lecer, internet, música, cine.",
+                    "title": "Inglés",
+                    "schedule": [
+                        "Luns 17:15h a 18:15h"
+                    ],
+                    "description": "Inglés práctico para a vida cotiá. Clases de nivel básico-medio con predominio do oral e vocabulario enfocado ás viaxes, ao lecer, a internet, a música e o cine.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -26,9 +28,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "HISTORIA DA ARTE",
-                    "schedule": ["Mércores 17:30h a 18:30h"],
-                    "description": "Análise dos distintos períodos artísticos e dos artistas e obras máis destacadas ao longo da historia. Faranse monográficos, visitas e presentacións audiovisuais.",
+                    "title": "Historia da arte",
+                    "schedule": [
+                        "Mércores 17:30h a 18:30h"
+                    ],
+                    "description": "Análise dos distintos períodos artísticos e das obras e artistas máis destacados ao longo da historia. Faranse monográficos, visitas e presentacións audiovisuais.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -37,9 +41,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "LITERATURA",
-                    "schedule": ["Mércores 18:30h a 19:30h"],
-                    "description": "Literatura no mundo, ficcións comparadas, paradigmas históricos da interpretación literaria, lectura e análise de textos.",
+                    "title": "Literatura",
+                    "schedule": [
+                        "Mércores 18:30h a 19:30h"
+                    ],
+                    "description": "Achegamento á literatura no mundo: ficcións comparadas, paradigmas históricos da interpretación literaria, lectura e análise de textos.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -48,9 +54,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "VISIÓNS DA HISTORIA",
-                    "schedule": ["Xoves 18:00h a 19:00h"],
-                    "description": "Análise dos distintos períodos históricos, centrándose en acontecementos ou persoeiros destacados ou silenciados.",
+                    "title": "Visións da historia",
+                    "schedule": [
+                        "Xoves 18:00h a 19:00h"
+                    ],
+                    "description": "Análise de distintos períodos históricos, centrándose en acontecementos ou persoeiros destacados ou silenciados.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -59,8 +67,10 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "UN TEMA, UNHA HORA",
-                    "schedule": ["Venres 17:15h a 18:15h"],
+                    "title": "Un tema, unha hora",
+                    "schedule": [
+                        "Venres 17:15h a 18:15h"
+                    ],
                     "description": "Actividade de lectura, escoita e debate sobre temas actuais, fragmentos literarios ou biografías, con material facilitado na aula.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
@@ -73,7 +83,7 @@
             "resources": [
                 {
                     "title": "Escuela Municipal de Artes y Oficios de Vigo",
-                    "description": "Equipamento educativo dependente do Servizo de Educación do Concello de Vigo, dedicado á formación non reglada en Artes e Oficios artísticos.",
+                    "description": "Equipamento educativo dependente do Servizo de Educación do Concello de Vigo, dedicado á formación non regrada en artes e oficios artísticos.",
                     "address": "Avenida García Barbón 5, 36201 Vigo",
                     "phone": [
                         "986228088"
@@ -89,7 +99,7 @@
                     "email": "cpm@uvigo.es"
                 },
                 {
-                    "title": "UNED SENIOR",
+                    "title": "UNED Senior",
                     "web": "https://extension.uned.es/&idcentro=187",
                     "phone": [
                         "986954834"
@@ -125,9 +135,11 @@
             "title": "Ocupacional",
             "activities": [
                 {
-                    "title": "INFORMÁTICA XERAL",
-                    "schedule": ["Venres 16:30h a 17:30h"],
-                    "description": "Coñecementos básicos nivel usuario de informática. Banca online, xestións administrativas, internet segura, intelixencia artificial. (Se facilita o ordenador na aula).",
+                    "title": "Informática xeral",
+                    "schedule": [
+                        "Venres 16:30h a 17:30h"
+                    ],
+                    "description": "Coñecementos básicos de informática a nivel usuario: banca online, xestións administrativas, internet segura, intelixencia artificial. Na aula facilítase o ordenador.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -136,9 +148,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "MANEXO DE MÓBIL E TABLETA",
-                    "schedule": ["Venres 17:30h a 18:30h"],
-                    "description": "Manexo básico de móbil e tablet: conexión, xestión de apps, cámara e seguridade. Necesario traer dispositivo Android ou tablet.",
+                    "title": "Manexo de móbil e tableta",
+                    "schedule": [
+                        "Venres 17:30h a 18:30h"
+                    ],
+                    "description": "Manexo básico de móbil e tableta: conexión, xestión de apps, cámara e seguridade. É necesario traer un dispositivo Android ou tableta.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -147,9 +161,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "DEBUXO E PINTURA",
-                    "schedule": ["Luns 17:30h a 19:30h"],
-                    "description": "Aprende as nocións básicas en debuxo e pintura ou perfecciona técnicas como óleo, pastel ou acuarela, desenvolvendo a imaxinación e habilidades motoras.",
+                    "title": "Debuxo e pintura",
+                    "schedule": [
+                        "Luns 17:30h a 19:30h"
+                    ],
+                    "description": "Aprende nocións básicas de debuxo e pintura ou perfecciona técnicas como óleo, pastel ou acuarela, desenvolvendo a imaxinación e as habilidades motoras.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -158,9 +174,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "CANTA CON NÓS",
-                    "schedule": ["Luns 18:30h a 20:00h"],
-                    "description": "Clase grupal de canto, técnicas de respiración e expresión corporal, co obxectivo de interpretar unha canción en grupo ao final do curso.",
+                    "title": "Canta con nós",
+                    "schedule": [
+                        "Luns 18:30h a 20:00h"
+                    ],
+                    "description": "Clase grupal de canto con técnicas de respiración e expresión corporal, co obxectivo de interpretar unha canción en grupo ao final do curso.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -169,9 +187,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "COLORTERAPIA",
-                    "schedule": ["Venres 17:00h a 18:30h"],
-                    "description": "Actividade de colorear semellante ás mandalas. Mellora concentración, atención e creatividade. Materiais fornecidos na aula.",
+                    "title": "Colorterapia",
+                    "schedule": [
+                        "Venres 17:00h a 18:30h"
+                    ],
+                    "description": "Actividade de colorear semellante ás mandalas. Mellora a concentración, a atención e a creatividade. Os materiais fornécense na aula.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -180,9 +200,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "BAILE",
-                    "schedule": ["Martes e Xoves 17:00h a 18:00h"],
-                    "description": "Clases de baile grupal con quecemento, aprendizaxe de coreografías e estiramentos. Mellora memoria e coordinación.",
+                    "title": "Baile",
+                    "schedule": [
+                        "Martes e Xoves 17:00h a 18:00h"
+                    ],
+                    "description": "Clases de baile grupal con quecemento, aprendizaxe de coreografías e estiramentos. Axuda a mellorar a memoria e a coordinación.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -197,9 +219,11 @@
             "title": "Saúde",
             "activities": [
                 {
-                    "title": "TAICHÍ",
-                    "schedule": ["Martes e Xoves 10:00h a 11:00h"],
-                    "description": "Disciplina ancestral que ofrece relaxación, reduce o estrés e mellora a flexibilidade e equilibrio mental.",
+                    "title": "Taichí",
+                    "schedule": [
+                        "Martes e Xoves 10:00h a 11:00h"
+                    ],
+                    "description": "Disciplina ancestral que ofrece relaxación, reduce o estrés e mellora a flexibilidade e o equilibrio físico e mental.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -208,9 +232,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "XIMNASIA",
-                    "schedule": ["Luns e Xoves 11:30h a 12:30h"],
-                    "description": "Ximnasia suave adaptada con traballos de forza, equilibrio, elasticidade e coordinación, con distintos materiais.",
+                    "title": "Ximnasia",
+                    "schedule": [
+                        "Luns e Xoves 11:30h a 12:30h"
+                    ],
+                    "description": "Ximnasia suave adaptada, con traballos de forza, equilibrio, elasticidade e coordinación empregando distintos materiais.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -219,9 +245,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "OBRADOIRO DE MEMORIA",
-                    "schedule": ["Xoves 18:15h a 19:15h"],
-                    "description": "Exercicios de escritura, orais e dinámicas para traballar memoria, linguaxe e psicomotricidade fina.",
+                    "title": "Obradoiro de memoria",
+                    "schedule": [
+                        "Xoves 18:15h a 19:15h"
+                    ],
+                    "description": "Exercicios de escritura, actividades orais e dinámicas para traballar a memoria, a linguaxe e a psicomotricidade fina.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -230,9 +258,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "XIMNASIA CEREBRAL",
-                    "schedule": ["Venres 18:30h a 19:30h"],
-                    "description": "Exercicios e xogos para mellorar concentración, memoria e coordinación entre mente e corpo.",
+                    "title": "Ximnasia cerebral",
+                    "schedule": [
+                        "Venres 18:30h a 19:30h"
+                    ],
+                    "description": "Exercicios e xogos para mellorar a concentración, a memoria e a coordinación entre mente e corpo.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -241,9 +271,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "OBRADOIRO DE BENESTAR EMOCIONAL",
-                    "schedule": ["Martes 18:15h a 20:15h"],
-                    "description": "Clase grupal para potenciar o benestar emocional e aprender estratexias para xestionar emocións.",
+                    "title": "Obradoiro de benestar emocional",
+                    "schedule": [
+                        "Martes 18:15h a 20:15h"
+                    ],
+                    "description": "Clase grupal para potenciar o benestar emocional e aprender estratexias para xestionar emocións no día a día.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -252,8 +284,10 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "NEURONUP",
-                    "schedule": ["A elexir polo alumnado"],
+                    "title": "NeuronUP",
+                    "schedule": [
+                        "A elexir polo alumnado"
+                    ],
                     "description": "Sesións personalizadas de estimulación cognitiva online. Máis información coa psicóloga Mª José Fares Varela.",
                     "web": "https://www.neuronup.com",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -266,19 +300,21 @@
             ],
             "resources": [
                 {
-                    "title": "Medicina Emocional. Estefanía Zardoya",
+                    "title": "Medicina emocional. Estefanía Zardoya",
                     "web": "https://estefaniazardoya.es/",
-                    "phone": ["665986828"],
-                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: MEDICINADELASCAUSAS"
+                    "phone": [
+                        "665986828"
+                    ],
+                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto persoal: Medicina de las causas."
                 },
                 {
-                    "title": "Podólogos INCORPORE (Carlos)",
+                    "title": "Podólogos Incorpore (Carlos)",
                     "phone": [
                         "886142808"
                     ]
                 },
                 {
-                    "title": "Piscólogos SENTIR MEJOR.COM (Isabel Borego Marcos)"
+                    "title": "Psicólogos Sentir Mejor.com (Isabel Borego Marcos)"
                 }
             ]
         },
@@ -287,8 +323,10 @@
             "title": "Lecer",
             "activities": [
                 {
-                    "title": "SAÍDAS E VISITAS CULTURAIS",
-                    "schedule": ["Actualizadas mensualmente"],
+                    "title": "Saídas e visitas culturais",
+                    "schedule": [
+                        "Actualizadas mensualmente"
+                    ],
                     "description": "Actividades culturais complementarias: visitas a museos, exposicións, celebracións e viaxes culturais.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
@@ -298,9 +336,11 @@
                     "email": "vigo@ategal.com"
                 },
                 {
-                    "title": "Faite Voluntario/a en ATEGAL",
-                    "schedule": ["Personalizable"],
-                    "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia. Infórmate como colaborar.",
+                    "title": "Faite voluntario/a en ATEGAL",
+                    "schedule": [
+                        "Personalizable"
+                    ],
+                    "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia. Infórmate sobre como colaborar.",
                     "address": "Rúa Travesa do Pino 2, 36205 Vigo",
                     "phone": [
                         "986481600",
@@ -326,7 +366,7 @@
                     "contact": "Ana"
                 },
                 {
-                    "title": "IGAXES",
+                    "title": "Igaxes",
                     "web": "https://www.igaxes.org/es/",
                     "phone": [
                         "618376874"

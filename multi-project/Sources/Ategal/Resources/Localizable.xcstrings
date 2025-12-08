@@ -144,6 +144,26 @@
         }
       }
     },
+    "categoryList-footer" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estamos para axudarche"
+          }
+        }
+      }
+    },
+    "categoryList-footer-map" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atendémoste directamente na sede"
+          }
+        }
+      }
+    },
     "categoryList-subtitle" : {
       "localizations" : {
         "gl-ES" : {
@@ -400,6 +420,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Que facemos"
+          }
+        }
+      }
+    },
+    "who-we-are-what-we-do-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visita a nosa web"
           }
         }
       }

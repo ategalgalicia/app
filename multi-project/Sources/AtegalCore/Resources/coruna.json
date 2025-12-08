@@ -2,8 +2,8 @@
     "id": "06",
     "city": "A Coruña",
     "address": "Rúa Fonseca 8, 15004",
-    "latitude": 43.3616,
-    "longitude": -8.4046,
+    "latitude": 43.36715266398792,
+    "longitude": -8.406645973837827,
     "phone": [
         "981216096"
     ],
@@ -14,8 +14,10 @@
             "title": "Cultural",
             "activities": [
                 {
-                    "title": "INGLÉS PARA VIAXEIROS",
-                    "schedule": ["Martes e Xoves 17:00-18:00"],
+                    "title": "Inglés para viaxeiros",
+                    "schedule": [
+                        "Martes e Xoves 17:00h a 18:00h"
+                    ],
                     "description": "Está deseñado para persoas que desexen adquirir vocabulario e expresións básicas de inglés útiles para viaxar. Céntrase en situacións prácticas como saudar, pedir comida, navegar polo aeroporto, facer reservas de hotel e preguntar por indicacións. A través de actividades sinxelas, gravacións de audio, xogos e simulacións, promove a confianza á hora de comunicarse noutra lingua. O curso prioriza a comprensión e o uso oral, adaptándose ao ritmo e ao nivel do grupo, cun enfoque divertido e funcional.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
@@ -24,9 +26,11 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "HISTORIA DA LITERATURA",
-                    "schedule": ["Venres 12:00-13:00"],
-                    "description": "A actividade aborda a literatura de distintas épocas , en paralelo coa historia da arte do mesmo período. O curso explora o contexto histórico e cultural, as ideas do humanismo e a influencia da literatura. Tamén analiza os principais autores e obras de Italia, Inglaterra, Francia e España, destacando o seu impacto na evolución da literatura europea. A metodoloxía combina apuntamentos de clase, lecturas comentadas e material audiovisual para fomentar o gozo e a participación.",
+                    "title": "Historia da literatura",
+                    "schedule": [
+                        "Venres 12:00h a 13:00h"
+                    ],
+                    "description": "A actividade aborda a literatura de distintas épocas, en paralelo coa historia da arte do mesmo período. O curso explora o contexto histórico e cultural, as ideas do humanismo e a influencia da literatura. Tamén analiza os principais autores e obras de Italia, Inglaterra, Francia e España, destacando o seu impacto na evolución da literatura europea. A metodoloxía combina apuntamentos de clase, lecturas comentadas e material audiovisual para fomentar o gozo e a participación.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -34,9 +38,11 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "SOCIEDADE E ARTE",
-                    "schedule": ["Luns e Mércores 12:00-13:00"],
-                    "description": "Céntrase no estudo das distintas etapas da historia e arte, abarcando o seu contexto histórico e cultural, así como as principais características do movemento en Italia, España e outros países europeos. Analízanse as disciplinas da arquitectura, a escultura e a pintura, xunto coas obras e os artistas máis representativos da época.. Todo isto faise cunha abordaxe participativa e accesible para o alumnado. ",
+                    "title": "Sociedade e arte",
+                    "schedule": [
+                        "Luns e Mércores 12:00h a 13:00h"
+                    ],
+                    "description": "Céntrase no estudo das distintas etapas da historia e arte, abarcando o seu contexto histórico e cultural, así como as principais características do movemento en Italia, España e outros países europeos. Analízanse as disciplinas da arquitectura, a escultura e a pintura, xunto coas obras e os artistas máis representativos da época. Todo isto faise cunha abordaxe participativa e accesible para o alumnado.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -52,10 +58,10 @@
                         "881014507"
                     ],
                     "email": "secretaria.senior.coruna@udc.es",
-                    "description": "A Universidade Sénior é o medio a través do cal a Universidade da Coruña (UDC) ponse á disposición de todas as persoas maiores de 50 anos que xa non están en activo. Para acceder a ela, non se requiren estudos previos, senon simplemente manter vivo o desexo de aprender.."
+                    "description": "A Universidade Sénior é o medio a través do cal a Universidade da Coruña (UDC) ponse á disposición de todas as persoas maiores de 50 anos que xa non están en activo. Para acceder a ela, non se requiren estudos previos, senón simplemente manter vivo o desexo de aprender."
                 },
                 {
-                    "title": "UNED Senior A Coruña",
+                    "title": "Uned Senior A Coruña",
                     "web": "https://www.acoruna.uned.es/secretaria",
                     "phone": [
                         "981145051",
@@ -66,7 +72,7 @@
                     "description": "Formación a partir dos 55 anos sen requisitos académicos previos."
                 },
                 {
-                    "title": "CURSOS INFORMÁTICA ENTIDADES. FUNDACIÓN ESPLAI",
+                    "title": "Cursos informática entidades. Fundación Esplai",
                     "web": "https://fundacionesplai.org/",
                     "phone": [
                         "986201871"
@@ -75,7 +81,7 @@
                     "description": "Proxectos e programas para promover o empoderamento cidadán e a inclusión TIC."
                 },
                 {
-                    "title": "SOLIDARIEDADE INTERNACIONAL GALICIA",
+                    "title": "Solidariedade internacional Galicia",
                     "web": "https://solidaridadgalicia.org/",
                     "phone": [
                         "650984188"
@@ -98,13 +104,13 @@
             "title": "Ocupacional",
             "activities": [
                 {
-                    "title": "NOVAS TECNOLOXÍAS",
+                    "title": "Novas tecnoloxías",
                     "schedule": [
-                        "Luns e Mércores 18:00-19:00",
-                        "Martes e Xoves 12:00-13:00 e 17:00-19:00",
-                        "Mércores e Venres 11:00-12:00"
+                        "Luns e Mércores 18:00h a 19:00h",
+                        "Martes e Xoves 12:00h a 13:00h e 17:00h a 19:00h",
+                        "Mércores e Venres 11:00h a 12:00h"
                     ],
-                    "description": "Uso básico de dispositivos móbiles, ordenadores e intelixencia artificial. A través de clases prácticas e accesibles, os participantes aprenderán a manexar os seus dispositivos para comunicarse, buscar información, organizar a súa vida diaria e manterse conectados. Tamén explorarán como usar asistentes virtuais (como Siri ou Alexa), tradutores automáticos e ferramentas como ChatGPT para resolver dúbidas ou facilitar tarefas cotiás. O curso promove a autonomía dixital, a seguridade en liña e o aproveitamento da tecnoloxía moderna para mellorar a súa calidade de vida",
+                    "description": "Uso básico de dispositivos móbiles, ordenadores e intelixencia artificial. A través de clases prácticas e accesibles, os participantes aprenderán a manexar os seus dispositivos para comunicarse, buscar información, organizar a súa vida diaria e manterse conectados. Tamén explorarán como usar asistentes virtuais (como Siri ou Alexa), tradutores automáticos e ferramentas como ChatGPT para resolver dúbidas ou facilitar tarefas cotiás. O curso promove a autonomía dixital, a seguridade en liña e o aproveitamento da tecnoloxía moderna para mellorar a súa calidade de vida.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -112,9 +118,11 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "RONDALLA E CORO",
-                    "schedule": ["Martes 10:00-12:00"],
-                    "description": "Dirixido a persoas apaixonadas pola música e o canto que desexen participar nunha actividade musical en grupo. Combina a aprendizaxe e a práctica do canto coral coa interpretación de instrumentos tradicionais de rondalla como guitarras, laúdes e bandurrias. Abórdase unha variedade de repertorios, desde música popular ata pezas tradicionais, fomentando a coordinación, a memoria musical e o gozo colectivo. O curso promove a expresión artística, a camaradería e o benestar emocional a través da música. ",
+                    "title": "Rondalla e coro",
+                    "schedule": [
+                        "Martes 10:00h a 12:00h"
+                    ],
+                    "description": "Dirixido a persoas apaixonadas pola música e o canto que desexen participar nunha actividade musical en grupo. Combina a aprendizaxe e a prática do canto coral coa interpretación de instrumentos tradicionais de rondalla como guitarras, laúdes e bandurrias. Abórdase unha variedade de repertorios, desde música popular ata pezas tradicionais, fomentando a coordinación, a memoria musical e o gozo colectivo. O curso promove a expresión artística, a camaradería e o benestar emocional a través da música.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -122,9 +130,11 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "PINTURA E DEBUXO",
-                    "schedule": ["Luns 17:00-19:00"],
-                    "description": "Deseñado para persoas interesadas na arte, este programa explora diversas técnicas como o óleo, a acuarela, o lapis, o carboncillo e a pintura sobre tea. A través de exercicios prácticos e guiados, abórdanse aspectos como a cor, a luz, a proporción e a composición. Foméntase a expresión persoal, a relaxación e o desenvolvemento de habilidades artísticas nun ambiente divertido adaptado ao ritmo de cada persoa. ",
+                    "title": "Pintura e debuxo",
+                    "schedule": [
+                        "Luns 17:00h a 19:00h"
+                    ],
+                    "description": "Deseñado para persoas interesadas na arte, este programa explora diversas técnicas como o óleo, a acuarela, o lapis, o carboncillo e a pintura sobre tea. A través de exercicios prácticos e guiados, abórdanse aspectos como a cor, a luz, a proporción e a composición. Foméntase a expresión persoal, a relaxación e o desenvolvemento de habilidades artísticas nun ambiente divertido adaptado ao ritmo de cada persoa.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -138,10 +148,10 @@
             "title": "Saúde",
             "activities": [
                 {
-                    "title": "TAICHI",
+                    "title": "Taichí",
                     "schedule": [
-                        "Martes e Xoves 10:00-11:00 e 12:00-13:00",
-                        "Luns e Xoves 19:00-20:00"
+                        "Martes e Xoves 10:00h a 11:00h e 12:00h a 13:00h",
+                        "Luns e Xoves 19:00h a 20:00h"
                     ],
                     "description": "É o deporte máis practicado no mundo. Orixinalmente unha arte marcial chinesa, presenta movementos lentos, fluídos e harmoniosos. Relaxante e revitalizante. Ofrece meditación en movemento. O chi kung, unha técnica terapéutica de ximnasia chinesa, tamén se practica a miúdo na mesma clase. As clases están adaptadas a este grupo de idade e ensínanse de pé (sen traballo no chan). A clase da tarde é de nivel avanzado. Permite unha mellora constante na complexidade técnica e, en niveis máis avanzados, utilízanse abanos e espadas, así como traballo en parella.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -151,9 +161,11 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "IOGA E PILATES",
-                    "schedule": ["Luns e Mércores 11:30-12:30"],
-                    "description": "Unha combinación de ámbalas dúas disciplinas, adaptada á persoa e características desta. O ioga é unha antiga disciplina hindú baseada en posturas estáticas divididas en es tiramentos musculares, posturas de forza, equilibrios (tanto de pé como no chan sobre unha colchón eta), exercicios de respiración e relaxación. O Pilates é en si mesmo unha combinación de ioga e ximnasia moderna con traballo constante para mellorar a postura corporal. ",
+                    "title": "Ioga e pilates",
+                    "schedule": [
+                        "Luns e Mércores 11:30h a 12:30h"
+                    ],
+                    "description": "Unha combinación de ámbalas dúas disciplinas, adaptada á persoa e ás características desta. O ioga é unha antiga disciplina hindú baseada en posturas estáticas divididas en estiramentos musculares, posturas de forza, equilibrios (tanto de pé como no chan sobre unha colchoneta), exercicios de respiración e relaxación. O pilates é en si mesmo unha combinación de ioga e ximnasia moderna con traballo constante para mellorar a postura corporal.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -161,8 +173,10 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "XIMNASIA SUAVE",
-                    "schedule": ["Venres 12:00-13:00"],
+                    "title": "Ximnasia suave",
+                    "schedule": [
+                        "Venres 12:00h a 13:00h"
+                    ],
                     "description": "Esta é a clase máis suave, tanto física como tecnicamente. Os exercicios que traballan todo o corpo realízanse de pé e sentado nunha cadeira (sen traballo no chan) para mellorar a mobilidade, a axilidade, o equilibrio e a forza.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
@@ -171,9 +185,11 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "KIN-JO",
-                    "schedule": ["Venres 19:30-20:30"],
-                    "description": "É a disciplina máis moderna que combina a sabedoría do Tai Chi, o Ioga e as artes marciais clásicas para rexenerar e liberar toda a tensión. Tamén se lle chama a arte marcial da felicidade. O primeiro nivel é moi suave e doado de aprender. Despois aumenta progresivamente en dificultade física e técnica. En niveis máis avanzados, practícase cunha vara de bambú e tamén cunha espada e un escudo de madeira.",
+                    "title": "Kin-jo",
+                    "schedule": [
+                        "Venres 19:30h a 20:30h"
+                    ],
+                    "description": "É a disciplina máis moderna que combina a sabedoría do tai chi, o ioga e as artes marciais clásicas para rexenerar e liberar toda a tensión. Tamén se lle chama a arte marcial da felicidade. O primeiro nivel é moi suave e doado de aprender. Despois aumenta progresivamente en dificultade física e técnica. En niveis máis avanzados, practícase cunha vara de bambú e tamén cunha espada e un escudo de madeira.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -181,9 +197,11 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "MEMORIA PARA MAIORES",
-                    "schedule": ["Mércores e Venres 17:00-18:00"],
-                    "description": "obxectivo mellorar a memoria e outras funcións cognitivas en adultos maiores a través de técnicas prácticas como flashcards, imaxes e xogos mentais. Combínase coa plataforma dixital NeuronUP, que ofrece exercicios interactivos personalizados. O obxectivo é estimular a mente, promover a autonomía e mellorar a calidade de vida dun xeito ameno e adaptado ao ritmo de cada persoa.",
+                    "title": "Memoria para maiores",
+                    "schedule": [
+                        "Mércores e Venres 17:00h a 18:00h"
+                    ],
+                    "description": "O obxectivo é mellorar a memoria e outras funcións cognitivas en adultos maiores a través de técnicas prácticas como flashcards, imaxes e xogos mentais. Combínase coa plataforma dixital NeuronUP, que ofrece exercicios interactivos personalizados. O obxectivo é estimular a mente, promover a autonomía e mellorar a calidade de vida dun xeito ameno e adaptado ao ritmo de cada persoa.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -191,8 +209,10 @@
                     "email": "coruna@ategal.com"
                 },
                 {
-                    "title": "NEURONUP",
-                    "schedule": ["A elexir polo alumnado"],
+                    "title": "NeuronUP",
+                    "schedule": [
+                        "A elexir polo alumnado"
+                    ],
                     "description": "O alumnado, dende a Aula ou dende o fogar, pode realizar sesión personalizadas de estimulación cognitiva online nunha plataforma feita por Psicólogos con máis de 13 anos de experiencia e avalada por múltiples profesionais. Máis información coa nosa psicóloga: Mª José Fares Varela.",
                     "web": "https://www.neuronup.com",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -206,8 +226,10 @@
                 {
                     "title": "Medicina Emocional. Estefanía Zardoya",
                     "web": "https://estefaniazardoya.es/",
-                    "phone": ["665986828"],
-                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: MEDICINADELASCAUSAS"
+                    "phone": [
+                        "665986828"
+                    ],
+                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: Medicina de las causas"
                 },
                 {
                     "title": "Cruz Roja A Coruña",
@@ -217,12 +239,12 @@
                     "description": "Axuda trámites botón teleasistencia"
                 },
                 {
-                    "title": "ADICAE Galicia",
+                    "title": "Adicae Galicia",
                     "web": "https://galicia.adicae.es/",
                     "description": "Defensa e formación das persoas consumidoras fronte a abusos de entidades privadas."
                 },
                 {
-                    "title": "ADICAE (Contacto nacional)",
+                    "title": "Adicae (Contacto nacional)",
                     "web": "https://www.adicae.es/",
                     "phone": [
                         "881888177"
@@ -231,7 +253,7 @@
                     "description": "Para a defensa, representación, información e formación dos consumidores frente aos abusos de entidades bancarias, empresas e entidades privadas"
                 },
                 {
-                    "title": "AFACO Enfermos e familiares Alzheimer",
+                    "title": "Afaco Enfermos e familiares Alzheimer",
                     "web": "https://afaco.es/",
                     "phone": [
                         "981205858"
@@ -254,7 +276,7 @@
                     "contact": "Rebeca"
                 },
                 {
-                    "title": "SARAIVA. En Milladoiro, A Coruña, Pontevedra, Poio e Marín",
+                    "title": "Saraiva. En Milladoiro, A Coruña, Pontevedra, Poio e Marín",
                     "phone": [
                         "986104561"
                     ],
@@ -274,9 +296,11 @@
             "title": "Lecer",
             "activities": [
                 {
-                    "title": "SAÍDAS E VISITAS CULTURAIS",
-                    "schedule": ["Actualizadas mensualmente"],
-                    "description": "Dende a Sede organízanse actividades culturais complementarias como visita a museos e exposición, celebración, viaxes culturais, conferencias, etc.",
+                    "title": "Saídas e visitas culturais",
+                    "schedule": [
+                        "Actualizadas mensualmente"
+                    ],
+                    "description": "Dende a Sede organízanse actividades culturais complementarias como visitas a museos e exposicións, celebracións, viaxes culturais, conferencias, etc.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
                         "981216096"
@@ -285,7 +309,9 @@
                 },
                 {
                     "title": "Faite Voluntario/a en ATEGAL",
-                    "schedule": ["Personalizable"],
+                    "schedule": [
+                        "Personalizable"
+                    ],
                     "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social, fundamentalmente. Infórmate como colaborar.",
                     "address": "Rúa Fonseca 8, 15004 A Coruña",
                     "phone": [
@@ -318,7 +344,7 @@
                     "description": "Axuda trámites botón teleasistencia, etc"
                 },
                 {
-                    "title": "AGADEA",
+                    "title": "Agadea",
                     "phone": [
                         "981542465"
                     ],
@@ -340,7 +366,7 @@
                     "contact": "Rebeca"
                 },
                 {
-                    "title": "SARAIVA. En Milladoiro, A Coruña, Pontevedra, Poio e Marín",
+                    "title": "Saraiva. En Milladoiro, A Coruña, Pontevedra, Poio e Marín",
                     "phone": [
                         "986104561"
                     ],

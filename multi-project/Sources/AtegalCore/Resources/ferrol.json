@@ -2,8 +2,8 @@
     "id": "05",
     "city": "Ferrol",
     "address": "Galiano 17, 1º, 15402",
-    "latitude": 43.4850,
-    "longitude": -8.2345,
+    "latitude": 43.48585201185934,
+    "longitude": -8.229921426784093,
     "phone": [
         "981356202",
         "634910118"
@@ -15,8 +15,10 @@
             "title": "Cultural",
             "activities": [
                 {
-                    "title": "FRANCÉS",
-                    "schedule": ["Martes e Xoves 18:00h a 19:00h"],
+                    "title": "Francés",
+                    "schedule": [
+                        "Martes e Xoves 18:00h a 19:00h"
+                    ],
                     "description": "Nas aulas de Francés, brindamos a posibilidade de aprender o idioma de man dunha profesora nativa. Isto implica non só a calidade na pronuncia do aprendido, senón tamén o poder aproximarse ás expresións locais ou costumes dos lugares francófonos que o noso alumnado desexe visitar.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
@@ -26,7 +28,7 @@
                     "email": "ferrol@ategal.com"
                 },
                 {
-                    "title": "HISTORIA DA ARTE",
+                    "title": "Historia da arte",
                     "schedule": [
                         "Xoves 17:00h a 18:30h",
                         "Xoves 18:30h a 20:00h",
@@ -42,8 +44,10 @@
                     "email": "ferrol@ategal.com"
                 },
                 {
-                    "title": "HISTORIAS DA HISTORIA",
-                    "schedule": ["Mércores, 17:00h a 18:30h"],
+                    "title": "Historias da historia",
+                    "schedule": [
+                        "Mércores, 17:00h a 18:30h"
+                    ],
                     "description": "Ofrecemos unha actividade dedicada a tratar temas históricos desde un punto de vista diferente, abarcando desde asuntos de actualidade ata personaxes e feitos de calquera outra época e lugar. Todos os nosos contidos desenvólvense buscando a participación do alumnado e poñendo á súa disposición na nosa plataforma todo o material utilizado en clase.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
@@ -53,8 +57,10 @@
                     "email": "ferrol@ategal.com"
                 },
                 {
-                    "title": "CLUBE DE CINEMA",
-                    "schedule": ["Luns de 18:00h a 19:30h"],
+                    "title": "Clube de cinema",
+                    "schedule": [
+                        "Luns de 18:00h a 19:30h"
+                    ],
                     "description": "Ver películas é unha das actividades de lecer que máis adoitamos practicar tanto en salas públicas como nas nosas casas. O obxectivo do noso Club de Cinema é coñecer a fondo a linguaxe cinematográfica para saber ver e comentar películas redescubriendo o cinema de sempre sen perder de vista as novas tendencias.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
@@ -75,7 +81,7 @@
                     "description": "A Universidade Sénior é o medio a través do cal a Universidade da Coruña (UDC) ponse á disposición de todas as persoas maiores de 50 anos que xa non están en activo. Para acceder a ela, non se requiren estudos previos, senon simplemente manter vivo o desexo de aprender.."
                 },
                 {
-                    "title": "CURSOS INFORMÁTICA ENTIDADES. FUNDACIÓN ESPLAI",
+                    "title": "Cursos informática entidades. Fundación Esplai",
                     "web": "https://fundacionesplai.org/",
                     "phone": [
                         "986201871"
@@ -84,7 +90,7 @@
                     "description": "Fundación Esplai Ciudadanía Comprometida é unha entidade sen fin de lucro que desenvolve proxectos e programas para promover o empoderamento cidadán dende a perspectiva dos dereitos, a inclusión e a transformación social mediante o traballo en rede, a acción socioeducativa e a inclusión no ámbito das TIC"
                 },
                 {
-                    "title": "SOLIDARIEDADE INTERNACIONAL GALICIA",
+                    "title": "Solidariedade internacional Galicia",
                     "web": "https://solidaridadgalicia.org/",
                     "phone": [
                         "650984188"
@@ -92,7 +98,7 @@
                     "description": "Asociación que promove unha cooperación internacional progresista, de vangarda e con capacidade de provocar cambios profundos que dignifiquen a vida das persoas"
                 },
                 {
-                    "title": "AFUNDACION",
+                    "title": "Afundación",
                     "web": "https://afundacion.org/es/envejecimiento",
                     "phone": [
                         "981 323 378"
@@ -102,7 +108,7 @@
                     "description": "Entidade sen fin de lucro que se constrúe en base ao obxectivo de dar resposta ás demandas dunha sociedade en constante evolución, baixo os parámetros da ética e a profesionalidade. Ten unha área dedicada ás persoas maiores: Espazo + 60 Afundación Ferrol"
                 },
                 {
-                    "title": "ATENEO FERROLAN",
+                    "title": "Ateneo ferrolán",
                     "phone": [
                         "981 35 79 70",
                         "644 720 055"
@@ -117,8 +123,10 @@
             "title": "Ocupacional",
             "activities": [
                 {
-                    "title": "INFORMÁTICA",
-                    "schedule": ["Luns de 18:00h a 20:00h"],
+                    "title": "Informática",
+                    "schedule": [
+                        "Luns de 18:00h a 20:00h"
+                    ],
                     "description": "Coas nosas clases de Informática, o alumnado poderá obter unha base consistente no ámbito tecnolóxico, que está cada vez máis presente nas nosas vidas. Ensinámoslles sobre as diferentes ferramentas, desde ofimática ata detectar o spam e as páxinas web que poidan proporcionar información incorrecta, ademais traballamos cos móbiles para sacarlles o máximo proveito.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
@@ -134,8 +142,10 @@
             "title": "Saúde",
             "activities": [
                 {
-                    "title": "XIMNASIA",
-                    "schedule": ["Luns e Mércores de 11:00h a 12:00h"],
+                    "title": "Ximnasia",
+                    "schedule": [
+                        "Luns e Mércores de 11:00h a 12:00h"
+                    ],
                     "description": "O envellecemento activo é aquello que os nosos alumnos buscan, polo que lles proporcionamos o poder exercitar o corpo coas nosas clases de Ximnasia. Estes exercicios, sinxelos pero eficaces, son ideais para quen busca mellorar a resistencia física e manterse en forma.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
@@ -145,9 +155,11 @@
                     "email": "ferrol@ategal.com"
                 },
                 {
-                    "title": "TALLERES DE MEMORIA",
-                    "schedule": ["Mércores de 18:30h a 19:30h"],
-                    "description": "Breve descrición:\nNon só nos preocupamos pola saúde física, no noso Obradoiro de memoria buscamos exercitar a mente. Procuramos traballar distintas áreas da memoria ben con exercicios ou xogos axeitados para iso.",
+                    "title": "Talleres de memoria",
+                    "schedule": [
+                        "Mércores de 18:30h a 19:30h"
+                    ],
+                    "description": "Non só nos preocupamos pola saúde física, no noso Obradoiro de memoria buscamos exercitar a mente. Procuramos traballar distintas áreas da memoria ben con exercicios ou xogos axeitados para iso.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
                         "981 356 202",
@@ -156,8 +168,10 @@
                     "email": "ferrol@ategal.com"
                 },
                 {
-                    "title": "NEURONUP",
-                    "schedule": ["A elexir polo alumnado"],
+                    "title": "NeuronUP",
+                    "schedule": [
+                        "A elexir polo alumnado"
+                    ],
                     "description": "O alumnado, dende a Aula ou dende o fogar, pode realizar sesión personalizadas de estimulación cognitiva online nunha plataforma feita por Psicólogos con máis de 13 anos de experiencia e avalada por múltiples profesionais. Máis información coa nosa psicóloga: Mª José Fares Varela.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
@@ -172,8 +186,10 @@
                 {
                     "title": "Medicina Emocional. Estefanía Zardoya",
                     "web": "https://estefaniazardoya.es/",
-                    "phone": ["665986828"],
-                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: MEDICINADELASCAUSAS"
+                    "phone": [
+                        "665986828"
+                    ],
+                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: Medicina de las causas."
                 },
                 {
                     "title": "Cruz Roja Ferrol",
@@ -183,7 +199,7 @@
                     "description": "Maiores: Axuda trámites botón teleasistencia, etc."
                 },
                 {
-                    "title": "FAMYC – Ferrolterra",
+                    "title": "Famyc – Ferrolterra",
                     "phone": [
                         "679 843 665"
                     ],
@@ -207,7 +223,7 @@
                     "description": "Espazo utilizado para temas de igualdade tanto pola Concellería de Igualdade como polas asociacións e colectivos de mulleres da cidade."
                 },
                 {
-                    "title": "AFAL Ferrolterra - Asociación Familiares de Enfermos de Alzheimer",
+                    "title": "Afal Ferrolterra - Asociación Familiares de Enfermos de Alzheimer",
                     "phone": [
                         "981 37 06 92"
                     ],
@@ -215,18 +231,18 @@
                     "description": "Asociación sen animo de lucro que trata de facilitar unha mellor calidade de vida a enfermos de Alzheimer e as súas familias. Ofrécense servizos como asesoramento social, xurídico, apoio psicolóxico, formación, productos de apoio (persoais, para mellora da vivenda...)."
                 },
                 {
-                    "title": "ADICAE",
+                    "title": "Adicae",
                     "web": "https://galicia.adicae.es/",
                     "description": "Para a defensa, representación, información e formación dos consumidores frente aos abusos de entidades bancarias, empresas e entidades privadas."
                 },
                 {
-                    "title": "XUNCO (centro de día)",
+                    "title": "Xunco (centro de día)",
                     "phone": [
                         "981 949 877"
                     ],
                     "contact": "Eva Gónzalez",
                     "description": "Centro de día para maiores e discapacitados. Programa de coidados innovador, terapia ocupacional, enfermería, salón de peiteado, ximnasio, patio exterior e transporte; programas de psicoestimulación cognitiva, estimulación física, habilidades sociais, adecuación á contorna e de actividades básicas."
-                },
+                }
             ]
         },
         {
@@ -234,9 +250,11 @@
             "title": "Lecer",
             "activities": [
                 {
-                    "title": "SAÍDAS E VISITAS CULTURAIS",
-                    "schedule": ["Actualizadas mensualmente"],
-                    "description": "Breve descrición:\nDende a Sede organízanse actividades culturais complementarias como visita a museos e exposición, celebración, viaxes culturais, conferencias, etc.",
+                    "title": "Saídas e visitas culturais",
+                    "schedule": [
+                        "Actualizadas mensualmente"
+                    ],
+                    "description": "Dende a Sede organízanse actividades culturais complementarias como visita a museos e exposición, celebración, viaxes culturais, conferencias, etc.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
                         "981 356 202",
@@ -245,13 +263,15 @@
                     "email": "ferrol@ategal.com"
                 },
                 {
-                    "title": "Faite Voluntario/a en ATEGAL",
-                    "schedule": ["Personalizable"],
-                    "description": "Breve descrición:\nATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867.\nTraballamos na área cultural e social, fundamentalmente. Infórmate como colaborar.",
+                    "title": "Faite voluntario/a en ATEGAL",
+                    "schedule": [
+                        "Personalizable"
+                    ],
+                    "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social, fundamentalmente. Infórmate como colaborar.",
                     "address": "Galiano 17, 1º, 15402 Ferrol",
                     "phone": [
-                        "981 356 202",
-                        "634 910 118"
+                        "981356202",
+                        "634910118"
                     ],
                     "email": "ferrol@ategal.com"
                 }
@@ -272,7 +292,7 @@
                     "description": "Maiores: Axuda trámites botón teleasistencia, etc."
                 },
                 {
-                    "title": "AGADEA",
+                    "title": "Agadea",
                     "phone": [
                         "981595738"
                     ],
@@ -294,16 +314,16 @@
                     "contact": "Rebeca"
                 },
                 {
-                    "title": "SARAIVA. En Milladoiro, A Coruña, Pontevedra, Poio e Marín",
+                    "title": "Saraia. En Milladoiro, A Coruña, Pontevedra, Poio e Marín",
                     "phone": [
-                        "986 104 561"
+                        "986104561"
                     ],
                     "contact": "Lucía"
                 },
                 {
                     "title": "Residencias Raiola",
                     "phone": [
-                        "981 940 048"
+                        "981940048"
                     ],
                     "contact": "Carmen"
                 },

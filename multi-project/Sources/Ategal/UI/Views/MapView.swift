@@ -20,15 +20,19 @@ struct MapView: View {
         let address: String
     }
     
+    #if canImport(Darwin)
     @State
     var mapPosition: MapCameraPosition
-        
+    #endif
+    
     init(place: Item) {
         self.places = [place]
+        #if canImport(Darwin)
         _mapPosition = State(initialValue: .region(.init(
             center: place.coordinate,
             span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1)
         )))
+        #endif
     }
     
     var body: some View {
@@ -52,7 +56,7 @@ struct MapView: View {
                 latitudes: places.map(\.latitude),
                 longitudes: places.map(\.longitude),
                 titles: places.map(\.title),
-                subtitles: places.map { $0.subtitle ?? "" }
+                subtitles: places.map { $0.address }
             )
         }
         #endif
@@ -84,7 +88,7 @@ struct MapComposer: ContentComposer {
             cameraPositionState: rememberCameraPositionState {
                 position = CameraPosition.fromLatLngZoom(
                     LatLng(defaultLat, defaultLng),
-                    Float(1.0)
+                    Float(16.0)
                 )
             },
             uiSettings = MapUiSettings(
@@ -119,6 +123,9 @@ extension Center {
     }
 }
 
+#if canImport(Darwin)
+import CoreLocation
+
 private extension MapView.Item {
     
     var coordinate: CLLocationCoordinate2D {
@@ -128,3 +135,4 @@ private extension MapView.Item {
         )
     }
 }
+#endif

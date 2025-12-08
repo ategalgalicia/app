@@ -33,9 +33,7 @@ struct CityListView: View {
                         .foregroundStyle(ColorsPalette.textPrimary)
                     
                     Text("city-list-subtitle")
-                        .font(.title3)
-                        .fontWeight(.regular)
-                        .foregroundStyle(ColorsPalette.textPrimary)
+                        .primaryTitle()
                 }
                     
                 ContentList(

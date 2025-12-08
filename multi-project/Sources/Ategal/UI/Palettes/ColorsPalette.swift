@@ -5,12 +5,13 @@
 import SwiftUI
 
 struct ColorsPalette {
-    static let primary        = Color(hex: "#008DCB")
-    static let background     = Color(hex: "#FFFFFF")
-    static let cardBackground = Color(hex: "#F4F7F8")
-    static let textPrimary    = Color(hex: "#1A1A1A")
-    static let textSecondary  = Color(hex: "#6B6B6B")
-    static let textTertiary   = Color(hex: "#F4F4F4")
+    static let primary          = Color(hex: "#008DCB")
+    static let background       = Color(hex: "#FFFFFF")
+    static let cardBackground   = Color(hex: "#F4F7F8")
+    static let textPrimary      = Color(hex: "#1A1A1A")
+    static let textSecondary    = Color(hex: "#6B6B6B")
+    static let textTertiary     = Color(hex: "#F4F4F4")
+    static let border           = Color(hex: "#F5F5F5")
 }
 
 extension Color {

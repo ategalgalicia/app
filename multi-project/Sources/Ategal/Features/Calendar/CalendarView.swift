@@ -133,7 +133,7 @@ struct CalendarView: View {
         )
         .cornerBackground()
         #else
-        Link(destination: ExternalActions.shared.url(for: event)) {
+        Link(destination: ExternalActions.shared.androidCalendar(for: event)) {
             label(for: event)
         }
         .cornerBackground()

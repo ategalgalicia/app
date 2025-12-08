@@ -39,9 +39,7 @@ struct CategoryView: View {
                         .foregroundStyle(ColorsPalette.textPrimary)
                     
                     Text("category-subtitle")
-                        .font(.title3)
-                        .fontWeight(.regular)
-                        .foregroundStyle(ColorsPalette.textPrimary)
+                        .primaryTitle()
                 }
                     
                 ContentList(
@@ -64,9 +62,7 @@ struct CategoryView: View {
         if let resources = category.resources, !resources.isEmpty {
             VStack(alignment: .leading, spacing: 24) {
                 Text("resource-header-title")
-                    .font(.title3)
-                    .fontWeight(.regular)
-                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .primaryTitle()
                 
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(resources) {
