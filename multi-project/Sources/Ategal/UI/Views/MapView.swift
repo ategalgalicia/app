@@ -27,12 +27,14 @@ struct MapView: View {
         self.places = [place]
         _mapPosition = State(initialValue: .region(.init(
             center: place.coordinate,
-            span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)
+            span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1)
         )))
     }
     
     var body: some View {
         contentView
+            .frame(height: 200)
+            .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
     }
 
     @ViewBuilder
@@ -43,9 +45,7 @@ struct MapView: View {
                 Marker($0.address, coordinate: $0.coordinate)
             }
         }
-        
         .mapStyle(.standard)
-        .allowsHitTesting(false)
         #else
         ComposeView {
             MapComposer(
@@ -84,7 +84,7 @@ struct MapComposer: ContentComposer {
             cameraPositionState: rememberCameraPositionState {
                 position = CameraPosition.fromLatLngZoom(
                     LatLng(defaultLat, defaultLng),
-                    Float(7.0)
+                    Float(1.0)
                 )
             },
             uiSettings = MapUiSettings(

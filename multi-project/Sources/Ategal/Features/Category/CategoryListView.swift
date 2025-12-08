@@ -52,6 +52,14 @@ struct CategoryListView: View {
                         navigationPath.append(.navigateToCategory)
                     }
                 )
+                
+                LinkView(
+                    phoneNumbers: center.phone,
+                    email: center.email,
+                    address: center.address
+                )
+                
+                MapView(place: center.place)
             }
             .padding(16)
         }

@@ -7,7 +7,7 @@
   "phone": [
     "982377814"
   ],
-  "email": "@",
+  "email": "monterroso@ategal.com",
   "categories": [
       {
         "id": "02",
@@ -16,12 +16,12 @@
           {
             "title": "INFORMÁTICA PARA MAIORES",
             "schedule": ["Venres de 16:00h a 18:00h"],
-            "description": "Espazo onde se levan a cabo aprendizaxes técnicas nas novas tecnoloxías, correo electrónico, relacións institucionais, e-saúde, banca electrónica, redes sociais, acercamento á familia (whatsapp, videoconferencias, …)",
+            "description": "Espazo onde se levan a cabo aprendizaxes técnicas nas novas tecnoloxías, correo electrónico, relacións institucionais, e-saúde, banca electrónica, redes sociais, acercamento á familia (whatsapp, videoconferencias)",
             "address": "Espazo Lorenzo Varela. Rúa Falcatrueiros, S/N, 27551",
             "phone": [
               "982377814"
             ],
-            "email": "@"
+            "email": "monterroso@ategal.com"
           }
         ],
         "resources": [
@@ -45,7 +45,7 @@
           "phone": [
             "982377814"
           ],
-          "email": "@"
+          "email": "monterroso@ategal.com"
         },
         {
           "title": "OBRADOIRO DE MEMORIA",
@@ -55,7 +55,7 @@
           "phone": [
             "982377814"
           ],
-          "email": "@"
+          "email": "monterroso@ategal.com"
         },
       ],
       "resources": [

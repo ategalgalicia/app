@@ -294,16 +294,6 @@
         }
       }
     },
-    "more-info-header-title" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Podes contactar connosco:"
-          }
-        }
-      }
-    },
     "posts-no-data" : {
       "localizations" : {
         "gl-ES" : {

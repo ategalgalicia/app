@@ -1,299 +1,273 @@
 {
-  "id": "04",
-  "city": "Ourense",
-  "address": "Rúa Progreso 66, 32003",
-  "latitude": 42.3362,
-  "longitude": -7.8658,
-  "phone": [
-    "988215077",
-    "634910125"
-  ],
-  "email": "ourense@ategal.com",
-  "categories": [
-    {
-      "id": "01",
-      "title": "Cultural",
-      "activities": [
+    "id": "04",
+    "city": "Ourense",
+    "address": "Rúa Progreso 66, 32003",
+    "latitude": 42.3362,
+    "longitude": -7.8658,
+    "phone": [
+        "988215077",
+        "634910125"
+    ],
+    "email": "ourense@ategal.com",
+    "categories": [
         {
-          "title": "FRANCÉS",
-          "schedule": ["Mércores 12:00h a 13:00h"],
-          "description": "Achegamento á lingua francesa para entender, comprender e poder comunicarse. Nas clases fálase en francés, lense libros e visualízanse curtametraxes.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
+            "id": "01",
+            "title": "Cultural",
+            "activities": [
+                {
+                    "title": "FRANCÉS",
+                    "schedule": ["Mércores 12:00h a 13:00h"],
+                    "description": "Achegamento á lingua francesa para entender, comprender e poder comunicarse. Nas clases fálase en francés, lense libros e visualízanse curtametraxes.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "LITERATURA",
+                    "schedule": ["Luns 18:00h a 19:00h"],
+                    "description": "Espazo para gozar da lectura, coñecer autores inesquecibles e deixar voar a creatividade. Viaxe dende os mitos clásicos ata a literatura contemporánea, con lecturas compartidas.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "HISTORIA DE OURENSE",
+                    "schedule": ["Mércores 18:30h a 19:30h"],
+                    "description": "Percorrido polas historias, lendas e anécdotas máis curiosas da cidade. Entre termas, rúas e segredos, visitas culturais para descubrir Ourense con outra ollada.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "HISTORIA DA ARTE",
+                    "schedule": ["Luns 18:30h a 19:30h"],
+                    "description": "Viaxe amena pola Historia da Arte para descubrir cadros, esculturas e movementos cunha ollada accesible, chea de curiosidades e anécdotas.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "GALEGO",
+                    "schedule": ["Martes de 18:00h a 19:00h"],
+                    "description": "Sesións centradas na aprendizaxe activa da lingua galega mediante exercicios comunicativos, xogos lingüísticos e actividades participativas para mellorar a comprensión e expresión oral e escrita.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "ANTROPOLOXÍA",
+                    "schedule": ["Mércores de 19:00h a 20:00h"],
+                    "description": "Percorrido práctico e divertido polo mundo das culturas; xogos, comparación de costumes e curiosidades para comprender o que nos fai únicos como seres humanos.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                }
+            ],
+            "resources": [
+                {
+                    "title": "Centro Cultural Marcos Valcárcel",
+                    "web": "https://www.centroculturaldeourense.com/",
+                    "phone": [
+                        "988317895"
+                    ]
+                },
+                {
+                    "title": "LICEO RECREO OURENSANO",
+                    "web": "https://www.liceodeourense.com/2.0/",
+                    "phone": [
+                        "988220650"
+                    ],
+                    "description": "O “Liceo de Ourense” é unha entidade cultural e de ocio, con 170 anos de antiguedade, Nel acollense distintas asociacións que non teñen un lugar axeitado para desenrolar as súas actividades"
+                },
+                {
+                    "title": "Programa Universitario de Maiores da UVIGO",
+                    "web": "https://maiores.uvigo.es/gl/",
+                    "phone": [
+                        "988387102"
+                    ],
+                    "email": "asc-ou@uvigo.gal"
+                },
+                {
+                    "title": "CURSOS INFORMÁTICA ENTIDADES. FUNDACIÓN ESPLAI",
+                    "web": "https://fundacionesplai.org/",
+                    "phone": [
+                        "986201871"
+                    ],
+                    "contact": "Miguel",
+                    "description": "Proxectos e programas para promover o empoderamento cidadán e a inclusión TIC."
+                },
+                {
+                    "title": "SOLIDARIEDADE INTERNACIONAL GALICIA",
+                    "web": "https://solidaridadgalicia.org/",
+                    "phone": [
+                        "650984188"
+                    ],
+                    "contact": "Ana"
+                },
+                {
+                    "title": "Afundación",
+                    "web": "https://afundacion.org/es/envejecimiento",
+                    "phone": [
+                        "988236303"
+                    ],
+                    "email:": "mais60ourense@afundacion.org",
+                    "description": "Entidade sen fin de lucro con área dedicada ás persoas maiores."
+                }
+            ]
         },
         {
-          "title": "LITERATURA",
-          "schedule": ["Luns 18:00h a 19:00h"],
-          "description": "Espazo para gozar da lectura, coñecer autores inesquecibles e deixar voar a creatividade. Viaxe dende os mitos clásicos ata a literatura contemporánea, con lecturas compartidas.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
+            "id": "02",
+            "title": "Ocupacional",
+            "activities": [
+                {
+                    "title": "TECNOLOXÍAS",
+                    "schedule": ["Martes 19:00h a 20:00h"],
+                    "description": "Trucos e boas prácticas para sacarlle partido ao móbil: WhatsApp, apps útiles e configuracións prácticas nun curso ameno e sen medo.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "TEATRO",
+                    "schedule": ["Luns de 17:00h a 18:30h"],
+                    "description": "Creatividade e confianza nun entorno respectuoso e adaptado. Metodoloxía activa e participativa, fomentando a autonomía e o protagonismo do alumnado.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "ARTES PLÁSTICAS",
+                    "schedule": ["Luns de 10:30h a 12:30h"],
+                    "description": "Desenvolvemento da expresión artística persoal con diferentes técnicas e materiais. Ambiente distendido e participativo.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "BAILE",
+                    "schedule": ["Luns e Mércores de 10:00h a 11:00h"],
+                    "description": "Movemento ao ritmo da música para adestrar memoria, coordinación e mobilidade. Actividade que remata con enerxía e bo ánimo.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                }
+            ]
         },
         {
-          "title": "HISTORIA DE OURENSE",
-          "schedule": ["Mércores 18:30h a 19:30h"],
-          "description": "Percorrido polas historias, lendas e anécdotas máis curiosas da cidade. Entre termas, rúas e segredos, visitas culturais para descubrir Ourense con outra ollada.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
+            "id": "03",
+            "title": "Saúde",
+            "activities": [
+                {
+                    "title": "IOGA",
+                    "schedule": ["Martes e Xoves de 10:00h a 11:00h, de 11:00h a 12:00h"],
+                    "description": "Ioga para Seniors: movemento suave con conciencia, combinando ioga, mobilidade e pilates para manter axilidade e coidar corpo e mente.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "MEMORIA",
+                    "schedule": ["Venres de 17:30h a 19:00h"],
+                    "description": "Actividades prácticas con técnicas de estimulación cognitiva para fortalecer funcións cerebrais e mellorar a concentración nun ambiente motivador.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "NEURONUP",
+                    "schedule": ["A elexir polo alumnado"],
+                    "description": "Sesións personalizadas de estimulación cognitiva online creadas por profesionais da psicoloxía.",
+                    "web": "https://www.neuronup.com",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "mfares@ategal.com"
+                }
+            ],
+            "resources": [
+                {
+                    "title": "Medicina Emocional. Estefanía Zardoya",
+                    "web": "https://estefaniazardoya.es/",
+                    "phone": ["665986828"],
+                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: MEDICINADELASCAUSAS"
+                }
+            ]
         },
         {
-          "title": "HISTORIA DA ARTE",
-          "schedule": ["Luns 18:30h a 19:30h"],
-          "description": "Viaxe amena pola Historia da Arte para descubrir cadros, esculturas e movementos cunha ollada accesible, chea de curiosidades e anécdotas.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        },
-        {
-          "title": "GALEGO",
-          "schedule": ["Martes de 18:00h a 19:00h"],
-          "description": "Sesións centradas na aprendizaxe activa da lingua galega mediante exercicios comunicativos, xogos lingüísticos e actividades participativas para mellorar a comprensión e expresión oral e escrita.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        },
-        {
-          "title": "ANTROPOLOXÍA",
-          "schedule": ["Mércores de 19:00h a 20:00h"],
-          "description": "Percorrido práctico e divertido polo mundo das culturas; xogos, comparación de costumes e curiosidades para comprender o que nos fai únicos como seres humanos.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
+            "id": "04",
+            "title": "Lecer",
+            "activities": [
+                {
+                    "title": "SAÍDAS E VISITAS CULTURAIS",
+                    "schedule": ["Actualizadas mensualmente"],
+                    "description": "Actividades culturais complementarias como visitas a museos e exposicións, celebracións, viaxes culturais e conferencias.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                },
+                {
+                    "title": "Faite Voluntario/a en ATEGAL",
+                    "schedule": ["Personalizable"],
+                    "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia. Traballamos na área cultural e social. Infórmate para colaborar.",
+                    "address": "Rúa Progreso 66, 32003. Ourense",
+                    "phone": [
+                        "988215077",
+                        "634910125"
+                    ],
+                    "email": "ourense@ategal.com"
+                }
+            ],
+            "resources": [
+                {
+                    "title": "Oficina de Voluntariado. Xunta de Galicia",
+                    "web": "https://voluntariadogalego.org/es",
+                    "phone": [
+                        "981546997"
+                    ],
+                    "contact": "Teresa"
+                }
+            ]
         }
-      ],
-      "resources": [
-        {
-          "title": "Centro Cultural Marcos Valcárcel",
-          "web": "https://www.centroculturaldeourense.com/",
-          "phone": [
-            "988317895"
-          ]
-        },
-        {
-          "title": "LICEO RECREO OURENSANO",
-          "web": "https://www.liceodeourense.com/2.0/",
-          "phone": [
-            "988220650"
-          ],
-          "description": "O “Liceo de Ourense” é unha entidade cultural e de ocio, con 170 anos de antiguedade, Nel acollense distintas asociacións que non teñen un lugar axeitado para desenrolar as súas actividades"
-        },
-        {
-          "title": "Programa Universitario de Maiores da UVIGO",
-          "web": "https://maiores.uvigo.es/gl/",
-          "phone": [
-            "988387102"
-          ],
-          "email": "asc-ou@uvigo.gal"
-        },
-        {
-          "title": "CURSOS INFORMÁTICA ENTIDADES. FUNDACIÓN ESPLAI",
-          "web": "https://fundacionesplai.org/",
-          "phone": [
-            "986201871"
-          ],
-          "contact": "Miguel",
-          "description": "Proxectos e programas para promover o empoderamento cidadán e a inclusión TIC."
-        },
-        {
-          "title": "SOLIDARIEDADE INTERNACIONAL GALICIA",
-          "web": "https://solidaridadgalicia.org/",
-          "phone": [
-            "650984188"
-          ],
-          "contact": "Ana"
-        },
-        {
-          "title": "Afundación",
-          "web": "https://afundacion.org/es/envejecimiento",
-          "phone": [
-            "988236303"
-          ],
-          "email:": "mais60ourense@afundacion.org",
-          "description": "Entidade sen fin de lucro con área dedicada ás persoas maiores."
-        }
-      ]
-    },
-    {
-      "id": "02",
-      "title": "Ocupacional",
-      "activities": [
-        {
-          "title": "TECNOLOXÍAS",
-          "schedule": ["Martes 19:00h a 20:00h"],
-          "description": "Trucos e boas prácticas para sacarlle partido ao móbil: WhatsApp, apps útiles e configuracións prácticas nun curso ameno e sen medo.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        },
-        {
-          "title": "TEATRO",
-          "schedule": ["Luns de 17:00h a 18:30h"],
-          "description": "Creatividade e confianza nun entorno respectuoso e adaptado. Metodoloxía activa e participativa, fomentando a autonomía e o protagonismo do alumnado.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        },
-        {
-          "title": "ARTES PLÁSTICAS",
-          "schedule": ["Luns de 10:30h a 12:30h"],
-          "description": "Desenvolvemento da expresión artística persoal con diferentes técnicas e materiais. Ambiente distendido e participativo.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        },
-        {
-          "title": "BAILE",
-          "schedule": ["Luns e Mércores de 10:00h a 11:00h"],
-          "description": "Movemento ao ritmo da música para adestrar memoria, coordinación e mobilidade. Actividade que remata con enerxía e bo ánimo.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        }
-      ]
-    },
-    {
-      "id": "03",
-      "title": "Saúde",
-      "activities": [
-        {
-          "title": "IOGA",
-          "schedule": ["Martes e Xoves de 10:00h a 11:00h, de 11:00h a 12:00h"],
-          "description": "Ioga para Seniors: movemento suave con conciencia, combinando ioga, mobilidade e pilates para manter axilidade e coidar corpo e mente.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        },
-        {
-          "title": "MEMORIA",
-          "schedule": ["Venres de 17:30h a 19:00h"],
-          "description": "Actividades prácticas con técnicas de estimulación cognitiva para fortalecer funcións cerebrais e mellorar a concentración nun ambiente motivador.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        },
-        {
-          "title": "NEURONUP",
-          "schedule": ["A elexir polo alumnado"],
-          "description": "Sesións personalizadas de estimulación cognitiva online creadas por profesionais da psicoloxía.",
-          "web": "https://www.neuronup.com",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "mfares@ategal.com"
-        }
-      ],
-      "resources": [
-        {
-          "title": "Medicina Emocional: Estefanía Zardoya",
-          "web": "https://estefaniazardoya.es/",
-          "phone": [
-            "665986828"
-          ]
-        },
-        {
-          "title": "Clínica Dental Macía",
-          "web": "https://dentalmacia.com/es/",
-          "phone": [
-            "981521090"
-          ],
-          "description": "Centro de benestar integral con máis de 25 anos de experiencia."
-        },
-        {
-          "title": "Podóloga Cepeda",
-          "web": "https://copoga.com/clinica/es/115",
-          "phone": [
-            "981585758"
-          ],
-          "contact": "Celia"
-        }
-      ]
-    },
-    {
-      "id": "04",
-      "title": "Lecer",
-      "activities": [
-        {
-          "title": "SAÍDAS E VISITAS CULTURAIS",
-          "schedule": ["Actualizadas mensualmente"],
-          "description": "Actividades culturais complementarias como visitas a museos e exposicións, celebracións, viaxes culturais e conferencias.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        },
-        {
-          "title": "Faite Voluntario/a en ATEGAL",
-          "schedule": ["Personalizable"],
-          "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia. Traballamos na área cultural e social. Infórmate para colaborar.",
-          "address": "Rúa Progreso 66, 32003. Ourense",
-          "phone": [
-            "988215077",
-            "634910125"
-          ],
-          "email": "ourense@ategal.com"
-        }
-      ],
-      "resources": [
-        {
-          "title": "Oficina de Voluntariado. Xunta de Galicia",
-          "web": "https://voluntariadogalego.org/es",
-          "phone": [
-            "981546997"
-          ],
-          "contact": "Teresa"
-        },
-        {
-          "title": "IGAXES",
-          "web": "https://www.igaxes.org/es/",
-          "phone": [
-            "618376874"
-          ],
-          "contact": "Chelo",
-          "description": "Apoio escolar a nenos e nenas."
-        }
-      ]
-    }
-  ]
+    ]
 }

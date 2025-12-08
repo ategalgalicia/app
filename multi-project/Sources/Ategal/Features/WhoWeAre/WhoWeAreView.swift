@@ -69,7 +69,7 @@ struct WhoWeAreView: View {
         .navigationTitle("tab-who-we-are")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedCenter) { selectedCenter in
-            CenterView(center: selectedCenter)
+            CityView(center: selectedCenter)
         }
     }
     

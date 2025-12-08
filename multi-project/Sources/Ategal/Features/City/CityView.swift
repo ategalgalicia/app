@@ -5,7 +5,7 @@
 import SwiftUI
 import AtegalCore
 
-struct CenterView: View {
+struct CityView: View {
     
     let center: Center
     
@@ -33,8 +33,6 @@ struct CenterView: View {
                     .foregroundColor(ColorsPalette.textPrimary)
                 
                 MapView(place: center.place)
-                    .frame(height: 200)
-                    .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
                 
                 #if canImport(Darwin)
                 if detentSelection.isLarge {
