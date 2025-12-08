@@ -54,7 +54,6 @@ struct CategoryView: View {
                 )
                 
                 resourceView
-                moreInfoView
             }
             .padding(16)
         }
@@ -75,22 +74,21 @@ struct CategoryView: View {
                     }
                 }
             }
+            .padding(.top, 16)
         }
     }
     
     @ViewBuilder
     private func resourceCell(_ item: Center.Category.Resource) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            VStack(alignment: .leading, spacing: 8) {
-                Text(item.title)
-                    .font(.headline)
+        VStack(alignment: .leading, spacing: 8) {
+            Text(item.title)
+                .font(.subheadline)
+                .foregroundStyle(ColorsPalette.textPrimary)
+            
+            if let description = item.description {
+                Text(description)
+                    .font(.footnote)
                     .foregroundStyle(ColorsPalette.textSecondary)
-                
-                if let description = item.description {
-                    Text(description)
-                        .font(.subheadline)
-                        .foregroundStyle(ColorsPalette.textSecondary)
-                }
             }
             LinkView(
                 phoneNumbers: item.phone ?? [],
@@ -101,12 +99,5 @@ struct CategoryView: View {
         }
         .padding(16)
         .cornerBackground()
-    }
-    
-    @ViewBuilder
-    private var moreInfoView: some View {
-        if let center = dataSource.centerSelected {
-            MoreInfoView(center: center)
-        }
     }
 }

@@ -17,11 +17,18 @@ struct MapView: View {
         let latitude: Double
         let longitude: Double
         let title: String
-        let subtitle: String?
+        let address: String
     }
+    
+    @State
+    var mapPosition: MapCameraPosition
         
-    init(places: [Item]) {
-        self.places = places
+    init(place: Item) {
+        self.places = [place]
+        _mapPosition = State(initialValue: .region(.init(
+            center: place.coordinate,
+            span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)
+        )))
     }
     
     var body: some View {
@@ -31,20 +38,12 @@ struct MapView: View {
     @ViewBuilder
     private var contentView: some View {
         #if canImport(Darwin)
-        Map {
-            ForEach(places) { point in
-                Annotation(
-                    point.title,
-                    coordinate: .init(
-                        latitude: point.latitude,
-                        longitude: point.longitude
-                    )
-                ) {
-                    Image(systemName: "mappin.circle.fill")
-                        .font(.title)
-                }
+        Map(position: $mapPosition) {
+            ForEach(places) {
+                Marker($0.address, coordinate: $0.coordinate)
             }
         }
+        
         .mapStyle(.standard)
         .allowsHitTesting(false)
         #else
@@ -115,7 +114,17 @@ extension Center {
             latitude: latitude,
             longitude: longitude,
             title: city,
-            subtitle: address
+            address: address
+        )
+    }
+}
+
+private extension MapView.Item {
+    
+    var coordinate: CLLocationCoordinate2D {
+        .init(
+            latitude: latitude,
+            longitude: longitude
         )
     }
 }

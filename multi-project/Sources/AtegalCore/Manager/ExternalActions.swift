@@ -4,33 +4,16 @@
 
 import Foundation
 
+public enum MapsApp {
+    case apple, google
+}
+
 public class ExternalActions {
 
     @MainActor
     public static let shared = ExternalActions()
     
     private init() {}
-    
-    public func url(for event: Event, duration: TimeInterval = 3600) -> URL {
-        func enc(_ s: String) -> String {
-            s.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? s
-        }
-
-        let endDate = event.startDate.addingTimeInterval(duration)
-
-        let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .gregorian)
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
-
-        let startStr = formatter.string(from: event.startDate)
-        let endStr   = formatter.string(from: endDate)
-
-        let base = "https://calendar.google.com/calendar/render"
-        let query = "action=TEMPLATE&text=\(enc(event.title))&details=\(enc(event.description ?? ""))&dates=\(startStr)/\(endStr)"
-
-        return URL(string: "\(base)?\(query)")!
-    }
     
     @MainActor
     public func phoneURL(for rawPhoneNumber: String) -> URL? {
@@ -42,17 +25,13 @@ public class ExternalActions {
         return URL(string: "tel://\(sanitized)")
     }
     
-    @MainActor
-    public func googleMapsURL(for address: String) -> URL? {
-        let encoded = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? address
-        
-        #if canImport(Darwin)
-        if let appURL = URL(string: "comgooglemaps://?q=\(encoded)"),
-           UIApplication.shared.canOpenURL(appURL) {
-            return appURL
+    public func websiteURL(from raw: String) -> URL? {
+        guard !raw.isEmpty else { return nil }
+        if let url = URL(string: raw), url.scheme != nil {
+            return url
         }
-        #endif
-        return URL(string: "https://www.google.com/maps/search/?api=1&query=\(encoded)")
+        let prefixed = "https://\(raw)"
+        return URL(string: prefixed)
     }
     
     public func emailURL(to email: String, subject: String? = nil, body: String? = nil) -> URL? {
@@ -74,17 +53,30 @@ public class ExternalActions {
         return URL(string: components)
     }
     
-    public func websiteURL(from raw: String) -> URL? {
-        guard !raw.isEmpty else { return nil }
-        if let url = URL(string: raw), url.scheme != nil {
-            return url
+    public func androidCalendar(for event: Event, duration: TimeInterval = 3600) -> URL {
+        func enc(_ s: String) -> String {
+            s.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? s
         }
-        let prefixed = "https://\(raw)"
-        return URL(string: prefixed)
+
+        let endDate = event.startDate.addingTimeInterval(duration)
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
+
+        let startStr = formatter.string(from: event.startDate)
+        let endStr   = formatter.string(from: endDate)
+
+        let base = "https://calendar.google.com/calendar/render"
+        let query = "action=TEMPLATE&text=\(enc(event.title))&details=\(enc(event.description ?? ""))&dates=\(startStr)/\(endStr)"
+
+        return URL(string: "\(base)?\(query)")!
     }
     
-    enum Error: Swift.Error {
-        case notSupported
+    @MainActor
+    public func androidMapsURL(for address: String) -> URL? {
+        let encoded = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? address
+        return URL(string: "https://www.google.com/maps/search/?api=1&query=\(encoded)")
     }
 }
 
@@ -96,6 +88,24 @@ import EventKit
 import UIKit
 
 public extension ExternalActions {
+    
+    @MainActor
+    func open(on app: MapsApp, lat: Double, lon: Double) {
+        switch app {
+        case .apple:
+            let url = URL(string: "http://maps.apple.com/?daddr=\(lat),\(lon)&dirflg=d")!
+            UIApplication.shared.open(url)
+        case .google:
+            let appScheme = URL(string: "comgooglemaps://")!
+            if UIApplication.shared.canOpenURL(appScheme) {
+                let url = URL(string: "comgooglemaps://?daddr=\(lat),\(lon)&directionsmode=driving")!
+                UIApplication.shared.open(url)
+            } else {
+                let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(lat),\(lon)")!
+                UIApplication.shared.open(url)
+            }
+        }
+    }
 
     @MainActor
     func addToAppleCalendar(event: Event) async -> Bool {

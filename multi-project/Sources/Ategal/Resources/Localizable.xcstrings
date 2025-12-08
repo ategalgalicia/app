@@ -29,7 +29,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se queres apuntarte a un curso, podes escribirnos ou chamarnos. Estaremos encantados de axudarte co rexistro."
+            "value" : "Se queres participar nun curso, podes chamarnos ou escribirnos. Estaremos encantados de axudarche coa inscrición."
           }
         }
       }
@@ -49,7 +49,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Busca una actividad"
+            "value" : "Busca unha actividade"
           }
         }
       }
@@ -69,7 +69,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O evento foi engadido ao teu calendario"
+            "value" : "O evento engadiuse ao teu calendario"
           }
         }
       }
@@ -114,12 +114,22 @@
         }
       }
     },
+    "cancel" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
     "category-subtitle" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Explora actividades ou procura un recurso que che interese"
+            "value" : "Explora actividades ou busca recursos que che interesen"
           }
         }
       }
@@ -139,7 +149,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona unha categoría para explorar cursos, recursos e actividades relacionadas"
+            "value" : "Escolle unha categoría para descubrir cursos, recursos e actividades relacionadas"
           }
         }
       }
@@ -154,22 +164,12 @@
         }
       }
     },
-    "center-action" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Navegar ata o centro"
-          }
-        }
-      }
-    },
     "city-list-subtitle" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona un centro e descubre os cursos, recursos e actividades que ofrece"
+            "value" : "Selecciona un centro e descubre os cursos, recursos e actividades dispoñibles"
           }
         }
       }
@@ -199,7 +199,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Produciuse un erro. Téntao de novo máis tarde"
+            "value" : "Produciuse un erro. Ténta o de novo máis tarde"
           }
         }
       }
@@ -269,7 +269,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Realizada gracias ao apoio da Xunta de Galicia"
+            "value" : "Realizado grazas ao apoio da Xunta de Galicia"
           }
         }
       }
@@ -279,7 +279,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Explora actividades por día, cidade ou categoría"
+            "value" : "Explora actividades por día, cidade ou actividade"
           }
         }
       }
@@ -299,7 +299,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quedouche algunha dúbida? Contáctanos"
+            "value" : "Podes contactar connosco:"
           }
         }
       }
@@ -319,7 +319,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artigos, noticias e reflexións para manterte ao día"
+            "value" : "Artigos, novidades e reflexións para manterte ao día"
           }
         }
       }
@@ -329,7 +329,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recursos útiles relacionados coa actividade"
+            "value" : "Recursos relacionados que poden serche útiles"
           }
         }
       }
@@ -379,7 +379,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Como contactar"
+            "value" : "Como contactar con nós"
           }
         }
       }
@@ -389,7 +389,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se tes dúbidas ou queres máis información, podes:\n• Chamarnos ao teléfono do teu centro\n• Enviar un correo electrónico á administración\n• Preguntar directamente no centro en horario de oficina"
+            "value" : "Se tes dúbidas ou queres máis información, podes\n• Chamarnos ao teléfono do teu centro\n• Enviar un correo electrónico á administración\n• Preguntar directamente no centro en horario de oficina"
           }
         }
       }
@@ -399,7 +399,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ATEGAL é unha asociación cultural para persoas maiores, que organiza actividades formativas, culturais e de ocio en diferentes centros de Galicia."
+            "value" : "ATEGAL é unha asociación cultural para persoas maiores que organiza actividades formativas, culturais e de ocio en distintos centros de Galicia."
           }
         }
       }
@@ -449,7 +449,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Temos centros en distintas cidades de Galicia, sendo Santiago de Compostela a sede principal."
+            "value" : "Contamos con centros en distintas cidades de Galicia, sendo Santiago de Compostela a nosa sede principal."
           }
         }
       }

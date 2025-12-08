@@ -15,6 +15,8 @@ struct CenterView: View {
     var body: some View {
         NavigationStack {
             contentView
+                .navigationTitle("ategal-title")
+                .navigationBarTitleDisplayMode(.inline)
         }
         .tint(ColorsPalette.textPrimary)
         .presentationDetents(detents: [.medium, .large], selection: $detentSelection)
@@ -26,52 +28,36 @@ struct CenterView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                Text(center.city)
+                    .font(.title.bold())
+                    .foregroundColor(ColorsPalette.textPrimary)
                 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(center.city)
-                        .font(.title.bold())
-                        .foregroundColor(ColorsPalette.textPrimary)
-                    
-                    Text(center.address)
-                        .font(.subheadline)
-                        .foregroundColor(ColorsPalette.textSecondary)
-                }
-                
-                MapView(places: [center.place])
+                MapView(place: center.place)
                     .frame(height: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
                 
-                moreInfoView
+                #if canImport(Darwin)
+                if detentSelection.isLarge {
+                    linkView
+                } else {
+                    LinkView(address: center.address)
+                }
+                #else
+                linkView
+                #endif
             }
             .padding(16)
         }
         .toolbarWithDismissButton()
-        .actionView {
-            if let url = ExternalActions.shared.googleMapsURL(for: center.address) {
-                Link(destination: url) {
-                    Text("center-action")
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(ColorsPalette.textTertiary)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
-                        .cornerBackground(ColorsPalette.primary)
-                        .padding(16)
-                }
-            }
-        }
     }
     
     @ViewBuilder
-    private var moreInfoView: some View {
-        #if canImport(Darwin)
-        if detentSelection.isLarge {
-            MoreInfoView(center: center)
-        }
-        #else
-        MoreInfoView(center: center)
-        #endif
+    private var linkView: some View {
+        LinkView(
+            phoneNumbers: center.phone,
+            email: center.email,
+            address: center.address
+        )
     }
 }
 

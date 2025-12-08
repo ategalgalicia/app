@@ -71,31 +71,48 @@ struct ActivitySearchView: View {
             }
         } label: {
             VStack(alignment: .leading, spacing: 0) {
-                Text(title)
-                    .font(.body.weight(.regular))
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal, 16)
-                    .padding(.top, 16)
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach(centers) {
-                            Text($0.city)
-                                .font(.caption)
-                                .foregroundStyle(ColorsPalette.textPrimary)
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 8)
-                                .cornerBackground(ColorsPalette.background)
-                        }
-                    }
-                    .padding(16)
-                }
+                item(title)
+                cities(centers)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentRectangleShape()
         .cornerBackground()
+    }
+    
+    @ViewBuilder
+    private func item(_ title: String) -> some View {
+        HStack(spacing: 16) {
+            Text(title)
+                .font(.body.weight(.regular))
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .multilineTextAlignment(.leading)
+
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+                .foregroundStyle(ColorsPalette.primary)
+                .accessibilityHidden(true)
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, 16)
+    }
+    
+    @ViewBuilder
+    private func cities(_ centers: [Center]) -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(centers) {
+                    Text($0.city)
+                        .font(.caption)
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .cornerBackground(ColorsPalette.background)
+                }
+            }
+            .padding(16)
+        }
     }
     
     @ViewBuilder

@@ -52,7 +52,6 @@ struct CategoryListView: View {
                         navigationPath.append(.navigateToCategory)
                     }
                 )
-                MoreInfoView(center: center)
             }
             .padding(16)
         }

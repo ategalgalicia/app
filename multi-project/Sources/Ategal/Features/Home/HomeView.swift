@@ -206,7 +206,7 @@ struct HomeView: View {
                 .font(.caption2)
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .combinedAccessibility()
-                .frame(width: 100)
+                .frame(width: 90)
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .padding(.vertical, 24)

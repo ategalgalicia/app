@@ -95,50 +95,17 @@ struct ActivityView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         Text("activity-action-subtitle")
                             .font(.subheadline)
+                            .foregroundColor(ColorsPalette.textPrimary)
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .multilineTextAlignment(.leading)
                         
-                        if let email = center.email, let url = ExternalActions.shared.emailURL(to: email) {
-                            Link(destination: url) {
-                                Label {
-                                    Text(email)
-                                        .underline(true)
-                                } icon: {
-                                    Image(systemName: "envelope.fill")
-                                        .foregroundStyle(ColorsPalette.primary)
-                                        .frame(width: 24)
-                                }
-                                .font(.title3)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(16)
-                                .cornerBackground()
-                            }
-                            
-                        }
-                        if !center.phone.isEmpty {
-                            ForEach(center.phone, id: \.self) { number in
-                                if let url = ExternalActions.shared.phoneURL(for: number) {
-                                    Link(destination: url) {
-                                        Label {
-                                            Text(number)
-                                                .underline(true)
-                                        } icon: {
-                                            Image(systemName: "phone.fill")
-                                                .foregroundStyle(ColorsPalette.primary)
-                                                .frame(width: 24)
-                                        }
-                                        .font(.title3)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .padding(16)
-                                        .cornerBackground()
-                                    }
-                                }
-                            }
-                        }
+                        LinkView(
+                            phoneNumbers: center.phone,
+                            email: center.email
+                        )
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(ColorsPalette.textPrimary)
                     .padding(16)
                 }
                 .navigationTitle("activity-action")
@@ -147,7 +114,7 @@ struct ActivityView: View {
             }
             .background(ColorsPalette.background)
             .tint(ColorsPalette.primary)
-            .presentationDetents(detents: [.medium])
+            .presentationDetents([.medium])
         }
     }
 }

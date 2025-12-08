@@ -6,10 +6,23 @@ import SwiftUI
 
 extension View {
     
-    func cornerBackground(_ color: Color = ColorsPalette.cardBackground, radius: CGFloat = 16) -> some View {
+    func cornerBackground(
+        _ color: Color = ColorsPalette.cardBackground,
+        radius: CGFloat = 16
+    ) -> some View {
         self
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: radius, style: .continuous))
+    }
+    
+    func cornerBorder(
+        _ color: Color = ColorsPalette.textSecondary.opacity(0.4),
+        width: CGFloat = 1,
+        radius: CGFloat = 16
+    ) -> some View {
+        let shape = RoundedRectangle(cornerRadius: radius)
+        return clipShape(shape)
+            .overlay(shape.strokeBorder(color, lineWidth: width))
     }
     
     func toolbarWithDismissButton(shouldShowDismissButton: Bool = true) -> some View {
