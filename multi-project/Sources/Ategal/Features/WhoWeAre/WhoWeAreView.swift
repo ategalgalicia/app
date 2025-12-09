@@ -144,7 +144,8 @@ struct WhoWeAreView: View {
                     HStack(alignment: .center, spacing: 8) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(center.city)
-                                .font(.subheadline.bold())
+                                .font(.subheadline)
+                                .fontWeight(.medium)
                                 .foregroundColor(ColorsPalette.textPrimary)
                             
                             Text(center.address)
