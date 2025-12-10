@@ -8,10 +8,10 @@ public enum MapsApp {
     case apple, google
 }
 
-public class ExternalActions {
+public class LinkManager {
 
     @MainActor
-    public static let shared = ExternalActions()
+    public static let shared = LinkManager()
     
     private init() {}
     
@@ -87,7 +87,7 @@ public class ExternalActions {
 import EventKit
 import UIKit
 
-public extension ExternalActions {
+public extension LinkManager {
     
     @MainActor
     func open(on app: MapsApp, lat: Double, lon: Double) {

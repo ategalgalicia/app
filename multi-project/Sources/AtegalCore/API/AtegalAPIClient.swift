@@ -7,7 +7,7 @@ import Foundation
 public class AtegalAPIClient: APIClient, @unchecked Sendable {
     
     public init(
-        environment: AtegalEnvironment,
+        environment: AtegalEnvironment = .init(host: .production),
         networkFetcher: APIClientFetcher? = nil
     ) {
         super.init(environment: environment, fetcher: networkFetcher)

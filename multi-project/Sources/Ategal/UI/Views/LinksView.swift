@@ -28,18 +28,18 @@ struct LinkView: View {
         VStack(alignment: .leading, spacing: 8) {
             if !phoneNumbers.isEmpty {
                 ForEach(phoneNumbers, id: \.self) { number in
-                    if let url = ExternalActions.shared.phoneURL(for: number) {
+                    if let url = LinkManager.shared.phoneURL(for: number) {
                         LinkButton(title: number, kind: .icon("phone.fill"), url: url)
                     }
                 }
             }
-            if let email, let url = ExternalActions.shared.emailURL(to: email) {
+            if let email, let url = LinkManager.shared.emailURL(to: email) {
                 LinkButton(title: email, kind: .icon("envelope.fill"), url: url)
             }
             if let address {
                 MapLinkButton(address: address, lat: 0, lon: 0)
             }
-            if let website, let url = ExternalActions.shared.websiteURL(from: website) {
+            if let website, let url = LinkManager.shared.websiteURL(from: website) {
                 LinkButton(title: website, kind: .icon("star.fill"), url: url)
             }
         }
@@ -69,19 +69,19 @@ struct MapLinkButton: View {
             titleVisibility: .hidden
         ) {
             Button {
-                ExternalActions.shared.open(on: .apple, lat: lat, lon: lon)
+                LinkManager.shared.open(on: .apple, lat: lat, lon: lon)
             } label: {
                 Text(verbatim: "Apple Maps")
             }
             Button {
-                ExternalActions.shared.open(on: .google, lat: lat, lon: lon)
+                LinkManager.shared.open(on: .google, lat: lat, lon: lon)
             } label: {
                 Text(verbatim: "Google Maps")
             }
             Button("cancel", role: .cancel) {}
         }
         #else
-        if let url = ExternalActions.shared.androidMapsURL(for: address) {
+        if let url = LinkManager.shared.androidMapsURL(for: address) {
             LinkButton(title: address, kind: .icon("mappin.circle.fill"), url: url)
         }
         #endif

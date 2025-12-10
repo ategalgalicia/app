@@ -34,36 +34,6 @@
         }
       }
     },
-    "activity-search" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actividades"
-          }
-        }
-      }
-    },
-    "activity-search-bar" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Busca unha actividade"
-          }
-        }
-      }
-    },
-    "activity-search-picker-title" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elixe a cidade onde queres facer esta actividade"
-          }
-        }
-      }
-    },
     "add-event-calendar-subtitle" : {
       "localizations" : {
         "gl-ES" : {
@@ -310,6 +280,66 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Que queres facer hoxe?"
+          }
+        }
+      }
+    },
+    "home-resource-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atopa información útil"
+          }
+        }
+      }
+    },
+    "home-resource-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar por recursos"
+          }
+        }
+      }
+    },
+    "list-activity-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actividades"
+          }
+        }
+      }
+    },
+    "list-picker-activity-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elixe a cidade onde queres facer esta actividade"
+          }
+        }
+      }
+    },
+    "list-resource-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recursos"
+          }
+        }
+      }
+    },
+    "list-search-bar" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar"
           }
         }
       }

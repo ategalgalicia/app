@@ -18,8 +18,7 @@ import AtegalCore
     NavigationStack {
         HomeView(
             navigationPath: $navigationPath,
-            apiClient: .init(environment: .init(host: .production)),
-            centers: []
+            apiClient: .init()
         )
         .dynamicTypeSize(.large ... .accessibility5)
     }
@@ -34,7 +33,7 @@ enum HomeRoute: Hashable {
     case navigateToCategoryList
     case navigateToCategory
     case navigateToActivity
-    case navigateToSearch
+    case navigateToSearch(SearchSource)
 }
 
 // MARK: HomeView
@@ -46,13 +45,13 @@ struct HomeView: View {
     
     @State
     var dataSource: HomeDataSource
-    
-    let apiClient: AtegalAPIClient
-    
-    init(navigationPath: Binding<[HomeRoute]>, apiClient: AtegalAPIClient, centers: [Center]) {
-        self.apiClient = apiClient
+        
+    init(
+        navigationPath: Binding<[HomeRoute]>,
+        apiClient: AtegalAPIClient
+    ) {
         self._navigationPath = navigationPath
-        self._dataSource = State(initialValue: HomeDataSource(centers: centers))
+        self.dataSource = HomeDataSource(apiClient: apiClient)
     }
     
     var body: some View {
@@ -71,7 +70,7 @@ struct HomeView: View {
         .navigationDestination(for: HomeRoute.self) {
             switch $0 {
             case .navigateToCalendar:
-                CalendarAsyncView(apiClient: apiClient)
+                CalendarAsyncView(apiClient: dataSource.apiClient)
             case .navigateToCityList:
                 CityListView(
                     dataSource: dataSource,
@@ -90,8 +89,9 @@ struct HomeView: View {
             case .navigateToActivity:
                 ActivityView(dataSource: dataSource)
                 
-            case .navigateToSearch:
-                ActivitySearchView(
+            case .navigateToSearch(let source):
+                ListSearchView(
+                    source: source,
                     dataSource: dataSource,
                     navigationPath: $navigationPath
                 )
@@ -144,7 +144,14 @@ struct HomeView: View {
                 subtitle: "home-activity-subtitle",
                 image: "list.bullet",
                 color: .indigo,
-                onTap: { navigationPath.append(.navigateToSearch) }
+                onTap: { navigationPath.append(.navigateToSearch(.activities)) }
+            )
+            itemView(
+                title: "home-resource-title",
+                subtitle: "home-resource-subtitle",
+                image: "list.bullet",
+                color: .orange,
+                onTap: { navigationPath.append(.navigateToSearch(.resources)) }
             )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -216,20 +223,34 @@ struct HomeView: View {
 @Observable
 @MainActor
 class HomeDataSource {
-    var centers: [Center]
+    
+    @ObservationIgnored
+    let apiClient: AtegalAPIClient
+    
+    @ObservationIgnored
+    let centers: [Center]
+    
+    @ObservationIgnored
     var activitiesByTitle: [String: [Center]] = [:]
+    
+    @ObservationIgnored
+    var resourceByTitle: [String: [Center]] = [:]
     
     var centerSelected: Center? = nil
     var categorySelected: Center.Category? = nil
     var activitySelected: Center.Category.Activity? = nil
         
-    init(centers: [Center]) {
-        self.centers = centers
+    init(apiClient: AtegalAPIClient) {
+        self.apiClient = apiClient
+        self.centers = apiClient.fetchCenters()
         
         centers.forEach { center in
             center.categories.forEach { category in
                 category.activities.forEach { activity in
                     activitiesByTitle[activity.title, default: []].append(center)
+                }
+                category.resources?.forEach { resource in
+                    resourceByTitle[resource.title, default: []].append(center)
                 }
             }
         }

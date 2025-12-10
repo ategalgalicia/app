@@ -86,16 +86,17 @@
                     "phone": [
                         "986201871"
                     ],
-                    "contact": "Contacto Miguel",
+                    "contact": "Miguel",
                     "description": "Fundación Esplai Ciudadanía Comprometida é unha entidade sen fin de lucro que desenvolve proxectos e programas para promover o empoderamento cidadán dende a perspectiva dos dereitos, a inclusión e a transformación social mediante o traballo en rede, a acción socioeducativa e a inclusión no ámbito das TIC"
                 },
                 {
-                    "title": "Solidariedade internacional Galicia",
+                    "title": "Solidariedade Internacional Galicia",
                     "web": "https://solidaridadgalicia.org/",
                     "phone": [
                         "650984188"
                     ],
-                    "description": "Asociación que promove unha cooperación internacional progresista, de vangarda e con capacidade de provocar cambios profundos que dignifiquen a vida das persoas"
+                    "contact": "Ana",
+                    "description": "Asociación que promove unha cooperación internacional progresista, de vangarda e con capacidade de provocar cambios profundos que dignifiquen a vida das persoas."
                 },
                 {
                     "title": "Afundación",
@@ -189,7 +190,7 @@
                     "phone": [
                         "665986828"
                     ],
-                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: Medicina de las causas."
+                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: Medicina de las causas"
                 },
                 {
                     "title": "Cruz Roja Ferrol",
@@ -231,9 +232,9 @@
                     "description": "Asociación sen animo de lucro que trata de facilitar unha mellor calidade de vida a enfermos de Alzheimer e as súas familias. Ofrécense servizos como asesoramento social, xurídico, apoio psicolóxico, formación, productos de apoio (persoais, para mellora da vivenda...)."
                 },
                 {
-                    "title": "Adicae",
+                    "title": "Adicae Galicia",
                     "web": "https://galicia.adicae.es/",
-                    "description": "Para a defensa, representación, información e formación dos consumidores frente aos abusos de entidades bancarias, empresas e entidades privadas."
+                    "description": "Para a defensa, representación, información e formación dos consumidores frente aos abusos de entidades bancarias, empresas e entidades privadas"
                 },
                 {
                     "title": "Xunco (centro de día)",
@@ -292,12 +293,12 @@
                     "description": "Maiores: Axuda trámites botón teleasistencia, etc."
                 },
                 {
-                    "title": "Agadea",
+                    "title": "Agadea. Enfermos e familiares Alzheimer",
                     "phone": [
                         "981595738"
                     ],
                     "contact": "Isabel",
-                    "description": "Enfermos e familiares Alzheimer"
+                    "description": "Somos unha entidade sen ánimo de lucro formada por persoas usuarias, familiares, profesionais e voluntarios que traballan por mellorar a calidade de vida dos afectados (enfermos e coidadores) pola enfermidade de Alzheimer e doutras demencias."
                 },
                 {
                     "title": "Centro de Días Os Avós",
@@ -314,11 +315,12 @@
                     "contact": "Rebeca"
                 },
                 {
-                    "title": "Saraia. En Milladoiro, A Coruña, Pontevedra, Poio e Marín",
+                    "title": "Saraiva",
                     "phone": [
                         "986104561"
                     ],
-                    "contact": "Lucía"
+                    "contact": "Lucía",
+                    "description": "En Milladoiro, A Coruña, Pontevedra, Poio e Marín."
                 },
                 {
                     "title": "Residencias Raiola",

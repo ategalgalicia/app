@@ -9,15 +9,10 @@ import AtegalCore
 
 // MARK: Previews
 
-@available(iOS 18, *)
 #Preview {
-    @Previewable
-    @State
-    var navigationPath: [HomeRoute] = []
-    
     NavigationStack {
         WhoWeAreView(
-            centers: []
+            apiClient: .init()
         )
         .dynamicTypeSize(.large ... .accessibility5)
     }
@@ -31,8 +26,8 @@ struct WhoWeAreView: View {
     
     let centers: [Center]
     
-    init(centers: [Center]) {
-        self.centers = centers
+    init(apiClient: AtegalAPIClient) {
+        self.centers = apiClient.fetchCenters()
     }
     
     var body: some View {

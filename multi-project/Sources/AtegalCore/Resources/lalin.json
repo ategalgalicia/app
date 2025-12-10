@@ -55,22 +55,23 @@
                     "description": "Asociación de voluntariado sen fin de lucro co obxectivo principal de apoio á inclusión de familias en risco de exclusión social."
                 },
                 {
-                    "title": "Cursos informática entidades - Fundación Esplai",
+                    "title": "Cursos informática entidades. Fundación Esplai",
                     "web": "https://fundacionesplai.org/",
                     "phone": [
                         "986201871"
                     ],
                     "contact": "Miguel",
-                    "description": "Fundación Esplai Ciudadanía Comprometida é unha entidade sen fin de lucro que desenvolve proxectos e programas para promover o empoderamento cidadán dende a perspectiva dos dereitos, a inclusión e a transformación social mediante o traballo en rede, a acción socioeducativa e a inclusión no ámbito das TIC."
+                    "description": "Fundación Esplai Ciudadanía Comprometida é unha entidade sen fin de lucro que desenvolve proxectos e programas para promover o empoderamento cidadán dende a perspectiva dos dereitos, a inclusión e a transformación social mediante o traballo en rede, a acción socioeducativa e a inclusión no ámbito das TIC"
                 },
                 {
-                    "title": "Solidariedade internacional Galicia",
+                    "title": "Solidariedade Internacional Galicia",
                     "web": "https://solidaridadgalicia.org/",
                     "phone": [
                         "650984188"
                     ],
+                    "contact": "Ana",
                     "description": "Asociación que promove unha cooperación internacional progresista, de vangarda e con capacidade de provocar cambios profundos que dignifiquen a vida das persoas."
-                }
+                },
             ]
         },
         {
@@ -166,10 +167,10 @@
                     "phone": [
                         "665986828"
                     ],
-                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021, cando empeza o seu proxecto persoal: Medicina de las causas."
+                    "description": "Médica especialista en Medicina Familiar e Comunitaria dende 2006, ademais de estar certificada en coaching con PNL dende 2013. Médica de Atención Primaria inicialmente e dende 2010, con praza en propiedade como médica de Urxencias Extrahospitalarias ata 2021 que empeza o seu proxecto personal: Medicina de las causas"
                 },
                 {
-                    "title": "Traballador/a Social Concello",
+                    "title": "Traballador/a Social Concello Lalín",
                     "phone": [
                         "986780014"
                     ],
@@ -211,11 +212,12 @@
                     "contact": "Rebeca"
                 },
                 {
-                    "title": "Saraiva. En Milladoiro, A Coruña, Pontevedra, Poio e Marín",
+                    "title": "Saraiva",
                     "phone": [
                         "986104561"
                     ],
-                    "contact": "Lucía"
+                    "contact": "Lucía",
+                    "description": "En Milladoiro, A Coruña, Pontevedra, Poio e Marín."
                 },
                 {
                     "title": "Residencias Raiola",

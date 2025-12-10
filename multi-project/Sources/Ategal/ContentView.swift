@@ -33,15 +33,14 @@ struct ContentView: View {
             NavigationStack(path: $navigationHome) {
                 HomeView(
                     navigationPath: $navigationHome,
-                    apiClient: world.apiClient,
-                    centers: world.centers
+                    apiClient: world.apiClient
                 )
             }
             .tabItem { Label("tab-home", systemImage: "house.fill") }
             .tag(ContentTab.home)
             
             NavigationStack {
-                WhoWeAreView(centers: world.centers)
+                WhoWeAreView(apiClient: world.apiClient)
             }
             .tabItem { Label("tab-who-we-are", systemImage: "person.crop.circle") }
             .tag(ContentTab.whoWeAre)

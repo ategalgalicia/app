@@ -120,7 +120,7 @@ struct CalendarView: View {
         #if canImport(Darwin)
         AsyncButton(
             action: {
-                isOK = await ExternalActions.shared.addToAppleCalendar(event: event)
+                isOK = await LinkManager.shared.addToAppleCalendar(event: event)
             },
             label: {
                 label(for: event)
@@ -133,7 +133,7 @@ struct CalendarView: View {
         )
         .cornerBackground()
         #else
-        Link(destination: ExternalActions.shared.androidCalendar(for: event)) {
+        Link(destination: LinkManager.shared.androidCalendar(for: event)) {
             label(for: event)
         }
         .cornerBackground()

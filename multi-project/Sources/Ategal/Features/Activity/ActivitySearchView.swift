@@ -5,7 +5,13 @@
 import SwiftUI
 import AtegalCore
 
-struct ActivitySearchView: View {
+enum SearchSource {
+    case activities, resources
+}
+
+struct ListSearchView: View {
+    
+    let source: SearchSource
     
     @Bindable
     var dataSource: HomeDataSource
@@ -26,7 +32,12 @@ struct ActivitySearchView: View {
     }
     
     private var items: [String] {
-        let base = dataSource.sortedActivities
+        let base: [String] = {
+            switch source {
+            case .activities: dataSource.sortedActivities
+            case .resources: dataSource.sortedResources
+            }
+        }()
         if searchText.isEmpty {
             return base
         } else {
@@ -39,11 +50,16 @@ struct ActivitySearchView: View {
     var body: some View {
         contentView
             .background(ColorsPalette.background)
-            .navigationTitle("activity-search")
+            .navigationTitle(source.title)
             .navigationBarTitleDisplayMode(.inline)
-            .platformSearchable(text: $searchText, prompt: "activity-search-bar")
+            .platformSearchable(text: $searchText, prompt: "list-search-bar")
             .sheet(item: $selection) {
-                picker(selection: $0)
+                switch source {
+                case .activities:
+                    activityPicker(selection: $0)
+                case .resources:
+                    resourcePicker(selection: $0)
+                }
             }
     }
     
@@ -54,48 +70,29 @@ struct ActivitySearchView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
                 ForEach(items, id: \.self) { title in
-                    cell(title, centers: dataSource.centers(for: title))
+                    let centers = dataSource.centers(for: title)
+                    Button {
+                        cellAction(title, centers: centers)
+                    } label: {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(title)
+                                .font(.body.weight(.regular))
+                                .foregroundStyle(ColorsPalette.textSecondary)
+                                .multilineTextAlignment(.leading)
+                            
+                            if source.isActivity {
+                                cities(centers)
+                            }
+                        }
+                        .padding(16)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .contentRectangleShape()
+                    .cornerBackground()
                 }
             }
             .padding(.horizontal, 16)
         }
-    }
-    
-    @ViewBuilder
-    private func cell(_ title: String, centers: [Center]) -> some View {
-        Button {
-            if centers.count == 1, let center = centers.first {
-                navigateToActivity(title: title, center: center)
-            } else {
-                selection = .init(title: title, centers: centers)
-            }
-        } label: {
-            VStack(alignment: .leading, spacing: 0) {
-                item(title)
-                cities(centers)
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .contentRectangleShape()
-        .cornerBackground()
-    }
-    
-    @ViewBuilder
-    private func item(_ title: String) -> some View {
-        HStack(spacing: 16) {
-            Text(title)
-                .font(.body.weight(.regular))
-                .foregroundStyle(ColorsPalette.textSecondary)
-                .multilineTextAlignment(.leading)
-
-            Spacer()
-            
-            Image(systemName: "chevron.right")
-                .foregroundStyle(ColorsPalette.primary)
-                .accessibilityHidden(true)
-        }
-        .padding(.horizontal, 16)
-        .padding(.top, 16)
     }
     
     @ViewBuilder
@@ -111,19 +108,16 @@ struct ActivitySearchView: View {
                         .cornerBackground(ColorsPalette.background)
                 }
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
         }
     }
     
     @ViewBuilder
-    private func picker(selection: Selection) -> some View {
+    private func activityPicker(selection: Selection) -> some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 16) {
-                    Text("activity-search-picker-title")
-                        .font(.body)
-                        .multilineTextAlignment(.leading)
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("list-picker-activity-title")
+                        .primaryTitle()
                     
                     VStack(spacing: 8) {
                         ForEach(selection.centers) { center in
@@ -163,7 +157,54 @@ struct ActivitySearchView: View {
         .presentationDetents([.medium])
     }
     
+    @ViewBuilder
+    private func resourcePicker(selection: Selection) -> some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    if let item = dataSource.resource(forResourceTitle: selection.title) {
+                        
+                        Text(item.title)
+                            .primaryTitle()
+                        
+                        VStack(alignment: .leading, spacing: 16) {
+                            if let description = item.description {
+                                Text(description)
+                                    .font(.body)
+                                    .multilineTextAlignment(.leading)
+                            }
+                            LinkView(
+                                phoneNumbers: item.phone ?? [],
+                                email: nil,
+                                website: item.web,
+                                address: item.address
+                            )
+                        }
+                        .padding(16)
+                        .cornerBackground()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    
+                    Spacer()
+                }
+                .padding(16)
+            }
+            .toolbarWithDismissButton()
+        }
+        .background(ColorsPalette.background)
+        .tint(ColorsPalette.primary)
+        .presentationDetents([.medium])
+    }
+    
     // MARK: Actions
+    
+    private func cellAction(_ title: String, centers: [Center]) {
+        if source.isActivity, centers.count == 1, let center = centers.first {
+            navigateToActivity(title: title, center: center)
+        } else {
+            selection = .init(title: title, centers: centers)
+        }
+    }
     
     private func navigateToActivity(title: String, center: Center) {
         let data = dataSource.activityWithCategory(forActivityTitle: title, in: center)
@@ -183,6 +224,9 @@ private extension HomeDataSource {
     var sortedActivities: [String] {
         activitiesByTitle.keys.sorted()
     }
+    var sortedResources: [String] {
+        resourceByTitle.keys.sorted()
+    }
     
     func centers(for title: String) -> [Center] {
         activitiesByTitle[title] ?? []
@@ -197,5 +241,31 @@ private extension HomeDataSource {
             }
         }
         return nil
+    }
+    
+    func resource(forResourceTitle title: String)
+    -> Center.Category.Resource? {
+        
+        for center in centers {
+            for category in center.categories {
+                if let resource = category.resources?.first(where: { $0.title == title }) {
+                    return resource
+                }
+            }
+        }
+        return nil
+    }
+}
+private extension SearchSource {
+    
+    var title: LocalizedStringKey {
+        switch self {
+        case .activities: "list-activity-title"
+        case .resources: "list-resource-title"
+        }
+    }
+    
+    var isActivity: Bool {
+        self == .activities
     }
 }
