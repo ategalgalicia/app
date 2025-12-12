@@ -103,31 +103,42 @@ struct ListSearchView: View {
     @ViewBuilder
     private var contentView: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(items, id: \.self) { title in
-                    let centers = centers(for: title)
-                    Button {
-                        cellAction(title, centers: centers)
-                    } label: {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(title)
-                                .font(.body.weight(.regular))
-                                .foregroundStyle(ColorsPalette.textSecondary)
-                                .multilineTextAlignment(.leading)
-                            
-                            if source.isActivity {
-                                cities(centers)
-                            }
-                        }
-                        .padding(16)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .contentRectangleShape()
-                    .cornerBackground()
+            LazyVStack(alignment: .leading, spacing: 8) {
+                ForEach(items, id: \.self) {
+                    cell(for: $0)
                 }
             }
             .padding(.horizontal, 16)
         }
+        .scrollDisabled(items.isEmpty)
+        .overlay(alignment: .center) {
+            if items.isEmpty {
+                EmptyView(txt: source.emptytitle)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func cell(for title: String) -> some View {
+        let centers = centers(for: title)
+        Button {
+            cellAction(title, centers: centers)
+        } label: {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(title)
+                    .font(.body.weight(.regular))
+                    .foregroundStyle(ColorsPalette.textSecondary)
+                    .multilineTextAlignment(.leading)
+                
+                if source.isActivity {
+                    cities(centers)
+                }
+            }
+            .padding(16)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentRectangleShape()
+        .cornerBackground()
     }
     
     @ViewBuilder
@@ -166,7 +177,6 @@ struct ListSearchView: View {
                                         .multilineTextAlignment(.leading)
 
                                     Spacer()
-                                    
                                     Image(systemName: "chevron.right")
                                         .foregroundStyle(ColorsPalette.primary)
                                         .accessibilityHidden(true)
@@ -295,6 +305,13 @@ private extension SearchSource {
         switch self {
         case .activities: "list-activity-title"
         case .resources: "list-resource-title"
+        }
+    }
+    
+    var emptytitle: LocalizedStringKey {
+        switch self {
+        case .activities: "list-activity-no-data"
+        case .resources: "list-resource-no-data"
         }
     }
     

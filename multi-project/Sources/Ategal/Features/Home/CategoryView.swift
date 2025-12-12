@@ -76,6 +76,7 @@ struct CategoryView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(item.title)
                 .font(.subheadline)
+                .fontWeight(.semibold)
                 .foregroundStyle(ColorsPalette.textPrimary)
             
             if let description = item.description {

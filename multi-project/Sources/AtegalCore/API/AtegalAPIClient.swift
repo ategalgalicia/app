@@ -27,21 +27,27 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
     }
     
     public func fetchPosts() async throws -> [Post] {
-        try await fetch(
-            AtegalAPI.getPosts,
-            as: [Post].self
-        )
+        do {
+            return try await fetch(
+                AtegalAPI.getPosts, as: [Post].self
+            )
+        } catch {
+            return []
+        }
     }
     
-    public func fetchCalendarEvents() async throws -> [Event] {
-        let data = try await fetch(
-            AtegalAPI.getCalendarEvents,
-            as: Data.self
-        )
-        guard let ics = String(data: data, encoding: .utf8) else {
-            throw URLError(.cannotDecodeContentData)
+    public func fetchCalendarEvents() async -> [Event] {
+        do {
+            let data = try await fetch(
+                AtegalAPI.getCalendarEvents, as: Data.self
+            )
+            guard let ics = String(data: data, encoding: .utf8) else {
+                throw URLError(.cannotDecodeContentData)
+            }
+            return ics.parseAsCalendar()
+        } catch {
+            return []
         }
-        return ics.parseAsCalendar()
     }
 }
 

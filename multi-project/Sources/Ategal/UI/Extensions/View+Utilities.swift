@@ -4,8 +4,8 @@
 
 import SwiftUI
 
-typealias VoidHandler = @MainActor () -> ()
-typealias AsyncVoidHandler = @MainActor () async throws -> ()
+public typealias VoidHandler = @MainActor () -> ()
+public typealias AsyncVoidHandler = @MainActor () async throws -> ()
 
 extension View {
     /// Attach an action bar to the bottom of the screen/container.

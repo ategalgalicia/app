@@ -13,9 +13,14 @@ struct AsyncView<Data: Sendable, Content: View>: View {
     let load: @Sendable () async throws -> Data
     private let content: (Data) -> Content
 
-    @State var data: Data?
-    @State var error: Error?
-    @State var taskToken = UUID()
+    @State
+    var data: Data?
+    
+    @State
+    var error: Error?
+    
+    @State
+    var taskToken = UUID()
 
     init(
         load: @escaping @Sendable () async throws -> Data,

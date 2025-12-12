@@ -30,7 +30,7 @@ struct MapView: View {
         #if canImport(Darwin)
         _mapPosition = State(initialValue: .region(.init(
             center: place.coordinate,
-            span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05)
         )))
         #endif
     }
@@ -50,6 +50,7 @@ struct MapView: View {
             }
         }
         .mapStyle(.standard)
+        .allowsHitTesting(false)
         #else
         ComposeView {
             MapComposer(

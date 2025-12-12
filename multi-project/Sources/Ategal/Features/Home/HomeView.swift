@@ -170,7 +170,7 @@ struct HomeView: View {
         } label: {
             HStack(spacing: 16) {
                 Image(systemName: image)
-                    .font(.system(size: 26, weight: .semibold))
+                    .font(.largeTitle)
                     .foregroundStyle(color)
                     .padding(16)
                     .cornerBackground(color.opacity(0.15))
@@ -200,7 +200,7 @@ struct HomeView: View {
     
     @ViewBuilder
     private var partnerView: some View {
-        VStack(alignment: .center, spacing: 0) {
+        VStack(alignment: .center, spacing: 8) {
             Image("xunta-icon", bundle: .module)
                 .resizable()
                 .scaledToFit()
@@ -210,7 +210,7 @@ struct HomeView: View {
             Text(appVersion)
                 .multilineTextAlignment(.center)
                 .font(.caption2)
-                .foregroundStyle(ColorsPalette.textSecondary)
+                .foregroundStyle(ColorsPalette.textSecondary.opacity(0.2))
                 .combinedAccessibility()
                 .frame(width: 90)
         }

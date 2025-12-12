@@ -51,7 +51,7 @@ struct PostView: View {
         AsyncImage(url: post.imageURL) { phase in
             ZStack {
                 Rectangle()
-                    .fill(ColorsPalette.cardBackground)
+                    .fill(ColorsPalette.background)
                     .opacity((phase.image == nil) ? 1 : 0)
                 
                 phase.image?

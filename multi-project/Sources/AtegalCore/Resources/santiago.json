@@ -15,12 +15,27 @@
             "title": "Cultural",
             "activities": [
                 {
-                    "title": "Italiano inicial",
-                    "weekday": [1],
+                    "title": "Italiano",
+                    "weekday": [1,2],
                     "schedule": [
-                        "Luns 11:30h a 12:30h"
+                        "Luns de 18:00 a 19:00",
+                        "Martes de 19:00 a 20:00"
                     ],
-                    "description": "A finalidade desta actividade non é só que descubras a lingua e a cultura italianas, vai máis alá. Cun enfoque práctico e entretido, aprenderás italiano con facilidade mentres te preparas para viaxar con seguridade e confianza. En cada clase, mergullaraste no mellor de Italia: a música, as películas icónicas e as receitas tradicionais máis deliciosas.",
+                    "description": "A finalidade desta actividade non so descubriras a lingua e a cultura italianas, va mais alá. Cun enfoque práctico e entretido, aprenderás italiano con facilidade mentres te preparas para viaxar con seguridade e confianza. En cada clase, mergullaraste no mellor de Italia: a música, as películas icónicas e as receitas tradicionais máis deliciosas.",
+                    "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
+                    "phone": [
+                        "981581533",
+                        "618184344"
+                    ],
+                    "email": "administracion@ategal.com"
+                },
+                {
+                    "title": "Italiano inicial",
+                    "weekday": [],
+                    "schedule": [
+                        "Pendente"
+                    ],
+                    "description": "Descubre o pracer de iniciarte no italiano cunha proposta divertida e dinámica. As nosas clases combinan unha metodoloxía clara, vocabulario esencial e unha atmosfera serena que favorece a aprendizaxe natural. Permíteche abrir a porta a unha nova lingua con confianza.",
                     "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
                     "phone": [
                         "981581533",
@@ -38,6 +53,20 @@
                         "Nivel inicial 19:00h a 20:00h"
                     ],
                     "description": "Con este curso aprenderás a falar con máis confianza sobre a túa vida, os teus plans e o que está a suceder no mundo. Practicarás os tempos verbais máis importantes do inglés, descubrirás novo vocabulario útil (sobre saúde, tecnoloxía, cultura, roupa, etc.) e perfeccionarás a túa capacidade para expresar a túa opinión, dar consellos e debater diferentes puntos de vista. Ao final do curso, serás capaz de expresarte en conversas da vida real con maior fluidez e confianza. O temario proposto, adaptado a cada nivel, é flexible e pode ir adaptándose segundo os intereses do grupo.",
+                    "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
+                    "phone": [
+                        "981581533",
+                        "618184344"
+                    ],
+                    "email": "administracion@ategal.com"
+                },
+                {
+                    "title": "Conversa Inglés",
+                    "weekday": [4],
+                    "schedule": [
+                        "Xoves de 17:00 a 18:00h"
+                    ],
+                    "description": "Mellora o teu inglés de forma natural e divertida. As nosas clases de conversa ofrecen temas sinxelos, práctica guiada e un ambiente acolledor onde perder o medo a falar, mentres aprendes ao teu ritmo.",
                     "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
                     "phone": [
                         "981581533",
@@ -304,7 +333,22 @@
                     "phone": [
                         "981581533",
                         "618184344"
-                    ]
+                    ],
+                    "email": "administracion@ategal.com"
+                },
+                {
+                    "title": "Baile",
+                    "weekday": [1],
+                    "schedule": [
+                        "Luns de 18:30 a 19:30h"
+                    ],
+                    "description": "¡Descubre a alegría do movemento! As nosas clases de baile para maiores combinan pasos sinxelos, música motivadora e un ambiente agradable que che invita a gozar mentres melloras o teu equilibrio e benestar. Ven divertirte, actívate e comparte bos momentos ao teu propio ritmo.",
+                    "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
+                    "phone": [
+                        "981581533",
+                        "618184344"
+                    ],
+                    "email": "administracion@ategal.com"
                 },
                 {
                     "title": "Memoria",

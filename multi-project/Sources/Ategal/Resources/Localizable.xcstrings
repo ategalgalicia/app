@@ -94,6 +94,16 @@
         }
       }
     },
+    "calendar-no-data" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai eventos dispoñibles"
+          }
+        }
+      }
+    },
     "calendar-title" : {
       "localizations" : {
         "gl-ES" : {
@@ -314,6 +324,16 @@
         }
       }
     },
+    "list-activity-no-data" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai actividades dispoñibles"
+          }
+        }
+      }
+    },
     "list-activity-title" : {
       "localizations" : {
         "gl-ES" : {
@@ -330,6 +350,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Elixe a cidade onde queres facer esta actividade"
+          }
+        }
+      }
+    },
+    "list-resource-no-data" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai recursos dispoñibles"
           }
         }
       }

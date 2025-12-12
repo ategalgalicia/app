@@ -17,8 +17,7 @@ class PostsDataSource {
     var posts: [Post]
     
     init(apiClient: AtegalAPIClient) async throws {
-        let result = try await apiClient.fetchPosts()
-        self.posts = result
+        self.posts = try await apiClient.fetchPosts()
     }
     
     /// For Preview
