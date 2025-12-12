@@ -15,6 +15,7 @@
             "activities": [
                 {
                     "title": "Informática para maiores",
+                    "weekday": [5],
                     "schedule": ["Venres de 16:00h a 18:00h"],
                     "description": "Espazo onde se levan a cabo aprendizaxes técnicas nas novas tecnoloxías, correo electrónico, relacións institucionais, e-saúde, banca electrónica, redes sociais, acercamento á familia (whatsapp, videoconferencias).",
                     "address": "Espazo Lorenzo Varela. Rúa Falcatrueiros, S/N, 27551",
@@ -39,6 +40,7 @@
             "activities": [
                 {
                     "title": "Ximnasia de mantemento",
+                    "weekday": [1,3,4],
                     "schedule": ["Luns, mércores e xoves de 16:00h a 19:00h"],
                     "description": "Combinacións de exercicios baseados en xestos da vida cotiá e a práctica deportiva, fortalecendo ós músculos a través do traballo de forza e resistencia, desenvolvendo a capacidade aeróbica, mellora da flexibilidade e coordinación. Promóvese tamén a corrección postural, atención, percepción e concentración.",
                     "address": "Espazo Lorenzo Varela. Rúa Falcatrueiros, S/N, 27551",
@@ -49,6 +51,7 @@
                 },
                 {
                     "title": "Obradoiro de memoria",
+                    "weekday": [2,4],
                     "schedule": ["Martes e xoves das 16:00h ás 20:00h"],
                     "description": "Exercicios prácticos baseados en xogos de lembranza con imaxes, palabras e experiencias cotiás para estimular a memoria a curto e longo prazo. Busca reforzar as capacidades cognitivas, favorecer a atención e promover un ambiente motivador.",
                     "address": "Espazo Lorenzo Varela. Rúa Falcatrueiros, S/N, 27551",

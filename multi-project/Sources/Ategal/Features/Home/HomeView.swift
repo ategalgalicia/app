@@ -18,23 +18,13 @@ import AtegalCore
     NavigationStack {
         HomeView(
             navigationPath: $navigationPath,
-            apiClient: .init()
+            apiClient: .init(),
+            appVersion: "Versión 1.0.0"
         )
         .dynamicTypeSize(.large ... .accessibility5)
     }
 }
 #endif
-
-// MARK: HomeRoute
-
-enum HomeRoute: Hashable {
-    case navigateToCalendar
-    case navigateToCityList
-    case navigateToCategoryList
-    case navigateToCategory
-    case navigateToActivity
-    case navigateToSearch(SearchSource)
-}
 
 // MARK: HomeView
 
@@ -43,15 +33,19 @@ struct HomeView: View {
     @Binding
     var navigationPath: [HomeRoute]
     
-    @State
-    var dataSource: HomeDataSource
-        
+    let apiClient: AtegalAPIClient
+    let centers: [Center]
+    let appVersion: String
+    
     init(
         navigationPath: Binding<[HomeRoute]>,
-        apiClient: AtegalAPIClient
+        apiClient: AtegalAPIClient,
+        appVersion: String
     ) {
         self._navigationPath = navigationPath
-        self.dataSource = HomeDataSource(apiClient: apiClient)
+        self.apiClient = apiClient
+        self.centers = apiClient.fetchCenters()
+        self.appVersion = appVersion
     }
     
     var body: some View {
@@ -70,29 +64,36 @@ struct HomeView: View {
         .navigationDestination(for: HomeRoute.self) {
             switch $0 {
             case .navigateToCalendar:
-                CalendarAsyncView(apiClient: dataSource.apiClient)
+                CalendarAsyncView(
+                    apiClient: apiClient,
+                    navigationPath: $navigationPath
+                )
             case .navigateToCityList:
                 CityListView(
-                    dataSource: dataSource,
-                    navigationPath: $navigationPath
+                    navigationPath: $navigationPath,
+                    centers: centers
                 )
-            case .navigateToCategoryList:
+            case .navigateToCategoryList(let center):
                 CategoryListView(
-                    dataSource: dataSource,
-                    navigationPath: $navigationPath
+                    navigationPath: $navigationPath,
+                    center: center
                 )
-            case .navigateToCategory:
+            case .navigateToCategory(let category, let center):
                 CategoryView(
-                    dataSource: dataSource,
-                    navigationPath: $navigationPath
+                    navigationPath: $navigationPath,
+                    category: category,
+                    center: center
                 )
-            case .navigateToActivity:
-                ActivityView(dataSource: dataSource)
+            case .navigateToActivity(let activity, let center):
+                ActivityView(
+                    activity: activity,
+                    center: center
+                )
                 
             case .navigateToSearch(let source):
                 ListSearchView(
                     source: source,
-                    dataSource: dataSource,
+                    centers: centers,
                     navigationPath: $navigationPath
                 )
             }
@@ -111,11 +112,7 @@ struct HomeView: View {
                 .accessibilityAddTraits(.isHeader)
             
             Text("home-question-subtitle")
-                .font(.title3)
-                .foregroundStyle(ColorsPalette.textSecondary)
-                .multilineTextAlignment(.leading)
-                .lineSpacing()
-                .combinedAccessibility()
+                .primaryTitle()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
@@ -144,12 +141,14 @@ struct HomeView: View {
                 subtitle: "home-activity-subtitle",
                 image: "list.bullet",
                 color: .indigo,
-                onTap: { navigationPath.append(.navigateToSearch(.activities)) }
+                onTap: { navigationPath.append(.navigateToSearch(
+                    .activities(filterDay: nil)))
+                }
             )
             itemView(
                 title: "home-resource-title",
                 subtitle: "home-resource-subtitle",
-                image: "list.bullet",
+                image: "info.circle",
                 color: .orange,
                 onTap: { navigationPath.append(.navigateToSearch(.resources)) }
             )
@@ -205,10 +204,10 @@ struct HomeView: View {
             Image("xunta-icon", bundle: .module)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 40)
+                .frame(height: 30)
                 .accessibilityHidden(true)
             
-            Text("home-partner-message")
+            Text(appVersion)
                 .multilineTextAlignment(.center)
                 .font(.caption2)
                 .foregroundStyle(ColorsPalette.textSecondary)
@@ -220,39 +219,14 @@ struct HomeView: View {
     }
 }
 
-@Observable
-@MainActor
-class HomeDataSource {
-    
-    @ObservationIgnored
-    let apiClient: AtegalAPIClient
-    
-    @ObservationIgnored
-    let centers: [Center]
-    
-    @ObservationIgnored
-    var activitiesByTitle: [String: [Center]] = [:]
-    
-    @ObservationIgnored
-    var resourceByTitle: [String: [Center]] = [:]
-    
-    var centerSelected: Center? = nil
-    var categorySelected: Center.Category? = nil
-    var activitySelected: Center.Category.Activity? = nil
-        
-    init(apiClient: AtegalAPIClient) {
-        self.apiClient = apiClient
-        self.centers = apiClient.fetchCenters()
-        
-        centers.forEach { center in
-            center.categories.forEach { category in
-                category.activities.forEach { activity in
-                    activitiesByTitle[activity.title, default: []].append(center)
-                }
-                category.resources?.forEach { resource in
-                    resourceByTitle[resource.title, default: []].append(center)
-                }
-            }
-        }
-    }
+// MARK: HomeRoute
+
+enum HomeRoute: Hashable {
+    case navigateToCalendar
+    case navigateToCityList
+    case navigateToCategoryList(Center)
+    case navigateToCategory(category: Center.Category, center: Center)
+    case navigateToActivity(activity: Center.Category.Activity, center: Center)
+    case navigateToSearch(SearchSource)
 }
+

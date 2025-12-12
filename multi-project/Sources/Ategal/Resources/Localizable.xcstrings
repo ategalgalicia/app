@@ -74,6 +74,26 @@
         }
       }
     },
+    "calendar-activity-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Que día che interesa?"
+          }
+        }
+      }
+    },
+    "calendar-events-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vindeiros eventos"
+          }
+        }
+      }
+    },
     "calendar-title" : {
       "localizations" : {
         "gl-ES" : {
@@ -250,16 +270,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buscar por cidade"
-          }
-        }
-      }
-    },
-    "home-partner-message" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Realizado grazas ao apoio da Xunta de Galicia"
           }
         }
       }

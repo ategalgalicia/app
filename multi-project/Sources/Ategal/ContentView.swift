@@ -33,7 +33,8 @@ struct ContentView: View {
             NavigationStack(path: $navigationHome) {
                 HomeView(
                     navigationPath: $navigationHome,
-                    apiClient: world.apiClient
+                    apiClient: world.apiClient,
+                    appVersion: world.appVersion
                 )
             }
             .tabItem { Label("tab-home", systemImage: "house.fill") }

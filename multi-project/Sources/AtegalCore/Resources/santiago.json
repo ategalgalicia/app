@@ -16,6 +16,7 @@
             "activities": [
                 {
                     "title": "Italiano inicial",
+                    "weekday": [1],
                     "schedule": [
                         "Luns 11:30h a 12:30h"
                     ],
@@ -29,6 +30,7 @@
                 },
                 {
                     "title": "Inglés",
+                    "weekday": [1,3],
                     "schedule": [
                         "Luns e Mércores",
                         "Nivel medio 17:00h a 18:00h",
@@ -45,6 +47,7 @@
                 },
                 {
                     "title": "Cultura francófona",
+                    "weekday": [2],
                     "schedule": [
                         "Martes de 18:00h a 19:00h"
                     ],
@@ -58,6 +61,7 @@
                 },
                 {
                     "title": "Literatura",
+                    "weekday": [1],
                     "schedule": [
                         "Luns de 18:00h a 19:00h"
                     ],
@@ -71,6 +75,7 @@
                 },
                 {
                     "title": "Historia",
+                    "weekday": [4],
                     "schedule": [
                         "Xoves de 19:00h a 20:00h"
                     ],
@@ -84,6 +89,7 @@
                 },
                 {
                     "title": "Historia da arte",
+                    "weekday": [3],
                     "schedule": [
                         "Mércores de 19:00h a 20:00h"
                     ],
@@ -156,6 +162,7 @@
             "activities": [
                 {
                     "title": "Tecnoloxía inicial/básica",
+                    "weekday": [2,4],
                     "schedule": [
                         "Martes e xoves de 11:30h a 12:30h"
                     ],
@@ -169,6 +176,7 @@
                 },
                 {
                     "title": "Tecnoloxía avanzada",
+                    "weekday": [2,4],
                     "schedule": [
                         "Martes e xoves de 18:00h a 19:00h"
                     ],
@@ -182,6 +190,7 @@
                 },
                 {
                     "title": "Tecnoloxía temática",
+                    "weekday": [2,4],
                     "schedule": [
                         "Martes e xoves de 18:00h a 19:00h"
                     ],
@@ -195,6 +204,7 @@
                 },
                 {
                     "title": "Pintura",
+                    "weekday": [1],
                     "schedule": [
                         "Luns de 17:00h a 19:00h"
                     ],
@@ -208,6 +218,7 @@
                 },
                 {
                     "title": "Acuarela",
+                    "weekday": [5],
                     "schedule": [
                         "Venres de 11:30h a 13:00h"
                     ],
@@ -221,6 +232,7 @@
                 },
                 {
                     "title": "Restauración",
+                    "weekday": [5],
                     "schedule": [
                         "Venres de 11:00h a 13:00h"
                     ],
@@ -234,6 +246,7 @@
                 },
                 {
                     "title": "Coro/música instrumental",
+                    "weekday": [1,3],
                     "schedule": [
                         "Luns e mércores de 17:30h a 18:30h"
                     ],
@@ -253,6 +266,7 @@
             "activities": [
                 {
                     "title": "Ioga",
+                    "weekday": [1,2,4],
                     "schedule": [
                         "Luns de 11:30h a 12:30h",
                         "Martes e xoves de 10:30h a 11:30h"
@@ -267,6 +281,7 @@
                 },
                 {
                     "title": "Pilates",
+                    "weekday": [3,5],
                     "schedule": [
                         "Mércores e venres de 11:00h a 12:00h"
                     ],
@@ -280,6 +295,7 @@
                 },
                 {
                     "title": "Ximnasia",
+                    "weekday": [2,4],
                     "schedule": [
                         "Martes e xoves de 19:00h a 20:00h"
                     ],
@@ -292,6 +308,7 @@
                 },
                 {
                     "title": "Memoria",
+                    "weekday": [4],
                     "schedule": [
                         "Xoves de 17:30h a 19:00h"
                     ],
@@ -305,6 +322,7 @@
                 },
                 {
                     "title": "NeuronUP",
+                    "weekday": [],
                     "schedule": [
                         "A elexir polo alumnado"
                     ],
@@ -401,6 +419,7 @@
             "activities": [
                 {
                     "title": "Saídas e visitas culturais",
+                    "weekday": [],
                     "schedule": [
                         "Personalizable"
                     ],

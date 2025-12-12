@@ -5,16 +5,17 @@
 import SwiftUI
 import AtegalCore
 
-enum SearchSource {
-    case activities, resources
+enum SearchSource: Hashable {
+    case activities(filterDay: Int?)
+    case resources
 }
 
 struct ListSearchView: View {
     
     let source: SearchSource
-    
-    @Bindable
-    var dataSource: HomeDataSource
+    let centers: [Center]
+    var activitiesByTitle: [String: [Center]] = [:]
+    var resourceByTitle: [String: [Center]] = [:]
     
     @Binding
     var navigationPath: [HomeRoute]
@@ -24,18 +25,52 @@ struct ListSearchView: View {
     
     @State
     var selection: Selection? = nil
-    
     struct Selection: Identifiable {
         var id: String { title }
         let title: String
         let centers: [Center]
     }
     
+    init(
+        source: SearchSource,
+        centers: [Center],
+        navigationPath: Binding<[HomeRoute]>
+    ) {
+        self.source = source
+        self.centers = centers
+        self._navigationPath = navigationPath
+        
+        switch source {
+        case .activities(let filterDay):
+            centers.forEach { center in
+                center.categories.forEach { category in
+                    category.activities.forEach { activity in
+                        if let filterDay {
+                            if activity.weekday.contains(filterDay) {
+                                activitiesByTitle[activity.title, default: []].append(center)
+                            }
+                        } else {
+                            activitiesByTitle[activity.title, default: []].append(center)
+                        }
+                    }
+                }
+            }
+        case .resources:
+            centers.forEach { center in
+                center.categories.forEach { category in
+                    category.resources?.forEach { resource in
+                        resourceByTitle[resource.title, default: []].append(center)
+                    }
+                }
+            }
+        }
+    }
+    
     private var items: [String] {
         let base: [String] = {
             switch source {
-            case .activities: dataSource.sortedActivities
-            case .resources: dataSource.sortedResources
+            case .activities: sortedActivities
+            case .resources: sortedResources
             }
         }()
         if searchText.isEmpty {
@@ -70,7 +105,7 @@ struct ListSearchView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
                 ForEach(items, id: \.self) { title in
-                    let centers = dataSource.centers(for: title)
+                    let centers = centers(for: title)
                     Button {
                         cellAction(title, centers: centers)
                     } label: {
@@ -162,7 +197,7 @@ struct ListSearchView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    if let item = dataSource.resource(forResourceTitle: selection.title) {
+                    if let item = resource(for: selection.title) {
                         
                         Text(item.title)
                             .primaryTitle()
@@ -207,19 +242,19 @@ struct ListSearchView: View {
     }
     
     private func navigateToActivity(title: String, center: Center) {
-        let data = dataSource.activityWithCategory(forActivityTitle: title, in: center)
-        guard let data else { return }
-        dataSource.centerSelected = center
-        dataSource.categorySelected = data.category
-        dataSource.activitySelected = data.activity
-        navigationPath.append(.navigateToActivity)
+        guard let activity = activity(for: title, in: center) else {
+            return
+        }
+        navigationPath.append(.navigateToActivity(
+            activity: activity, center: center
+        ))
         selection = nil
     }
 }
 
 // MARK: Extensions
 
-private extension HomeDataSource {
+private extension ListSearchView {
     
     var sortedActivities: [String] {
         activitiesByTitle.keys.sorted()
@@ -232,20 +267,18 @@ private extension HomeDataSource {
         activitiesByTitle[title] ?? []
     }
     
-    func activityWithCategory(forActivityTitle title: String, in center: Center)
-    -> (category: Center.Category, activity: Center.Category.Activity)? {
-        
+    func activity(for title: String, in center: Center)
+    -> Center.Category.Activity? {
         for category in center.categories {
             if let activity = category.activities.first(where: { $0.title == title }) {
-                return (category, activity)
+                return activity
             }
         }
         return nil
     }
     
-    func resource(forResourceTitle title: String)
+    func resource(for title: String)
     -> Center.Category.Resource? {
-        
         for center in centers {
             for category in center.categories {
                 if let resource = category.resources?.first(where: { $0.title == title }) {
@@ -266,6 +299,7 @@ private extension SearchSource {
     }
     
     var isActivity: Bool {
-        self == .activities
+        self != .resources
     }
 }
+

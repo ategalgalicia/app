@@ -15,6 +15,7 @@
             "activities": [
                 {
                     "title": "Arte",
+                    "weekday": [3],
                     "schedule": [
                         "Mércores 17:00h a 18:30h"
                     ],
@@ -27,6 +28,7 @@
                 },
                 {
                     "title": "Historia de España e de Galicia",
+                    "weekday": [3],
                     "schedule": [
                         "Mércores 18:30h a 19:30h"
                     ],
@@ -39,6 +41,7 @@
                 },
                 {
                     "title": "Inglés (nivel 0)",
+                    "weekday": [5],
                     "schedule": [
                         "Venres 16:00h a 17:30h"
                     ],
@@ -51,6 +54,7 @@
                 },
                 {
                     "title": "Inglés (nivel 1)",
+                    "weekday": [5],
                     "schedule": [
                         "Venres 17:30h a 19:00h"
                     ],
@@ -80,18 +84,19 @@
             "activities": [
                 {
                     "title": "Ximnasia de mantemento",
+                    "weekday": [1,2,3,4],
                     "schedule": [
                         "Padrón:",
                         "Luns e mércores",
-                        "09:00h-09:50h, 09:55h-10:45h, 10:55h-11:45h",
-                        "Luns 17:30h-18:30h",
-                        "Mércores 16:30h-17:30h",
+                        "09:00h a 09:50h, 09:55h a 10:45h, 10:55h a 11:45h",
+                        "Luns 17:30h a 18:30h",
+                        "Mércores 16:30h a 17:30h",
                         "Carcacía:",
-                        "Martes e xoves 09:30h-10:30h",
+                        "Martes e xoves 09:30h a 10:30h",
                         "Extramundi:",
-                        "Martes e xoves 19:00h-20:00h",
+                        "Martes e xoves 19:00h a 20:00h",
                         "Angueira de Suso:",
-                        "Luns e mércores 17:00h-18:00h"
+                        "Luns e mércores 17:00h a 18:00h"
                     ],
                     "description": "Actividade divertida e saudable para fortalecer músculos, mellorar a flexibilidade e activar o corpo no día a día, adaptada ao ritmo de cada persoa.",
                     "address": "Campo do Souto 2, 15900. Padrón",
@@ -102,6 +107,7 @@
                 },
                 {
                     "title": "Escola de costas",
+                    "weekday": [1,5],
                     "schedule": [
                         "Padrón:",
                         "Luns 16:30h a 17:30h e venres 16:30h a 17:30h",
@@ -117,6 +123,7 @@
                 },
                 {
                     "title": "Memoria",
+                    "weekday": [1,3],
                     "schedule": [
                         "Padrón:",
                         "Luns 17:00h a 18:30h",
@@ -134,6 +141,7 @@
                 },
                 {
                     "title": "NeuronUP",
+                    "weekday": [],
                     "schedule": [
                         "A elexir polo alumnado"
                     ],
@@ -178,6 +186,7 @@
             "activities": [
                 {
                     "title": "Saídas e visitas culturais",
+                    "weekday": [],
                     "schedule": [
                         "Actualizadas mensualmente"
                     ],
@@ -190,6 +199,7 @@
                 },
                 {
                     "title": "Faite voluntario/a en ATEGAL",
+                    "weekday": [],
                     "schedule": [
                         "Personalizable"
                     ],

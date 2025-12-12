@@ -7,11 +7,10 @@ import AtegalCore
 
 struct CityListView: View {
     
-    @Bindable
-    var dataSource: HomeDataSource
-    
     @Binding
     var navigationPath: [HomeRoute]
+    
+    let centers: [Center]
     
     var body: some View {
         contentView
@@ -37,11 +36,10 @@ struct CityListView: View {
                 }
                     
                 ContentList(
-                    items: dataSource.centers,
+                    items: centers,
                     title: \.city,
                     onTap: {
-                        dataSource.centerSelected = $0
-                        navigationPath.append(.navigateToCategoryList)
+                        navigationPath.append(.navigateToCategoryList($0))
                     }
                 )
             }

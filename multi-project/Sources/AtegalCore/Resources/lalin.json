@@ -15,6 +15,7 @@
             "activities": [
                 {
                     "title": "Historia da arte",
+                    "weekday": [2],
                     "schedule": [
                         "Martes 17:30h a 19:00h"
                     ],
@@ -27,6 +28,7 @@
                 },
                 {
                     "title": "Inglés",
+                    "weekday": [5],
                     "schedule": [
                         "Venres 10:30h a 11:30h",
                         "Venres 11:30h a 12:30h"
@@ -80,6 +82,7 @@
             "activities": [
                 {
                     "title": "Informática de iniciación",
+                    "weekday": [3,5],
                     "schedule": [
                         "Mércores e venres 10:30h a 11:30h"
                     ],
@@ -92,6 +95,7 @@
                 },
                 {
                     "title": "Informática avanzada",
+                    "weekday": [3,5],
                     "schedule": [
                         "Mércores e venres 11:30h a 12:30h"
                     ],
@@ -104,6 +108,7 @@
                 },
                 {
                     "title": "Pintura",
+                    "weekday": [2],
                     "schedule": [
                         "Martes 10:00h a 11:30h"
                     ],
@@ -116,6 +121,7 @@
                 },
                 {
                     "title": "Acuarela",
+                    "weekday": [2],
                     "schedule": [
                         "Martes 11:45h a 13:15h"
                     ],
@@ -134,6 +140,7 @@
             "activities": [
                 {
                     "title": "Memoria",
+                    "weekday": [4],
                     "schedule": [
                         "Xoves 16:00h a 17:30h",
                         "Xoves 17:30h a 19:00h"
@@ -147,6 +154,7 @@
                 },
                 {
                     "title": "NeuronUP",
+                    "weekday": [],
                     "schedule": [
                         "A elexir polo alumnado"
                     ],
@@ -234,6 +242,7 @@
             "activities": [
                 {
                     "title": "Saídas e visitas culturais",
+                    "weekday": [],
                     "schedule": [
                         "Actualizadas mensualmente"
                     ],
@@ -247,6 +256,7 @@
                 },
                 {
                     "title": "Faite voluntario/a en ATEGAL",
+                    "weekday": [],
                     "schedule": [
                         "Personalizable"
                     ],

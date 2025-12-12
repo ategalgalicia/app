@@ -9,8 +9,17 @@ import AtegalCore
 
 // MARK: Previews
 
+@available(iOS 18, *)
 #Preview {
-    CalendarView(dataSource: .mock())
+    @Previewable
+    @State
+    
+    var navigationPath: [HomeRoute] = []
+    CalendarView(
+        dataSource: .mock(),
+        navigationPath: $navigationPath
+    )
+    .dynamicTypeSize(.large ... .accessibility5)
 }
 #endif
 
@@ -24,19 +33,20 @@ struct CalendarView: View {
     @Bindable
     var dataSource: CalendarDataSource
     
+    @Binding
+    var navigationPath: [HomeRoute]
+    
     @State
     var showSuccess = false
         
     @State
     var errorMessage: String?
     
+    @State
+    var isOK: Bool = false
+    
     @SwiftUI.Environment(\.openURL)
     var openURL
-    
-    private let columns = Array(
-        repeating: GridItem(.flexible(), spacing: 8),
-        count: 1
-    )
     
     var body: some View {
         contentView
@@ -51,23 +61,68 @@ struct CalendarView: View {
     @ViewBuilder
     var contentView: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                horizontalCalendar
-                eventList
+            VStack(alignment: .leading, spacing: 24) {
+                activitiesView
+                nextEventsView
+            }
+            .padding(.vertical, 16)
+        }
+    }
+    
+    @ViewBuilder
+    private var activitiesView: some View {
+        VStack(alignment: .leading, spacing: 24) {
+            Text("calendar-activity-title")
+                .primaryTitle()
+                .padding(.horizontal, 16)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(dataSource.sortedActivities, id: \.self) { day in
+                        Button {
+                            navigationPath.append(.navigateToSearch(
+                                .activities(filterDay: day)
+                            ))
+                        } label: {
+                            Text(Calendar.weekdayName(from: day))
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(ColorsPalette.textPrimary)
+                                .padding(16)
+                                .frame(minWidth: 76)
+                                .cornerBackground(ColorsPalette.cardBackground)
+                        }
+                    }
+                }
+                .padding(.horizontal, 16)
             }
         }
     }
     
     @ViewBuilder
-    private var horizontalCalendar: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ForEach(dataSource.eventDays, id: \.self) { date in
-                    cell(for: date)
+    private var nextEventsView: some View {
+        VStack(alignment: .leading, spacing: 24) {
+            Text("calendar-events-title")
+                .primaryTitle()
+                .padding(.horizontal, 16)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(dataSource.eventDays, id: \.self) { date in
+                        cell(for: date)
+                    }
+                }
+                .padding(.horizontal, 16)
+            }
+            
+            VStack(spacing: 8) {
+                ForEach(dataSource.eventsForSelectedDate) {
+                    cell(for: $0)
                 }
             }
-            .padding(16)
+            .padding(.horizontal, 16)
         }
+        .padding(.top, 16)
     }
     
     @ViewBuilder
@@ -101,19 +156,6 @@ struct CalendarView: View {
                           : ColorsPalette.cardBackground
         )
     }
-    
-    @ViewBuilder
-    private var eventList: some View {
-        LazyVGrid(columns: columns, spacing: 8) {
-            ForEach(dataSource.eventsForSelectedDate) {
-                cell(for: $0)
-            }
-        }
-        .padding(.horizontal, 16)
-    }
-    
-    @State
-    var isOK: Bool = false
     
     @ViewBuilder
     private func cell(for event: Event) -> some View {
@@ -170,11 +212,17 @@ struct CalendarAsyncView: View {
     
     let apiClient: AtegalAPIClient
     
+    @Binding
+    var navigationPath: [HomeRoute]
+    
     var body: some View {
         AsyncView {
             try await CalendarDataSource(apiClient: apiClient)
         } content: {
-            CalendarView(dataSource: $0)
+            CalendarView(
+                dataSource: $0,
+                navigationPath: $navigationPath
+            )
         }
     }
 }
@@ -185,16 +233,37 @@ struct CalendarAsyncView: View {
 @MainActor
 class CalendarDataSource {
     
-    let calendar: Calendar
+    @ObservationIgnored
+    var calendar: Calendar = Calendar.current
+    
+    @ObservationIgnored
+    let centers: [Center]
+    
+    @ObservationIgnored
     let events: [Event]
+    
+    @ObservationIgnored
+    var activitiesByWeekday: [Int: [Center.Category.Activity]] = [:]
+    
     var selectedDate: Date
     
     init(apiClient: AtegalAPIClient) async throws {
-        var calendar = Calendar.current
-        calendar.firstWeekday = 2
-        self.calendar = calendar
+        calendar.firstWeekday = 1
         self.events = try await apiClient.fetchCalendarEvents()
-        self.selectedDate = events.sorted { $0.startDate < $1.startDate }.first?.startDate ?? Date()
+        self.selectedDate = events
+            .sorted { $0.startDate < $1.startDate }
+            .first?.startDate ?? Date()
+        
+        self.centers = apiClient.fetchCenters()
+        centers.forEach { center in
+            center.categories.forEach { category in
+                category.activities.forEach { activity in
+                    activity.weekday.forEach { day in
+                        activitiesByWeekday[day, default: []].append(activity)
+                    }
+                }
+            }
+        }
     }
     
     var eventDays: [Date] {
@@ -214,14 +283,19 @@ class CalendarDataSource {
         }
     }
     
+    var sortedActivities: [Int] {
+        activitiesByWeekday.keys.sorted()
+    }
+    
     /// For Preview
     static func mock() -> CalendarDataSource {
         .init()
     }
     private init() {
         self.events = MockCalendar.events
-        self.calendar = Calendar.current
         self.selectedDate = Date()
+        self.centers = []
+        self.activitiesByWeekday = [:]
     }
 }
 
@@ -255,4 +329,11 @@ private enum MockCalendar {
             description: "Ruta sencilla y picnic al aire libre."
         )
     ]
+}
+
+private extension Calendar {
+
+    static func weekdayName(from weekdayNumber: Int) -> String {
+        current.weekdaySymbols[weekdayNumber].capitalized
+    }
 }

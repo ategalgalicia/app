@@ -7,15 +7,11 @@ import AtegalCore
 
 struct ActivityView: View {
     
-    @Bindable
-    var dataSource: HomeDataSource
-    
     @State
     var presentigSheet: Bool = false
     
-    private var activity: Center.Category.Activity {
-        dataSource.activitySelected!
-    }
+    let activity: Center.Category.Activity
+    let center: Center
     
     var body: some View {
         contentView
@@ -88,32 +84,30 @@ struct ActivityView: View {
     
     @ViewBuilder
     private var sheetView: some View {
-        if let center = dataSource.centerSelected {
-            NavigationStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("activity-action-subtitle")
-                            .font(.subheadline)
-                            .foregroundColor(ColorsPalette.textPrimary)
-                            .fontWeight(.medium)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .multilineTextAlignment(.leading)
-                        
-                        LinkView(
-                            phoneNumbers: center.phone,
-                            email: center.email
-                        )
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(16)
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("activity-action-subtitle")
+                        .font(.subheadline)
+                        .foregroundColor(ColorsPalette.textPrimary)
+                        .fontWeight(.medium)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .multilineTextAlignment(.leading)
+                    
+                    LinkView(
+                        phoneNumbers: center.phone,
+                        email: center.email
+                    )
                 }
-                .navigationTitle("activity-action")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbarWithDismissButton()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(16)
             }
-            .background(ColorsPalette.background)
-            .tint(ColorsPalette.primary)
-            .presentationDetents([.medium])
+            .navigationTitle("activity-action")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarWithDismissButton()
         }
+        .background(ColorsPalette.background)
+        .tint(ColorsPalette.primary)
+        .presentationDetents([.medium])
     }
 }

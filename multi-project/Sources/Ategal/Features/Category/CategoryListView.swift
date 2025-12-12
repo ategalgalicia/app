@@ -7,15 +7,10 @@ import AtegalCore
 
 struct CategoryListView: View {
     
-    @Bindable
-    var dataSource: HomeDataSource
-    
     @Binding
     var navigationPath: [HomeRoute]
     
-    private var center: Center {
-        dataSource.centerSelected!
-    }
+    let center: Center
     
     var body: some View {
         contentView
@@ -55,8 +50,9 @@ struct CategoryListView: View {
             items: center.categories,
             title: \.title,
             onTap: {
-                dataSource.categorySelected = $0
-                navigationPath.append(.navigateToCategory)
+                navigationPath.append(.navigateToCategory(
+                    category: $0, center: center
+                ))
             }
         )
     }

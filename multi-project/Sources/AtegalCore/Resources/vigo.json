@@ -16,6 +16,7 @@
             "activities": [
                 {
                     "title": "Inglés",
+                    "weekday": [1],
                     "schedule": [
                         "Luns 17:15h a 18:15h"
                     ],
@@ -29,6 +30,7 @@
                 },
                 {
                     "title": "Historia da arte",
+                    "weekday": [3],
                     "schedule": [
                         "Mércores 17:30h a 18:30h"
                     ],
@@ -42,6 +44,7 @@
                 },
                 {
                     "title": "Literatura",
+                    "weekday": [3],
                     "schedule": [
                         "Mércores 18:30h a 19:30h"
                     ],
@@ -55,6 +58,7 @@
                 },
                 {
                     "title": "Visións da historia",
+                    "weekday": [4],
                     "schedule": [
                         "Xoves 18:00h a 19:00h"
                     ],
@@ -68,6 +72,7 @@
                 },
                 {
                     "title": "Un tema, unha hora",
+                    "weekday": [5],
                     "schedule": [
                         "Venres 17:15h a 18:15h"
                     ],
@@ -139,6 +144,7 @@
             "activities": [
                 {
                     "title": "Informática xeral",
+                    "weekday": [5],
                     "schedule": [
                         "Venres 16:30h a 17:30h"
                     ],
@@ -152,6 +158,7 @@
                 },
                 {
                     "title": "Manexo de móbil e tableta",
+                    "weekday": [5],
                     "schedule": [
                         "Venres 17:30h a 18:30h"
                     ],
@@ -165,6 +172,7 @@
                 },
                 {
                     "title": "Debuxo e pintura",
+                    "weekday": [1],
                     "schedule": [
                         "Luns 17:30h a 19:30h"
                     ],
@@ -178,6 +186,7 @@
                 },
                 {
                     "title": "Canta con nós",
+                    "weekday": [1],
                     "schedule": [
                         "Luns 18:30h a 20:00h"
                     ],
@@ -191,6 +200,7 @@
                 },
                 {
                     "title": "Colorterapia",
+                    "weekday": [5],
                     "schedule": [
                         "Venres 17:00h a 18:30h"
                     ],
@@ -204,6 +214,7 @@
                 },
                 {
                     "title": "Baile",
+                    "weekday": [2,4],
                     "schedule": [
                         "Martes e Xoves 17:00h a 18:00h"
                     ],
@@ -223,6 +234,7 @@
             "activities": [
                 {
                     "title": "Taichí",
+                    "weekday": [2,4],
                     "schedule": [
                         "Martes e Xoves 10:00h a 11:00h"
                     ],
@@ -236,6 +248,7 @@
                 },
                 {
                     "title": "Ximnasia",
+                    "weekday": [2,4],
                     "schedule": [
                         "Luns e Xoves 11:30h a 12:30h"
                     ],
@@ -249,6 +262,7 @@
                 },
                 {
                     "title": "Obradoiro de memoria",
+                    "weekday": [4],
                     "schedule": [
                         "Xoves 18:15h a 19:15h"
                     ],
@@ -262,6 +276,7 @@
                 },
                 {
                     "title": "Ximnasia cerebral",
+                    "weekday": [5],
                     "schedule": [
                         "Venres 18:30h a 19:30h"
                     ],
@@ -275,6 +290,7 @@
                 },
                 {
                     "title": "Obradoiro de benestar emocional",
+                    "weekday": [2],
                     "schedule": [
                         "Martes 18:15h a 20:15h"
                     ],
@@ -288,6 +304,7 @@
                 },
                 {
                     "title": "NeuronUP",
+                    "weekday": [],
                     "schedule": [
                         "A elexir polo alumnado"
                     ],
@@ -327,6 +344,7 @@
             "activities": [
                 {
                     "title": "Saídas e visitas culturais",
+                    "weekday": [],
                     "schedule": [
                         "Actualizadas mensualmente"
                     ],
@@ -340,6 +358,7 @@
                 },
                 {
                     "title": "Faite voluntario/a en ATEGAL",
+                    "weekday": [],
                     "schedule": [
                         "Personalizable"
                     ],
