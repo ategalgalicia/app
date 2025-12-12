@@ -11,17 +11,23 @@ struct LinkView: View {
     private let email: String?
     private let website: String?
     private let address: String?
+    private let lat: Double?
+    private let long: Double?
     
     init(
         phoneNumbers: [String] = [],
         email: String? = nil,
         website: String? = nil,
-        address: String? = nil
+        address: String? = nil,
+        lat: Double? = nil,
+        long: Double? = nil
     ) {
         self.phoneNumbers = phoneNumbers
         self.email = email
         self.website = website
         self.address = address
+        self.lat = lat
+        self.long = long
     }
     
     var body: some View {
@@ -36,8 +42,8 @@ struct LinkView: View {
             if let email, let url = LinkManager.shared.emailURL(to: email) {
                 LinkButton(title: email, kind: .icon("envelope.fill"), url: url)
             }
-            if let address {
-                MapLinkButton(address: address, lat: 0, lon: 0)
+            if let address, let lat, let long {
+                MapLinkButton(address: address, lat: lat, lon: long)
             }
             if let website, let url = LinkManager.shared.websiteURL(from: website) {
                 LinkButton(title: website, kind: .icon("star.fill"), url: url)

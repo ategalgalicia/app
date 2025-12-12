@@ -81,7 +81,11 @@ struct CategoryListView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 MapView(place: center.place)
-                LinkView(address: center.address)
+                LinkView(
+                    address: center.address,
+                    lat: center.latitude,
+                    long: center.longitude
+                )
             }
             .padding(16)
             .cornerBackground()

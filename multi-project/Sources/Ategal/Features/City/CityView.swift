@@ -38,7 +38,11 @@ struct CityView: View {
                 if detentSelection.isLarge {
                     linkView
                 } else {
-                    LinkView(address: center.address)
+                    LinkView(
+                        address: center.address,
+                        lat: center.latitude,
+                        long: center.longitude
+                    )
                 }
                 #else
                 linkView
@@ -54,7 +58,9 @@ struct CityView: View {
         LinkView(
             phoneNumbers: center.phone,
             email: center.email,
-            address: center.address
+            address: center.address,
+            lat: center.latitude,
+            long: center.longitude
         )
     }
 }
