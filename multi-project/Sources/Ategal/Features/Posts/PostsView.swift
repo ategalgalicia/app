@@ -59,18 +59,8 @@ struct PostsView: View {
     
     @ViewBuilder
     private var contentView: some View {
-        if !dataSource.posts.isEmpty {
-            listView
-        } else {
-            emptyView
-        }
-    }
-    
-    @ViewBuilder
-    private var listView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                
                 VStack(alignment: .leading, spacing: 8) {
                     Text("ategal-title")
                         .font(.title)
@@ -80,7 +70,6 @@ struct PostsView: View {
                     Text("posts-subtitle")
                         .primaryTitle()
                 }
-                    
                 ContentList(
                     items: dataSource.posts,
                     title: \.title,
@@ -93,19 +82,10 @@ struct PostsView: View {
             .padding(16)
             .combinedAccessibility()
         }
-    }
-    
-    @ViewBuilder
-    private var emptyView: some View {
-        ScrollView {
-            VStack {
-                Text("posts-no-data")
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(ColorsPalette.textPrimary)
-                    .accessibilityLabel("posts-no-data")
-                    .accessibilityHeading(.h2)
+        .overlay(alignment: .center) {
+            if dataSource.posts.isEmpty {
+                EmptyView(txt: "posts-no-data")
             }
-            .padding(16)
         }
     }
 }

@@ -103,7 +103,7 @@ struct ListSearchView: View {
     @ViewBuilder
     private var contentView: some View {
         ScrollView {
-            LazyVStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 8) {
                 ForEach(items, id: \.self) {
                     cell(for: $0)
                 }

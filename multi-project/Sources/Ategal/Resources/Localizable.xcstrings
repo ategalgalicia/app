@@ -149,7 +149,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Estamos para axudarche"
+            "value" : "Se non atopas o que precisas pregúntanos, podemos axudarte"
           }
         }
       }
@@ -479,7 +479,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ATEGAL é unha asociación cultural para persoas maiores que organiza actividades formativas, culturais e de ocio en distintos centros de Galicia."
+            "value" : "ATEGAL é unha asociación sen ánimo de lucro, fundada en 1978, que se dedica a organizar actividades formativas, culturais e de lecer en diversos centros de Galicia. Dirixida a persoas de 55 anos ou máis, a nosa misión é mellorar o benestar persoal, promover a saúde integral e potenciar a calidade de vida das persoas a través da súa participación activa en actividades socio-culturais e a convivencia interxeracional."
           }
         }
       }
@@ -509,7 +509,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ofrecemos actividades de:\n• Cultura (historia da arte, literatura, música…)\n• Idiomas (inglés, italiano, francés…)\n• Saúde e benestar\n• Tecnoloxía e competencias dixitais\n\nO noso obxectivo é aprender, manterse activo e compartir tempo con outras persoas."
+            "value" : "Ofrecemos actividades en catro grandes áreas:\n• Cultural (historia da arte, literatura, idiomas…)\n• Ocupacional (Música, tecnoloxía e competencias dixitais…)\n• Saúde e benestar (Ioga, pilates, estimulación cognitiva…)\n• Lecer (Celebracións, visita a exposicións, saídas culturais...)\n\nO noso obxectivo é apostar pola educación e a convivencia para promover a autonomía das persoas e formalas para alcanzar un bo vivir."
           }
         }
       }
