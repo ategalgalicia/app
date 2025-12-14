@@ -6,13 +6,13 @@ import SwiftUI
 import AtegalCore
 
 struct ActivityView: View {
-    
+
     @State
     var presentigSheet: Bool = false
-    
+
     let activity: Center.Category.Activity
     let center: Center
-    
+
     var body: some View {
         contentView
             .background(ColorsPalette.background)
@@ -23,77 +23,92 @@ struct ActivityView: View {
                 sheetView
             }
     }
-    
+
     @ViewBuilder
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                Text(activity.title)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundStyle(ColorsPalette.textPrimary)
-                    .multilineTextAlignment(.leading)
-                    .accessibilityHeading(.h1)
-                
-                Text(activity.description)
-                    .font(.body)
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                    .multilineTextAlignment(.leading)
-                    .lineSpacing()
-                
-                VStack(alignment: .leading, spacing: 16) {
-                    scheduleView
-                    actionView
-                }
-                .frame(maxWidth: .infinity)
-                .padding(16)
-                .cornerBackground()
+                headerView
+                scheduleView
+                actionView
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(16)
         }
     }
-    
-    @ViewBuilder
-    private var scheduleView: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            ForEach(activity.schedule, id: \.self) { schedule in
-                Text(schedule)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                    .foregroundColor(ColorsPalette.textPrimary)
-            }
+
+    private var headerView: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(activity.title)
+                .font(.title2.bold())
+                .foregroundStyle(ColorsPalette.textPrimary)
+                .multilineTextAlignment(.leading)
+                .accessibilityHeading(.h1)
+
+            Text(activity.description)
+                .font(.body)
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .multilineTextAlignment(.leading)
+                .lineSpacing()
         }
     }
-    
+
+    @ViewBuilder
+    private var scheduleView: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Label {
+                Text("activity-schedule")
+                    .font(.headline)
+                    .foregroundStyle(ColorsPalette.textPrimary)
+            } icon: {
+                Image(systemName: "calendar")
+                    .font(.body)
+                    .fontWeight(.bold)
+                    .foregroundStyle(ColorsPalette.primary)
+                    .padding(8)
+                    .cornerBackground(ColorsPalette.primary.opacity(0.15), radius: 8)
+                    .accessibilityHidden(true)
+            }
+
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(activity.schedule, id: \.self) { schedule in
+                    Text(schedule)
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
+        .cornerBackground()
+    }
+
     @ViewBuilder
     private var actionView: some View {
         Button {
             presentigSheet = true
         } label: {
-            Text("activity-action")
-                .font(.headline)
-                .fontWeight(.semibold)
+            Label("activity-action", systemImage: "arrow.forward")
+                .font(.headline.weight(.semibold))
                 .frame(maxWidth: .infinity)
-                .foregroundColor(ColorsPalette.textTertiary)
                 .padding(16)
+                .foregroundStyle(ColorsPalette.textTertiary)
         }
         .cornerBackground(ColorsPalette.primary)
         .buttonStyle(.plain)
     }
-    
+
     @ViewBuilder
     private var sheetView: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("activity-action-subtitle")
-                        .font(.subheadline)
-                        .foregroundColor(ColorsPalette.textPrimary)
-                        .fontWeight(.medium)
+                        .font(.callout.weight(.medium))
+                        .foregroundStyle(ColorsPalette.textSecondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .multilineTextAlignment(.leading)
-                    
+
                     LinkView(
                         phoneNumbers: center.phone,
                         email: center.email

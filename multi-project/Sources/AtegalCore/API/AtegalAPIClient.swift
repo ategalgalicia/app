@@ -14,16 +14,7 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
     }
     
     public func fetchCenters() -> [Center] {
-        [
-            readFromBundle("santiago"),
-            readFromBundle("coruna"),
-            readFromBundle("ferrol"),
-            readFromBundle("lalin"),
-            readFromBundle("monterroso"),
-            readFromBundle("ourense"),
-            readFromBundle("padron"),
-            readFromBundle("vigo")
-        ]
+        readCentersFromBundle()
     }
     
     public func fetchPosts() async throws -> [Post] {
@@ -53,14 +44,14 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
 
 private extension AtegalAPIClient {
     
-    func readFromBundle(_ center: String) -> AtegalCore.Center {
-        let url = Bundle.module.url(forResource: center, withExtension: "json")
+    func readCentersFromBundle() -> [AtegalCore.Center] {
+        let url = Bundle.module.url(forResource: "ategal", withExtension: "json")
         guard let url,
               let json = try? Data(contentsOf: url, options: .mappedIfSafe),
-              let preferences = try? JSONDecoder().decode(Center.self, from: json)
+              let items = try? JSONDecoder().decode([Center].self, from: json)
         else {
             fatalError()
         }
-        return preferences
+        return items
     }
 }

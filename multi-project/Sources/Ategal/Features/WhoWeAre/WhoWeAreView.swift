@@ -62,7 +62,7 @@ struct WhoWeAreView: View {
                     }
                 )
             }
-            .padding(.horizontal, 16)
+            .padding(16)
         }
         .navigationTitle("tab-who-we-are")
         .navigationBarTitleDisplayMode(.inline)
@@ -109,7 +109,8 @@ struct WhoWeAreView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(alignment: .center, spacing: 16) {
                 Image(systemName: systemImage)
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.body)
+                    .fontWeight(.bold)
                     .foregroundStyle(ColorsPalette.primary)
                     .padding(8)
                     .cornerBackground(ColorsPalette.primary.opacity(0.15), radius: 8)
@@ -136,33 +137,34 @@ struct WhoWeAreView: View {
             
             VStack(spacing: 8) {
                 ForEach(centers) { center in
-                    HStack(alignment: .center, spacing: 8) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(center.city)
-                                .font(.subheadline)
-                                .fontWeight(.medium)
-                                .foregroundColor(ColorsPalette.textPrimary)
+                    Button {
+                        selectedCenter = center
+                    } label: {
+                        HStack(alignment: .center, spacing: 8) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(center.city)
+                                    .font(.subheadline)
+                                    .fontWeight(.medium)
+                                    .foregroundColor(ColorsPalette.textPrimary)
+                                    .multilineTextAlignment(.leading)
+                                
+                                Text(center.address)
+                                    .font(.footnote)
+                                    .foregroundColor(ColorsPalette.textSecondary)
+                                    .multilineTextAlignment(.leading)
+                            }
+                            Spacer()
                             
-                            Text(center.address)
-                                .font(.footnote)
-                                .foregroundColor(ColorsPalette.textSecondary)
-                        }
-                        Spacer()
-                        
-                        Button {
-                            selectedCenter = center
-                        } label: {
                             Text("who-we-are-where-action")
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .foregroundColor(ColorsPalette.textTertiary)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 8)
+                                .cornerBackground(ColorsPalette.primary)
                         }
-                        .buttonStyle(.plain)
-                        .cornerBackground(ColorsPalette.primary)
+                        .padding(16)
                     }
-                    .padding(16)
                     .cornerBackground(ColorsPalette.background)
                 }
             }

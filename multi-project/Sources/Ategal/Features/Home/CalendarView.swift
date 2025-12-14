@@ -54,12 +54,6 @@ struct CalendarView: View {
             .background(ColorsPalette.background)
             .navigationTitle("calendar-title")
             .navigationBarTitleDisplayMode(.inline)
-            .scrollDisabled(dataSource.eventDays.isEmpty)
-            .overlay(alignment: .center) {
-                if dataSource.eventDays.isEmpty {
-                    EmptyView(txt: "calendar-no-data")
-                }
-            }
     }
     
     // MARK: ViewBuilders
@@ -73,7 +67,6 @@ struct CalendarView: View {
             }
             .padding(.vertical, 16)
         }
-        
     }
     
     @ViewBuilder
@@ -83,53 +76,64 @@ struct CalendarView: View {
                 .primaryTitle()
                 .padding(.horizontal, 16)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8) {
-                    ForEach(dataSource.calendar.weekday, id: \.index) { day in
-                        Button {
-                            navigationPath.append(.navigateToSearch(
-                                .activities(filterDay: day.index)
-                            ))
-                        } label: {
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(dataSource.calendar.weekdays, id: \.weekday) { day in
+                    Button {
+                        navigationPath.append(.navigateToSearch(
+                            .activities(filterDay: day.weekday)
+                        ))
+                    } label: {
+                        HStack(spacing: 16) {
                             Text(day.title)
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(ColorsPalette.textPrimary)
-                                .padding(16)
-                                .frame(minWidth: 76)
-                                .cornerBackground(ColorsPalette.cardBackground)
+                                .font(.body.weight(.regular))
+                                .foregroundStyle(ColorsPalette.textSecondary)
+                                .multilineTextAlignment(.leading)
+
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(ColorsPalette.primary)
+                                .accessibilityHidden(true)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(16)
+                        .contentRectangleShape()
+                        .combinedAccessibility()
                     }
+                    .buttonStyle(.plain)
+                    .cornerBackground()
                 }
-                .padding(.horizontal, 16)
             }
         }
+        .padding(.horizontal, 16)
     }
     
     @ViewBuilder
     private var nextEventsView: some View {
-        VStack(alignment: .leading, spacing: 24) {
-            Text("calendar-events-title")
-                .primaryTitle()
-                .padding(.horizontal, 16)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 8) {
-                    ForEach(dataSource.eventDays, id: \.self) { date in
-                        cell(for: date)
+        if !dataSource.eventDays.isEmpty {
+            VStack(alignment: .leading, spacing: 24) {
+                Text("calendar-events-title")
+                    .primaryTitle()
+                    .padding(.horizontal, 16)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(dataSource.eventDays, id: \.self) { date in
+                            cell(for: date)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                }
+                
+                VStack(spacing: 8) {
+                    ForEach(dataSource.eventsForSelectedDate) {
+                        cell(for: $0)
                     }
                 }
                 .padding(.horizontal, 16)
             }
-            
-            LazyVStack(spacing: 8) {
-                ForEach(dataSource.eventsForSelectedDate) {
-                    cell(for: $0)
-                }
-            }
-            .padding(.horizontal, 16)
+            .padding(.top, 16)
         }
-        .padding(.top, 16)
     }
     
     @ViewBuilder
@@ -258,16 +262,13 @@ class CalendarDataSource {
     var selectedDate: Date
     
     init(apiClient: AtegalAPIClient) async throws {
-        self.calendar = Calendar.current
-        self.calendar.firstWeekday = 1
+        self.calendar = .ategal
         self.centers = apiClient.fetchCenters()
         let events = await apiClient.fetchCalendarEvents()
         self.events = events
         self.selectedDate = events
             .sorted { $0.startDate < $1.startDate }
             .first?.startDate ?? Date()
-        
-        
     }
     
     var eventDays: [Date] {
@@ -296,16 +297,25 @@ class CalendarDataSource {
 
 private extension Calendar {
     
-    var weekday: [(index: Int, title: String)] {
-        let array = weekdaySymbols.shifted(startingAt: firstWeekday)
-        return array.enumerated().map { index, element in
-            return (index, element)
+    static let ategal: Calendar = {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "gl_ES")
+        calendar.firstWeekday = 2
+        return calendar
+    }()
+
+    var weekdays: [(weekday: Int, title: String)] {
+        let startIndex = firstWeekday - 1
+        let items = weekdaySymbols.shifted(startingAt: startIndex)
+        return items.enumerated().map { offset, title in
+            let weekday = ((startIndex + offset) % 7)
+            return (weekday: weekday, title: title.capitalized)
         }
     }
 }
 
 private extension Array {
-    /// Circularly shifts the array so that `startingAt` becomes the first element.
+    
     func shifted(startingAt i: Int) -> [Element] {
         guard !isEmpty else { return [] }
         let idx = ((i % count) + count) % count

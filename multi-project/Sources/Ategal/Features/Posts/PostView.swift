@@ -19,15 +19,15 @@ struct PostView: View {
             VStack(alignment: .leading, spacing: 16) {
                 asyncImageView
                 
-                Text(post.date.formatted())
-                    .font(.body)
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                
                 Text(post.title)
                     .font(.title2.bold())
                     .foregroundStyle(ColorsPalette.textPrimary)
                     .multilineTextAlignment(.leading)
                     .accessibilityHeading(.h1)
+                
+                Text(post.date.formatted())
+                    .font(.body)
+                    .foregroundStyle(ColorsPalette.textSecondary)
                 
                 Text(post.content)
                     .font(.body)

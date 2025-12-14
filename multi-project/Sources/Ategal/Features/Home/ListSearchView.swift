@@ -110,7 +110,6 @@ struct ListSearchView: View {
             }
             .padding(.horizontal, 16)
         }
-        .scrollDisabled(items.isEmpty)
         .overlay(alignment: .center) {
             if items.isEmpty {
                 EmptyView(txt: source.emptytitle)
@@ -125,10 +124,21 @@ struct ListSearchView: View {
             cellAction(title, centers: centers)
         } label: {
             VStack(alignment: .leading, spacing: 8) {
-                Text(title)
-                    .font(.body.weight(.regular))
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                    .multilineTextAlignment(.leading)
+                HStack(spacing: 16) {
+                    Text(title)
+                        .font(.body.weight(.regular))
+                        .foregroundStyle(ColorsPalette.textSecondary)
+                        .multilineTextAlignment(.leading)
+
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(ColorsPalette.primary)
+                        .accessibilityHidden(true)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .combinedAccessibility()
+                .accessibilityLabel(Text(title))
                 
                 if source.isActivity {
                     cities(centers)

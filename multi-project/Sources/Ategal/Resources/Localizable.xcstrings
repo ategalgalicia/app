@@ -34,6 +34,16 @@
         }
       }
     },
+    "activity-schedule" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Horario"
+          }
+        }
+      }
+    },
     "add-event-calendar-subtitle" : {
       "localizations" : {
         "gl-ES" : {
@@ -90,16 +100,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vindeiros eventos"
-          }
-        }
-      }
-    },
-    "calendar-no-data" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Non hai eventos dispoñibles"
           }
         }
       }

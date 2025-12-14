@@ -12,7 +12,7 @@ public struct EmptyView: View {
     
     public init(
         txt: LocalizedStringKey,
-        image: Image? = Image(systemName: "exclamationmark.triangle"),
+        image: Image? = nil,
         button: (title: LocalizedStringKey, action: VoidHandler)? = nil
     ) {
         self.txt = txt

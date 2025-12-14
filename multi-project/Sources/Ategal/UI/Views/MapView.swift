@@ -30,7 +30,7 @@ struct MapView: View {
         #if canImport(Darwin)
         _mapPosition = State(initialValue: .region(.init(
             center: place.coordinate,
-            span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            span: .init(latitudeDelta: 0.02, longitudeDelta: 0.02)
         )))
         #endif
     }
