@@ -249,7 +249,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descubre que facer hoxe preto de ti"
+            "value" : "Descubre plans para hoxe preto de ti"
           }
         }
       }
@@ -269,7 +269,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Explora as actividades do teu centro"
+            "value" : "Explora o teu centro e descubre todo o que ofrece"
           }
         }
       }
@@ -309,7 +309,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Atopa información útil"
+            "value" : "Atopa a información que precisas"
           }
         }
       }

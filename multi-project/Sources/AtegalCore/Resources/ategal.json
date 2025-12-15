@@ -480,15 +480,6 @@
                 ],
                 "resources": [
                     {
-                        "title": "Faite voluntario/a en ATEGAL Santiago de Compostela",
-                        "phone": [
-                            "981581533",
-                            "618184344"
-                        ],
-                        "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
-                        "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social, fundamentalmente. Infórmate como colaborar."
-                    },
-                    {
                         "title": "Oficina de Voluntariado. Xunta de Galicia",
                         "phone": [
                             "981546997"
@@ -504,6 +495,15 @@
                         "web": "https://www.igaxes.org/es/",
                         "contact": "Chelo",
                         "description": "Apoio escolar a nenos e nenas. Que ningunha nena, neno ou persoa moza teña que renunciar ao seu futuro por razón de pobreza ou exclusión social."
+                    },
+                    {
+                        "title": "Faite voluntario/a en ATEGAL Santiago de Compostela",
+                        "phone": [
+                            "981581533",
+                            "618184344"
+                        ],
+                        "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
+                        "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social, fundamentalmente. Infórmate como colaborar."
                     }
                 ]
             }
@@ -832,19 +832,6 @@
                             "981216096"
                         ],
                         "email": "coruna@ategal.com"
-                    },
-                    {
-                        "title": "Faite Voluntario/a en ATEGAL A Coruña",
-                        "weekday": [],
-                        "schedule": [
-                            "Personalizable"
-                        ],
-                        "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social, fundamentalmente. Infórmate como colaborar.",
-                        "address": "Rúa Fonseca 8, 15004 A Coruña",
-                        "phone": [
-                            "981216096"
-                        ],
-                        "email": "coruna@ategal.com"
                     }
                 ],
                 "resources": [
@@ -898,6 +885,15 @@
                             "981940048"
                         ],
                         "contact": "Carmen"
+                    },
+                    {
+                        "title": "Faite Voluntario/a en ATEGAL A Coruña",
+                        "description": "ATEGAL é Entidade de Acción Voluntaria da Xunta de Galicia, rexistrada co número O-867. Traballamos na área cultural e social, fundamentalmente. Infórmate como colaborar.",
+                        "address": "Rúa Fonseca 8, 15004 A Coruña",
+                        "phone": [
+                            "981216096"
+                        ],
+                        "email": "coruna@ategal.com"
                     }
                 ]
             }
