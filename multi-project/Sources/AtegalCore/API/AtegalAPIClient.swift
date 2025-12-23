@@ -13,8 +13,24 @@ public class AtegalAPIClient: APIClient, @unchecked Sendable {
         super.init(environment: environment, fetcher: networkFetcher)
     }
     
-    public func fetchCenters() -> [Center] {
-        readCentersFromBundle()
+    public func fetchCenters() async -> [Center] {
+        struct CenterFetchError: Swift.Error {}
+        do {
+            let _data: Data? = try await {
+                let urlString = "https://gist.githubusercontent.com/ategalgalicia/1090045bd5d98f9a692d4426b7f9f48e/raw/"
+                guard let url = URL(string: urlString) else { return nil }
+                let urlRequest = URLRequest(url: url, timeoutInterval: 3)
+                let (data, _) = try await URLSession.shared.data(for: urlRequest)
+                return data
+            }()
+            guard let data = _data else {
+                throw CenterFetchError()
+            }
+            let results = try JSONDecoder().decode([Center].self, from: data)
+            return results
+        } catch {
+            return readCentersFromBundle()
+        }
     }
     
     public func fetchPosts() async throws -> [Post] {

@@ -31,7 +31,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $tab) {
             NavigationStack(path: $navigationHome) {
-                HomeView(
+                HomeAsyncView(
                     navigationPath: $navigationHome,
                     apiClient: world.apiClient,
                     appVersion: world.appVersion
@@ -41,7 +41,7 @@ struct ContentView: View {
             .tag(ContentTab.home)
             
             NavigationStack {
-                WhoWeAreView(apiClient: world.apiClient)
+                WhoWeAreAsyncView(apiClient: world.apiClient)
             }
             .tabItem { Label("tab-who-we-are", systemImage: "person.crop.circle") }
             .tag(ContentTab.whoWeAre)

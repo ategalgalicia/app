@@ -12,7 +12,7 @@ import AtegalCore
 #Preview {
     NavigationStack {
         WhoWeAreView(
-            apiClient: .init()
+            centers: []
         )
         .dynamicTypeSize(.large ... .accessibility5)
     }
@@ -25,10 +25,6 @@ struct WhoWeAreView: View {
     var selectedCenter: Center? = nil
     
     let centers: [Center]
-    
-    init(apiClient: AtegalAPIClient) {
-        self.centers = apiClient.fetchCenters()
-    }
     
     var body: some View {
         ScrollView {
@@ -207,5 +203,20 @@ struct WhoWeAreView: View {
         }
         .cornerBackground(ColorsPalette.background.opacity(0.95))
         .cornerBorder()
+    }
+}
+
+// MARK: WhoWeAreAsyncView
+
+struct WhoWeAreAsyncView: View {
+    
+    let apiClient: AtegalAPIClient
+    
+    var body: some View {
+        AsyncView {
+            await apiClient.fetchCenters()
+        } content: {
+            WhoWeAreView(centers: $0)
+        }
     }
 }

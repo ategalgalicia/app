@@ -263,7 +263,7 @@ class CalendarDataSource {
     
     init(apiClient: AtegalAPIClient) async throws {
         self.calendar = .ategal
-        self.centers = apiClient.fetchCenters()
+        self.centers = await apiClient.fetchCenters()
         let events = await apiClient.fetchCalendarEvents()
         self.events = events
         self.selectedDate = events

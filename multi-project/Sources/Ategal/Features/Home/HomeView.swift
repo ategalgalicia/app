@@ -19,6 +19,7 @@ import AtegalCore
         HomeView(
             navigationPath: $navigationPath,
             apiClient: .init(),
+            centers: [],
             appVersion: "Versión 1.0.0"
         )
         .dynamicTypeSize(.large ... .accessibility5)
@@ -36,17 +37,6 @@ struct HomeView: View {
     let apiClient: AtegalAPIClient
     let centers: [Center]
     let appVersion: String
-    
-    init(
-        navigationPath: Binding<[HomeRoute]>,
-        apiClient: AtegalAPIClient,
-        appVersion: String
-    ) {
-        self._navigationPath = navigationPath
-        self.apiClient = apiClient
-        self.centers = apiClient.fetchCenters()
-        self.appVersion = appVersion
-    }
     
     var body: some View {
         ScrollView {
@@ -219,6 +209,41 @@ struct HomeView: View {
     }
 }
 
+// MARK: WhoWeAreAsyncView
+
+struct HomeAsyncView: View {
+    
+    @Binding
+    var navigationPath: [HomeRoute]
+    
+    let apiClient: AtegalAPIClient
+    let appVersion: String
+    
+    init(
+        navigationPath: Binding<[HomeRoute]>,
+        apiClient: AtegalAPIClient,
+        appVersion: String
+    ) {
+        self._navigationPath = navigationPath
+        self.apiClient = apiClient
+        self.appVersion = appVersion
+    }
+    
+    var body: some View {
+        AsyncView {
+            await apiClient.fetchCenters()
+        } content: {
+            HomeView(
+                navigationPath: $navigationPath,
+                apiClient: apiClient,
+                centers: $0,
+                appVersion: appVersion
+            )
+        }
+    }
+}
+
+
 // MARK: HomeRoute
 
 enum HomeRoute: Hashable {
@@ -229,4 +254,3 @@ enum HomeRoute: Hashable {
     case navigateToActivity(activity: Center.Category.Activity, center: Center)
     case navigateToSearch(SearchSource)
 }
-
