@@ -20,7 +20,18 @@ open class APIClient: @unchecked Sendable {
         environment: Environment,
         fetcher: APIClientFetcher? = nil
     ) {
-        self.fetcher = fetcher ?? URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
+        if let fetcher {
+            self.fetcher = fetcher
+        } else {
+            let config = URLSessionConfiguration.ephemeral
+            config.requestCachePolicy = .reloadIgnoringLocalCacheData
+            config.urlCache = nil
+            self.fetcher = URLSession(
+                configuration: config,
+                delegate: nil,
+                delegateQueue: .main
+            )
+        }
         self.environment = environment
     }
     

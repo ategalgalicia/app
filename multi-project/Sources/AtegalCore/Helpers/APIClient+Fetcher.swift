@@ -14,7 +14,6 @@ public protocol APIClientFetcher {
     func fetchData(with request: URLRequest) async throws -> APIClientResponse
 }
 
-
 // MARK: APIClientResponse
 
 public struct APIClientResponse: Sendable {

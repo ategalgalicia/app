@@ -17,7 +17,9 @@ enum GistEndpoint: Endpoint {
     var parameters: [String : Any]? {
         switch self {
         case .getCenters:
-            return nil
+            return [
+                "t": Int(Date().timeIntervalSince1970)
+            ]
         }
     }
 }
