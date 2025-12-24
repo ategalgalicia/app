@@ -102,17 +102,16 @@ struct ListSearchView: View {
     
     @ViewBuilder
     private var contentView: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(items, id: \.self) {
-                    cell(for: $0)
+        if items.isEmpty {
+            EmptyStateView(txt: source.emptytitle)
+        } else {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(items, id: \.self) {
+                        cell(for: $0)
+                    }
                 }
-            }
-            .padding(.horizontal, 16)
-        }
-        .overlay(alignment: .center) {
-            if items.isEmpty {
-                EmptyView(txt: source.emptytitle)
+                .padding(.horizontal, 16)
             }
         }
     }

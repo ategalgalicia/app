@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-public struct EmptyView: View {
+public struct EmptyStateView: View {
     
     private let txt: LocalizedStringKey
     private let image: Image?
@@ -43,6 +43,7 @@ public struct EmptyView: View {
                     }, label: {
                         Text(button.title)
                             .primaryTitle()
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                 )
                 .frame(minHeight: 48)

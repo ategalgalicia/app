@@ -59,32 +59,31 @@ struct PostsView: View {
     
     @ViewBuilder
     private var contentView: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("ategal-title")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(ColorsPalette.textPrimary)
-                    
-                    Text("posts-subtitle")
-                        .primaryTitle()
-                }
-                ContentList(
-                    items: dataSource.posts,
-                    title: \.title,
-                    onTap: {
-                        dataSource.selected = $0
-                        navigationPath.append(.navigateToPost)
+        if dataSource.posts.isEmpty {
+            EmptyStateView(txt: "posts-no-data")
+        } else {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("ategal-title")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundStyle(ColorsPalette.textPrimary)
+                        
+                        Text("posts-subtitle")
+                            .primaryTitle()
                     }
-                )
-            }
-            .padding(16)
-            .combinedAccessibility()
-        }
-        .overlay(alignment: .center) {
-            if dataSource.posts.isEmpty {
-                EmptyView(txt: "posts-no-data")
+                    ContentList(
+                        items: dataSource.posts,
+                        title: \.title,
+                        onTap: {
+                            dataSource.selected = $0
+                            navigationPath.append(.navigateToPost)
+                        }
+                    )
+                }
+                .padding(16)
+                .combinedAccessibility()
             }
         }
     }

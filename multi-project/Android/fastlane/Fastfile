@@ -33,11 +33,14 @@ end
 
 desc "Assemble Skip Android App"
 lane :assemble do
+  # Tell Skip which native architectures to export (important for JNI/bridge)
+  ENV["SKIP_EXPORT_ARCHS"] = "aarch64,x86_64,armv7"
+
   gradle(
     gradle_path: gradle_bin,
-    task: "bundleRelease"
+    task: "bundleRelease",
+    flags: "--warning-mode none -x lint"
   )
-  # sh "your_script.sh"
 end
 
 desc "Deploy Skip Android App to Google Play"
