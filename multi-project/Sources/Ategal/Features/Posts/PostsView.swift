@@ -97,7 +97,7 @@ struct PostsAsyncView: View {
     @Binding
     var navigationPath: [PostRoute]
     
-    let apiClient: AtegalAPIClient
+    let apiClient: WPAPIClient
     
     var body: some View {
         AsyncView {

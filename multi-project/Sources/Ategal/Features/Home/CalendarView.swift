@@ -228,14 +228,18 @@ struct CalendarView: View {
 
 struct CalendarAsyncView: View {
     
-    let apiClient: AtegalAPIClient
+    let wpApiClient: WPAPIClient
+    let centers: [Center]
     
     @Binding
     var navigationPath: [HomeRoute]
     
     var body: some View {
         AsyncView {
-            try await CalendarDataSource(apiClient: apiClient)
+            try await CalendarDataSource(
+                wpApiClient: wpApiClient,
+                centers: centers
+            )
         } content: {
             CalendarView(
                 dataSource: $0,
@@ -261,10 +265,10 @@ class CalendarDataSource {
     
     var selectedDate: Date
     
-    init(apiClient: AtegalAPIClient) async throws {
+    init(wpApiClient: WPAPIClient, centers: [Center]) async throws {
         self.calendar = .ategal
-        self.centers = await apiClient.fetchCenters()
-        let events = await apiClient.fetchCalendarEvents()
+        self.centers = centers
+        let events = await wpApiClient.fetchCalendarEvents()
         self.events = events
         self.selectedDate = events
             .sorted { $0.startDate < $1.startDate }

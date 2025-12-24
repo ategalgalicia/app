@@ -33,7 +33,8 @@ struct ContentView: View {
             NavigationStack(path: $navigationHome) {
                 HomeAsyncView(
                     navigationPath: $navigationHome,
-                    apiClient: world.apiClient,
+                    wpApiClient: world.wpApiClient,
+                    gistApiClient: world.gistApiClient,
                     appVersion: world.appVersion
                 )
             }
@@ -41,7 +42,7 @@ struct ContentView: View {
             .tag(ContentTab.home)
             
             NavigationStack {
-                WhoWeAreAsyncView(apiClient: world.apiClient)
+                WhoWeAreAsyncView(apiClient: world.gistApiClient)
             }
             .tabItem { Label("tab-who-we-are", systemImage: "person.crop.circle") }
             .tag(ContentTab.whoWeAre)
@@ -49,7 +50,7 @@ struct ContentView: View {
             NavigationStack(path: $navigationPost) {
                 PostsAsyncView(
                     navigationPath: $navigationPost,
-                    apiClient: world.apiClient
+                    apiClient: world.wpApiClient
                 )
             }
             .tabItem { Label("tab-posts", systemImage: "pencil") }

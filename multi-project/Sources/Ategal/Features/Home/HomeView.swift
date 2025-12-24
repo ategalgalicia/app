@@ -18,7 +18,7 @@ import AtegalCore
     NavigationStack {
         HomeView(
             navigationPath: $navigationPath,
-            apiClient: .init(),
+            wpApiClient: .init(),
             centers: [],
             appVersion: "Versión 1.0.0"
         )
@@ -34,7 +34,7 @@ struct HomeView: View {
     @Binding
     var navigationPath: [HomeRoute]
     
-    let apiClient: AtegalAPIClient
+    let wpApiClient: WPAPIClient    
     let centers: [Center]
     let appVersion: String
     
@@ -55,7 +55,8 @@ struct HomeView: View {
             switch $0 {
             case .navigateToCalendar:
                 CalendarAsyncView(
-                    apiClient: apiClient,
+                    wpApiClient: wpApiClient,
+                    centers: centers,
                     navigationPath: $navigationPath
                 )
             case .navigateToCityList:
@@ -216,33 +217,35 @@ struct HomeAsyncView: View {
     @Binding
     var navigationPath: [HomeRoute]
     
-    let apiClient: AtegalAPIClient
+    let wpApiClient: WPAPIClient
+    let gistApiClient: GistAPIClient
     let appVersion: String
     
     init(
         navigationPath: Binding<[HomeRoute]>,
-        apiClient: AtegalAPIClient,
+        wpApiClient: WPAPIClient,
+        gistApiClient: GistAPIClient,
         appVersion: String
     ) {
         self._navigationPath = navigationPath
-        self.apiClient = apiClient
+        self.wpApiClient = wpApiClient
+        self.gistApiClient = gistApiClient
         self.appVersion = appVersion
     }
     
     var body: some View {
         AsyncView {
-            await apiClient.fetchCenters()
+            await gistApiClient.fetchCenters()
         } content: {
             HomeView(
                 navigationPath: $navigationPath,
-                apiClient: apiClient,
+                wpApiClient: wpApiClient,
                 centers: $0,
                 appVersion: appVersion
             )
         }
     }
 }
-
 
 // MARK: HomeRoute
 

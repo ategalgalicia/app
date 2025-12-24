@@ -16,7 +16,7 @@ class PostsDataSource {
     var selected: Post? = nil
     var posts: [Post]
     
-    init(apiClient: AtegalAPIClient) async throws {
+    init(apiClient: WPAPIClient) async throws {
         self.posts = try await apiClient.fetchPosts()
     }
     

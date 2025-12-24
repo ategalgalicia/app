@@ -8,11 +8,13 @@ import SkipFuse; import SkipFuseUI
 
 struct World {
     
-    let apiClient: AtegalAPIClient
+    let wpApiClient: WPAPIClient
+    let gistApiClient: GistAPIClient
     let appVersion: String
     
     init() {
-        self.apiClient = .init()
+        self.wpApiClient = WPAPIClient()
+        self.gistApiClient = GistAPIClient()
         self.appVersion = "Versión \(World.marketingVersion) (\(World.buildNumber))"
     }
 }

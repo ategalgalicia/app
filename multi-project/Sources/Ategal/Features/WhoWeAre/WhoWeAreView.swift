@@ -210,7 +210,7 @@ struct WhoWeAreView: View {
 
 struct WhoWeAreAsyncView: View {
     
-    let apiClient: AtegalAPIClient
+    let apiClient: GistAPIClient
     
     var body: some View {
         AsyncView {

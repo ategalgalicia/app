@@ -4,7 +4,7 @@
 
 import Foundation
 
-enum AtegalAPI: Endpoint {
+enum WPEndpoint: Endpoint {
     
     case getPosts
     case getCalendarEvents
