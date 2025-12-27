@@ -27,7 +27,6 @@ struct CategoryView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                
                 VStack(alignment: .leading, spacing: 8) {
                     Text(category.title)
                         .font(.title)
@@ -37,7 +36,6 @@ struct CategoryView: View {
                     Text("category-subtitle")
                         .primaryTitle()
                 }
-                    
                 ContentList(
                     items: category.activities,
                     title: \.title,
@@ -47,7 +45,6 @@ struct CategoryView: View {
                         ))
                     }
                 )
-                
                 resourceView
             }
             .padding(16)

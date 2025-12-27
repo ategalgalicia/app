@@ -32,6 +32,9 @@ struct LinkView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
+            if let address, let lat, let long {
+                MapLinkButton(address: address, lat: lat, lon: long)
+            }
             if !phoneNumbers.isEmpty {
                 ForEach(phoneNumbers, id: \.self) { number in
                     if let url = LinkManager.shared.phoneURL(for: number) {
@@ -41,9 +44,6 @@ struct LinkView: View {
             }
             if let email, let url = LinkManager.shared.emailURL(to: email) {
                 LinkButton(title: email, kind: .icon("envelope.fill"), url: url)
-            }
-            if let address, let lat, let long {
-                MapLinkButton(address: address, lat: lat, lon: long)
             }
             if let website, let url = LinkManager.shared.websiteURL(from: website) {
                 LinkButton(title: website, kind: .icon("star.fill"), url: url)
@@ -71,8 +71,7 @@ struct MapLinkButton: View {
                 .cornerBorder()
         }
         .confirmationDialog(
-            "", isPresented: $showDirectionsDialog,
-            titleVisibility: .hidden
+            "", isPresented: $showDirectionsDialog, titleVisibility: .hidden
         ) {
             Button {
                 LinkManager.shared.open(on: .apple, lat: lat, lon: lon)

@@ -24,7 +24,6 @@ struct CityListView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                
                 VStack(alignment: .leading, spacing: 8) {
                     Text("ategal-title")
                         .font(.title)

@@ -35,18 +35,12 @@ struct CalendarView: View {
     
     @Binding
     var navigationPath: [HomeRoute]
-    
-    @State
-    var showSuccess = false
         
     @State
     var errorMessage: String?
     
     @State
-    var isOK: Bool = false
-    
-    @SwiftUI.Environment(\.openURL)
-    var openURL
+    var showSuccess: Bool = false
     
     var body: some View {
         contentView
@@ -180,7 +174,7 @@ struct CalendarView: View {
         #if canImport(Darwin)
         AsyncButton(
             action: {
-                isOK = await LinkManager.shared.addToAppleCalendar(event: event)
+                showSuccess = await LinkManager.shared.addToAppleCalendar(event: event)
             },
             label: {
                 label(for: event)
@@ -188,7 +182,7 @@ struct CalendarView: View {
             completion: .confirmation(
                 title: "add-event-calendar-title",
                 subtitle: "add-event-calendar-subtitle",
-                isOK: isOK
+                isOK: showSuccess
             )
         )
         .cornerBackground()
@@ -228,11 +222,11 @@ struct CalendarView: View {
 
 struct CalendarAsyncView: View {
     
-    let wpApiClient: WPAPIClient
-    let centers: [Center]
-    
     @Binding
     var navigationPath: [HomeRoute]
+    
+    let wpApiClient: WPAPIClient
+    let centers: [Center]
     
     var body: some View {
         AsyncView {

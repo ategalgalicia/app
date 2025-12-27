@@ -27,6 +27,17 @@ import AtegalCore
 }
 #endif
 
+// MARK: HomeRoute
+
+enum HomeRoute: Hashable {
+    case navigateToCalendar
+    case navigateToCityList
+    case navigateToCategoryList(Center)
+    case navigateToSearch(SearchListView.Source)
+    case navigateToCategory(category: Center.Category, center: Center)
+    case navigateToActivity(activity: Center.Category.Activity, center: Center)
+}
+
 // MARK: HomeView
 
 struct HomeView: View {
@@ -34,11 +45,59 @@ struct HomeView: View {
     @Binding
     var navigationPath: [HomeRoute]
     
-    let wpApiClient: WPAPIClient    
+    let wpApiClient: WPAPIClient
     let centers: [Center]
     let appVersion: String
     
     var body: some View {
+        contentView
+            .background(ColorsPalette.background)
+            .tint(ColorsPalette.primary)
+            .navigationTitle("ategal-title")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: HomeRoute.self) {
+                switch $0 {
+                case .navigateToCalendar:
+                    CalendarAsyncView(
+                        navigationPath: $navigationPath,
+                        wpApiClient: wpApiClient,
+                        centers: centers
+                    )
+                case .navigateToCityList:
+                    CityListView(
+                        navigationPath: $navigationPath,
+                        centers: centers
+                    )
+                case .navigateToSearch(let source):
+                    SearchListView(
+                        navigationPath: $navigationPath,
+                        source: source,
+                        centers: centers
+                    )
+                case .navigateToCategoryList(let center):
+                    CategoryListView(
+                        navigationPath: $navigationPath,
+                        center: center
+                    )
+                case .navigateToCategory(let category, let center):
+                    CategoryView(
+                        navigationPath: $navigationPath,
+                        category: category,
+                        center: center
+                    )
+                case .navigateToActivity(let activity, let center):
+                    ActivityView(
+                        activity: activity,
+                        center: center
+                    )
+                }
+            }
+    }
+    
+    // MARK: ViewBuilders
+    
+    @ViewBuilder
+    private var contentView: some View {
         ScrollView {
             VStack(spacing: 16) {
                 questionView
@@ -47,51 +106,7 @@ struct HomeView: View {
             }
             .padding(.horizontal, 16)
         }
-        .background(ColorsPalette.background)
-        .tint(ColorsPalette.primary)
-        .navigationTitle("ategal-title")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(for: HomeRoute.self) {
-            switch $0 {
-            case .navigateToCalendar:
-                CalendarAsyncView(
-                    wpApiClient: wpApiClient,
-                    centers: centers,
-                    navigationPath: $navigationPath
-                )
-            case .navigateToCityList:
-                CityListView(
-                    navigationPath: $navigationPath,
-                    centers: centers
-                )
-            case .navigateToCategoryList(let center):
-                CategoryListView(
-                    navigationPath: $navigationPath,
-                    center: center
-                )
-            case .navigateToCategory(let category, let center):
-                CategoryView(
-                    navigationPath: $navigationPath,
-                    category: category,
-                    center: center
-                )
-            case .navigateToActivity(let activity, let center):
-                ActivityView(
-                    activity: activity,
-                    center: center
-                )
-                
-            case .navigateToSearch(let source):
-                ListSearchView(
-                    source: source,
-                    centers: centers,
-                    navigationPath: $navigationPath
-                )
-            }
-        }
     }
-    
-    // MARK: ViewBuilders
     
     @ViewBuilder
     private var questionView: some View {
@@ -203,14 +218,14 @@ struct HomeView: View {
                 .font(.caption2)
                 .foregroundStyle(ColorsPalette.textSecondary.opacity(0.2))
                 .combinedAccessibility()
-                .frame(width: 90)
+                .frame(width: 95)
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .padding(.vertical, 24)
     }
 }
 
-// MARK: WhoWeAreAsyncView
+// MARK: HomeAsyncView
 
 struct HomeAsyncView: View {
     
@@ -245,15 +260,4 @@ struct HomeAsyncView: View {
             )
         }
     }
-}
-
-// MARK: HomeRoute
-
-enum HomeRoute: Hashable {
-    case navigateToCalendar
-    case navigateToCityList
-    case navigateToCategoryList(Center)
-    case navigateToCategory(category: Center.Category, center: Center)
-    case navigateToActivity(activity: Center.Category.Activity, center: Center)
-    case navigateToSearch(SearchSource)
 }

@@ -63,19 +63,6 @@ extension View {
     }
     
     @ViewBuilder
-    func presentationDetents(detents: Set<PresentationDetent>, selection: Binding<PresentationDetent>? = nil) -> some View {
-        #if canImport(Darwin)
-        if let selection {
-            self.presentationDetents(detents, selection: selection)
-        } else {
-            self.presentationDetents(detents)
-        }
-        #else
-        self.presentationDetents([.large])
-        #endif
-    }
-    
-    @ViewBuilder
     func tabBarMinimizeBehavior() -> some View {
         #if canImport(Darwin)
         if #available(iOS 26.0, *) {

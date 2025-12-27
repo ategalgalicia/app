@@ -48,7 +48,7 @@ struct ContentView: View {
             .tag(ContentTab.whoWeAre)
             
             NavigationStack(path: $navigationPost) {
-                PostsAsyncView(
+                PostListAsyncView(
                     navigationPath: $navigationPost,
                     apiClient: world.wpApiClient
                 )

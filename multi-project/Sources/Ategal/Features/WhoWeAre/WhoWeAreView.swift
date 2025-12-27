@@ -63,7 +63,7 @@ struct WhoWeAreView: View {
         .navigationTitle("tab-who-we-are")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedCenter) { selectedCenter in
-            CityView(center: selectedCenter)
+            cityView(center: selectedCenter)
         }
     }
     
@@ -204,9 +204,37 @@ struct WhoWeAreView: View {
         .cornerBackground(ColorsPalette.background.opacity(0.95))
         .cornerBorder()
     }
+    
+    @ViewBuilder
+    private func cityView(center: Center) -> some View {
+        PresentationSheetContainer(
+            title: "Ategal",
+            detents: {
+                #if canImport(Darwin)
+                [.medium, .large]
+                #else
+                [.large]
+                #endif
+            }()
+        ) {
+            Text(center.city)
+                .font(.title.bold())
+                .foregroundColor(ColorsPalette.textPrimary)
+            
+            MapView(place: center.place)
+            
+            LinkView(
+                phoneNumbers: center.phone,
+                email: center.email,
+                address: center.address,
+                lat: center.latitude,
+                long: center.longitude
+            )
+        }
+    }
 }
 
-// MARK: WhoWeAreAsyncView
+// MARK: Async
 
 struct WhoWeAreAsyncView: View {
     
