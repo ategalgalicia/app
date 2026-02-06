@@ -101,7 +101,7 @@ struct ActivityView: View {
 
     @ViewBuilder
     private var sheetView: some View {
-        PresentationSheetContainer(title: "activity-action") {
+        PresentationSheetContainer() {
             Text("activity-action-subtitle")
                 .font(.callout.weight(.medium))
                 .foregroundStyle(ColorsPalette.textSecondary)

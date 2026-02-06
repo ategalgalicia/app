@@ -1,7 +1,7 @@
 [
     {
         "id": "01",
-        "city": "Santiago",
+        "city": "Santiago de Compostela",
         "address": "Rúa Virxe da Cerca 31, 15703",
         "latitude": 42.88088794766176,
         "longitude": -8.540582207847706,
@@ -1634,7 +1634,7 @@
                         "title": "Literatura",
                         "weekday": [1],
                         "schedule": [
-                            "Luns 18:00h a 19:00h"
+                            "Xoves de 12:00h a 13:00h"
                         ],
                         "description": "Espazo para gozar da lectura, coñecer autores inesquecibles e deixar voar a creatividade. Viaxe dende os mitos clásicos ata a literatura contemporánea, con lecturas compartidas.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1690,7 +1690,8 @@
                         "title": "Antropoloxía",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores de 19:00h a 20:00h"
+                            "Martes de 11:30h a 12:30h",
+                            "Mércores de 18:00h a 19:00h"
                         ],
                         "description": "Percorrido práctico e divertido polo mundo das culturas; xogos, comparación de costumes e curiosidades para comprender o que nos fai únicos como seres humanos.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1762,7 +1763,7 @@
                         "title": "Tecnoloxía",
                         "weekday": [2],
                         "schedule": [
-                            "Martes 19:00h a 20:00h"
+                            "Xoves de 19:00h a 20:00h"
                         ],
                         "description": "Trucos e boas prácticas para sacarlle partido ao móbil: WhatsApp, apps útiles e configuracións prácticas nun curso ameno e sen medo.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1790,7 +1791,7 @@
                         "title": "Artes plásticas",
                         "weekday": [1],
                         "schedule": [
-                            "Luns de 10:30h a 12:30h"
+                            "Venres de 11:00h a 13:00h"
                         ],
                         "description": "Desenvolvemento da expresión artística persoal con diferentes técnicas e materiais. Ambiente distendido e participativo.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1839,7 +1840,10 @@
                         "title": "Memoria",
                         "weekday": [5],
                         "schedule": [
-                            "Venres de 17:30h a 19:00h"
+                            "Martes de 17:00h a 18:00h",
+                            "Xoves de 18:00h a 19:00h",
+                            "Venres de 17:30h a 18:30h",
+                            "Venres de 18:30h a 19:30h"
                         ],
                         "description": "Actividades prácticas con técnicas de estimulación cognitiva para fortalecer funcións cerebrais e mellorar a concentración nun ambiente motivador.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
