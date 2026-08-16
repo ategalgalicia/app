@@ -59,7 +59,7 @@ struct ContentView: View {
         .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
         .tint(ColorsPalette.primary)
         .background(ColorsPalette.background)
-        .tabBarMinimizeBehavior()
+        .ategalTabBarConfiguration()
         .applyAccessibility()
     }
 }

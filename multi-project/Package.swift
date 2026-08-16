@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.3
 // This is a Skip (https://skip.tools) package.
 import PackageDescription
 
@@ -11,11 +11,14 @@ let package = Package(
         .library(name: "AtegalCore", type: .dynamic, targets: ["AtegalCore"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.6.30"),
-        .package(url: "https://source.skip.tools/skip-fuse-ui.git", from: "1.10.0"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.9.5"),
+        .package(url: "https://source.skip.tools/skip-model.git", from: "1.7.6"),
+        .package(url: "https://source.skip.tools/skip-ui.git", from: "1.59.1"),
         .package(url: "https://source.skip.tools/skip-fuse.git", from: "1.0.2"),
-        .package(url: "https://source.skip.tools/skip-model.git", from: "1.6.3"),
-        .package(url: "https://github.com/skiptools/skip-firebase", from: "0.12.3")
+        .package(url: "https://source.skip.tools/skip-fuse-ui.git", from: "1.18.1"),
+        .package(url: "https://source.skip.tools/skip-unit.git", from: "1.7.0"),
+        .package(url: "https://source.skip.tools/skip-bridge.git", from: "0.17.2"),
+        .package(url: "https://github.com/skiptools/skip-firebase", from: "0.20.3")
     ],
     targets: [
         .target(
@@ -31,7 +34,11 @@ let package = Package(
             name: "AtegalCore",
             dependencies: [
                 .product(name: "SkipFuse", package: "skip-fuse"),
+                .product(name: "SkipFuseUI", package: "skip-fuse-ui"),
                 .product(name: "SkipModel", package: "skip-model"),
+                .product(name: "SkipUnit", package: "skip-unit"),
+                .product(name: "SkipUI", package: "skip-ui"),
+                .product(name: "SkipBridge", package: "skip-bridge"),
                 .product(name: "SkipFirebaseCore", package: "skip-firebase"),
                 .product(name: "SkipFirebaseAnalytics", package: "skip-firebase"),
                 .product(name: "SkipFirebaseCrashlytics", package: "skip-firebase")

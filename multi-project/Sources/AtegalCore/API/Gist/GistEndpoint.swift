@@ -23,5 +23,3 @@ enum GistEndpoint: Endpoint {
         }
     }
 }
-
-

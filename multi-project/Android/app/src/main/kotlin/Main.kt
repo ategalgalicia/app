@@ -1,11 +1,7 @@
 package ategal.module
 
-import skip.lib.*
-import skip.model.*
 import skip.foundation.*
 import skip.ui.*
-
-import android.Manifest
 import android.app.Application
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.compose.setContent
@@ -17,8 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.core.app.ActivityCompat
 
 internal val logger: SkipLogger = SkipLogger(subsystem = "ategal.module", category = "Ategal")
 
@@ -129,10 +123,21 @@ open class MainActivity: AppCompatActivity {
 @Composable
 internal fun PresentationRootView(context: ComposeContext) {
     val colorScheme = if (isSystemInDarkTheme()) ColorScheme.dark else ColorScheme.light
-    PresentationRoot(defaultColorScheme = colorScheme, context = context) { ctx ->
-        val contentContext = ctx.content()
-        Box(modifier = ctx.modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            AppRootView().Compose(context = contentContext)
+    val surfaceColor = androidx.compose.ui.graphics.Color.White
+    Material3ColorScheme({ colors, isDark ->
+        colors.copy(
+            surface = surfaceColor,
+            surfaceTint = surfaceColor,
+            surfaceVariant = surfaceColor,
+            surfaceContainer = surfaceColor,
+            surfaceContainerHigh = surfaceColor
+        )
+    }) {
+        PresentationRoot(defaultColorScheme = colorScheme, context = context) { ctx ->
+            val contentContext = ctx.content()
+            Box(modifier = ctx.modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                AppRootView().Compose(context = contentContext)
+            }
         }
     }
 }

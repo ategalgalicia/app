@@ -1,7 +1,6 @@
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.android.application)
     id("skip-build-plugin")
