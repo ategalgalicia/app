@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import RStudioKit
 
 public class GistAPIClient: APIClient, @unchecked Sendable {
     
@@ -38,7 +39,7 @@ private extension GistAPIClient {
     }
 }
 
-public struct GistEnvironment: Environment, Sendable {
+public struct GistEnvironment: APIEnvironment, Sendable {
     public init() {}
     public var baseURL: URL {
         URL(string: "https://gist.githubusercontent.com/ategalgalicia/")!

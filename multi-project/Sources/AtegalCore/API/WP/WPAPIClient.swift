@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import RStudioKit
 
 public class WPAPIClient: APIClient, @unchecked Sendable {
     
@@ -38,7 +39,7 @@ public class WPAPIClient: APIClient, @unchecked Sendable {
     }
 }
 
-public struct WPEnvironment: Environment, Sendable {
+public struct WPEnvironment: APIEnvironment, Sendable {
     public init() {}
     public var baseURL: URL {
         URL(string: "https://www.ategal.com/")!

@@ -1,0 +1,56 @@
+import XCTest
+@testable import AtegalCore
+
+@MainActor
+final class AuthManagerTests: XCTestCase {
+
+    func testSignInDelegatesSelectedNetwork() async throws {
+        let socialNetworkManager = SocialNetworkManagerSpy()
+        let manager = AuthManager(socialNetworkManager: socialNetworkManager)
+
+        try await manager.signIn(with: .google)
+
+        XCTAssertEqual(socialNetworkManager.receivedNetwork, .google)
+    }
+
+    func testSignInPropagatesProviderError() async {
+        let socialNetworkManager = SocialNetworkManagerSpy(
+            signInError: TestError.expected
+        )
+        let manager = AuthManager(socialNetworkManager: socialNetworkManager)
+
+        do {
+            try await manager.signIn(with: .google)
+            XCTFail("Expected the provider error")
+        } catch {
+            XCTAssertTrue(error is TestError)
+        }
+    }
+}
+
+private enum TestError: Error {
+    case expected
+}
+
+private final class SocialNetworkManagerSpy: SocialNetworkManager {
+
+    var receivedNetwork: SocialNetwork?
+    var signInError: Error?
+
+    init(signInError: Error? = nil) {
+        self.signInError = signInError
+        super.init()
+    }
+
+    override func isAuthenticated() -> Bool {
+        false
+    }
+
+    @MainActor
+    override func signIn(network: SocialNetwork) async throws {
+        receivedNetwork = network
+        if let signInError {
+            throw signInError
+        }
+    }
+}

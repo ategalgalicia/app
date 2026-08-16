@@ -10,16 +10,18 @@ struct World {
     
     let wpApiClient: WPAPIClient
     let gistApiClient: GistAPIClient
+    let authManager: AuthManager
     let appVersion: String
     
     init() {
         self.wpApiClient = WPAPIClient()
         self.gistApiClient = GistAPIClient()
+        self.authManager = AuthManager()
         self.appVersion = "Versión \(World.marketingVersion) (\(World.buildNumber))"
     }
 }
 
-// MARK: AppVersion
+// MARK: - AppVersion
 
 private extension World {
     

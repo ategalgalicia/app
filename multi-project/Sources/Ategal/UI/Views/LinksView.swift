@@ -4,6 +4,7 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 struct LinkView: View {
     
@@ -68,7 +69,7 @@ struct MapLinkButton: View {
         } label: {
             CTAButton(title: address, kind: .icon("mappin.circle.fill"))
                 .cornerBackground(ColorsPalette.background.opacity(0.95))
-                .cornerBorder()
+                .ategalCornerBorder()
         }
         .confirmationDialog(
             "", isPresented: $showDirectionsDialog, titleVisibility: .hidden

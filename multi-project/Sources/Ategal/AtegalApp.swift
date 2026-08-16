@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import SkipFuse
 import AtegalCore
+import RStudioKit
 
 /// A logger for the Ategal module.
 let logger: Logger = Logger(subsystem: "mr.ategal.app", category: "Ategal")
@@ -28,8 +29,9 @@ let logger: Logger = Logger(subsystem: "mr.ategal.app", category: "Ategal")
     }
 
     /* SKIP @bridge */public func onInit() {
-        logger.debug("onInit")
         Tracking.bootstrap()
+        customizeModuleDependencies()
+        logger.debug("onInit")
     }
 
     /* SKIP @bridge */public func onLaunch() {
@@ -55,5 +57,13 @@ let logger: Logger = Logger(subsystem: "mr.ategal.app", category: "Ategal")
 
     /* SKIP @bridge */public func onLowMemory() {
         logger.debug("onLowMemory")
+    }
+
+    private func customizeModuleDependencies() {
+        let localizationService = AtegalLocalizationService()
+        RStudioKit.ModuleDependencies.localizationService = localizationService
+        RStudioKit.ModuleDependencies.accentColor = ColorsPalette.primary
+        RStudioKit.ModuleDependencies.primaryColor = ColorsPalette.primary
+        RStudioKit.ModuleDependencies.androidCloseIconResourceName = "rs_ic_close"
     }
 }

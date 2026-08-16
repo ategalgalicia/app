@@ -4,10 +4,11 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 #if canImport(Darwin)
 
-// MARK: Previews
+// MARK: - Previews
 
 @available(iOS 18, *)
 #Preview {
@@ -27,7 +28,7 @@ import AtegalCore
 }
 #endif
 
-// MARK: HomeRoute
+// MARK: - HomeRoute
 
 enum HomeRoute: Hashable {
     case navigateToCalendar
@@ -38,7 +39,7 @@ enum HomeRoute: Hashable {
     case navigateToActivity(activity: Center.Category.Activity, center: Center)
 }
 
-// MARK: HomeView
+// MARK: - HomeView
 
 struct HomeView: View {
     
@@ -94,7 +95,7 @@ struct HomeView: View {
             }
     }
     
-    // MARK: ViewBuilders
+    // MARK: - ViewBuilders
     
     @ViewBuilder
     private var contentView: some View {
@@ -122,7 +123,7 @@ struct HomeView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
-        .cornerBackground()
+        .ategalCornerBackground()
     }
     
     @ViewBuilder
@@ -160,7 +161,7 @@ struct HomeView: View {
             )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .cornerBackground()
+        .ategalCornerBackground()
     }
     
     @ViewBuilder
@@ -225,7 +226,7 @@ struct HomeView: View {
     }
 }
 
-// MARK: HomeAsyncView
+// MARK: - HomeAsyncView
 
 struct HomeAsyncView: View {
     

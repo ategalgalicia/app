@@ -19,12 +19,12 @@ struct ContentList<Item: Identifiable>: View {
                     row(for: item)
                 }
                 .buttonStyle(.plain)
-                .cornerBackground()
+                .ategalCornerBackground()
             }
         }
     }
     
-    // MARK: ViewBuilders
+    // MARK: - ViewBuilders
     
     @ViewBuilder
     private func row(for item: Item) -> some View {

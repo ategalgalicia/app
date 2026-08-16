@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import RStudioKit
 
 struct LinkButton: View {
     
@@ -15,7 +16,7 @@ struct LinkButton: View {
             CTAButton(title: title, kind: kind)
         }
         .cornerBackground(ColorsPalette.background.opacity(0.95))
-        .cornerBorder()
+        .ategalCornerBorder()
     }
 }
 

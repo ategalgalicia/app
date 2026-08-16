@@ -4,10 +4,11 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 #if canImport(Darwin)
 
-// MARK: Previews
+// MARK: - Previews
 
 #Preview {
     
@@ -24,13 +25,13 @@ import AtegalCore
 }
 #endif
 
-// MARK: PostRoute
+// MARK: - PostRoute
 
 enum PostRoute: Hashable {
     case navigateToPost
 }
 
-// MARK: PostsView
+// MARK: - PostsView
 
 struct PostListView: View {
     
@@ -59,7 +60,7 @@ struct PostListView: View {
             }
     }
     
-    // MARK: ViewBuilders
+    // MARK: - ViewBuilders
     
     @ViewBuilder
     private var contentView: some View {
@@ -124,7 +125,7 @@ struct PostListView: View {
     }
 }
 
-// MARK: Async
+// MARK: - Async
 
 struct PostListAsyncView: View {
     
@@ -145,7 +146,7 @@ struct PostListAsyncView: View {
     }
 }
 
-// MARK: MockPosts
+// MARK: - Mocks
 
 private enum MockPosts {
     

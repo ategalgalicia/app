@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import RStudioKit
 
 enum GistEndpoint: Endpoint {
     

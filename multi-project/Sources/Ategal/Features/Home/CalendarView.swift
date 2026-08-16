@@ -4,10 +4,11 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 #if canImport(Darwin)
 
-// MARK: Previews
+// MARK: - Previews
 
 @available(iOS 18, *)
 #Preview {
@@ -23,7 +24,7 @@ import AtegalCore
 }
 #endif
 
-// MARK: CalendarView
+// MARK: - CalendarView
 
 import SwiftUI
 import AtegalCore
@@ -50,7 +51,7 @@ struct CalendarView: View {
             .navigationBarTitleDisplayMode(.inline)
     }
     
-    // MARK: ViewBuilders
+    // MARK: - ViewBuilders
     
     @ViewBuilder
     var contentView: some View {
@@ -95,7 +96,7 @@ struct CalendarView: View {
                         .combinedAccessibility()
                     }
                     .buttonStyle(.plain)
-                    .cornerBackground()
+                    .ategalCornerBackground()
                 }
             }
         }
@@ -163,34 +164,27 @@ struct CalendarView: View {
             .padding(16)
             .frame(minWidth: 76)
         }
-        .cornerBackground(selected
-                          ? ColorsPalette.primary
-                          : ColorsPalette.cardBackground
+        .cornerBackground(
+            selected
+            ? ColorsPalette.primary
+            : ColorsPalette.cardBackground
         )
     }
     
     @ViewBuilder
     private func cell(for event: Event) -> some View {
         #if canImport(Darwin)
-        AsyncButton(
-            action: {
-                showSuccess = await LinkManager.shared.addToAppleCalendar(event: event)
-            },
-            label: {
-                label(for: event)
-            },
-            completion: .confirmation(
-                title: "add-event-calendar-title",
-                subtitle: "add-event-calendar-subtitle",
-                isOK: showSuccess
-            )
-        )
-        .cornerBackground()
+        AsyncButton {
+            showSuccess = await LinkManager.shared.addToAppleCalendar(event: event)
+        } label: {
+            label(for: event)
+        }
+        .ategalCornerBackground()
         #else
         Link(destination: LinkManager.shared.androidCalendar(for: event)) {
             label(for: event)
         }
-        .cornerBackground()
+        .ategalCornerBackground()
         #endif
     }
     
@@ -218,7 +212,7 @@ struct CalendarView: View {
     }
 }
 
-// MARK: CalendarAsyncView
+// MARK: - CalendarAsyncView
 
 struct CalendarAsyncView: View {
     
@@ -243,7 +237,7 @@ struct CalendarAsyncView: View {
     }
 }
 
-// MARK: CalendarDataSource
+// MARK: - CalendarDataSource
 
 @Observable
 @MainActor
@@ -291,7 +285,7 @@ class CalendarDataSource {
     }
 }
 
-// MARK: Extensions
+// MARK: - Extensions
 
 private extension Calendar {
     
@@ -321,7 +315,7 @@ private extension Array {
     }
 }
 
-// MARK: MockCalendar
+// MARK: - Mocks
 
 private enum MockCalendar {
     

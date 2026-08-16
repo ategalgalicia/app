@@ -4,6 +4,7 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 struct SearchListView: View {
     
@@ -80,7 +81,7 @@ struct SearchListView: View {
             }
     }
     
-    // MARK: ViewBuilders
+    // MARK: - ViewBuilders
     
     @ViewBuilder
     private var contentView: some View {
@@ -129,7 +130,7 @@ struct SearchListView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentRectangleShape()
-        .cornerBackground()
+        .ategalCornerBackground()
     }
     
     @ViewBuilder
@@ -175,7 +176,7 @@ struct SearchListView: View {
                         .contentRectangleShape()
                     }
                     .buttonStyle(.plain)
-                    .cornerBackground()
+                    .ategalCornerBackground()
                 }
             }
         }
@@ -202,13 +203,13 @@ struct SearchListView: View {
                     )
                 }
                 .padding(16)
-                .cornerBackground()
+                .ategalCornerBackground()
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     private func cellAction(_ title: String, centers: [Center]) {
         if source.isActivity, centers.count == 1, let center = centers.first {
@@ -225,21 +226,21 @@ struct SearchListView: View {
     }
 }
 
-// MARK: Extensions
+// MARK: - Extensions
 
 private extension SearchListView.Source {
     
-    var title: LocalizedStringKey {
+    var title: String {
         switch self {
-        case .activities: "list-activity-title"
-        case .resources: "list-resource-title"
+        case .activities: "list-activity-title".localized
+        case .resources: "list-resource-title".localized
         }
     }
     
-    var emptytitle: LocalizedStringKey {
+    var emptytitle: String {
         switch self {
-        case .activities: "list-activity-no-data"
-        case .resources: "list-resource-no-data"
+        case .activities: "list-activity-no-data".localized
+        case .resources: "list-resource-no-data".localized
         }
     }
     

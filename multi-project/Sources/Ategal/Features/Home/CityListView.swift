@@ -4,6 +4,7 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 struct CityListView: View {
     

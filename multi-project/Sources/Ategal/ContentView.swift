@@ -6,7 +6,7 @@ import SwiftUI
 import AtegalCore
 
 enum ContentTab: String, Hashable {
-    case home, whoWeAre, posts
+    case home, whoWeAre, posts, profile
 }
 
 struct ContentView: View {
@@ -55,6 +55,12 @@ struct ContentView: View {
             }
             .tabItem { Label("tab-posts", systemImage: "pencil") }
             .tag(ContentTab.posts)
+
+            NavigationStack {
+                ProfileView(authManager: world.authManager)
+            }
+            .tabItem { Label("tab-profile", systemImage: "person.fill") }
+            .tag(ContentTab.profile)
         }
         .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
         .tint(ColorsPalette.primary)

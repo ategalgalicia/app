@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "multi-project",
     defaultLocalization: "gl-ES",
-    platforms: [.iOS(.v17), .macOS(.v14)],
+    platforms: [.iOS(.v17)],
     products: [
         .library(name: "Ategal", type: .dynamic, targets: ["Ategal"]),
         .library(name: "AtegalCore", type: .dynamic, targets: ["AtegalCore"]),
@@ -18,14 +18,20 @@ let package = Package(
         .package(url: "https://source.skip.tools/skip-fuse-ui.git", from: "1.18.1"),
         .package(url: "https://source.skip.tools/skip-unit.git", from: "1.7.0"),
         .package(url: "https://source.skip.tools/skip-bridge.git", from: "0.17.2"),
-        .package(url: "https://github.com/skiptools/skip-firebase", from: "0.20.3")
+        .package(url: "https://github.com/skiptools/skip-firebase", from: "0.20.3"),
+        .package(url: "https://github.com/google/GoogleSignIn-iOS", from: "9.0.0"),
+        .package(url: "git@github.com:6kko/RStudioKit.git", exact: "1.0.0")
     ],
     targets: [
         .target(
             name: "Ategal",
             dependencies: [
                 "AtegalCore",
-                .product(name: "SkipFuseUI", package: "skip-fuse-ui")
+                .product(name: "SkipFuseUI", package: "skip-fuse-ui"),
+                .product(
+                    name: "RStudioKit",
+                    package: "RStudioKit"
+                )
             ],
             resources: [.process("Resources")],
             plugins: [.plugin(name: "skipstone", package: "skip")]
@@ -41,9 +47,24 @@ let package = Package(
                 .product(name: "SkipBridge", package: "skip-bridge"),
                 .product(name: "SkipFirebaseCore", package: "skip-firebase"),
                 .product(name: "SkipFirebaseAnalytics", package: "skip-firebase"),
-                .product(name: "SkipFirebaseCrashlytics", package: "skip-firebase")
+                .product(name: "SkipFirebaseCrashlytics", package: "skip-firebase"),
+                .product(name: "SkipFirebaseAuth", package: "skip-firebase"),
+                .product(
+                    name: "GoogleSignIn",
+                    package: "GoogleSignIn-iOS",
+                    condition: .when(platforms: [.iOS])
+                ),
+                .product(
+                    name: "RStudioKit",
+                    package: "RStudioKit"
+                )
             ],
             resources: [.process("Resources")],
+            plugins: [.plugin(name: "skipstone", package: "skip")]
+        ),
+        .testTarget(
+            name: "AtegalCoreTests",
+            dependencies: ["AtegalCore"],
             plugins: [.plugin(name: "skipstone", package: "skip")]
         )
     ]

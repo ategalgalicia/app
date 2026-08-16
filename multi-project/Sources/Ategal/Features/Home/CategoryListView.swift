@@ -4,6 +4,7 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 struct CategoryListView: View {
     
@@ -20,7 +21,7 @@ struct CategoryListView: View {
             .navigationBarTitleDisplayMode(.inline)
     }
     
-    // MARK: ViewBuilders
+    // MARK: - ViewBuilders
     
     @ViewBuilder
     private var contentView: some View {
@@ -68,7 +69,7 @@ struct CategoryListView: View {
                 email: center.email
             )
             .padding(16)
-            .cornerBackground()
+            .ategalCornerBackground()
         }
         .padding(.top, 16)
     }
@@ -88,7 +89,7 @@ struct CategoryListView: View {
                 )
             }
             .padding(16)
-            .cornerBackground()
+            .ategalCornerBackground()
         }
         .padding(.top, 16)
     }

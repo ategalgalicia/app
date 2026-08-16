@@ -4,10 +4,11 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 #if canImport(Darwin)
 
-// MARK: Previews
+// MARK: - Previews
 
 #Preview {
     NavigationStack {
@@ -18,6 +19,8 @@ import AtegalCore
     }
 }
 #endif
+
+// MARK: - WhoWeAreView
 
 struct WhoWeAreView: View {
     
@@ -67,7 +70,7 @@ struct WhoWeAreView: View {
         }
     }
     
-    // MARK: ViewBuilders
+    // MARK: - ViewBuilders
     
     @ViewBuilder
     private var headerView: some View {
@@ -92,7 +95,7 @@ struct WhoWeAreView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
-        .cornerBackground()
+        .ategalCornerBackground()
         .combinedAccessibility()
     }
     
@@ -122,7 +125,7 @@ struct WhoWeAreView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
-        .cornerBackground()
+        .ategalCornerBackground()
         .combinedAccessibility()
     }
     

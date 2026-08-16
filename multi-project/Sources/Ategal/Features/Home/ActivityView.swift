@@ -4,6 +4,7 @@
 
 import SwiftUI
 import AtegalCore
+import RStudioKit
 
 struct ActivityView: View {
 
@@ -81,7 +82,7 @@ struct ActivityView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
-        .cornerBackground()
+        .ategalCornerBackground()
     }
 
     @ViewBuilder

@@ -45,6 +45,7 @@
       }
     },
     "add-event-calendar-subtitle" : {
+      "extractionState" : "manual",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -55,6 +56,7 @@
       }
     },
     "add-event-calendar-title" : {
+      "extractionState" : "manual",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -80,6 +82,110 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ategal"
+          }
+        }
+      }
+    },
+    "auth-error-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non se puido iniciar sesión"
+          }
+        }
+      }
+    },
+    "auth-footer" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A túa conta crearase automaticamente se aínda non existe."
+          }
+        }
+      }
+    },
+    "auth-google-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar con Google"
+          }
+        }
+      }
+    },
+    "auth-google-error-client-id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non se atopou a configuración de Google."
+          }
+        }
+      }
+    },
+    "auth-google-error-credential" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non se puido validar a conta de Google."
+          }
+        }
+      }
+    },
+    "auth-google-error-presenter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non se puido mostrar o inicio de sesión de Google."
+          }
+        }
+      }
+    },
+    "auth-google-hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión ou crea unha conta con Google"
+          }
+        }
+      }
+    },
+    "auth-login-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión"
+          }
+        }
+      }
+    },
+    "auth-subtitle" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión ou crea a túa conta para descubrir todo o que Ategal ofrece."
+          }
+        }
+      }
+    },
+    "auth-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benvida a Ategal"
           }
         }
       }
@@ -205,6 +311,7 @@
       }
     },
     "error" : {
+      "extractionState" : "manual",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -215,6 +322,7 @@
       }
     },
     "error-message" : {
+      "extractionState" : "manual",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -223,6 +331,9 @@
           }
         }
       }
+    },
+    "G" : {
+
     },
     "home-activity-subtitle" : {
       "localizations" : {
@@ -404,6 +515,17 @@
         }
       }
     },
+    "profile-empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A túa información persoal aparecerá aquí."
+          }
+        }
+      }
+    },
     "resource-header-title" : {
       "localizations" : {
         "gl-ES" : {
@@ -415,6 +537,7 @@
       }
     },
     "retry" : {
+      "extractionState" : "manual",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -440,6 +563,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Publicacións"
+          }
+        }
+      }
+    },
+    "tab-profile" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
           }
         }
       }
