@@ -10,7 +10,9 @@ final class AuthManagerTests: XCTestCase {
 
         try await manager.signIn(with: .google)
 
-        XCTAssertEqual(socialNetworkManager.receivedNetwork, .google)
+        guard case .google = socialNetworkManager.receivedNetwork else {
+            return XCTFail("Expected Google sign in")
+        }
     }
 
     func testSignInPropagatesProviderError() async {

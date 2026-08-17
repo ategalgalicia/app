@@ -86,6 +86,28 @@
         }
       }
     },
+    "auth-apple-error-credential" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non se puido validar a conta de Apple."
+          }
+        }
+      }
+    },
+    "auth-apple-error-nonce" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non se puido iniciar sesión con Apple."
+          }
+        }
+      }
+    },
     "auth-error-title" : {
       "localizations" : {
         "gl-ES" : {
@@ -331,9 +353,6 @@
           }
         }
       }
-    },
-    "G" : {
-
     },
     "home-activity-subtitle" : {
       "localizations" : {

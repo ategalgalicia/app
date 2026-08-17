@@ -6,6 +6,10 @@ import SwiftUI
 import AtegalCore
 import RStudioKit
 
+#if os(iOS)
+import AuthenticationServices
+#endif
+
 #if canImport(Darwin)
 
 // MARK: - Previews
@@ -33,9 +37,24 @@ struct AuthView: View {
     @State
     var errorMessage: String?
 
+    @State
+    var socialNetwork: SocialNetwork?
+    
     var body: some View {
         contentView
-            .actionView{ actionView }
+            .actionView {
+                VStack(spacing: 8) {
+                    appleButton
+                    googleButton
+                }
+            }
+            .interactiveDismissDisabled()
+            .presentationDetents([.medium])
+            .performBlockingTask(
+                value: $socialNetwork,
+                successDisplaySeconds: 0,
+                task: { await performAuthenticate($0) }
+            )
             .alert(
                 "auth-error-title",
                 isPresented: .init(
@@ -47,8 +66,6 @@ struct AuthView: View {
             } message: {
                 Text(LocalizedStringKey(errorMessage ?? ""))
             }
-            .interactiveDismissDisabled()
-            .presentationDetents([.medium])
     }
     
     // MARK: - ViewBuilders
@@ -81,39 +98,76 @@ struct AuthView: View {
     }
     
     @ViewBuilder
-    private var actionView: some View {
-        VStack(spacing: 8) {
-            AsyncButton {
-                await authenticate(with: .google)
-            } label: {
-                HStack(spacing: 12) {
-                    Text("G")
-                        .font(.title3.bold())
-                        .foregroundStyle(ColorsPalette.textTertiary)
-                        .frame(width: 24, height: 24)
-
-                    Text("auth-google-action")
-                        .font(.headline)
-                        .foregroundStyle(ColorsPalette.textTertiary)
+    private var appleButton: some View {
+        #if os(iOS)
+        SignInWithAppleButton(
+            .continue,
+            onRequest: authManager.configureAppleSignIn,
+            onCompletion: {
+                switch $0 {
+                case .success(let authorization):
+                    socialNetwork = .apple(authorization)
+                case .failure(let error):
+                    handleAuthenticationError(error)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .cornerBackground(ColorsPalette.primary, radius: 14)
             }
+        )
+        .signInWithAppleButtonStyle(.black)
+        .frame(maxWidth: .infinity)
+        .frame(height: 52)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        #endif
+    }
+    
+    @ViewBuilder
+    private var googleButton: some View {
+        Button {
+            socialNetwork = .google
+        } label: {
+            Label {
+                Text("auth-google-action")
+                    .font(.title3.bold())
+            } icon: {
+                Text(verbatim: "G")
+                    .font(.headline.bold())
+            }
+            .frame(maxWidth: .infinity)
+            .foregroundStyle(ColorsPalette.textTertiary)
+            .padding(.vertical, 16)
+            .cornerBackground(ColorsPalette.primary, radius: 14)
         }
     }
     
     // MARK: - Actions
-    
-    private func authenticate(with network: SocialNetwork) async {
+
+    private func performAuthenticate(_ socialNetwork: SocialNetwork) async {
         do {
-            try await authManager.signIn(with: network)
+            try await authManager.signIn(with: socialNetwork)
             guard authManager.isAuthenticated() else { return }
             onAuthenticated()
-        } catch is CancellationError {
-            return
         } catch {
-            errorMessage = error.localizedDescription
+            handleAuthenticationError(error)
         }
     }
+
+    private func handleAuthenticationError(_ error: Error) {
+        #if os(iOS)
+        if let error = error as? ASAuthorizationError,
+           error.shouldIgnoreAuthenticationError {
+            return
+        }
+        #endif
+        errorMessage = error.localizedDescription
+    }
 }
+
+// MARK: - Extensions
+
+#if os(iOS)
+private extension ASAuthorizationError {
+
+    var shouldIgnoreAuthenticationError: Bool {
+        [1000, Self.Code.canceled.rawValue].contains(code.rawValue)
+    }
+}
+#endif

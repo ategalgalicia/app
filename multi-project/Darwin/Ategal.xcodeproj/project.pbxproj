@@ -44,6 +44,7 @@
 		49F90C312A52156300F06D93 /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Entitlements.plist; sourceTree = "<group>"; };
 		7F5B28402EDE0B3E00D590DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F703CDC2EDE509D0016E63F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		7F7EA53430333B8900AEFDA0 /* Ategal App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ategal App.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 		49F90C1F2A52156200F06D93 = {
 			isa = PBXGroup;
 			children = (
+				7F7EA53430333B8900AEFDA0 /* Ategal App.entitlements */,
 				496EB72F2A6AE4DE00C1253C /* README.md */,
 				496EB72F2A6AE4DE00C1253A /* Skip.env */,
 				496EB72F2A6AE4DE00C1253B /* Ategal.xcconfig */,
@@ -233,6 +235,7 @@
 			baseConfigurationReference = 496EB72F2A6AE4DE00C1253B /* Ategal.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "Ategal App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -245,7 +248,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = develop_2/12/2025;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = develop_17/08/26;
 			};
 			name = Debug;
 		};
@@ -254,6 +257,7 @@
 			baseConfigurationReference = 496EB72F2A6AE4DE00C1253B /* Ategal.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "Ategal App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -266,7 +270,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = release_2/12/2025;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = release_17/08/26;
 			};
 			name = Release;
 		};

@@ -4,6 +4,10 @@
 
 import Foundation
 
+#if os(iOS)
+import AuthenticationServices
+#endif
+
 public class AuthManager {
 
     private let socialNetworkManager: SocialNetworkManager
@@ -15,14 +19,17 @@ public class AuthManager {
     init(socialNetworkManager: SocialNetworkManager) {
         self.socialNetworkManager = socialNetworkManager
     }
+    
+    #if os(iOS)
+    @MainActor
+    public func configureAppleSignIn(_ request: ASAuthorizationAppleIDRequest) {
+        socialNetworkManager.configureAppleSignIn(request)
+    }
+    #endif
 
     @MainActor
     public func signIn(with network: SocialNetwork) async throws {
         try await socialNetworkManager.signIn(network: network)
-    }
-
-    public func signOut() {
-        fatalError()
     }
 
     public func isAuthenticated() -> Bool {
@@ -30,6 +37,10 @@ public class AuthManager {
     }
 
     public func fetchPersonalData() {
+        fatalError()
+    }
+    
+    public func signOut() {
         fatalError()
     }
 }

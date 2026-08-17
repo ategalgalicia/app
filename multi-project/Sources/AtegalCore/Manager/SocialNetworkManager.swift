@@ -6,7 +6,9 @@ import Foundation
 import SkipFirebaseAuth
 import SkipFirebaseCore
 
-#if canImport(GoogleSignIn)
+#if os(iOS)
+import AuthenticationServices
+import CryptoKit
 import GoogleSignIn
 import UIKit
 #endif
@@ -24,8 +26,10 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 // MARK: - SocialNetwork
 
-public enum SocialNetwork: Sendable, Equatable {
-    case apple
+public enum SocialNetwork: Equatable {
+    #if os(iOS)
+    case apple(ASAuthorization)
+    #endif
     case google
 }
 
@@ -34,6 +38,9 @@ public enum SocialNetwork: Sendable, Equatable {
 class SocialNetworkManager {
 
     private let auth: Auth
+    #if os(iOS)
+    private var appleNonce: String?
+    #endif
 
     init() {
         self.auth = Auth.auth()
@@ -46,13 +53,60 @@ class SocialNetworkManager {
     @MainActor
     func signIn(network: SocialNetwork) async throws {
         switch network {
-        case .apple:
-            fatalError()
+        #if os(iOS)
+        case .apple(let authorization):
+            guard let appleNonce else {
+                throw AppleAuthenticationError.missingNonce
+            }
+            self.appleNonce = nil
+            try await signIn(
+                with: authorization,
+                rawNonce: appleNonce
+            )
+        #endif
         case .google:
             try await signInWithGoogle()
         }
     }
 }
+
+// MARK: - Apple
+
+#if os(iOS)
+extension SocialNetworkManager {
+
+    @MainActor
+    func configureAppleSignIn(_ request: ASAuthorizationAppleIDRequest) {
+        let nonce = UUID().uuidString
+        appleNonce = nonce
+        request.requestedScopes = [.fullName, .email]
+        request.nonce = SHA256.hash(data: Data(nonce.utf8))
+            .map { String(format: "%02x", $0) }
+            .joined()
+    }
+
+    @MainActor
+    func signIn(
+        with authorization: ASAuthorization,
+        rawNonce: String
+    ) async throws {
+        guard
+            let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
+            let identityToken = credential.identityToken,
+            let idToken = String(data: identityToken, encoding: .utf8)
+        else {
+            throw AppleAuthenticationError.invalidCredential
+        }
+
+        let firebaseCredential = OAuthProvider.credential(
+            providerID: .apple,
+            idToken: idToken,
+            rawNonce: rawNonce
+        )
+        _ = try await auth.signIn(with: firebaseCredential)
+    }
+}
+#endif
 
 // MARK: - Google
 
@@ -87,10 +141,10 @@ private extension SocialNetworkManager {
             result = try await GIDSignIn.sharedInstance.signIn(withPresenting: presenter)
         } catch {
             let nsError = error as NSError
-            guard nsError.domain == "com.google.GIDSignIn", nsError.code == -5 else {
-                throw error
+            if nsError.domain == "com.google.GIDSignIn", nsError.code == -5 {
+                return
             }
-            throw CancellationError()
+            throw error
         }
 
         guard let idToken = result.user.idToken?.tokenString else {
@@ -134,6 +188,7 @@ func signInWithGoogleOnAndroid() async throws {
     let manager: CredentialManager = CredentialManager.create(activity)
     let result: androidx.credentials.GetCredentialResponse
     do {
+        // SKIP NOWARN
         result = try await manager.getCredential(activity, request)
     } catch is GetCredentialCancellationException {
         return
@@ -159,6 +214,18 @@ func signInWithGoogleOnAndroid() async throws {
 #endif
 
 // MARK: - Errors
+
+enum AppleAuthenticationError: LocalizedError {
+    case invalidCredential
+    case missingNonce
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidCredential: "auth-apple-error-credential"
+        case .missingNonce: "auth-apple-error-nonce"
+        }
+    }
+}
  
 // SKIP @bridge
 enum GoogleAuthenticationError: LocalizedError {
