@@ -192,6 +192,16 @@
         }
       }
     },
+    "auth-logout-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pechar sesión"
+          }
+        }
+      }
+    },
     "auth-subtitle" : {
       "localizations" : {
         "gl-ES" : {

@@ -18,11 +18,8 @@ import AuthenticationServices
 #Preview {
     
     NavigationStack {
-        AuthView(
-            authManager: MockAuthManager(),
-            onAuthenticated: {}
-        )
-        .dynamicTypeSize(.large ... .accessibility5)
+        AuthView(authManager: MockAuthManager())
+            .dynamicTypeSize(.large ... .accessibility5)
     }
 }
 #endif
@@ -32,7 +29,9 @@ import AuthenticationServices
 struct AuthView: View {
 
     let authManager: AuthManager
-    let onAuthenticated: () -> Void
+
+    @Environment(\.dismiss)
+    var dismiss
 
     @State
     var errorMessage: String?
@@ -94,7 +93,6 @@ struct AuthView: View {
             }
             .padding(.horizontal, 16)
         }
-        .background(ColorsPalette.background)
     }
     
     @ViewBuilder
@@ -143,8 +141,8 @@ struct AuthView: View {
     private func performAuthenticate(_ socialNetwork: SocialNetwork) async {
         do {
             try await authManager.signIn(with: socialNetwork)
-            guard authManager.isAuthenticated() else { return }
-            onAuthenticated()
+            guard authManager.isAuthenticated else { return }
+            dismiss()
         } catch {
             handleAuthenticationError(error)
         }

@@ -44,6 +44,7 @@ struct ContentView: View {
             NavigationStack {
                 WhoWeAreAsyncView(apiClient: world.gistApiClient)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .tabItem { Label("tab-who-we-are", systemImage: "person.crop.circle") }
             .tag(ContentTab.whoWeAre)
             

@@ -249,5 +249,6 @@ struct WhoWeAreAsyncView: View {
         } content: {
             WhoWeAreView(centers: $0)
         }
+        .background(ColorsPalette.background)
     }
 }

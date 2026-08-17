@@ -143,6 +143,7 @@ struct PostListAsyncView: View {
                 navigationPath: $navigationPath
             )
         }
+        .background(ColorsPalette.background)
     }
 }
 

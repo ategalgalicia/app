@@ -3,21 +3,31 @@
 //
 
 import Foundation
+import Observation
+
+#if os(Android)
+import SkipFuse
+#endif
 
 #if os(iOS)
 import AuthenticationServices
 #endif
 
+@Observable
 public class AuthManager {
 
+    @ObservationIgnored
     private let socialNetworkManager: SocialNetworkManager
+    public private(set) var isAuthenticated: Bool
 
     public init() {
         self.socialNetworkManager = SocialNetworkManager()
+        self.isAuthenticated = socialNetworkManager.isAuthenticated()
     }
 
     init(socialNetworkManager: SocialNetworkManager) {
         self.socialNetworkManager = socialNetworkManager
+        self.isAuthenticated = socialNetworkManager.isAuthenticated()
     }
     
     #if os(iOS)
@@ -30,18 +40,20 @@ public class AuthManager {
     @MainActor
     public func signIn(with network: SocialNetwork) async throws {
         try await socialNetworkManager.signIn(network: network)
+        updateAuthenticationState(true)
     }
 
-    public func isAuthenticated() -> Bool {
-        socialNetworkManager.isAuthenticated()
+    func updateAuthenticationState(_ isAuthenticated: Bool) {
+        self.isAuthenticated = isAuthenticated
     }
 
-    public func fetchPersonalData() {
-        fatalError()
+    public func fetchUser() -> User? {
+        socialNetworkManager.currentUser()
     }
     
-    public func signOut() {
-        fatalError()
+    public func signOut() throws {
+        try socialNetworkManager.signOut()
+        updateAuthenticationState(false)
     }
 }
 
@@ -51,9 +63,7 @@ public final class MockAuthManager: AuthManager {
 
     public private(set) var signedInNetwork: SocialNetwork?
     public private(set) var didSignOut = false
-    public private(set) var didFetchPersonalData = false
-    public var isAuthenticatedValue = false
-
+    public var user: User?
     public override init() {
         super.init()
     }
@@ -61,19 +71,15 @@ public final class MockAuthManager: AuthManager {
     @MainActor
     public override func signIn(with network: SocialNetwork) async throws {
         signedInNetwork = network
-        isAuthenticatedValue = true
+        updateAuthenticationState(true)
     }
 
-    public override func signOut() {
+    public override func signOut() throws {
         didSignOut = true
-        isAuthenticatedValue = false
+        updateAuthenticationState(false)
     }
 
-    public override func isAuthenticated() -> Bool {
-        isAuthenticatedValue
-    }
-
-    public override func fetchPersonalData() {
-        didFetchPersonalData = true
+    public override func fetchUser() -> User? {
+        user
     }
 }

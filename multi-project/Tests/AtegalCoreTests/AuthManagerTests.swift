@@ -13,6 +13,7 @@ final class AuthManagerTests: XCTestCase {
         guard case .google = socialNetworkManager.receivedNetwork else {
             return XCTFail("Expected Google sign in")
         }
+        XCTAssertTrue(manager.isAuthenticated)
     }
 
     func testSignInPropagatesProviderError() async {
@@ -28,6 +29,16 @@ final class AuthManagerTests: XCTestCase {
             XCTAssertTrue(error is TestError)
         }
     }
+
+    func testSignOutDelegatesToSocialNetworkManager() throws {
+        let socialNetworkManager = SocialNetworkManagerSpy()
+        let manager = AuthManager(socialNetworkManager: socialNetworkManager)
+
+        try manager.signOut()
+
+        XCTAssertTrue(socialNetworkManager.didSignOut)
+        XCTAssertFalse(manager.isAuthenticated)
+    }
 }
 
 private enum TestError: Error {
@@ -38,6 +49,7 @@ private final class SocialNetworkManagerSpy: SocialNetworkManager {
 
     var receivedNetwork: SocialNetwork?
     var signInError: Error?
+    var didSignOut = false
 
     init(signInError: Error? = nil) {
         self.signInError = signInError
@@ -46,6 +58,10 @@ private final class SocialNetworkManagerSpy: SocialNetworkManager {
 
     override func isAuthenticated() -> Bool {
         false
+    }
+
+    override func signOut() throws {
+        didSignOut = true
     }
 
     @MainActor

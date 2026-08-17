@@ -47,7 +47,21 @@ class SocialNetworkManager {
     }
 
     func isAuthenticated() -> Bool {
-        auth.currentUser != nil
+        currentUser() != nil
+    }
+    
+    func currentUser() -> User? {
+        guard let currentUser = auth.currentUser else {
+            return nil
+        }
+        let nameComponents = currentUser.displayName?
+            .split(separator: " ", maxSplits: 1)
+            .map(String.init)
+        return User(
+            firstName: nameComponents?.first,
+            lastName: nameComponents?.dropFirst().first,
+            email: currentUser.email
+        )
     }
 
     @MainActor
@@ -67,6 +81,10 @@ class SocialNetworkManager {
         case .google:
             try await signInWithGoogle()
         }
+    }
+    
+    func signOut() throws {
+        try auth.signOut()
     }
 }
 
