@@ -24,11 +24,6 @@ public class AuthManager {
         self.socialNetworkManager = SocialNetworkManager()
         self.isAuthenticated = socialNetworkManager.isAuthenticated()
     }
-
-    init(socialNetworkManager: SocialNetworkManager) {
-        self.socialNetworkManager = socialNetworkManager
-        self.isAuthenticated = socialNetworkManager.isAuthenticated()
-    }
     
     #if os(iOS)
     @MainActor
@@ -42,18 +37,18 @@ public class AuthManager {
         try await socialNetworkManager.signIn(network: network)
         updateAuthenticationState(true)
     }
-
-    func updateAuthenticationState(_ isAuthenticated: Bool) {
-        self.isAuthenticated = isAuthenticated
-    }
-
-    public func fetchUser() -> User? {
-        socialNetworkManager.currentUser()
-    }
     
     public func signOut() throws {
         try socialNetworkManager.signOut()
         updateAuthenticationState(false)
+    }
+    
+    public func fetchUser() -> User? {
+        socialNetworkManager.currentUser()
+    }
+    
+    func updateAuthenticationState(_ isAuthenticated: Bool) {
+        self.isAuthenticated = isAuthenticated
     }
 }
 

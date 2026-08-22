@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.android.application)
     id("skip-build-plugin")
-    id("com.google.gms.google-services") version "4.4.4" apply true
+    id("com.google.gms.google-services") version "4.5.0" apply true
 }
 
 skip {
@@ -84,6 +84,6 @@ android {
 }
 
 dependencies {
-    implementation("com.google.maps.android:maps-compose:7.0.0")
-    implementation("com.google.android.gms:play-services-maps:19.2.0")
+    implementation("com.google.maps.android:maps-compose:8.3.0")
+    implementation("com.google.android.gms:play-services-maps:20.0.0")
 }

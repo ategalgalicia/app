@@ -4,7 +4,10 @@
 
 import Foundation
 import AtegalCore
+
+#if os(Android)
 import SkipFuse; import SkipFuseUI
+#endif
 
 struct World {
     

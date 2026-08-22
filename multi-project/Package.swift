@@ -11,16 +11,16 @@ let package = Package(
         .library(name: "AtegalCore", type: .dynamic, targets: ["AtegalCore"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.9.5"),
-        .package(url: "https://source.skip.tools/skip-model.git", from: "1.7.6"),
-        .package(url: "https://source.skip.tools/skip-ui.git", from: "1.59.1"),
-        .package(url: "https://source.skip.tools/skip-fuse.git", from: "1.0.2"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.9.7"),
+        .package(url: "https://source.skip.tools/skip-model.git", from: "1.7.9"),
+        .package(url: "https://source.skip.tools/skip-ui.git", from: "1.59.2"),
+        .package(url: "https://source.skip.tools/skip-fuse.git", from: "1.0.3"),
         .package(url: "https://source.skip.tools/skip-fuse-ui.git", from: "1.18.1"),
-        .package(url: "https://source.skip.tools/skip-unit.git", from: "1.7.0"),
-        .package(url: "https://source.skip.tools/skip-bridge.git", from: "0.17.2"),
+        .package(url: "https://source.skip.tools/skip-unit.git", from: "1.7.1"),
+        .package(url: "https://source.skip.tools/skip-bridge.git", from: "0.17.3"),
         .package(url: "https://github.com/skiptools/skip-firebase", from: "0.20.3"),
-        .package(url: "https://github.com/google/GoogleSignIn-iOS", from: "9.0.0"),
-        .package(url: "git@github.com:6kko/RStudioKit.git", exact: "1.0.0")
+        .package(url: "https://github.com/google/GoogleSignIn-iOS", from: "9.2.0"),
+        .package(path: "../../../MR/RStudioKit")
     ],
     targets: [
         .target(
@@ -49,6 +49,7 @@ let package = Package(
                 .product(name: "SkipFirebaseAnalytics", package: "skip-firebase"),
                 .product(name: "SkipFirebaseCrashlytics", package: "skip-firebase"),
                 .product(name: "SkipFirebaseAuth", package: "skip-firebase"),
+                .product(name: "SkipFirebaseMessaging", package: "skip-firebase"),
                 .product(
                     name: "GoogleSignIn",
                     package: "GoogleSignIn-iOS",

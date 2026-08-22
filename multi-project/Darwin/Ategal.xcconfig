@@ -62,7 +62,9 @@ DEVELOPMENT_TEAM = ZA86YUX638
 CODE_SIGN_IDENTITY[sdk=iphonesimulator*] = Apple Development
 CODE_SIGN_IDENTITY[sdk=iphoneos*][config=Debug] = Apple Development
 PROVISIONING_PROFILE_SPECIFIER[config=Debug] = iOS Team Provisioning Profile
+APS_ENVIRONMENT[config=Debug] = development
 
 // Release → Apple Distribution + release provisioning profile
 CODE_SIGN_IDENTITY[sdk=iphoneos*][config=Release] = Apple Distribution
-PROVISIONING_PROFILE_SPECIFIER[config=Release] = release_2/12/2025
+PROVISIONING_PROFILE_SPECIFIER[config=Release] = release__22/8/26
+APS_ENVIRONMENT[config=Release] = production

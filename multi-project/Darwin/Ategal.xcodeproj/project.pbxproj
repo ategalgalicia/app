@@ -248,7 +248,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = develop_17/08/26;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = develop__22/8/26;
 			};
 			name = Debug;
 		};
@@ -270,7 +270,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = release_17/08/26;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = release__22/8/26;
 			};
 			name = Release;
 		};
