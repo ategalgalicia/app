@@ -41,7 +41,9 @@ public class AuthManager {
     @MainActor
     public func signIn(with network: SocialNetwork) async throws {
         try await socialNetworkManager.signIn(network: network)
-        updateAuthenticationState(.logged)
+        updateAuthenticationState(
+            socialNetworkManager.isAuthenticated() ? .logged : .unlogged
+        )
     }
     
     public func signOut() throws {
