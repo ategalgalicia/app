@@ -14,9 +14,7 @@ import AuthenticationServices
 
 // MARK: - Previews
 
-@available(iOS 18, *)
 #Preview {
-    
     NavigationStack {
         AuthView(authManager: MockAuthManager())
             .dynamicTypeSize(.large ... .accessibility5)

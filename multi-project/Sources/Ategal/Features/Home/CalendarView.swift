@@ -175,13 +175,13 @@ struct CalendarView: View {
     private func cell(for event: Event) -> some View {
         #if canImport(Darwin)
         AsyncButton {
-            showSuccess = await LinkManager.shared.addToAppleCalendar(event: event)
+            showSuccess = await LinkHelper.shared.addToAppleCalendar(event: event)
         } label: {
             label(for: event)
         }
         .ategalCornerBackground()
         #else
-        Link(destination: LinkManager.shared.androidCalendar(for: event)) {
+        Link(destination: LinkHelper.shared.androidCalendar(for: event)) {
             label(for: event)
         }
         .ategalCornerBackground()
