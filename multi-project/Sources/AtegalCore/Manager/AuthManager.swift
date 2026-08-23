@@ -13,7 +13,7 @@ import SkipFuse
 import AuthenticationServices
 #endif
 
-public enum UserStatus {
+public enum UserStatus: Equatable {
     case logged, unlogged
 }
 

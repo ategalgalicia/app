@@ -31,9 +31,7 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
         messaging = Messaging.messaging()
         super.init()
         messaging.delegate = self
-        #if os(iOS)
         notificationCenter.delegate = self
-        #endif
     }
     
     @MainActor
@@ -41,7 +39,9 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
         do {
             switch status {
             case .logged:
-                try await requestPushesAuthorization()
+                guard try await requestPushesAuthorization() else {
+                    return
+                }
                 try await subscribeToGeneralTopic()
             case .unlogged:
                 try await unsubscribeFromGeneralTopic()
@@ -52,21 +52,27 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
     }
     
     @MainActor
-    private func requestPushesAuthorization() async throws {
+    private func requestPushesAuthorization() async throws -> Bool {
+        let settings = await notificationCenter.notificationSettings()
+        guard settings.authorizationStatus != .denied else {
+            return false
+        }
         #if os(iOS)
         if apnsDeviceToken != nil {
-            return
+            return true
         }
-        _ = try? await notificationCenter.requestAuthorization(
+        let granted = try await notificationCenter.requestAuthorization(
             options: [.sound, .alert, .badge]
         )
+        guard granted else { return false }
         try await withCheckedThrowingContinuation { continuation in
             let continuation: CheckedContinuation<Void, Error> = continuation
             registrationContinuation = continuation
             UIApplication.shared.registerForRemoteNotifications()
         }
+        return true
         #else
-        _ = try await notificationCenter.requestAuthorization(bridgedOptions: 7)
+        return try await notificationCenter.requestAuthorization(bridgedOptions: 7)
         #endif
     }
     
@@ -92,7 +98,12 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
     
     #if os(iOS)
     nonisolated public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        _ = messaging.appDidReceiveMessage(notification.request.content.userInfo)
         [.banner, .sound, .badge]
+    }
+
+    nonisolated public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        _ = messaging.appDidReceiveMessage(response.notification.request.content.userInfo)
     }
     #endif
     
@@ -130,4 +141,6 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
         try await messaging.unsubscribe(fromTopic: Self.generalTopic)
         #endif
     }
+    
+    public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {}
 }

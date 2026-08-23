@@ -38,7 +38,8 @@ struct ContentView: View {
         .background(ColorsPalette.background)
         .ategalTabBarConfiguration()
         .applyAccessibility()
-        .task {
+        // Keeps the FCM topic subscription aligned with the session state.
+        .task(id: world.authManager.userStatus) {
             await world.pushManager.refreshUserStatus(
                 world.authManager.userStatus
             )
