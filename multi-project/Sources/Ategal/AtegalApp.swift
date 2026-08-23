@@ -14,7 +14,13 @@ public struct AtegalRootView : View {
     public init() {}
 
     public var body: some View {
-        ContentView()
+        AsyncView {
+            let world = try await World()
+            await AtegalAppDelegate.shared.setWorld(world)
+            return world
+        } content: {
+            ContentView(world: $0)
+        }
     }
 }
 
@@ -24,6 +30,14 @@ public final class AtegalAppDelegate : Sendable {
     /* SKIP @bridge */
     public static let shared = AtegalAppDelegate()
 
+    @MainActor
+    private(set) var current: World?
+
+    @MainActor
+    func setWorld(_ world: World) {
+        self.current = world
+    }
+    
     private init() {}
 
     /* SKIP @bridge */
@@ -62,6 +76,16 @@ public final class AtegalAppDelegate : Sendable {
     /* SKIP @bridge */
     public func onLowMemory() {
         logger.debug("onLowMemory")
+    }
+    
+    @MainActor
+    public func application(didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        current?.pushManager.didRegisterForRemoteNotifications(withDeviceToken: deviceToken)
+    }
+    
+    @MainActor
+    public func application(didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        current?.pushManager.didFailToRegisterForRemoteNotifications(error)
     }
 
     private func customizeModuleDependencies() {

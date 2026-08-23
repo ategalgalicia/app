@@ -4,27 +4,34 @@
 
 import Foundation
 import AtegalCore
+import Observation
 
 #if os(Android)
 import SkipFuse; import SkipFuseUI
 #endif
 
-struct World {
+@MainActor
+@Observable
+class World {
     
     let wpApiClient: WPAPIClient
     let gistApiClient: GistAPIClient
+    
     let authManager: AuthManager
+    let pushManager: PushManager
+    
     let appVersion: String
     
-    init() {
+    init() async throws {
+        self.appVersion = "Versión \(World.marketingVersion) (\(World.buildNumber))"
         self.wpApiClient = WPAPIClient()
         self.gistApiClient = GistAPIClient()
         self.authManager = AuthManager()
-        self.appVersion = "Versión \(World.marketingVersion) (\(World.buildNumber))"
+        self.pushManager = PushManager()
     }
 }
 
-// MARK: - AppVersion
+// MARK: - Extensions
 
 private extension World {
     

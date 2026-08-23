@@ -139,7 +139,7 @@ struct AuthView: View {
     private func performAuthenticate(_ socialNetwork: SocialNetwork) async {
         do {
             try await authManager.signIn(with: socialNetwork)
-            guard authManager.isAuthenticated else { return }
+            guard authManager.userStatus == .logged else { return }
             dismiss()
         } catch {
             handleAuthenticationError(error)

@@ -63,6 +63,14 @@ typealias AppType = NSApplication
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
         AppDelegate.shared.onLowMemory()
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        AppDelegate.shared.application(didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        AppDelegate.shared.application(didFailToRegisterForRemoteNotificationsWithError: error)
+    }
     #elseif canImport(AppKit)
     func applicationWillFinishLaunching(_ notification: Notification) {
         AppDelegate.shared.onInit()

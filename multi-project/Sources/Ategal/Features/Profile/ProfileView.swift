@@ -58,12 +58,12 @@ struct ProfileView: View {
         }
         .padding(16)
         .background(ColorsPalette.background)
-        .animation(.default, value: authManager.isAuthenticated)
+        .animation(.default, value: authManager.userStatus)
     }
     
     @ViewBuilder
     private var signInView: some View {
-        if !authManager.isAuthenticated {
+        if authManager.userStatus == .unlogged {
             VStack(spacing: 16) {
                 Text("auth-subtitle")
                     .font(.body)
@@ -86,7 +86,7 @@ struct ProfileView: View {
     
     @ViewBuilder
     private var userView: some View {
-        if authManager.isAuthenticated, let user = authManager.fetchUser() {
+        if authManager.userStatus == .logged, let user = authManager.fetchUser() {
             VStack(spacing: 8) {
                 HStack(spacing: 4) {
                     if let firstName = user.firstName {
@@ -111,7 +111,7 @@ struct ProfileView: View {
     
     @ViewBuilder
     private var logoutButton: some View {
-        if authManager.isAuthenticated {
+        if authManager.userStatus == .logged {
             AsyncButton {
                 try authManager.signOut()
             } label: {

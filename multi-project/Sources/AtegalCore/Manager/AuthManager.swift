@@ -13,16 +13,22 @@ import SkipFuse
 import AuthenticationServices
 #endif
 
+public enum UserStatus {
+    case logged, unlogged
+}
+
+@MainActor
 @Observable
 public class AuthManager {
 
     @ObservationIgnored
     private let socialNetworkManager: SocialNetworkManager
-    public private(set) var isAuthenticated: Bool
+    
+    public private(set) var userStatus: UserStatus
 
     public init() {
         self.socialNetworkManager = SocialNetworkManager()
-        self.isAuthenticated = socialNetworkManager.isAuthenticated()
+        self.userStatus = socialNetworkManager.isAuthenticated() ? .logged : .unlogged
     }
     
     #if os(iOS)
@@ -35,20 +41,20 @@ public class AuthManager {
     @MainActor
     public func signIn(with network: SocialNetwork) async throws {
         try await socialNetworkManager.signIn(network: network)
-        updateAuthenticationState(true)
+        updateAuthenticationState(.logged)
     }
     
     public func signOut() throws {
         try socialNetworkManager.signOut()
-        updateAuthenticationState(false)
+        updateAuthenticationState(.unlogged)
     }
     
     public func fetchUser() -> User? {
         socialNetworkManager.currentUser()
     }
     
-    func updateAuthenticationState(_ isAuthenticated: Bool) {
-        self.isAuthenticated = isAuthenticated
+    func updateAuthenticationState(_ status: UserStatus) {
+        self.userStatus = status
     }
 }
 
@@ -66,12 +72,12 @@ public final class MockAuthManager: AuthManager {
     @MainActor
     public override func signIn(with network: SocialNetwork) async throws {
         signedInNetwork = network
-        updateAuthenticationState(true)
+        updateAuthenticationState(.logged)
     }
 
     public override func signOut() throws {
         didSignOut = true
-        updateAuthenticationState(false)
+        updateAuthenticationState(.unlogged)
     }
 
     public override func fetchUser() -> User? {
