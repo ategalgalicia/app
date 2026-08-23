@@ -99,7 +99,7 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
     #if os(iOS)
     nonisolated public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         _ = messaging.appDidReceiveMessage(notification.request.content.userInfo)
-        [.banner, .sound, .badge]
+        return [.banner, .sound, .badge]
     }
 
     nonisolated public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {

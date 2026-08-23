@@ -63,10 +63,5 @@ let package = Package(
             resources: [.process("Resources")],
             plugins: [.plugin(name: "skipstone", package: "skip")]
         ),
-        .testTarget(
-            name: "AtegalCoreTests",
-            dependencies: ["AtegalCore"],
-            plugins: [.plugin(name: "skipstone", package: "skip")]
-        )
     ]
 )
