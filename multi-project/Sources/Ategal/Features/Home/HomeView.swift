@@ -170,10 +170,10 @@ struct HomeView: View {
         subtitle: LocalizedStringKey,
         image: String,
         color: Color,
-        onTap: VoidHandler?
+        onTap: @escaping ActionHandler
     ) -> some View {
         Button {
-            onTap?()
+            onTap()
         } label: {
             HStack(spacing: 16) {
                 Image(systemName: image)

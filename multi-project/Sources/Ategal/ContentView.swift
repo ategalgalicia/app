@@ -85,7 +85,10 @@ struct ContentView: View {
     @ViewBuilder
     private var profileFlow: some View {
         NavigationStack {
-            ProfileView(authManager: world.authManager)
+            ProfileView(
+                authManager: world.authManager,
+                pushManager: world.pushManager
+            )
         }
         .tabItem { Label("tab-profile", systemImage: "person.fill") }
         .tag(ContentTab.profile)

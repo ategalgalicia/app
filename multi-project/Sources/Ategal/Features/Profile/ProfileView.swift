@@ -14,7 +14,10 @@ import RStudioKit
 #Preview {
     
     NavigationStack {
-        ProfileView(authManager: MockAuthManager())
+        ProfileView(
+            authManager: MockAuthManager(),
+            pushManager: PushManager()
+        )
         .dynamicTypeSize(.large ... .accessibility5)
     }
 }
@@ -25,6 +28,7 @@ import RStudioKit
 struct ProfileView: View {
     
     let authManager: AuthManager
+    let pushManager: PushManager
 
     @State
     var presentAuthSheet: Bool = false
@@ -53,19 +57,21 @@ struct ProfileView: View {
             
             signInView
             userView
+            authorizationView
             Spacer()
             logoutButton
         }
         .padding(16)
+        .frame(maxWidth: .infinity)
         .background(ColorsPalette.background)
         .animation(.default, value: authManager.userStatus)
     }
     
     @ViewBuilder
     private var signInView: some View {
-        if authManager.userStatus == .unlogged {
+        if !authManager.isLogged {
             VStack(spacing: 16) {
-                Text("auth-subtitle")
+                Text("profile-sign-in-subtitle")
                     .font(.body)
                     .foregroundStyle(ColorsPalette.textSecondary)
                     .multilineTextAlignment(.center)
@@ -86,13 +92,12 @@ struct ProfileView: View {
     
     @ViewBuilder
     private var userView: some View {
-        if authManager.userStatus == .logged, let user = authManager.fetchUser() {
+        if authManager.isLogged, let user = authManager.fetchUser() {
             VStack(spacing: 8) {
                 HStack(spacing: 4) {
                     if let firstName = user.firstName {
                         Text(firstName)
                     }
-
                     if let lastName = user.lastName {
                         Text(lastName)
                     }
@@ -110,8 +115,24 @@ struct ProfileView: View {
     }
     
     @ViewBuilder
+    private var authorizationView: some View {
+        if authManager.isLogged {
+            AsyncView {
+                await pushManager.hasPushAuthorization()
+            } content: { hasPushAuthorization in
+                if hasPushAuthorization {
+                    PushTopicView(pushManager: pushManager)
+                } else {
+                    Text("notification-permission-subtitle")
+                }
+            }
+            .padding(.vertical, 16)
+        }
+    }
+    
+    @ViewBuilder
     private var logoutButton: some View {
-        if authManager.userStatus == .logged {
+        if authManager.isLogged {
             AsyncButton {
                 try authManager.signOut()
             } label: {
@@ -124,5 +145,14 @@ struct ProfileView: View {
             }
             .buttonStyle(.plain)
         }
+    }
+}
+
+// MARK: - Extensions
+
+private extension AuthManager {
+
+    var isLogged: Bool {
+        userStatus == .logged
     }
 }

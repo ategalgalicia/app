@@ -4,14 +4,7 @@
 
 import Foundation
 
-public enum PushTopic: String, CaseIterable, Sendable {
-    case general
-    case santiago
-    case acoruna
-    case ferrol
-    case lalin
-    case monterroso
-    case ourense
-    case padron
-    case vigo
+public enum PushTopic: String, Codable, Identifiable, CaseIterable, Sendable {
+    case general, santiago, acoruna, ferrol, lalin, monterroso, ourense, padron, vigo
+    public var id: String { rawValue }
 }

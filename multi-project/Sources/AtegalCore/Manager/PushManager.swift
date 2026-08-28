@@ -31,6 +31,11 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
         messaging.delegate = self
         notificationCenter.delegate = self
     }
+
+    public func hasPushAuthorization() async -> Bool {
+        let settings = await notificationCenter.notificationSettings()
+        return settings.authorizationStatus == .authorized
+    }
     
     @MainActor
     public func refreshUserStatus(_ status: UserStatus) async {

@@ -32,7 +32,7 @@ struct AuthView: View {
     var dismiss
 
     @State
-    var errorMessage: String?
+    var taskError: Error?
 
     @State
     var socialNetwork: SocialNetwork?
@@ -52,17 +52,7 @@ struct AuthView: View {
                 successDisplaySeconds: 0,
                 task: { await performAuthenticate($0) }
             )
-            .alert(
-                "auth-error-title",
-                isPresented: .init(
-                    get: { errorMessage != nil },
-                    set: { if !$0 { errorMessage = nil } }
-                )
-            ) {
-                Button("accept", role: .cancel) {}
-            } message: {
-                Text(LocalizedStringKey(errorMessage ?? ""))
-            }
+            .errorAlert($taskError)
     }
     
     // MARK: - ViewBuilders
@@ -153,7 +143,7 @@ struct AuthView: View {
             return
         }
         #endif
-        errorMessage = error.localizedDescription
+        taskError = error
     }
 }
 

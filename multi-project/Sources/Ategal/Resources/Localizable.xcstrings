@@ -5,6 +5,7 @@
 
     },
     "accept" : {
+      "extractionState" : "stale",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -109,6 +110,7 @@
       }
     },
     "auth-error-title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -524,6 +526,61 @@
         }
       }
     },
+    "notification-cities-subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Queres recibir información personalizada do teu centro?"
+          }
+        }
+      }
+    },
+    "notification-cities-title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cidades"
+          }
+        }
+      }
+    },
+    "notification-general-subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novidades para toda a comunidade Ategal"
+          }
+        }
+      }
+    },
+    "notification-general-title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información xeral"
+          }
+        }
+      }
+    },
+    "notification-permission-subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para recibir novidades de Ategal e dos teus centros, activa as notificacións nos axustes do dispositivo."
+          }
+        }
+      }
+    },
     "posts-no-data" : {
       "localizations" : {
         "gl-ES" : {
@@ -551,6 +608,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A túa información persoal aparecerá aquí."
+          }
+        }
+      }
+    },
+    "profile-sign-in-subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión para recibir información personalizada do teu centro."
           }
         }
       }
