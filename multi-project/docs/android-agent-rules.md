@@ -13,4 +13,3 @@
 ## Validation
 - Android host behavior: `cd Android && fastlane test` when relevant.
 - Do not run device, emulator, Play deployment, signing, cleanup, or dependency-update actions unless explicitly requested and approved.
-

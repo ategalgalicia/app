@@ -17,8 +17,6 @@ import SkipUI
 @MainActor
 public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcurrency MessagingDelegate {
     
-    private static let generalTopic = "general"
-    
     private nonisolated(unsafe) let messaging: Messaging
     private nonisolated(unsafe) let notificationCenter = UNUserNotificationCenter.current()
     
@@ -42,9 +40,9 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
                 guard try await requestPushesAuthorization() else {
                     return
                 }
-                try await subscribeToGeneralTopic()
+                try await subscribe(to: .general)
             case .unlogged:
-                try await unsubscribeFromGeneralTopic()
+                await unsubscribeFromAllTopics()
             }
         } catch {
             print("Push status refresh failed: \(error)")
@@ -109,10 +107,10 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
     
     // MARK: - MessagingDelegate
     
-    private func subscribeToGeneralTopic() async throws {
+    public func subscribe(to topic: PushTopic) async throws {
         #if os(iOS)
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            messaging.subscribe(toTopic: Self.generalTopic) { error in
+            messaging.subscribe(toTopic: topic.rawValue) { error in
                 if let error {
                     continuation.resume(throwing: error)
                 } else {
@@ -121,15 +119,14 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
             }
         }
         #else
-        try await messaging.subscribe(toTopic: Self.generalTopic)
+        try await messaging.subscribe(toTopic: topic.rawValue)
         #endif
     }
     
-    @MainActor
-    private func unsubscribeFromGeneralTopic() async throws {
+    public func unsubscribe(from topic: PushTopic) async throws {
         #if os(iOS)
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            messaging.unsubscribe(fromTopic: Self.generalTopic) { error in
+            messaging.unsubscribe(fromTopic: topic.rawValue) { error in
                 if let error {
                     continuation.resume(throwing: error)
                 } else {
@@ -138,8 +135,18 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
             }
         }
         #else
-        try await messaging.unsubscribe(fromTopic: Self.generalTopic)
+        try await messaging.unsubscribe(fromTopic: topic.rawValue)
         #endif
+    }
+
+    private func unsubscribeFromAllTopics() async {
+        for topic in PushTopic.allCases {
+            do {
+                try await unsubscribe(from: topic)
+            } catch {
+                print("Push topic unsubscription failed: \(error)")
+            }
+        }
     }
     
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {}

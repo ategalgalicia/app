@@ -6,7 +6,6 @@ import android.app.Application
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
@@ -122,7 +121,7 @@ open class MainActivity: AppCompatActivity {
 
 @Composable
 internal fun PresentationRootView(context: ComposeContext) {
-    val colorScheme = if (isSystemInDarkTheme()) ColorScheme.dark else ColorScheme.light
+    val colorScheme = ColorScheme.light
     val surfaceColor = androidx.compose.ui.graphics.Color.White
     Material3ColorScheme({ colors, isDark ->
         colors.copy(

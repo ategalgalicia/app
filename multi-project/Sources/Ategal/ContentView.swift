@@ -12,9 +12,6 @@ enum ContentTab: String, Hashable {
 
 struct ContentView: View {
     
-    @AppStorage("appearance")
-    var appearance = ""
-    
     @State
     var tab = ContentTab.home
     
@@ -33,7 +30,7 @@ struct ContentView: View {
             postsFlow
             profileFlow
         }
-        .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
+        .preferredColorScheme(.light)
         .tint(ColorsPalette.primary)
         .background(ColorsPalette.background)
         .ategalTabBarConfiguration()

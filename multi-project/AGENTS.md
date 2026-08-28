@@ -16,9 +16,9 @@
 - All code comments must be in English.
 
 ## Routing
-- Changes under `Sources/`: read `Sources/AGENTS.md`.
-- Changes under `Android/`: read `Android/AGENTS.md`.
-- Changes under `Darwin/`: read `Darwin/AGENTS.md`.
+- Changes under `Sources/`: read `docs/sources-agent-rules.md`.
+- Changes under `Android/`: read `docs/android-agent-rules.md`.
+- Changes under `Darwin/`: read `docs/ios-agent-rules.md`.
 - Changes to agent instructions: read `docs/agent-evals.md` and evaluate relevant scenarios before proposing the diff.
 
 ## Structure
@@ -29,8 +29,7 @@
 
 ## Validation
 - Documentation or agent instructions: inspect the diff; no build required.
-- Shared changes: use the relevant commands in `Sources/AGENTS.md`.
-- Android host changes: use the relevant commands in `Android/AGENTS.md`.
-- iOS host changes: use the relevant commands in `Darwin/AGENTS.md`.
+- Shared changes: use the relevant commands in `docs/sources-agent-rules.md`.
+- Android host changes: use the relevant commands in `docs/android-agent-rules.md`.
+- iOS host changes: use the relevant commands in `docs/ios-agent-rules.md`.
 - Do not run device, emulator, deployment, signing, cleanup, or dependency-update actions unless explicitly requested and approved.
-
