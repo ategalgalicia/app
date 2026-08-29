@@ -38,10 +38,7 @@ struct CalendarView: View {
     var navigationPath: [HomeRoute]
         
     @State
-    var errorMessage: String?
-    
-    @State
-    var showSuccess: Bool = false
+    var notification: InAppNotificationEvent?
     
     var body: some View {
         contentView
@@ -49,6 +46,7 @@ struct CalendarView: View {
             .background(ColorsPalette.background)
             .navigationTitle("calendar-title")
             .navigationBarTitleDisplayMode(.inline)
+            .showInAppNotification($notification)
     }
     
     // MARK: - ViewBuilders
@@ -168,7 +166,19 @@ struct CalendarView: View {
     private func cell(for event: Event) -> some View {
         #if canImport(Darwin)
         AsyncButton {
-            showSuccess = await LinkHelper.shared.addToAppleCalendar(event: event)
+            if await LinkHelper.shared.addToAppleCalendar(event: event) {
+                notification = .message(
+                    String(localized: "add-event-calendar-title"),
+                    message: String(localized: "add-event-calendar-subtitle"),
+                    icon: Image(systemName: "checkmark.circle.fill"),
+                    backgroundColor: ColorsPalette.primary
+                )
+            } else {
+                notification = .error(
+                    String(localized: "error"),
+                    message: String(localized: "error-message")
+                )
+            }
         } label: {
             label(for: event)
         }
