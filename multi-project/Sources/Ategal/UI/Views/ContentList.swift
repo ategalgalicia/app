@@ -28,24 +28,16 @@ struct ContentList<Item: Identifiable>: View {
     
     @ViewBuilder
     private func row(for item: Item) -> some View {
-        let titleText = item[keyPath: title]
-        
-        HStack(spacing: 16) {
-            Text(titleText)
-                .font(.body.weight(.regular))
-                .foregroundStyle(ColorsPalette.textSecondary)
-                .multilineTextAlignment(.leading)
-
-            Spacer()
-            
-            Image(systemName: "chevron.right")
-                .foregroundStyle(ColorsPalette.primary)
-                .accessibilityHidden(true)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
-        .contentRectangleShape()
-        .combinedAccessibility()
-        .accessibilityLabel(Text(titleText))
+        let title = item[keyPath: title]
+        Text(title)
+            .font(.body.weight(.regular))
+            .foregroundStyle(ColorsPalette.textSecondary)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .chevronOverlay()
+            .padding(16)
+            .contentRectangleShape()
+            .combinedAccessibility()
+            .accessibilityLabel(Text(title))
     }
 }

@@ -78,22 +78,15 @@ struct CalendarView: View {
                             .activities(filterDay: day.weekday)
                         ))
                     } label: {
-                        HStack(spacing: 16) {
-                            Text(day.title)
-                                .font(.body.weight(.regular))
-                                .foregroundStyle(ColorsPalette.textSecondary)
-                                .multilineTextAlignment(.leading)
-
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(ColorsPalette.primary)
-                                .accessibilityHidden(true)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(16)
-                        .contentRectangleShape()
-                        .combinedAccessibility()
+                        Text(day.title)
+                            .font(.body.weight(.regular))
+                            .foregroundStyle(ColorsPalette.textSecondary)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .chevronOverlay()
+                            .padding(16)
+                            .contentRectangleShape()
+                            .combinedAccessibility()
                     }
                     .buttonStyle(.plain)
                     .ategalCornerBackground()

@@ -106,21 +106,14 @@ struct SearchListView: View {
             cellAction(title, centers: centers)
         } label: {
             VStack(alignment: .leading, spacing: 8) {
-                HStack(spacing: 16) {
-                    Text(title)
-                        .font(.body.weight(.regular))
-                        .foregroundStyle(ColorsPalette.textSecondary)
-                        .multilineTextAlignment(.leading)
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundStyle(ColorsPalette.primary)
-                        .accessibilityHidden(true)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .combinedAccessibility()
-                .accessibilityLabel(Text(title))
+                Text(title)
+                    .font(.body.weight(.regular))
+                    .foregroundStyle(ColorsPalette.textSecondary)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .chevronOverlay()
+                    .combinedAccessibility()
+                    .accessibilityLabel(Text(title))
                 
                 if source.isActivity {
                     cities(centers)
@@ -128,6 +121,7 @@ struct SearchListView: View {
             }
             .padding(16)
         }
+        .buttonStyle(.plain)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentRectangleShape()
         .ategalCornerBackground()
@@ -160,20 +154,13 @@ struct SearchListView: View {
                     Button {
                         navigateToActivity(title: selection.title, center: center)
                     } label: {
-                        HStack(spacing: 16) {
-                            Text(center.city)
-                                .font(.body.weight(.regular))
-                                .foregroundStyle(ColorsPalette.textSecondary)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(ColorsPalette.primary)
-                                .accessibilityHidden(true)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(16)
-                        .contentRectangleShape()
+                        Text(center.city)
+                            .font(.body.weight(.regular))
+                            .foregroundStyle(ColorsPalette.textSecondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .chevronOverlay()
+                            .padding(16)
+                            .contentRectangleShape()
                     }
                     .buttonStyle(.plain)
                     .ategalCornerBackground()
