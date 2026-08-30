@@ -34,15 +34,8 @@ public final class AtegalAppDelegate : Sendable {
     private(set) var current: World?
 
     @MainActor
-    private var pendingDeeplink: DeeplinkPayload?
-
-    @MainActor
     func setWorld(_ world: World) {
         self.current = world
-        if let pendingDeeplink {
-            world.currentDeeplink = pendingDeeplink
-            self.pendingDeeplink = nil
-        }
     }
     
     private init() {}
@@ -93,27 +86,6 @@ public final class AtegalAppDelegate : Sendable {
     @MainActor
     public func application(didFailToRegisterForRemoteNotificationsWithError error: Error) {
         current?.pushManager.didFailToRegisterForRemoteNotifications(error)
-    }
-
-    /* SKIP @bridge */
-    public func didReceivePushPayload(_ activity: String, query: String) {
-        Task { @MainActor in
-            receiveDeeplink(
-                DeeplinkPayload(
-                    activity: activity,
-                    query: query
-                )
-            )
-        }
-    }
-
-    @MainActor
-    private func receiveDeeplink(_ payload: DeeplinkPayload) {
-        if let current {
-            current.currentDeeplink = payload
-        } else {
-            pendingDeeplink = payload
-        }
     }
 
     private func customizeModuleDependencies() {

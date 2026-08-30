@@ -3,6 +3,7 @@ package ategal.module
 import skip.foundation.*
 import skip.ui.*
 import android.app.Application
+import ategal.core.PushManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -123,10 +124,11 @@ open class MainActivity: AppCompatActivity {
     }
 
     private fun handlePushIntent(intent: android.content.Intent?) {
+        // Forwards deeplink data from a push intent to the shared app.
         intent?.getStringExtra("activity")
             ?.takeIf { it.isNotBlank() }
             ?.let { activity ->
-                AppDelegate.shared.didReceivePushPayload(
+                PushManager.didReceivePushPayload(
                     activity,
                     intent.getStringExtra("query").orEmpty()
                 )

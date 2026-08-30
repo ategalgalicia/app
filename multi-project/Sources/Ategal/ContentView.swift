@@ -20,7 +20,7 @@ struct ContentView: View {
     
     @State
     var navigationPost: [PostRoute] = []
-    
+
     let world: World
 
     @ViewBuilder
@@ -42,13 +42,11 @@ struct ContentView: View {
                 world.authManager.userStatus
             )
         }
-        .onChange(of: world.currentDeeplink, initial: true) { _, payload in
-            guard let payload else {
-                return
+        .onAppear {
+            world.pushManager.onReceiveDeeplink { payload in
+                tab = .home
+                navigationHome = [.deeplink(payload)]
             }
-            tab = .home
-            navigationHome = [.deeplink(payload)]
-            world.currentDeeplink = nil
         }
     }
     

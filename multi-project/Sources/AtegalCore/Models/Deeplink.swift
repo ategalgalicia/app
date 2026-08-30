@@ -1,5 +1,11 @@
 import Foundation
 
+// MARK: - DeeplinkHandler
+
+public typealias DeeplinkHandler = (DeeplinkPayload) -> Void
+
+// MARK: - DeeplinkPayload
+
 public struct DeeplinkPayload: Hashable, Sendable {
     public let activity: String
     public let query: String?
@@ -9,6 +15,8 @@ public struct DeeplinkPayload: Hashable, Sendable {
         self.query = query?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
+
+// MARK: - Deeplink
 
 public struct Deeplink: Hashable, Sendable {
     public let action: Action
@@ -35,6 +43,8 @@ public struct Deeplink: Hashable, Sendable {
     }
 }
 
-enum Path {
+// MARK: - Path
+
+private enum Path {
     static let search = "search"
 }

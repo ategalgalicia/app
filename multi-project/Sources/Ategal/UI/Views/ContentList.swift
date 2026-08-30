@@ -33,6 +33,7 @@ struct ContentList<Item: Identifiable>: View {
             .font(.body.weight(.regular))
             .foregroundStyle(ColorsPalette.textSecondary)
             .multilineTextAlignment(.leading)
+            .padding(.trailing, 32)
             .frame(maxWidth: .infinity, alignment: .leading)
             .chevronOverlay()
             .padding(16)

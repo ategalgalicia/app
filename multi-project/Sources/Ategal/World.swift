@@ -21,17 +21,17 @@ class World {
     let pushManager: PushManager
     
     let appVersion: String
-    var currentDeeplink: DeeplinkPayload?
     
     init() async throws {
         self.appVersion = "\(World.marketingVersion) (\(World.buildNumber))"
         self.wpApiClient = WPAPIClient()
         self.gistApiClient = GistAPIClient()
         self.authManager = AuthManager()
+        #if os(Android)
+        self.pushManager = PushManager.create()
+        #else
         self.pushManager = PushManager()
-        self.pushManager.setDeeplinkHandler { [weak self] payload in
-            self?.currentDeeplink = payload
-        }
+        #endif
     }
 }
 

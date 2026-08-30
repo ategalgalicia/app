@@ -37,12 +37,11 @@ struct SearchListView: View {
         let base: [String] = {
             switch source {
             case .allActivities, .activitiesFilteredByDay, .activitiesFilteredByText:
-                return activitiesByTitle.keys.sorted()
+                activitiesByTitle.keys.sorted()
             case .resources:
-                return resourceItemByTitle.keys.sorted()
+                resourceItemByTitle.keys.sorted()
             }
         }()
-        
         if searchText.isEmpty {
             return base
         } else {
@@ -84,7 +83,6 @@ struct SearchListView: View {
             .background(ColorsPalette.background)
             .navigationTitle(source.title)
             .navigationBarTitleDisplayMode(.inline)
-            .platformSearchable(text: $searchText, prompt: "list-search-bar")
             .sheet(item: $selection) {
                 switch source {
                 case .allActivities, .activitiesFilteredByDay, .activitiesFilteredByText:
@@ -102,14 +100,18 @@ struct SearchListView: View {
         if items.isEmpty {
             EmptyStateView(txt: source.emptytitle)
         } else {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(items, id: \.self) {
-                        cell(for: $0)
-                    }
+            List {
+                AtegalSearchBarView(
+                    $searchText,
+                    placeholder: "list-search-bar".localized
+                )
+                .listRowConfiguration()
+                
+                ForEach(items, id: \.self) {
+                    cell(for: $0)
                 }
-                .padding(16)
             }
+            .listConfiguration()
         }
     }
     
@@ -134,11 +136,13 @@ struct SearchListView: View {
                 }
             }
             .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentRectangleShape()
+            .ategalCornerBackground()
+            .padding(.vertical, 4)
         }
         .buttonStyle(.plain)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .contentRectangleShape()
-        .ategalCornerBackground()
+        .listRowConfiguration(insets: .init(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
     
     @ViewBuilder

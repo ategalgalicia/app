@@ -16,14 +16,18 @@ import SkipUI
 // SKIP @bridge
 @MainActor
 public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDelegate, @preconcurrency MessagingDelegate {
-    
+
     private nonisolated(unsafe) let messaging: Messaging
     private nonisolated(unsafe) let notificationCenter = UNUserNotificationCenter.current()
-    private var deeplinkHandler: ((DeeplinkPayload) -> Void)?
+    private var deeplinkHandler: DeeplinkHandler?
     
     #if os(iOS)
     private var registrationContinuation: CheckedContinuation<Void, Error>?
     private var apnsDeviceToken: Data?
+    #endif
+    
+    #if os(Android)
+    private static var pushPayloadHandler: ((String, String) -> Void)?
     #endif
     
     public override init() {
@@ -33,12 +37,27 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
         notificationCenter.delegate = self
     }
 
-    public func hasPushAuthorization() async -> Bool {
-        let settings = await notificationCenter.notificationSettings()
-        return settings.authorizationStatus == .authorized
+    #if os(Android)
+    /* SKIP @bridge */
+    public static func create() -> PushManager {
+        let manager = PushManager()
+        pushPayloadHandler = { [weak manager] activity, query in
+            manager?.receivePushPayload(activity, query: query)
+        }
+        return manager
     }
 
-    public func setDeeplinkHandler(_ handler: @escaping (DeeplinkPayload) -> Void) {
+    /* SKIP @bridge */
+    public static func didReceivePushPayload(_ activity: String, query: String) {
+        // Bridge entry point invoked by Android's MainActivity.
+        Task { @MainActor in
+            pushPayloadHandler?(activity, query)
+        }
+    }
+
+    #endif
+    
+    public func onReceiveDeeplink(_ handler: @escaping DeeplinkHandler) {
         deeplinkHandler = handler
     }
     
@@ -84,6 +103,11 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
         #endif
     }
     
+    public func hasPushAuthorization() async -> Bool {
+        let settings = await notificationCenter.notificationSettings()
+        return settings.authorizationStatus == .authorized
+    }
+    
     // MARK: - AppDelegate
     
     @MainActor
@@ -108,9 +132,7 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
     
     #if os(iOS)
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
-        _ = messaging.appDidReceiveMessage(
-            notification.request.content.userInfo
-        )
+        _ = messaging.appDidReceiveMessage(notification.request.content.userInfo)
         return [.banner, .sound, .badge]
     }
 
@@ -120,14 +142,13 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
         guard let activity = userInfo["activity"] as? String, !activity.isEmpty else {
             return
         }
-        deeplinkHandler?(
-            DeeplinkPayload(
-                activity: activity,
-                query: userInfo["query"] as? String
-            )
-        )
+        receivePushPayload(activity, query: userInfo["query"] as? String)
     }
     #endif
+    
+    private func receivePushPayload(_ activity: String, query: String?) {
+        deeplinkHandler?( DeeplinkPayload(activity: activity, query: query))
+    }
     
     // MARK: - MessagingDelegate
     
