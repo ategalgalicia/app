@@ -1,0 +1,12 @@
+{
+  "aps": {
+    "alert": {
+      "title": "Ategal",
+      "body": "Yoga"
+    },
+    "sound": "default"
+  },
+  "activity": "search",
+  "query": "yoga",
+  "Simulator Target Bundle": "mr.ategal.app"
+}

@@ -23,7 +23,17 @@ struct ContentView: View {
     
     let world: World
 
+    @ViewBuilder
     var body: some View {
+        if world.pendingPushActivity != nil {
+            PushActivityPlaceholderView()
+        } else {
+            tabContent
+        }
+    }
+
+    @ViewBuilder
+    private var tabContent: some View {
         TabView(selection: $tab) {
             homeFlow
             whoWeAreFlow

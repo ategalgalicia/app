@@ -53,6 +53,7 @@ open class MainActivity: AppCompatActivity {
             }
         }
 
+        handlePushIntent(intent)
         AppDelegate.shared.onLaunch()
 
         // Example of requesting permissions on startup.
@@ -102,6 +103,12 @@ open class MainActivity: AppCompatActivity {
         super.onRestart()
     }
 
+    override fun onNewIntent(intent: android.content.Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        handlePushIntent(intent)
+    }
+
     override fun onSaveInstanceState(outState: android.os.Bundle): Unit = super.onSaveInstanceState(outState)
 
     override fun onRestoreInstanceState(bundle: android.os.Bundle) {
@@ -113,6 +120,14 @@ open class MainActivity: AppCompatActivity {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: kotlin.Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         logger.info("onRequestPermissionsResult: ${requestCode}")
+    }
+
+    private fun handlePushIntent(intent: android.content.Intent?) {
+        intent?.getStringExtra("activity")
+            ?.takeIf { it.isNotBlank() }
+            ?.let { activity ->
+                AppDelegate.shared.didReceivePushActivity(activity)
+            }
     }
 
     companion object {

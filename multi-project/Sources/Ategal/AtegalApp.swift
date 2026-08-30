@@ -34,8 +34,15 @@ public final class AtegalAppDelegate : Sendable {
     private(set) var current: World?
 
     @MainActor
+    private var pendingPushActivity: String?
+
+    @MainActor
     func setWorld(_ world: World) {
         self.current = world
+        if let pendingPushActivity {
+            world.presentPushActivity(pendingPushActivity)
+            self.pendingPushActivity = nil
+        }
     }
     
     private init() {}
@@ -86,6 +93,23 @@ public final class AtegalAppDelegate : Sendable {
     @MainActor
     public func application(didFailToRegisterForRemoteNotificationsWithError error: Error) {
         current?.pushManager.didFailToRegisterForRemoteNotifications(error)
+    }
+
+    /* SKIP @bridge */
+    public func didReceivePushActivity(_ activity: String) {
+        Task { @MainActor in
+            receivePushActivity(activity)
+        }
+    }
+
+    @MainActor
+    private func receivePushActivity(_ activity: String) {
+        guard !activity.isEmpty else { return }
+        if let current {
+            current.presentPushActivity(activity)
+        } else {
+            pendingPushActivity = activity
+        }
     }
 
     private func customizeModuleDependencies() {

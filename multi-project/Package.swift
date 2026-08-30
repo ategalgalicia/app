@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "multi-project",
     defaultLocalization: "gl-ES",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v17), .macOS(.v15)],
     products: [
         .library(name: "Ategal", type: .dynamic, targets: ["Ategal"]),
         .library(name: "AtegalCore", type: .dynamic, targets: ["AtegalCore"]),

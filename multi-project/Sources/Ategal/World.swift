@@ -21,6 +21,7 @@ class World {
     let pushManager: PushManager
     
     let appVersion: String
+    var pendingPushActivity: String?
     
     init() async throws {
         self.appVersion = "Versión \(World.marketingVersion) (\(World.buildNumber))"
@@ -28,6 +29,13 @@ class World {
         self.gistApiClient = GistAPIClient()
         self.authManager = AuthManager()
         self.pushManager = PushManager()
+        self.pushManager.setActivityHandler { [weak self] activity in
+            self?.presentPushActivity(activity)
+        }
+    }
+
+    func presentPushActivity(_ activity: String) {
+        pendingPushActivity = activity
     }
 }
 

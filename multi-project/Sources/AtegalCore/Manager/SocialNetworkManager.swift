@@ -19,7 +19,7 @@ import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.exceptions.GetCredentialCancellationException
-import com.google.android.libraries.identity.googleid.GetGoogleIdOption
+import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.firebase.auth.GoogleAuthProvider
 #endif
@@ -183,6 +183,8 @@ private extension SocialNetworkManager {
 // SKIP @bridge
 @MainActor
 func signInWithGoogleOnAndroid() async throws {
+    let logger = Logger(subsystem: "mr.ategal.app", category: "Ategal")
+
     guard let activity: androidx.appcompat.app.AppCompatActivity = UIApplication.shared.androidActivity else {
         throw GoogleAuthenticationError.presentingWindowNotFound
     }
@@ -196,9 +198,9 @@ func signInWithGoogleOnAndroid() async throws {
         throw GoogleAuthenticationError.clientIDNotFound
     }
 
-    let googleIDOption = GetGoogleIdOption.Builder()
-        .setFilterByAuthorizedAccounts(false)
-        .setServerClientId(activity.getString(resourceID))
+    let googleIDOption = GetSignInWithGoogleOption.Builder(
+        activity.getString(resourceID)
+    )
         .build()
     let request = GetCredentialRequest.Builder()
         .addCredentialOption(googleIDOption)

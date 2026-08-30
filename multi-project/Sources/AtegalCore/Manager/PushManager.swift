@@ -6,19 +6,20 @@ import Foundation
 
 #if os(iOS)
 import UIKit
-import UserNotifications
+@preconcurrency import UserNotifications
 import FirebaseMessaging
 #else
-@preconcurrency import SkipFirebaseMessaging
 import SkipUI
+@preconcurrency import SkipFirebaseMessaging
 #endif
 
 // SKIP @bridge
 @MainActor
-public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcurrency MessagingDelegate {
+public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDelegate, @preconcurrency MessagingDelegate {
     
     private nonisolated(unsafe) let messaging: Messaging
     private nonisolated(unsafe) let notificationCenter = UNUserNotificationCenter.current()
+    private var activityHandler: ((String) -> Void)?
     
     #if os(iOS)
     private var registrationContinuation: CheckedContinuation<Void, Error>?
@@ -35,6 +36,10 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
     public func hasPushAuthorization() async -> Bool {
         let settings = await notificationCenter.notificationSettings()
         return settings.authorizationStatus == .authorized
+    }
+
+    public func setActivityHandler(_ handler: @escaping (String) -> Void) {
+        activityHandler = handler
     }
     
     @MainActor
@@ -79,6 +84,8 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
         #endif
     }
     
+    // MARK: - AppDelegate
+    
     @MainActor
     public func didRegisterForRemoteNotifications(withDeviceToken deviceToken: Data) {
         #if os(iOS)
@@ -100,13 +107,20 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
     // MARK: - UNUserNotificationCenterDelegate
     
     #if os(iOS)
-    nonisolated public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
-        _ = messaging.appDidReceiveMessage(notification.request.content.userInfo)
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        _ = messaging.appDidReceiveMessage(
+            notification.request.content.userInfo
+        )
         return [.banner, .sound, .badge]
     }
 
-    nonisolated public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        _ = messaging.appDidReceiveMessage(response.notification.request.content.userInfo)
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        let userInfo = response.notification.request.content.userInfo
+        _ = messaging.appDidReceiveMessage(userInfo)
+        guard let activity = userInfo["activity"] as? String, !activity.isEmpty else {
+            return
+        }
+        handlePushActivity(activity)
     }
     #endif
     
@@ -152,6 +166,10 @@ public class PushManager: NSObject, UNUserNotificationCenterDelegate, @preconcur
                 print("Push topic unsubscription failed: \(error)")
             }
         }
+    }
+
+    private func handlePushActivity(_ activity: String) {
+        activityHandler?(activity)
     }
     
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {}
