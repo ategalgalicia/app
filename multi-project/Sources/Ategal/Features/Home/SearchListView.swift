@@ -10,7 +10,9 @@ struct SearchListView: View {
     
     private let source: Source
     enum Source: Hashable {
-        case activities(filterDay: Int?)
+        case allActivities
+        case activitiesFilteredByDay(Int)
+        case activitiesFilteredByText(String)
         case resources
     }
     
@@ -34,7 +36,7 @@ struct SearchListView: View {
     private var items: [String] {
         let base: [String] = {
             switch source {
-            case .activities:
+            case .allActivities, .activitiesFilteredByDay, .activitiesFilteredByText:
                 return activitiesByTitle.keys.sorted()
             case .resources:
                 return resourceItemByTitle.keys.sorted()
@@ -57,9 +59,21 @@ struct SearchListView: View {
     ) {
         self._navigationPath = navigationPath
         self.source = source
+
         switch source {
-        case .activities(let filterDay):
+        case .activitiesFilteredByText(let filterText):
+            self._searchText = State(initialValue: filterText)
+        default:
+            self._searchText = State(initialValue: "")
+        }
+
+        switch source {
+        case .allActivities:
+            activitiesByTitle = centers.activitiesGroupedByTitle(for: nil)
+        case .activitiesFilteredByDay(let filterDay):
             activitiesByTitle = centers.activitiesGroupedByTitle(for: filterDay)
+        case .activitiesFilteredByText:
+            activitiesByTitle = centers.activitiesGroupedByTitle(for: nil)
         case .resources:
             resourceItemByTitle = centers.resourcesItemGroupedByTitle()
         }
@@ -73,7 +87,7 @@ struct SearchListView: View {
             .platformSearchable(text: $searchText, prompt: "list-search-bar")
             .sheet(item: $selection) {
                 switch source {
-                case .activities:
+                case .allActivities, .activitiesFilteredByDay, .activitiesFilteredByText:
                     activityPicker(selection: $0)
                 case .resources:
                     resourcePicker(selection: $0)
@@ -219,14 +233,16 @@ private extension SearchListView.Source {
     
     var title: String {
         switch self {
-        case .activities: "list-activity-title".localized
+        case .allActivities, .activitiesFilteredByDay, .activitiesFilteredByText:
+            "list-activity-title".localized
         case .resources: "list-resource-title".localized
         }
     }
     
     var emptytitle: String {
         switch self {
-        case .activities: "list-activity-no-data".localized
+        case .allActivities, .activitiesFilteredByDay, .activitiesFilteredByText:
+            "list-activity-no-data".localized
         case .resources: "list-resource-no-data".localized
         }
     }

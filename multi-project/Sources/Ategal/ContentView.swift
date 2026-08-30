@@ -25,15 +25,6 @@ struct ContentView: View {
 
     @ViewBuilder
     var body: some View {
-        if world.pendingPushActivity != nil {
-            PushActivityPlaceholderView()
-        } else {
-            tabContent
-        }
-    }
-
-    @ViewBuilder
-    private var tabContent: some View {
         TabView(selection: $tab) {
             homeFlow
             whoWeAreFlow
@@ -50,6 +41,14 @@ struct ContentView: View {
             await world.pushManager.refreshUserStatus(
                 world.authManager.userStatus
             )
+        }
+        .onChange(of: world.currentDeeplink, initial: true) { _, payload in
+            guard let payload else {
+                return
+            }
+            tab = .home
+            navigationHome = [.deeplink(payload)]
+            world.currentDeeplink = nil
         }
     }
     

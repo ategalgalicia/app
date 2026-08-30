@@ -21,37 +21,26 @@ class World {
     let pushManager: PushManager
     
     let appVersion: String
-    var pendingPushActivity: String?
+    var currentDeeplink: DeeplinkPayload?
     
     init() async throws {
-        self.appVersion = "Versión \(World.marketingVersion) (\(World.buildNumber))"
+        self.appVersion = "\(World.marketingVersion) (\(World.buildNumber))"
         self.wpApiClient = WPAPIClient()
         self.gistApiClient = GistAPIClient()
         self.authManager = AuthManager()
         self.pushManager = PushManager()
-        self.pushManager.setActivityHandler { [weak self] activity in
-            self?.presentPushActivity(activity)
+        self.pushManager.setDeeplinkHandler { [weak self] payload in
+            self?.currentDeeplink = payload
         }
-    }
-
-    func presentPushActivity(_ activity: String) {
-        pendingPushActivity = activity
     }
 }
 
 // MARK: - Extensions
 
 private extension World {
-    
-    static var marketingVersion: String {
-        Bundle.main.object(
-            forInfoDictionaryKey: "CFBundleShortVersionString"
-        ) as? String ?? ""
-    }
-
-    static var buildNumber: String {
-        Bundle.main.object(
-            forInfoDictionaryKey: "CFBundleVersion"
-        ) as? String ?? ""
+    static let marketingVersion = bundleValue(for: "CFBundleShortVersionString")
+    static let buildNumber = bundleValue(for: "CFBundleVersion")
+    private static func bundleValue(for key: String) -> String {
+        Bundle.main.object(forInfoDictionaryKey: key) as? String ?? ""
     }
 }

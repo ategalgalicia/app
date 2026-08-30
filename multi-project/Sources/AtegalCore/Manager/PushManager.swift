@@ -19,7 +19,7 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
     
     private nonisolated(unsafe) let messaging: Messaging
     private nonisolated(unsafe) let notificationCenter = UNUserNotificationCenter.current()
-    private var activityHandler: ((String) -> Void)?
+    private var deeplinkHandler: ((DeeplinkPayload) -> Void)?
     
     #if os(iOS)
     private var registrationContinuation: CheckedContinuation<Void, Error>?
@@ -38,8 +38,8 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
         return settings.authorizationStatus == .authorized
     }
 
-    public func setActivityHandler(_ handler: @escaping (String) -> Void) {
-        activityHandler = handler
+    public func setDeeplinkHandler(_ handler: @escaping (DeeplinkPayload) -> Void) {
+        deeplinkHandler = handler
     }
     
     @MainActor
@@ -120,7 +120,12 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
         guard let activity = userInfo["activity"] as? String, !activity.isEmpty else {
             return
         }
-        handlePushActivity(activity)
+        deeplinkHandler?(
+            DeeplinkPayload(
+                activity: activity,
+                query: userInfo["query"] as? String
+            )
+        )
     }
     #endif
     
@@ -168,9 +173,5 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
         }
     }
 
-    private func handlePushActivity(_ activity: String) {
-        activityHandler?(activity)
-    }
-    
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {}
 }

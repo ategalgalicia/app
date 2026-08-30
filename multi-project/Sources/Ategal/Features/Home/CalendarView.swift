@@ -73,7 +73,7 @@ struct CalendarView: View {
                 ForEach(dataSource.calendar.weekdays, id: \.weekday) { day in
                     Button {
                         navigationPath.append(.navigateToSearch(
-                            .activities(filterDay: day.weekday)
+                            .activitiesFilteredByDay(day.weekday)
                         ))
                     } label: {
                         Text(day.title)

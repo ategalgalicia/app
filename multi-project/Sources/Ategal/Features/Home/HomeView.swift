@@ -35,6 +35,7 @@ enum HomeRoute: Hashable {
     case navigateToCityList
     case navigateToCategoryList(Center)
     case navigateToSearch(SearchListView.Source)
+    case deeplink(DeeplinkPayload)
     case navigateToCategory(category: Center.Category, center: Center)
     case navigateToActivity(activity: Center.Category.Activity, center: Center)
 }
@@ -90,6 +91,12 @@ struct HomeView: View {
                     ActivityView(
                         activity: activity,
                         center: center
+                    )
+                case .deeplink(let payload):
+                    DeeplinkView(
+                        navigationPath: $navigationPath,
+                        payload: payload,
+                        centers: centers
                     )
                 }
             }
@@ -149,7 +156,7 @@ struct HomeView: View {
                 image: "list.bullet",
                 color: .indigo,
                 onTap: { navigationPath.append(.navigateToSearch(
-                    .activities(filterDay: nil)))
+                    .allActivities))
                 }
             )
             itemView(

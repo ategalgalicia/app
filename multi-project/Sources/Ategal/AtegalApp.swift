@@ -34,14 +34,14 @@ public final class AtegalAppDelegate : Sendable {
     private(set) var current: World?
 
     @MainActor
-    private var pendingPushActivity: String?
+    private var pendingDeeplink: DeeplinkPayload?
 
     @MainActor
     func setWorld(_ world: World) {
         self.current = world
-        if let pendingPushActivity {
-            world.presentPushActivity(pendingPushActivity)
-            self.pendingPushActivity = nil
+        if let pendingDeeplink {
+            world.currentDeeplink = pendingDeeplink
+            self.pendingDeeplink = nil
         }
     }
     
@@ -96,19 +96,23 @@ public final class AtegalAppDelegate : Sendable {
     }
 
     /* SKIP @bridge */
-    public func didReceivePushActivity(_ activity: String) {
+    public func didReceivePushPayload(_ activity: String, query: String) {
         Task { @MainActor in
-            receivePushActivity(activity)
+            receiveDeeplink(
+                DeeplinkPayload(
+                    activity: activity,
+                    query: query
+                )
+            )
         }
     }
 
     @MainActor
-    private func receivePushActivity(_ activity: String) {
-        guard !activity.isEmpty else { return }
+    private func receiveDeeplink(_ payload: DeeplinkPayload) {
         if let current {
-            current.presentPushActivity(activity)
+            current.currentDeeplink = payload
         } else {
-            pendingPushActivity = activity
+            pendingDeeplink = payload
         }
     }
 

@@ -126,7 +126,10 @@ open class MainActivity: AppCompatActivity {
         intent?.getStringExtra("activity")
             ?.takeIf { it.isNotBlank() }
             ?.let { activity ->
-                AppDelegate.shared.didReceivePushActivity(activity)
+                AppDelegate.shared.didReceivePushPayload(
+                    activity,
+                    intent.getStringExtra("query").orEmpty()
+                )
             }
     }
 
