@@ -44,12 +44,13 @@ lane :assemble do
 end
 
 desc "Deploy Skip Android App to Google Play"
-lane :release do
+lane :release do |options|
 
   assemble
 
   upload_to_play_store(
     aab: '../.build/Android/app/outputs/bundle/release/app-release.aab',
+    track: options[:track] || "production",
     skip_upload_metadata: true,
     skip_upload_images: true,
     skip_upload_screenshots: true,
