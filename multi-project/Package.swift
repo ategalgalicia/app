@@ -28,10 +28,7 @@ let package = Package(
             dependencies: [
                 "AtegalCore",
                 .product(name: "SkipFuseUI", package: "skip-fuse-ui"),
-                .product(
-                    name: "RStudioKit",
-                    package: "RStudioKit"
-                )
+                .product(name: "RStudioKit", package: "RStudioKit")
             ],
             resources: [.process("Resources")],
             plugins: [.plugin(name: "skipstone", package: "skip")]
@@ -50,15 +47,8 @@ let package = Package(
                 .product(name: "SkipFirebaseCrashlytics", package: "skip-firebase"),
                 .product(name: "SkipFirebaseAuth", package: "skip-firebase"),
                 .product(name: "SkipFirebaseMessaging", package: "skip-firebase"),
-                .product(
-                    name: "GoogleSignIn",
-                    package: "GoogleSignIn-iOS",
-                    condition: .when(platforms: [.iOS])
-                ),
-                .product(
-                    name: "RStudioKit",
-                    package: "RStudioKit"
-                )
+                .product(name: "GoogleSignIn", package: "GoogleSignIn-iOS", condition: .when(platforms: [.iOS])),
+                .product(name: "RStudioKit", package: "RStudioKit")
             ],
             resources: [.process("Resources")],
             plugins: [.plugin(name: "skipstone", package: "skip")]
