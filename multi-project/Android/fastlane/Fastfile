@@ -49,6 +49,10 @@ lane :release do
   assemble
 
   upload_to_play_store(
-    aab: '../.build/Android/app/outputs/bundle/release/app-release.aab'
+    aab: '../.build/Android/app/outputs/bundle/release/app-release.aab',
+    skip_upload_metadata: true,
+    skip_upload_images: true,
+    skip_upload_screenshots: true,
+    skip_upload_changelogs: true
   )
 end
