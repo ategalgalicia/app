@@ -21,7 +21,7 @@ lane :assemble do |options|
     export_options: {
       provisioningProfiles: {
         # 👇 BUNDLE ID => nombre EXACTO del provisioning
-        "mr.ategal.app" => "release_2/12/2025"
+        "mr.ategal.app" => "release__22/8/26"
       }
     }
   )

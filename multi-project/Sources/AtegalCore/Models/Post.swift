@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Post: Identifiable, Sendable {
+public struct Post: Identifiable, Hashable, Sendable {
     public let id: Int
     public let date: Date
     public let title: String

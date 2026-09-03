@@ -28,7 +28,7 @@ import RStudioKit
 // MARK: - PostRoute
 
 enum PostRoute: Hashable {
-    case navigateToPost
+    case post(Post)
 }
 
 // MARK: - PostsView
@@ -36,9 +36,6 @@ enum PostRoute: Hashable {
 struct PostListView: View {
     
     let posts: [Post]
-    
-    @State
-    var selected: Post?
     
     @Binding
     var navigationPath: [PostRoute]
@@ -52,10 +49,8 @@ struct PostListView: View {
             .accessibilityHeading(.h1)
             .navigationDestination(for: PostRoute.self) { route in
                 switch route {
-                case .navigateToPost:
-                    if let selected {
-                        postView(post: selected)
-                    }
+                case .post(let post):
+                    postView(post: post)
                 }
             }
     }
@@ -82,8 +77,7 @@ struct PostListView: View {
                         items: posts,
                         title: \.title,
                         onTap: {
-                            selected = $0
-                            navigationPath.append(.navigateToPost)
+                            navigationPath.append(.post($0))
                         }
                     )
                 }
