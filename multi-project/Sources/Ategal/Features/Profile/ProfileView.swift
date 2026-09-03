@@ -28,7 +28,7 @@ import RStudioKit
 struct ProfileView: View {
     
     let authManager: AuthManager
-    let pushManager: PushManager
+    let pushManager: PushManager?
 
     @State
     var presentAuthSheet: Bool = false
@@ -116,7 +116,7 @@ struct ProfileView: View {
     
     @ViewBuilder
     private var authorizationView: some View {
-        if authManager.isLogged {
+        if authManager.isLogged, let pushManager {
             AsyncView {
                 await pushManager.hasPushAuthorization()
             } content: { hasPushAuthorization in

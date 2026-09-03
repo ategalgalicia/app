@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "AtegalCore", type: .dynamic, targets: ["AtegalCore"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/skiptools/skip.git", from: "1.9.7"),
+        .package(url: "https://github.com/skiptools/skip.git", from: "1.9.8"),
         .package(url: "https://github.com/skiptools/skip-model.git", from: "1.7.9"),
         .package(url: "https://github.com/skiptools/skip-ui.git", from: "1.59.2"),
         .package(url: "https://github.com/skiptools/skip-fuse.git", from: "1.0.3"),

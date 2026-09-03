@@ -38,12 +38,13 @@ struct ContentView: View {
         .applyAccessibility()
         // Keeps the FCM topic subscription aligned with the session state.
         .task(id: world.authManager.userStatus) {
-            await world.pushManager.refreshUserStatus(
+            guard let pushManager = world.pushManager else { return }
+            await pushManager.refreshUserStatus(
                 world.authManager.userStatus
             )
         }
         .onAppear {
-            world.pushManager.onReceiveDeeplink { payload in
+            world.pushManager?.onReceiveDeeplink { payload in
                 tab = .home
                 navigationHome = [.deeplink(payload)]
             }
