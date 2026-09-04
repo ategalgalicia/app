@@ -7,4 +7,5 @@
 -keep class * implements com.sun.jna.** { *; }
 -keep class * implements skip.bridge.** { *; }
 -keep class **._ModuleBundleAccessor_* { *; }
+-keep class ategal.core.** { *; }
 -keep class ategal.module.** { *; }

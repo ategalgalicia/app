@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "69644722184-qra0uoln7lhir0qq366r1fipibrfu5sd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mr.ategal.app",
+            "certificate_hash": "8c51ffeaf990d1389fc244582f6c5b8cd7a25506"
+          }
+        },
+        {
           "client_id": "69644722184-6u1k3jaqe511ob77763hl3cef111mm02.apps.googleusercontent.com",
           "client_type": 3
         }
