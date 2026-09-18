@@ -1,3 +1,7 @@
+//
+//  Created by Michele Restuccia on 18/09/26.
+//
+
 import SwiftUI
 
 struct AtegalSearchBarView: View {
@@ -6,6 +10,11 @@ struct AtegalSearchBarView: View {
     var searchText: String
 
     let placeholder: String
+    
+    #if os(iOS)
+    @FocusState
+    var searchFocusedIsActive: Bool
+    #endif
 
     init(
         _ searchText: Binding<String>,
@@ -29,11 +38,27 @@ struct AtegalSearchBarView: View {
                 #if !os(macOS)
                 .textInputAutocapitalization(.never)
                 #endif
+                #if os(iOS)
+                .focused($searchFocusedIsActive)
+                #endif
         }
         .padding(.horizontal, 16)
         .frame(height: 48)
         .background(ColorsPalette.background)
         .cornerBorder(ColorsPalette.border, radius: 16)
         .frame(maxWidth: .infinity)
+        #if os(iOS)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button {
+                    searchFocusedIsActive = false
+                } label: {
+                    Image(systemName: "keyboard.chevron.compact.down")
+                }
+                .frame(alignment: .trailing)
+            }
+        }
+        #endif
     }
 }

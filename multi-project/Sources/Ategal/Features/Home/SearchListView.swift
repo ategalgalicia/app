@@ -97,22 +97,24 @@ struct SearchListView: View {
     
     @ViewBuilder
     private var contentView: some View {
-        if items.isEmpty {
-            EmptyStateView(txt: source.emptytitle)
-        } else {
-            List {
-                AtegalSearchBarView(
-                    $searchText,
-                    placeholder: "list-search-bar".localized
-                )
-                .listRowConfiguration()
-                
+        List {
+            AtegalSearchBarView(
+                $searchText,
+                placeholder: "list-search-bar".localized
+            )
+            .listRowConfiguration()
+            
+            if items.isEmpty {
+                EmptyStateView(txt: source.emptytitle)
+                    .listRowConfiguration()
+            } else {
                 ForEach(items, id: \.self) {
                     cell(for: $0)
                 }
             }
-            .listConfiguration()
         }
+        .listConfiguration()
+        .scrollDismissesKeyboard(.immediately)
     }
     
     @ViewBuilder

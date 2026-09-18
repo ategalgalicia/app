@@ -42,8 +42,8 @@ lane :release do |options|
   assemble
 
   upload_to_app_store(
-    api_key_path: "fastlane/apikey.json",
+    #api_key_path: "fastlane/apikey.json",
     app_rating_config_path: "fastlane/metadata/rating.json",
-    release_notes: { default: "Fixes and improvements." }
+    release_notes: { "es-ES": "Melloras de rendemento e corrección de erros." }
   )
 end

@@ -5,7 +5,7 @@
 
     },
     "accept" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -110,7 +110,7 @@
       }
     },
     "auth-error-title" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
