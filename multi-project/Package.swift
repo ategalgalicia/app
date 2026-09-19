@@ -1,4 +1,4 @@
-// swift-tools-version: 6.3
+// swift-tools-version: 6.4
 // This is a Skip (https://skip.tools) package.
 import PackageDescription
 
@@ -11,8 +11,8 @@ let package = Package(
         .library(name: "AtegalCore", type: .dynamic, targets: ["AtegalCore"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/skiptools/skip.git", exact: "1.9.9"),
-        .package(url: "https://github.com/skiptools/skip-model.git", exact: "1.7.10"),
+        .package(url: "https://github.com/skiptools/skip.git", exact: "1.9.10"),
+        .package(url: "https://github.com/skiptools/skip-model.git", exact: "1.8.0"),
         .package(url: "https://github.com/skiptools/skip-ui.git", exact: "1.59.4"),
         .package(url: "https://github.com/skiptools/skip-fuse.git", exact: "1.0.3"),
         .package(url: "https://github.com/skiptools/skip-fuse-ui.git", exact: "1.18.2"),
