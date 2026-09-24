@@ -72,7 +72,7 @@ struct MapLinkButton: View {
                 .ategalCornerBorder()
         }
         .confirmationDialog(
-            "", isPresented: $showDirectionsDialog, titleVisibility: .hidden
+            Text(verbatim: ""), isPresented: $showDirectionsDialog, titleVisibility: .hidden
         ) {
             Button {
                 LinkHelper.shared.open(on: .apple, lat: lat, lon: lon)

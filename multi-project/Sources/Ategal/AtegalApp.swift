@@ -80,12 +80,12 @@ public final class AtegalAppDelegate : Sendable {
     
     @MainActor
     public func application(didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        current?.pushManager?.didRegisterForRemoteNotifications(withDeviceToken: deviceToken)
+        current?.pushManager.didRegisterForRemoteNotifications(withDeviceToken: deviceToken)
     }
     
     @MainActor
     public func application(didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        current?.pushManager?.didFailToRegisterForRemoteNotifications(error)
+        current?.pushManager.didFailToRegisterForRemoteNotifications(error)
     }
 
     private func customizeModuleDependencies() {

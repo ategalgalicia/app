@@ -6,11 +6,21 @@ import SwiftUI
 import RStudioKit
 import AtegalCore
 
+enum AppStatus: Equatable {
+    case normal, tutorial
+}
+
 enum ContentTab: String, Hashable {
     case home, whoWeAre, posts, profile
 }
 
 struct ContentView: View {
+
+    @UserDefaultsBacked(key: "has-completed-tutorial")
+    var hasCompletedTutorial = false
+
+    @State
+    var appStatus: AppStatus = .tutorial
     
     @State
     var tab = ContentTab.home
@@ -23,13 +33,35 @@ struct ContentView: View {
 
     let world: World
 
+    init(world: World) {
+        self.world = world
+        _appStatus = State(
+            initialValue: hasCompletedTutorial ? .normal : .tutorial
+        )
+    }
+
     @ViewBuilder
     var body: some View {
-        TabView(selection: $tab) {
-            homeFlow
-            whoWeAreFlow
-            postsFlow
-            profileFlow
+        Group {
+            switch appStatus {
+            case .normal:
+                TabView(selection: $tab) {
+                    homeFlow
+                    whoWeAreFlow
+                    postsFlow
+                    profileFlow
+                }
+            case .tutorial:
+                TutorialView(isPresented: Binding(
+                    get: { appStatus == .tutorial },
+                    set: { isPresented in
+                        if !isPresented {
+                            hasCompletedTutorial = true
+                            appStatus = .normal
+                        }
+                    }
+                ))
+            }
         }
         .preferredColorScheme(.light)
         .tint(ColorsPalette.primary)
@@ -38,13 +70,12 @@ struct ContentView: View {
         .applyAccessibility()
         // Keeps the FCM topic subscription aligned with the session state.
         .task(id: world.authManager.userStatus) {
-            guard let pushManager = world.pushManager else { return }
-            await pushManager.refreshUserStatus(
+            await world.pushManager.refreshUserStatus(
                 world.authManager.userStatus
             )
         }
         .onAppear {
-            world.pushManager?.onReceiveDeeplink { payload in
+            world.pushManager.onReceiveDeeplink { payload in
                 tab = .home
                 navigationHome = [.deeplink(payload)]
             }

@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "gl-ES",
   "strings" : {
-    "" : {
-
-    },
     "accept" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -619,6 +616,226 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inicia sesión para recibir información personalizada do teu centro."
+          }
+        }
+      }
+    },
+    "push-tutorial-cities-message" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marca as cidades das que queres recibir avisos. Podes cambiar esta selección máis adiante."
+          }
+        }
+      }
+    },
+    "push-tutorial-cities-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolle as túas cidades"
+          }
+        }
+      }
+    },
+    "push-tutorial-continue" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        }
+      }
+    },
+    "push-tutorial-finish" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entendido"
+          }
+        }
+      }
+    },
+    "push-tutorial-permission-message-1" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para recibir avisos de Ategal, tes que aceptar as notificacións."
+          }
+        }
+      }
+    },
+    "push-tutorial-permission-message-2" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cando o móbil o pregunte, preme «Permitir»."
+          }
+        }
+      }
+    },
+    "push-tutorial-permission-message-3" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se non as permites nese momento, poderás activalas máis tarde nos axustes do móbil."
+          }
+        }
+      }
+    },
+    "push-tutorial-permission-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permite os avisos"
+          }
+        }
+      }
+    },
+    "push-tutorial-profile-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guía de acceso e avisos"
+          }
+        }
+      }
+    },
+    "push-tutorial-progress-1" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paso 1 de 4"
+          }
+        }
+      }
+    },
+    "push-tutorial-progress-2" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paso 2 de 4"
+          }
+        }
+      }
+    },
+    "push-tutorial-progress-3" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paso 3 de 4"
+          }
+        }
+      }
+    },
+    "push-tutorial-progress-4" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paso 4 de 4"
+          }
+        }
+      }
+    },
+    "push-tutorial-social-android-message-1" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podes acceder a Ategal coa túa conta de Google."
+          }
+        }
+      }
+    },
+    "push-tutorial-social-android-message-2" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abre Perfil, preme «Inicia sesión» e escolle Google."
+          }
+        }
+      }
+    },
+    "push-tutorial-social-message-1" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podes acceder a Ategal coa túa conta de Apple ou de Google."
+          }
+        }
+      }
+    },
+    "push-tutorial-social-message-2" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abre Perfil, preme «Inicia sesión» e escolle Google ou Apple."
+          }
+        }
+      }
+    },
+    "push-tutorial-social-message-3" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se é a primeira vez, a túa conta de Ategal crearase durante o proceso."
+          }
+        }
+      }
+    },
+    "push-tutorial-social-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accede coa túa conta"
+          }
+        }
+      }
+    },
+    "push-tutorial-welcome-message-1" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta guía axudarache a dar os primeiros pasos na app."
+          }
+        }
+      }
+    },
+    "push-tutorial-welcome-message-2" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explicámosche como iniciar sesión, activar as notificacións e escoller as cidades das que queres recibir avisos."
+          }
+        }
+      }
+    },
+    "push-tutorial-welcome-message-3" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podes volver consultar esta guía cando queiras desde o teu perfil."
           }
         }
       }

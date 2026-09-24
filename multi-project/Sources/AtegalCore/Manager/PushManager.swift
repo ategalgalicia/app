@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import Observation
 
 #if os(iOS)
 import UIKit
@@ -10,16 +11,20 @@ import UIKit
 import FirebaseMessaging
 #else
 import SkipUI
+import SkipFuse
 @preconcurrency import SkipFirebaseMessaging
 #endif
 
 // SKIP @bridge
 @MainActor
+@Observable
 public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDelegate, @preconcurrency MessagingDelegate {
 
     private nonisolated(unsafe) let messaging: Messaging
     private nonisolated(unsafe) let notificationCenter = UNUserNotificationCenter.current()
     private var deeplinkHandler: DeeplinkHandler?
+
+    public private(set) var isPushAuthorized = false
     
     #if os(iOS)
     private var registrationContinuation: CheckedContinuation<Void, Error>?
@@ -81,6 +86,7 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
     @MainActor
     private func requestPushesAuthorization() async throws -> Bool {
         let settings = await notificationCenter.notificationSettings()
+        isPushAuthorized = settings.authorizationStatus == .authorized
         guard settings.authorizationStatus != .denied else {
             return false
         }
@@ -91,6 +97,7 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
         let granted = try await notificationCenter.requestAuthorization(
             options: [.sound, .alert, .badge]
         )
+        isPushAuthorized = granted
         guard granted else { return false }
         try await withCheckedThrowingContinuation { continuation in
             let continuation: CheckedContinuation<Void, Error> = continuation
@@ -99,7 +106,9 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
         }
         return true
         #else
-        return try await notificationCenter.requestAuthorization(bridgedOptions: 7)
+        let granted = try await notificationCenter.requestAuthorization(bridgedOptions: 7)
+        isPushAuthorized = granted
+        return granted
         #endif
     }
     

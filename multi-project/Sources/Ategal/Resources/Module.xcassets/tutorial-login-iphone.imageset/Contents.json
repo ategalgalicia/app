@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "tutorial-login-iphone.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -28,20 +28,27 @@ import RStudioKit
 struct ProfileView: View {
     
     let authManager: AuthManager
-    let pushManager: PushManager?
+    let pushManager: PushManager
 
     @State
     var presentAuthSheet: Bool = false
+
+    @State
+    var presentTutorial: Bool = false
     
     var body: some View {
         contentView
             .tint(ColorsPalette.primary)
             .navigationTitle("tab-profile")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar { toolbarContent }
             .sheet(isPresented: $presentAuthSheet) {
                 PlatformModalSheet(title: "auth-title".localized) {
                     AuthView(authManager: authManager)
                 }
+            }
+            .fullScreenCover(isPresented: $presentTutorial) {
+                TutorialView(isPresented: $presentTutorial)
             }
     }
     
@@ -49,22 +56,25 @@ struct ProfileView: View {
     
     @ViewBuilder
     private var contentView: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "person.crop.circle.fill")
-                .font(.system(size: 72))
-                .foregroundStyle(ColorsPalette.primary)
-                .accessibilityHidden(true)
-            
-            signInView
-            userView
-            authorizationView
-            Spacer()
-            logoutButton
+        ScrollView {
+            VStack(spacing: 16) {
+                Image(systemName: "person.crop.circle.fill")
+                    .font(.system(size: 72))
+                    .foregroundStyle(ColorsPalette.primary)
+                    .accessibilityHidden(true)
+                
+                signInView
+                userView
+                pushNotificationsView
+                if !authManager.isLogged {
+                    tutorialButton
+                }
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity)
+            .background(ColorsPalette.background)
+            .animation(.default, value: authManager.userStatus)
         }
-        .padding(16)
-        .frame(maxWidth: .infinity)
-        .background(ColorsPalette.background)
-        .animation(.default, value: authManager.userStatus)
     }
     
     @ViewBuilder
@@ -115,9 +125,9 @@ struct ProfileView: View {
     }
     
     @ViewBuilder
-    private var authorizationView: some View {
-        if authManager.isLogged, let pushManager {
-            AsyncView {
+    private var pushNotificationsView: some View {
+        if authManager.isLogged, pushManager.isPushAuthorized {
+            AsyncView(id: pushManager.isPushAuthorized) {
                 await pushManager.hasPushAuthorization()
             } content: { hasPushAuthorization in
                 if hasPushAuthorization {
@@ -129,21 +139,53 @@ struct ProfileView: View {
             .padding(.vertical, 16)
         }
     }
-    
+
     @ViewBuilder
-    private var logoutButton: some View {
+    private var tutorialButton: some View {
+        Button {
+            presentTutorial = true
+        } label: {
+            Label("push-tutorial-profile-action", systemImage: "info.circle")
+                .font(.headline)
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+                .cornerBackground(ColorsPalette.cardBackground, radius: 14)
+        }
+        .buttonStyle(.plain)
+    }
+
+    @ViewBuilder
+    private func toolbarIcon(_ systemName: String) -> some View {
+        Image(systemName: systemName)
+            .font(.title3)
+            #if os(Android)
+            .padding(12)
+            .background(ColorsPalette.cardBackground)
+            .clipShape(Circle())
+            #endif
+    }
+    
+    // MARK: - ToolbarContentBuilder
+    
+    @ToolbarContentBuilder
+    private var toolbarContent: some ToolbarContent {
         if authManager.isLogged {
-            AsyncButton {
-                try authManager.signOut()
-            } label: {
-                Label("auth-logout-action", systemImage: "arrow.forward.square")
-                    .font(.subheadline.weight(.medium))
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
-                    .cornerBackground(ColorsPalette.cardBackground, radius: 20)
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                Button {
+                    presentTutorial = true
+                } label: {
+                    toolbarIcon("info.circle")
+                }
+                .accessibilityLabel(Text("push-tutorial-profile-action"))
+
+                AsyncButton {
+                    try authManager.signOut()
+                } label: {
+                    toolbarIcon("arrow.forward.square")
+                }
+                .accessibilityLabel(Text("auth-logout-action"))
             }
-            .buttonStyle(.plain)
         }
     }
 }

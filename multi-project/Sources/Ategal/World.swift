@@ -18,7 +18,7 @@ class World {
     let gistApiClient: GistAPIClient
     
     let authManager: AuthManager
-    let pushManager: PushManager?
+    let pushManager: PushManager
     
     let appVersion: String
     
@@ -28,9 +28,9 @@ class World {
         self.gistApiClient = GistAPIClient()
         self.authManager = AuthManager()
         #if os(Android)
-        self.pushManager = FeatureFlags.pushNotifications ? PushManager.create() : nil
+        self.pushManager = PushManager.create()
         #else
-        self.pushManager = FeatureFlags.pushNotifications ? PushManager() : nil
+        self.pushManager = PushManager()
         #endif
     }
 }
