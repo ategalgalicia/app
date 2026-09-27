@@ -94,12 +94,22 @@ struct TutorialStepView: View {
                 .padding(.vertical, 16)
             }
 
-            ForEach(Array(step.messageBlocks.enumerated()), id: \.offset) { block in
-                Text(block.element)
-                    .font(.title3)
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                    .multilineTextAlignment(.leading)
+            ForEach(step.messageBlocks, id: \.self) { block in
+                switch block {
+                case .paragraph(let text):
+                    tutorialMessageText(text)
+                case .bulletList(let items):
+                    VStack(alignment: .leading, spacing: 4) {
+                        ForEach(items, id: \.self) { item in
+                            HStack(alignment: .top, spacing: 8) {
+                                Text(verbatim: "•")
+                                    .accessibilityHidden(true)
+                                tutorialMessageText(item)
+                            }
+                        }
+                    }
                     .frame(maxWidth: .infinity, alignment: .leading)
+                }
             }
             
             if let screenshotName = step.screenshotName {
@@ -107,14 +117,24 @@ struct TutorialStepView: View {
                     .resizable()
                     .scaledToFit()
                     .padding(.top, 16)
-                    .frame(maxHeight: 220)
+                    .frame(maxHeight: step.maxScreenshotHeight)
                     .accessibilityHidden(true)
             }
         }
-        .padding(16)
+        .padding(.horizontal, 16)
         .frame(maxWidth: .infinity)
     }
-    
+
+    @ViewBuilder
+    private func tutorialMessageText(_ text: String) -> some View {
+        Text(LocalizedStringKey(text))
+            .font(.title3)
+            .lineSpacing(4)
+            .foregroundStyle(ColorsPalette.textSecondary)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
     @ViewBuilder
     private var actionView: some View {
         if let next = step.next {
@@ -143,11 +163,24 @@ struct TutorialStepView: View {
     }
 }
 
+enum TutorialMessageBlock: Hashable {
+    case paragraph(String)
+    case bulletList([String])
+}
+
 enum TutorialStep: Hashable {
     case welcome
     case socialLogin
     case permission
     case cities
+
+    var maxScreenshotHeight: CGFloat {
+        switch self {
+        case .socialLogin: 220
+        case .cities: 320
+        default: 280
+        }
+    }
 
     var progressTitle: LocalizedStringKey {
         switch self {
@@ -167,32 +200,38 @@ enum TutorialStep: Hashable {
         }
     }
 
-    var messageBlocks: [LocalizedStringKey] {
+    var messageBlocks: [TutorialMessageBlock] {
         switch self {
         case .welcome: [
-            "push-tutorial-welcome-message-1",
-            "push-tutorial-welcome-message-2",
-            "push-tutorial-welcome-message-3"
+            .paragraph("push-tutorial-welcome-message-1".localized),
+            .bulletList([
+                "push-tutorial-welcome-message-2".localized,
+                "push-tutorial-welcome-message-2-notifications".localized,
+                "push-tutorial-welcome-message-2-cities".localized
+            ]),
+            .paragraph("push-tutorial-welcome-message-3".localized)
         ]
         #if os(Android)
         case .socialLogin: [
-            "push-tutorial-social-android-message-1",
-            "push-tutorial-social-android-message-2",
-            "push-tutorial-social-message-3"
+            .paragraph("push-tutorial-social-android-message-1".localized),
+            .paragraph("push-tutorial-social-android-message-2".localized),
+            .paragraph("push-tutorial-social-message-3".localized)
         ]
         #else
         case .socialLogin: [
-            "push-tutorial-social-message-1",
-            "push-tutorial-social-message-2",
-            "push-tutorial-social-message-3"
+            .paragraph("push-tutorial-social-message-1".localized),
+            .paragraph("push-tutorial-social-message-2".localized),
+            .paragraph("push-tutorial-social-message-3".localized)
         ]
         #endif
         case .permission: [
-            "push-tutorial-permission-message-1",
-            "push-tutorial-permission-message-2",
-            "push-tutorial-permission-message-3"
+            .paragraph("push-tutorial-permission-message-1".localized),
+            .paragraph("push-tutorial-permission-message-2".localized),
+            .paragraph("push-tutorial-permission-message-3".localized)
         ]
-        case .cities: ["push-tutorial-cities-message"]
+        case .cities: [
+            .paragraph("push-tutorial-cities-message".localized)
+        ]
         }
     }
 
@@ -209,7 +248,7 @@ enum TutorialStep: Hashable {
         case .welcome: nil
         case .socialLogin: "tutorial-login-android"
         case .permission: "tutorial-permission-android"
-        case .cities: "tutorial-cities-android"
+        case .cities: "tutorial-cities-iphone"
         }
         #endif
     }

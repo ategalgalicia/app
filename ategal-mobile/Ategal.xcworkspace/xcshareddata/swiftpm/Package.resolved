@@ -1,0 +1,276 @@
+{
+  "originHash" : "ec7cba697c2a03cd7554cf80be64ed10d8b1fd06a8a72f6c820edc0613695a94",
+  "pins" : [
+    {
+      "identity" : "abseil-cpp-binary",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/abseil-cpp-binary.git",
+      "state" : {
+        "revision" : "bbe8b69694d7873315fd3a4ad41efe043e1c07c5",
+        "version" : "1.2024072200.0"
+      }
+    },
+    {
+      "identity" : "app-check",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/app-check.git",
+      "state" : {
+        "revision" : "3e33dd27dd4c69bd81c7c81fe61d8ccf58846902",
+        "version" : "11.3.1"
+      }
+    },
+    {
+      "identity" : "appauth-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/openid/AppAuth-iOS.git",
+      "state" : {
+        "revision" : "a972daac82d449d58ab119e91c68153e29ddac33",
+        "version" : "3.0.0"
+      }
+    },
+    {
+      "identity" : "firebase-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/firebase/firebase-ios-sdk.git",
+      "state" : {
+        "revision" : "33a468adfdb75b53f05a37e7c886ca7c962b5c17",
+        "version" : "12.17.0"
+      }
+    },
+    {
+      "identity" : "google-ads-on-device-conversion-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/google-ads-on-device-conversion-ios-sdk",
+      "state" : {
+        "revision" : "dc39082d8881109d35b94b1c122164c0e8d08a55",
+        "version" : "3.6.1"
+      }
+    },
+    {
+      "identity" : "googleappmeasurement",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/GoogleAppMeasurement.git",
+      "state" : {
+        "revision" : "fceaffa07d22dcd5624d3639fd970351a4a5ad8c",
+        "version" : "12.17.0"
+      }
+    },
+    {
+      "identity" : "googledatatransport",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/GoogleDataTransport.git",
+      "state" : {
+        "revision" : "617af071af9aa1d6a091d59a202910ac482128f9",
+        "version" : "10.1.0"
+      }
+    },
+    {
+      "identity" : "googlesignin-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/GoogleSignIn-iOS",
+      "state" : {
+        "revision" : "7823e518f5d4db765ccac3e140dd3265ef0a1cf1",
+        "version" : "10.0.0"
+      }
+    },
+    {
+      "identity" : "googleutilities",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/GoogleUtilities.git",
+      "state" : {
+        "revision" : "60da361632d0de02786f709bdc0c4df340f7613e",
+        "version" : "8.1.0"
+      }
+    },
+    {
+      "identity" : "grpc-binary",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/grpc-binary.git",
+      "state" : {
+        "revision" : "75b31c842f664a0f46a2e590a570e370249fd8f6",
+        "version" : "1.69.1"
+      }
+    },
+    {
+      "identity" : "gtm-session-fetcher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/gtm-session-fetcher.git",
+      "state" : {
+        "revision" : "a2ab612cb980066ee56d90d60d8462992c07f24b",
+        "version" : "3.5.0"
+      }
+    },
+    {
+      "identity" : "gtmappauth",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/GTMAppAuth.git",
+      "state" : {
+        "revision" : "57094cd46bc8700d3a887e2a429f42b6e8ea3f0b",
+        "version" : "6.0.0"
+      }
+    },
+    {
+      "identity" : "interop-ios-for-google-sdks",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/interop-ios-for-google-sdks.git",
+      "state" : {
+        "revision" : "040d087ac2267d2ddd4cca36c757d1c6a05fdbfe",
+        "version" : "101.0.0"
+      }
+    },
+    {
+      "identity" : "leveldb",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/firebase/leveldb.git",
+      "state" : {
+        "revision" : "a0bc79961d7be727d258d33d5a6b2f1023270ba1",
+        "version" : "1.22.5"
+      }
+    },
+    {
+      "identity" : "nanopb",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/firebase/nanopb.git",
+      "state" : {
+        "revision" : "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
+        "version" : "2.30910.0"
+      }
+    },
+    {
+      "identity" : "promises",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/promises.git",
+      "state" : {
+        "revision" : "540318ecedd63d883069ae7f1ed811a2df00b6ac",
+        "version" : "2.4.0"
+      }
+    },
+    {
+      "identity" : "skip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip.git",
+      "state" : {
+        "revision" : "211ad40b5828e418ecb1c033d6a502a900f1be31",
+        "version" : "1.9.11"
+      }
+    },
+    {
+      "identity" : "skip-android-bridge",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-android-bridge.git",
+      "state" : {
+        "revision" : "c62c6bca84719cbb7359384bd3591b6e6f2cf392",
+        "version" : "0.6.6"
+      }
+    },
+    {
+      "identity" : "skip-bridge",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-bridge.git",
+      "state" : {
+        "revision" : "3ec6897f3695543c1cd1200d3d6a149062bf39ee",
+        "version" : "0.17.3"
+      }
+    },
+    {
+      "identity" : "skip-firebase",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-firebase",
+      "state" : {
+        "revision" : "bacdb4d4bc66faa97d5409de98a0f766b7f27020",
+        "version" : "0.20.4"
+      }
+    },
+    {
+      "identity" : "skip-foundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-foundation.git",
+      "state" : {
+        "revision" : "6ec484b619726050731b14b8612de8e7eda8e904",
+        "version" : "1.4.4"
+      }
+    },
+    {
+      "identity" : "skip-fuse",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-fuse.git",
+      "state" : {
+        "revision" : "8b69bb0b5be7df880b8f9b3d2eb6659909a5b5c5",
+        "version" : "1.0.3"
+      }
+    },
+    {
+      "identity" : "skip-fuse-ui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-fuse-ui.git",
+      "state" : {
+        "revision" : "a2493beb2888bc2a90ea38d5d3d199e524d0997b",
+        "version" : "1.18.3"
+      }
+    },
+    {
+      "identity" : "skip-keychain",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-keychain.git",
+      "state" : {
+        "revision" : "57ec073652c7d307217b4ceb11fce989f38afc66",
+        "version" : "0.3.4"
+      }
+    },
+    {
+      "identity" : "skip-lib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-lib.git",
+      "state" : {
+        "revision" : "320f72a7f7af2f2355a59da29362f68e53341b09",
+        "version" : "1.4.1"
+      }
+    },
+    {
+      "identity" : "skip-model",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-model.git",
+      "state" : {
+        "revision" : "3de7c8315f35035a905225b9057d4272772aa0ef",
+        "version" : "1.8.0"
+      }
+    },
+    {
+      "identity" : "skip-ui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-ui.git",
+      "state" : {
+        "revision" : "b5cc6c92c087e7c0011cee7da6982e93103c1fcc",
+        "version" : "1.60.0"
+      }
+    },
+    {
+      "identity" : "skip-unit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/skip-unit.git",
+      "state" : {
+        "revision" : "fc58e058f3d25675e047a758281c39dba5d52570",
+        "version" : "1.7.2"
+      }
+    },
+    {
+      "identity" : "swift-android-native",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/swift-android-native.git",
+      "state" : {
+        "revision" : "7e6e833e6f163a2b75340f75c70b1d96ea6b8135",
+        "version" : "1.5.1"
+      }
+    },
+    {
+      "identity" : "swift-jni",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skiptools/swift-jni.git",
+      "state" : {
+        "revision" : "fe76ac21aca639976833b5ea3e875dc072519ac4",
+        "version" : "0.5.0"
+      }
+    }
+  ],
+  "version" : 3
+}

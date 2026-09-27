@@ -1,9 +1,9 @@
 // swift-tools-version: 6.4
-// This is a Skip (https://skip.tools) package.
+
 import PackageDescription
 
 let package = Package(
-    name: "multi-project",
+    name: "ategal-mobile",
     defaultLocalization: "gl-ES",
     platforms: [.iOS(.v17), .macOS(.v15)],
     products: [

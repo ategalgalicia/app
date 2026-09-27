@@ -38,7 +38,7 @@ An Android emulator must already be running, which can be launched from
 Android Studio's Device Manager.
 
 The project can be opened and run in Xcode from
-`Project.xcworkspace`, which also enabled parallel
+`Ategal.xcworkspace`, which also enabled parallel
 development of any Skip libary dependencies.
 
 To run both the Swift and Kotlin apps simultaneously,

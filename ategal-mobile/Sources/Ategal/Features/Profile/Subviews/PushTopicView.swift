@@ -17,9 +17,6 @@ struct PushTopicView: View {
     @State
     var presentCitiesSheet = false
     
-    @State
-    var taskError: Error?
-    
     let pushManager: PushManager
 
     init(pushManager: PushManager) {
@@ -32,7 +29,6 @@ struct PushTopicView: View {
             generalTopicView
             citiesView
         }
-        .errorAlert($taskError)
         .sheet(isPresented: $presentCitiesSheet) {
             citiesSheet
         }
@@ -55,7 +51,7 @@ struct PushTopicView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
 
-            CheckmarkView(isSelected: true)
+            CheckmarkView(isSelected: true, primaryColor: .gray)
         }
         .padding(16)
         .ategalCornerBackground()
@@ -100,48 +96,31 @@ struct PushTopicView: View {
             VStack(spacing: 4) {
                 ForEach(PushTopic.allCases.filter { $0 != .general } ) { topic in
                     let isSelected = selectedPushTopics.contains(topic)
-                    CheckmarkButton(
-                        isSelected: isSelected,
-                        backgroundColor: ColorsPalette.cardBackground,
-                        cornerRadius: 16,
-                        action: {
-                            Task {
-                                if isSelected {
-                                    await unsubscribe(from: topic)
-                                } else {
-                                    await subscribe(to: topic)
-                                }
-                            }
-                        }
-                    ) {
+                    HStack(spacing: 16) {
                         Text(topic.title)
                             .font(.headline)
                             .foregroundStyle(ColorsPalette.textPrimary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        AsyncToggle(initialValue: isSelected) { isOn in
+                            if isOn {
+                                try await pushManager.subscribe(to: topic)
+                                selectedPushTopics.insert(topic)
+                            } else {
+                                try await pushManager.unsubscribe(from: topic)
+                                selectedPushTopics.remove(topic)
+                            }
+                            storedPushTopics = selectedPushTopics
+                            return isOn
+                        }
                     }
+                    .padding(16)
+                    .ategalCornerBackground()
                 }
             }
         }
     }
 
-    private func subscribe(to topic: PushTopic) async {
-        do {
-            try await pushManager.subscribe(to: topic)
-            selectedPushTopics.insert(topic)
-            storedPushTopics = selectedPushTopics
-        } catch {
-            taskError = error
-        }
-    }
-
-    private func unsubscribe(from topic: PushTopic) async {
-        do {
-            try await pushManager.unsubscribe(from: topic)
-            selectedPushTopics.remove(topic)
-            storedPushTopics = selectedPushTopics
-        } catch {
-            taskError = error
-        }
-    }
 }
 
 // MARK: - Extensions

@@ -160,9 +160,9 @@ struct ProfileView: View {
         Image(systemName: systemName)
             .font(.title3)
             #if os(Android)
-            .padding(12)
+            .font(.system(size: 24))
+            .frame(width: 48, height: 48)
             .background(ColorsPalette.cardBackground)
-            .clipShape(Circle())
             #endif
     }
     
@@ -177,6 +177,7 @@ struct ProfileView: View {
                 } label: {
                     toolbarIcon("info.circle")
                 }
+                .clipShape(Circle())
                 .accessibilityLabel(Text("push-tutorial-profile-action"))
 
                 AsyncButton {
@@ -184,6 +185,7 @@ struct ProfileView: View {
                 } label: {
                     toolbarIcon("arrow.forward.square")
                 }
+                .clipShape(Circle())
                 .accessibilityLabel(Text("auth-logout-action"))
             }
         }

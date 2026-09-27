@@ -625,7 +625,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Marca as cidades das que queres recibir avisos. Podes cambiar esta selección máis adiante."
+            "value" : "Marca as **cidades** das que queres recibir avisos. Podes cambiar esta selección máis adiante."
           }
         }
       }
@@ -675,7 +675,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cando o móbil o pregunte, preme «Permitir»."
+            "value" : "Cando o móbil o pregunte, preme **Permitir**."
           }
         }
       }
@@ -765,7 +765,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abre Perfil, preme «Inicia sesión» e escolle Google."
+            "value" : "• Abre Perfil\n• Preme **Inicia sesión**\n• Escolle **Google**"
           }
         }
       }
@@ -785,7 +785,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abre Perfil, preme «Inicia sesión» e escolle Google ou Apple."
+            "value" : "• Abre Perfil\n• Preme **Inicia sesión**\n• Escolle **Apple** ou **Google**"
           }
         }
       }
@@ -815,7 +815,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Esta guía axudarache a dar os primeiros pasos na app."
+            "value" : "Esta **guía** axudarache a dar os primeiros pasos na app."
           }
         }
       }
@@ -825,7 +825,27 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Explicámosche como iniciar sesión, activar as notificacións e escoller as cidades das que queres recibir avisos."
+            "value" : "Explicámosche como **iniciar sesión**"
+          }
+        }
+      }
+    },
+    "push-tutorial-welcome-message-2-notifications" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Activar as notificacións** para estar sempre ao día"
+          }
+        }
+      }
+    },
+    "push-tutorial-welcome-message-2-cities" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Escoller as cidades** das que queres recibir avisos"
           }
         }
       }
