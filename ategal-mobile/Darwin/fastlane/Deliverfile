@@ -4,6 +4,7 @@ copyright "#{Time.now.year}"
 force(true) # Skip HTML report verification
 automatic_release(false)
 skip_screenshots(false)
+overwrite_screenshots(true)
 precheck_include_in_app_purchases(false)
 
 #skip_binary_upload(true)

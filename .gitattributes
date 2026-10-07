@@ -1,0 +1,2 @@
+ategal-mobile/Android/fastlane/metadata/android/gl-ES/images/featureGraphic.png filter=lfs diff=lfs merge=lfs -text
+ategal-mobile/Darwin/fastlane/creative_assets/*.png filter=lfs diff=lfs merge=lfs -text

@@ -35,6 +35,12 @@ struct ProfileView: View {
 
     @State
     var presentTutorial: Bool = false
+
+    @State
+    var presentLogoutConfirmation: Bool = false
+
+    @State
+    var logoutError: Error?
     
     var body: some View {
         NavigationStack {
@@ -43,6 +49,19 @@ struct ProfileView: View {
                 .navigationTitle("tab-profile")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar { toolbarContent }
+                .alert("auth-logout-action", isPresented: $presentLogoutConfirmation) {
+                    Button("cancel", role: .cancel) {}
+                    Button("auth-logout-action", role: .destructive) {
+                        do {
+                            try authManager.signOut()
+                        } catch {
+                            logoutError = error
+                        }
+                    }
+                } message: {
+                    Text("auth-logout-confirmation-message")
+                }
+                .errorAlert($logoutError)
                 .sheet(isPresented: $presentAuthSheet) {
                     PlatformModalSheet(title: "auth-title".localized) {
                         AuthView(authManager: authManager)
@@ -182,8 +201,8 @@ struct ProfileView: View {
                 .clipShape(Circle())
                 .accessibilityLabel(Text("push-tutorial-profile-action"))
 
-                AsyncButton {
-                    try authManager.signOut()
+                Button {
+                    presentLogoutConfirmation = true
                 } label: {
                     toolbarIcon("arrow.forward.square")
                 }

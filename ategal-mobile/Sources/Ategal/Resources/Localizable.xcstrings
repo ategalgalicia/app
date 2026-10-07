@@ -201,6 +201,17 @@
         }
       }
     },
+    "auth-logout-confirmation-message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Queres pechar a sesión?"
+          }
+        }
+      }
+    },
     "auth-subtitle" : {
       "localizations" : {
         "gl-ES" : {

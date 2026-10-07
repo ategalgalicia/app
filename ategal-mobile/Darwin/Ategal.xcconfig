@@ -26,8 +26,7 @@ INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphone*] = YES
 INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphone*] = YES
 INFOPLIST_KEY_UIStatusBarStyle[sdk=iphone*] = UIStatusBarStyleDefault
 INFOPLIST_KEY_UISupportedInterfaceOrientations[sdk=iphone*] = UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown
-INFOPLIST_KEY_NSCalendarsUsageDescription[sdk=iphone*] = Permite que Ategal consulte o teu calendario.
-INFOPLIST_KEY_LSApplicationQueriesSchemes[sdk=iphone*] = comgooglemaps
+INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription[sdk=iphone*] = Permite que Ategal acceda ao teu calendario para engadir actividades.
 
 IPHONEOS_DEPLOYMENT_TARGET = 17.0
 MACOSX_DEPLOYMENT_TARGET = 14.0
@@ -49,7 +48,6 @@ PRODUCT_MODULE_NAME = $(PRODUCT_NAME:c99extidentifier)App
 
 SDKROOT = auto
 SUPPORTED_PLATFORMS = iphoneos iphonesimulator
-SWIFT_EMIT_LOC_STRINGS = YES
 
 SWIFT_VERSION = 6
 
