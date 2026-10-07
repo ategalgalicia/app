@@ -89,6 +89,7 @@ struct ActivityView: View {
     private var actionView: some View {
         Button {
             presentigSheet = true
+            Tracking.trackEvent(.activityContactOpen(centerName: center.city))
         } label: {
             Label("activity-action", systemImage: "arrow.forward")
                 .font(.headline.weight(.semibold))

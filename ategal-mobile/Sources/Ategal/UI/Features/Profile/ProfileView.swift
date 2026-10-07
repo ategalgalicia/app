@@ -37,19 +37,21 @@ struct ProfileView: View {
     var presentTutorial: Bool = false
     
     var body: some View {
-        contentView
-            .tint(ColorsPalette.primary)
-            .navigationTitle("tab-profile")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar { toolbarContent }
-            .sheet(isPresented: $presentAuthSheet) {
-                PlatformModalSheet(title: "auth-title".localized) {
-                    AuthView(authManager: authManager)
+        NavigationStack {
+            contentView
+                .tint(ColorsPalette.primary)
+                .navigationTitle("tab-profile")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar { toolbarContent }
+                .sheet(isPresented: $presentAuthSheet) {
+                    PlatformModalSheet(title: "auth-title".localized) {
+                        AuthView(authManager: authManager)
+                    }
                 }
-            }
-            .fullScreenCover(isPresented: $presentTutorial) {
-                TutorialView(isPresented: $presentTutorial)
-            }
+                .fullScreenCover(isPresented: $presentTutorial) {
+                    TutorialView(isPresented: $presentTutorial)
+                }
+        }
     }
     
     // MARK: - ViewBuilders

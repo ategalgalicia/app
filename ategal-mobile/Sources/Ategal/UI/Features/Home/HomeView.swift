@@ -52,54 +52,56 @@ struct HomeView: View {
     let appVersion: String
     
     var body: some View {
-        contentView
-            .background(ColorsPalette.background)
-            .tint(ColorsPalette.primary)
-            .navigationTitle("ategal-title")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: HomeRoute.self) {
-                switch $0 {
-                case .navigateToCalendar:
-                    CalendarAsyncView(
-                        navigationPath: $navigationPath,
-                        wpApiClient: wpApiClient,
-                        centers: centers
-                    )
-                case .navigateToCityList:
-                    CityListView(
-                        navigationPath: $navigationPath,
-                        centers: centers
-                    )
-                case .navigateToSearch(let source):
-                    SearchListView(
-                        navigationPath: $navigationPath,
-                        source: source,
-                        centers: centers
-                    )
-                case .navigateToCategoryList(let center):
-                    CategoryListView(
-                        navigationPath: $navigationPath,
-                        center: center
-                    )
-                case .navigateToCategory(let category, let center):
-                    CategoryView(
-                        navigationPath: $navigationPath,
-                        category: category,
-                        center: center
-                    )
-                case .navigateToActivity(let activity, let center):
-                    ActivityView(
-                        activity: activity,
-                        center: center
-                    )
-                case .deeplink(let payload):
-                    DeeplinkView(
-                        navigationPath: $navigationPath,
-                        payload: payload,
-                        centers: centers
-                    )
+        NavigationStack(path: $navigationPath) {
+            contentView
+                .background(ColorsPalette.background)
+                .tint(ColorsPalette.primary)
+                .navigationTitle("ategal-title")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(for: HomeRoute.self) {
+                    switch $0 {
+                    case .navigateToCalendar:
+                        CalendarAsyncView(
+                            navigationPath: $navigationPath,
+                            wpApiClient: wpApiClient,
+                            centers: centers
+                        )
+                    case .navigateToCityList:
+                        CityListView(
+                            navigationPath: $navigationPath,
+                            centers: centers
+                        )
+                    case .navigateToSearch(let source):
+                        SearchListView(
+                            navigationPath: $navigationPath,
+                            source: source,
+                            centers: centers
+                        )
+                    case .navigateToCategoryList(let center):
+                        CategoryListView(
+                            navigationPath: $navigationPath,
+                            center: center
+                        )
+                    case .navigateToCategory(let category, let center):
+                        CategoryView(
+                            navigationPath: $navigationPath,
+                            category: category,
+                            center: center
+                        )
+                    case .navigateToActivity(let activity, let center):
+                        ActivityView(
+                            activity: activity,
+                            center: center
+                        )
+                    case .deeplink(let payload):
+                        DeeplinkView(
+                            navigationPath: $navigationPath,
+                            payload: payload,
+                            centers: centers
+                        )
+                    }
                 }
-            }
+        }
     }
     
     // MARK: - ViewBuilders
@@ -141,14 +143,20 @@ struct HomeView: View {
                 subtitle: "home-calendar-subtitle",
                 image: "calendar",
                 color: .red,
-                onTap: { navigationPath.append(.navigateToCalendar) }
+                onTap: {
+                    navigationPath.append(.navigateToCalendar)
+                    Tracking.trackEvent(.homeAction(destination: .calendar))
+                }
             )
             itemView(
                 title: "home-center-title",
                 subtitle: "home-center-subtitle",
                 image: "mappin.circle.fill",
                 color: .mint,
-                onTap: { navigationPath.append(.navigateToCityList) }
+                onTap: {
+                    navigationPath.append(.navigateToCityList)
+                    Tracking.trackEvent(.homeAction(destination: .centers))
+                }
             )
             itemView(
                 title: "home-activity-title",
@@ -157,6 +165,7 @@ struct HomeView: View {
                 color: .indigo,
                 onTap: { navigationPath.append(.navigateToSearch(
                     .allActivities))
+                    Tracking.trackEvent(.homeAction(destination: .activities))
                 }
             )
             itemView(
@@ -164,7 +173,10 @@ struct HomeView: View {
                 subtitle: "home-resource-subtitle",
                 image: "info.circle",
                 color: .orange,
-                onTap: { navigationPath.append(.navigateToSearch(.resources)) }
+                onTap: {
+                    navigationPath.append(.navigateToSearch(.resources))
+                    Tracking.trackEvent(.homeAction(destination: .resources))
+                }
             )
         }
         .frame(maxWidth: .infinity, alignment: .leading)

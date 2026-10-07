@@ -244,11 +244,14 @@ struct WhoWeAreAsyncView: View {
     let apiClient: GistAPIClient
     
     var body: some View {
-        AsyncView {
-            await apiClient.fetchCenters()
-        } content: {
-            WhoWeAreView(centers: $0)
+        NavigationStack {
+            AsyncView {
+                await apiClient.fetchCenters()
+            } content: {
+                WhoWeAreView(centers: $0)
+            }
+            .background(ColorsPalette.background)
         }
-        .background(ColorsPalette.background)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

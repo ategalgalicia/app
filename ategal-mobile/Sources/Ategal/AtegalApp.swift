@@ -19,7 +19,7 @@ public struct AtegalRootView : View {
             await AtegalAppDelegate.shared.setWorld(world)
             return world
         } content: {
-            ContentView(world: $0)
+            AtegalMainView(world: $0)
         }
     }
 }
@@ -50,7 +50,7 @@ public final class AtegalAppDelegate : Sendable {
     /* SKIP @bridge */
     public func onLaunch() {
         logger.debug("onLaunch")
-        Tracking.trackEvent()
+        Tracking.trackEvent(.appOpen)
     }
 
     /* SKIP @bridge */

@@ -22,7 +22,8 @@ import RStudioKit
 
 struct TutorialView: View {
 
-    @Binding var isPresented: Bool
+    @Binding
+    var isPresented: Bool
 
     var body: some View {
         NavigationStack {
@@ -43,12 +44,16 @@ struct TutorialView: View {
 
 struct TutorialStepView: View {
 
+    @Environment(\.horizontalSizeClass)
+    var horizontalSizeClass
+
     let step: TutorialStep
     let onFinish: () -> Void
 
     var body: some View {
         ScrollView {
             stepView
+                .frame(maxWidth: .infinity, alignment: .center)
         }
         .background(ColorsPalette.background)
         .navigationBarTitleDisplayMode(.inline)
@@ -122,7 +127,7 @@ struct TutorialStepView: View {
             }
         }
         .padding(.horizontal, 16)
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: horizontalSizeClass == .regular ? 600 : .infinity)
     }
 
     @ViewBuilder

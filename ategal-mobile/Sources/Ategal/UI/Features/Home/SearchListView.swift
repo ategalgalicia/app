@@ -30,6 +30,13 @@ struct SearchListView: View {
         let centers: [Center]
     }
     
+    @Environment(\.horizontalSizeClass)
+    var horizontalSizeClass
+    
+    private var isRegularLayout: Bool {
+        horizontalSizeClass == .regular
+    }
+    
     private var activitiesByTitle: [String: [Center]] = [:]
     private var resourceItemByTitle: [String: Center.Category.Resource] = [:]
     
@@ -144,7 +151,12 @@ struct SearchListView: View {
             .padding(.vertical, 4)
         }
         .buttonStyle(.plain)
-        .listRowConfiguration(insets: .init(top: 0, leading: 0, bottom: 0, trailing: 0))
+        .listRowConfiguration(insets: .init(
+            top: 0,
+            leading: isRegularLayout ? 16 : 0,
+            bottom: 0,
+            trailing: isRegularLayout ? 16 : 0
+        ))
     }
     
     @ViewBuilder

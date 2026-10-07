@@ -73,6 +73,7 @@ struct PushTopicView: View {
                     Text("notification-cities-subtitle")
                         .font(.subheadline)
                         .foregroundStyle(ColorsPalette.textSecondary)
+                        .padding(.trailing, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
@@ -111,6 +112,10 @@ struct PushTopicView: View {
                                 selectedPushTopics.remove(topic)
                             }
                             storedPushTopics = selectedPushTopics
+                            Tracking.trackEvent(.notificationTopicChanged(
+                                topic: topic,
+                                enabled: isOn
+                            ))
                             return isOn
                         }
                     }

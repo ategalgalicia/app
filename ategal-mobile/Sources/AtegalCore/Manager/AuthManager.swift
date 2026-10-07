@@ -44,11 +44,22 @@ public class AuthManager {
         updateAuthenticationState(
             socialNetworkManager.isAuthenticated() ? .logged : .unlogged
         )
+        if userStatus == .logged {
+            switch network {
+            case .google:
+                Tracking.trackEvent(.login(method: .google))
+            #if os(iOS)
+            case .apple:
+                Tracking.trackEvent(.login(method: .apple))
+            #endif
+            }
+        }
     }
     
     public func signOut() throws {
         try socialNetworkManager.signOut()
         updateAuthenticationState(.unlogged)
+        Tracking.trackEvent(.logout)
     }
     
     public func fetchUser() -> User? {

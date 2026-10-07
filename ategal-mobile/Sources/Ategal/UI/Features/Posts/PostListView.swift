@@ -78,6 +78,7 @@ struct PostListView: View {
                         title: \.title,
                         onTap: {
                             navigationPath.append(.post($0))
+                            Tracking.trackEvent(.postOpen(title: $0.title))
                         }
                     )
                 }
@@ -129,15 +130,17 @@ struct PostListAsyncView: View {
     let apiClient: WPAPIClient
     
     var body: some View {
-        AsyncView {
-            try await apiClient.fetchPosts()
-        } content: {
-            PostListView(
-                posts: $0,
-                navigationPath: $navigationPath
-            )
+        NavigationStack(path: $navigationPath) {
+            AsyncView {
+                try await apiClient.fetchPosts()
+            } content: {
+                PostListView(
+                    posts: $0,
+                    navigationPath: $navigationPath
+                )
+            }
+            .background(ColorsPalette.background)
         }
-        .background(ColorsPalette.background)
     }
 }
 

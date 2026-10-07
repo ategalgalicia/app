@@ -1,5 +1,5 @@
 {
-  "originHash" : "ec7cba697c2a03cd7554cf80be64ed10d8b1fd06a8a72f6c820edc0613695a94",
+  "originHash" : "ef6f275519b38641606abf2d7bc0f5e629fcafab280814b1cd3aae759eb5db37",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -258,8 +258,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/swift-android-native.git",
       "state" : {
-        "revision" : "7e6e833e6f163a2b75340f75c70b1d96ea6b8135",
-        "version" : "1.5.1"
+        "revision" : "d757c18d7126dea382534e6e4f484b29240f3545",
+        "version" : "1.5.3"
       }
     },
     {
