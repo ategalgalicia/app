@@ -146,17 +146,17 @@ struct SearchListView: View {
             }
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .contentRectangleShape()
             .ategalCornerBackground()
-            .padding(.vertical, 4)
         }
-        .buttonStyle(.plain)
+        .buttonStyle(.borderless)
+        .ategalCornerBorder()
         .listRowConfiguration(insets: .init(
-            top: 0,
+            top: 4,
             leading: isRegularLayout ? 16 : 0,
-            bottom: 0,
+            bottom: 4,
             trailing: isRegularLayout ? 16 : 0
         ))
+        .contentCapsuleShape()
     }
     
     @ViewBuilder
@@ -221,8 +221,6 @@ struct SearchListView: View {
                         address: item.address
                     )
                 }
-                .padding(16)
-                .ategalCornerBackground()
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }

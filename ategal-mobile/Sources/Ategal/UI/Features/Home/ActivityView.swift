@@ -96,8 +96,9 @@ struct ActivityView: View {
                 .frame(maxWidth: .infinity)
                 .padding(16)
                 .foregroundStyle(ColorsPalette.textTertiary)
+                .ategalCornerPrimaryBackground()
         }
-        .cornerBackground(ColorsPalette.primary)
+        .ategalCornerBorder()
         .buttonStyle(.plain)
     }
 

@@ -55,6 +55,7 @@ struct PushTopicView: View {
         }
         .padding(16)
         .ategalCornerBackground()
+        .ategalCornerBorder()
         .combinedAccessibility()
     }
 

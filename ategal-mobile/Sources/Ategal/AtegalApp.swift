@@ -21,6 +21,12 @@ public struct AtegalRootView : View {
         } content: {
             AtegalMainView(world: $0)
         }
+        .preferredColorScheme(.light)
+        .tint(ColorsPalette.primary)
+        .background(ColorsPalette.background)
+        .ategalNavigationBarConfiguration()
+        .ategalTabBarConfiguration()
+        .applyAccessibility()
     }
 }
 

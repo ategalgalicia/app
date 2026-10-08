@@ -15,7 +15,6 @@ struct LinkButton: View {
         Link(destination: url) {
             CTAButton(title: title, kind: kind)
         }
-        .cornerBackground(ColorsPalette.background.opacity(0.95))
         .ategalCornerBorder()
     }
 }
@@ -32,7 +31,7 @@ struct CTAButton: View {
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             Text(title)
-                .font(.subheadline)
+                .font(.body)
                 .fontWeight(.medium)
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .multilineTextAlignment(.leading)
@@ -42,27 +41,29 @@ struct CTAButton: View {
             switch kind {
             case .txt(let txt):
                 Text(txt)
-                    .font(.subheadline)
+                    .font(.body)
                     .fontWeight(.medium)
                     .foregroundColor(ColorsPalette.textTertiary)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                     .buttonStyle(.plain)
-                    .cornerBackground(ColorsPalette.primary)
+                    .ategalCornerPrimaryBackground()
                 
             case .icon(let icon):
                 Image(systemName: icon)
                     .foregroundStyle(ColorsPalette.textTertiary)
                     .frame(width: 24)
-                    .font(.subheadline)
+                    .font(.body)
                     .fontWeight(.medium)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
-                    .cornerBackground(ColorsPalette.primary)
+                    .ategalCornerPrimaryBackground()
             }
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .ategalCornerBackground()
+        .ategalCornerBorder()
     }
 }

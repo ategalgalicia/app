@@ -42,10 +42,6 @@ struct CalendarView: View {
     
     var body: some View {
         contentView
-            .tint(ColorsPalette.primary)
-            .background(ColorsPalette.background)
-            .navigationTitle("calendar-title")
-            .navigationBarTitleDisplayMode(.inline)
             .showInAppNotification($notification)
     }
     
@@ -67,7 +63,6 @@ struct CalendarView: View {
         VStack(alignment: .leading, spacing: 24) {
             Text("calendar-activity-title")
                 .primaryTitle()
-                .padding(.horizontal, 16)
             
             VStack(alignment: .leading, spacing: 8) {
                 ForEach(dataSource.calendar.weekdays, id: \.weekday) { day in
@@ -158,7 +153,7 @@ struct CalendarView: View {
         .cornerBackground(
             selected
             ? ColorsPalette.primary
-            : ColorsPalette.cardBackground
+            : ColorsPalette.backgroundSecondary
         )
     }
     
@@ -237,6 +232,10 @@ struct CalendarAsyncView: View {
                 navigationPath: $navigationPath
             )
         }
+        .tint(ColorsPalette.primary)
+        .background(ColorsPalette.background)
+        .navigationTitle("calendar-title")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

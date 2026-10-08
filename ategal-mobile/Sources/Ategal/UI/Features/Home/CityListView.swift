@@ -25,22 +25,16 @@ struct CityListView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("ategal-title")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(ColorsPalette.textPrimary)
-                    
-                    Text("city-list-subtitle")
-                        .primaryTitle()
-                }
+                Text("city-list-subtitle")
+                    .font(.title2.bold())
+                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .multilineTextAlignment(.leading)
+                    .accessibilityHeading(.h1)
                     
                 ContentList(
                     items: centers,
                     title: \.city,
-                    onTap: {
-                        navigationPath.append(.navigateToCategoryList($0))
-                    }
+                    onTap: { navigationPath.append(.navigateToCategoryList($0)) }
                 )
             }
             .padding(16)

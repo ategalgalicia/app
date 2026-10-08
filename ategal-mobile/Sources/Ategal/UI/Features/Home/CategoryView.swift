@@ -18,7 +18,7 @@ struct CategoryView: View {
         contentView
             .background(ColorsPalette.background)
             .tint(ColorsPalette.primary)
-            .navigationTitle("category-title")
+            .navigationTitle(category.title)
             .navigationBarTitleDisplayMode(.inline)
     }
     
@@ -28,15 +28,9 @@ struct CategoryView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(category.title)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(ColorsPalette.textPrimary)
-                    
-                    Text("category-subtitle")
-                        .primaryTitle()
-                }
+                Text("category-subtitle")
+                    .primaryTitle()
+                
                 ContentList(
                     items: category.activities,
                     title: \.title,
@@ -59,7 +53,7 @@ struct CategoryView: View {
                 Text("resource-header-title")
                     .primaryTitle()
                 
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 32) {
                     ForEach(resources) {
                         resourceCell($0)
                     }
@@ -73,13 +67,13 @@ struct CategoryView: View {
     private func resourceCell(_ item: Center.Category.Resource) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(item.title)
-                .font(.subheadline)
-                .fontWeight(.semibold)
+                .font(.title3)
+                .fontWeight(.medium)
                 .foregroundStyle(ColorsPalette.textPrimary)
             
             if let description = item.description {
                 Text(description)
-                    .font(.footnote)
+                    .font(.subheadline)
                     .foregroundStyle(ColorsPalette.textSecondary)
             }
             LinkView(
@@ -88,8 +82,7 @@ struct CategoryView: View {
                 website: item.web,
                 address: item.address
             )
+            .padding(.top, 8)
         }
-        .padding(16)
-        .ategalCornerBackground()
     }
 }

@@ -37,6 +37,7 @@ struct TutorialView: View {
             }
         }
         .tint(ColorsPalette.primary)
+        .background(ColorsPalette.background)
     }
 }
 
@@ -56,6 +57,9 @@ struct TutorialStepView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
         }
         .background(ColorsPalette.background)
+        .navigationTitle(
+            step == .welcome ? "push-tutorial-navigation-title".localized : ""
+        )
         .navigationBarTitleDisplayMode(.inline)
         .actionView { actionView }
     }
@@ -84,7 +88,7 @@ struct TutorialStepView: View {
                 .padding(.vertical, 16)
             } else {
                 VStack(spacing: 16) {
-                    Image("logo-icon", bundle: .module)
+                    Image(ategal: "logo-icon")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 72, height: 72)
@@ -118,7 +122,7 @@ struct TutorialStepView: View {
             }
             
             if let screenshotName = step.screenshotName {
-                Image(screenshotName, bundle: .module)
+                Image(ategal: screenshotName)
                     .resizable()
                     .scaledToFit()
                     .padding(.top, 16)
@@ -163,7 +167,7 @@ struct TutorialStepView: View {
             .font(.headline)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 16)
-            .cornerBackground(ColorsPalette.primary, radius: 14)
+            .ategalCornerPrimaryBackground()
             .foregroundStyle(ColorsPalette.textTertiary)
     }
 }

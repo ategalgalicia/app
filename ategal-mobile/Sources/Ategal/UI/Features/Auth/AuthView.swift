@@ -61,7 +61,7 @@ struct AuthView: View {
     private var contentView: some View {
         ScrollView {
             VStack(spacing: 16) {
-                Image("logo-icon", bundle: .module)
+                Image(ategal: "logo-icon")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 72, height: 72)
@@ -101,7 +101,7 @@ struct AuthView: View {
         .signInWithAppleButtonStyle(.black)
         .frame(maxWidth: .infinity)
         .frame(height: 52)
-        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .ategalCornerBorder()
         #endif
     }
     
@@ -120,7 +120,7 @@ struct AuthView: View {
             .frame(maxWidth: .infinity)
             .foregroundStyle(ColorsPalette.textTertiary)
             .padding(.vertical, 16)
-            .cornerBackground(ColorsPalette.primary, radius: 14)
+            .ategalCornerPrimaryBackground()
         }
     }
     

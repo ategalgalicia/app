@@ -282,16 +282,6 @@
         }
       }
     },
-    "category-title" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Categoría"
-          }
-        }
-      }
-    },
     "categoryList-footer" : {
       "localizations" : {
         "gl-ES" : {
@@ -318,16 +308,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Escolle unha categoría para descubrir cursos, recursos e actividades relacionadas"
-          }
-        }
-      }
-    },
-    "categoryList-title" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Categorías"
           }
         }
       }
@@ -671,6 +651,16 @@
         }
       }
     },
+    "push-tutorial-navigation-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guía de usuario"
+          }
+        }
+      }
+    },
     "push-tutorial-permission-message-1" : {
       "localizations" : {
         "gl-ES" : {
@@ -841,22 +831,22 @@
         }
       }
     },
-    "push-tutorial-welcome-message-2-notifications" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Activar as notificacións** para estar sempre ao día"
-          }
-        }
-      }
-    },
     "push-tutorial-welcome-message-2-cities" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Escoller as cidades** das que queres recibir avisos"
+          }
+        }
+      }
+    },
+    "push-tutorial-welcome-message-2-notifications" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Activar as notificacións** para estar sempre ao día"
           }
         }
       }

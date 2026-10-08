@@ -1,5 +1,5 @@
 {
-  "originHash" : "27b56a5a7ad3cbd3612529fc267d3c960a3b9e0aa96f48c186cb7c207dcd4cae",
+  "originHash" : "2f050d17218f124197bfc5bbed87f01351499907cca46fb702ca3843a910ce05",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -159,8 +159,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip-android-bridge.git",
       "state" : {
-        "revision" : "c62c6bca84719cbb7359384bd3591b6e6f2cf392",
-        "version" : "0.6.6"
+        "revision" : "721cc587ace52bece610b1977922e371559f3523",
+        "version" : "0.7.1"
       }
     },
     {

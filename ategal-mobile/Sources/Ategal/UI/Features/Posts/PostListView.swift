@@ -42,11 +42,6 @@ struct PostListView: View {
     
     var body: some View {
         contentView
-            .background(ColorsPalette.background)
-            .tint(ColorsPalette.primary)
-            .navigationTitle("tab-posts")
-            .navigationBarTitleDisplayMode(.inline)
-            .accessibilityHeading(.h1)
             .navigationDestination(for: PostRoute.self) { route in
                 switch route {
                 case .post(let post):
@@ -64,15 +59,9 @@ struct PostListView: View {
         } else {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("ategal-title")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundStyle(ColorsPalette.textPrimary)
-                        
-                        Text("posts-subtitle")
-                            .primaryTitle()
-                    }
+                    Text("posts-subtitle")
+                        .primaryTitle()
+                    
                     ContentList(
                         items: posts,
                         title: \.title,
@@ -140,7 +129,11 @@ struct PostListAsyncView: View {
                 )
             }
             .background(ColorsPalette.background)
+            .navigationTitle("tab-posts")
+            .navigationBarTitleDisplayMode(.inline)
         }
+        .tint(ColorsPalette.primary)
+        .accessibilityHeading(.h1)
     }
 }
 

@@ -45,10 +45,19 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             contentView
-                .tint(ColorsPalette.primary)
+                .background(ColorsPalette.background)
                 .navigationTitle("tab-profile")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar { toolbarContent }
+                .errorAlert($logoutError)
+                .sheet(isPresented: $presentAuthSheet) {
+                    PlatformModalSheet {
+                        AuthView(authManager: authManager)
+                    }
+                }
+                .fullScreenCover(isPresented: $presentTutorial) {
+                    TutorialView(isPresented: $presentTutorial)
+                }
                 .alert("auth-logout-action", isPresented: $presentLogoutConfirmation) {
                     Button("cancel", role: .cancel) {}
                     Button("auth-logout-action", role: .destructive) {
@@ -61,16 +70,8 @@ struct ProfileView: View {
                 } message: {
                     Text("auth-logout-confirmation-message")
                 }
-                .errorAlert($logoutError)
-                .sheet(isPresented: $presentAuthSheet) {
-                    PlatformModalSheet(title: "auth-title".localized) {
-                        AuthView(authManager: authManager)
-                    }
-                }
-                .fullScreenCover(isPresented: $presentTutorial) {
-                    TutorialView(isPresented: $presentTutorial)
-                }
         }
+        .tint(ColorsPalette.primary)
     }
     
     // MARK: - ViewBuilders
@@ -79,7 +80,7 @@ struct ProfileView: View {
     private var contentView: some View {
         ScrollView {
             VStack(spacing: 16) {
-                Image(systemName: "person.crop.circle.fill")
+                Image(systemName: "person.crop.circle")
                     .font(.system(size: 72))
                     .foregroundStyle(ColorsPalette.primary)
                     .accessibilityHidden(true)
@@ -93,7 +94,6 @@ struct ProfileView: View {
             }
             .padding(16)
             .frame(maxWidth: .infinity)
-            .background(ColorsPalette.background)
             .animation(.default, value: authManager.userStatus)
         }
     }
@@ -115,7 +115,7 @@ struct ProfileView: View {
                         .foregroundStyle(ColorsPalette.textTertiary)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 16)
-                        .cornerBackground(ColorsPalette.primary, radius: 14)
+                        .ategalCornerPrimaryBackground()
                 }
             }
         }
@@ -171,7 +171,7 @@ struct ProfileView: View {
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
-                .cornerBackground(ColorsPalette.cardBackground, radius: 14)
+                .ategalCornerBackground()
         }
         .buttonStyle(.plain)
     }
@@ -179,11 +179,12 @@ struct ProfileView: View {
     @ViewBuilder
     private func toolbarIcon(_ systemName: String) -> some View {
         Image(systemName: systemName)
-            .font(.title3)
             #if os(Android)
-            .font(.system(size: 24))
-            .frame(width: 48, height: 48)
-            .background(ColorsPalette.cardBackground)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 24, height: 24)
+            .padding(8)
+            .background(ColorsPalette.backgroundSecondary)
             #endif
     }
     

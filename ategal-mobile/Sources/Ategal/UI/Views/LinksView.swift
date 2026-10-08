@@ -68,7 +68,7 @@ struct MapLinkButton: View {
             showDirectionsDialog = true
         } label: {
             CTAButton(title: address, kind: .icon("mappin.circle.fill"))
-                .cornerBackground(ColorsPalette.background.opacity(0.95))
+                .ategalCornerBackground()
                 .ategalCornerBorder()
         }
         .confirmationDialog(

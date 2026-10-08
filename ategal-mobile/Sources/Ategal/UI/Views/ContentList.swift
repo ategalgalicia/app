@@ -19,7 +19,7 @@ struct ContentList<Item: Identifiable>: View {
                     row(for: item)
                 }
                 .buttonStyle(.plain)
-                .ategalCornerBackground()
+                .ategalCornerBorder()
             }
         }
     }
@@ -37,7 +37,7 @@ struct ContentList<Item: Identifiable>: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .chevronOverlay()
             .padding(16)
-            .contentRectangleShape()
+            .ategalCornerBackground()
             .combinedAccessibility()
             .accessibilityLabel(Text(title))
     }

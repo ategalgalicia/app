@@ -61,11 +61,6 @@ struct AtegalMainView: View {
                 tutorialView
             }
         }
-        .preferredColorScheme(.light)
-        .tint(ColorsPalette.primary)
-        .background(ColorsPalette.background)
-        .ategalTabBarConfiguration()
-        .applyAccessibility()
         .onChange(of: selection) { _, tab in
             Tracking.trackEvent(.tabSelected(tab: tab.rawValue))
         }

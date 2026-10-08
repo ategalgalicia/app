@@ -18,7 +18,22 @@ struct AtegalTabView: View {
     let world: World
     
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: Binding(
+            get: { selection },
+            set: { tab in
+                #if os(Android)
+                if tab == selection {
+                    switch tab {
+                    case .home: navigationHome.removeAll()
+                    case .posts: navigationPost.removeAll()
+                    case .whoWeAre, .profile:
+                        break
+                    }
+                }
+                #endif
+                selection = tab
+            }
+        )) {
             HomeAsyncView(
                 navigationPath: $navigationHome,
                 wpApiClient: world.wpApiClient,
@@ -28,9 +43,11 @@ struct AtegalTabView: View {
             .tabItem { label(for: .home) }
             .tag(ContentTab.home)
             
-            WhoWeAreAsyncView(apiClient: world.gistApiClient)
-                .tabItem { label(for: .whoWeAre) }
-                .tag(ContentTab.whoWeAre)
+            WhoWeAreAsyncView(
+                apiClient: world.gistApiClient
+            )
+            .tabItem { label(for: .whoWeAre) }
+            .tag(ContentTab.whoWeAre)
             
             PostListAsyncView(
                 navigationPath: $navigationPost,
@@ -43,8 +60,8 @@ struct AtegalTabView: View {
                 authManager: world.authManager,
                 pushManager: world.pushManager
             )
-                .tabItem { label(for: .profile) }
-                .tag(ContentTab.profile)
+            .tabItem { label(for: .profile) }
+            .tag(ContentTab.profile)
         }
     }
     

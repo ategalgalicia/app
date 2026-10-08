@@ -44,7 +44,7 @@ struct AtegalSearchBarView: View {
         }
         .padding(.horizontal, 16)
         .frame(height: 48)
-        .background(ColorsPalette.background)
+        .background(ColorsPalette.backgroundSecondary)
         .cornerBorder(ColorsPalette.border, radius: 16)
         .frame(maxWidth: .infinity)
         #if os(iOS)

@@ -18,6 +18,7 @@ let package = Package(
         .package(url: "https://github.com/skiptools/skip-fuse-ui.git", exact: "1.19.0"),
         .package(url: "https://github.com/skiptools/skip-unit.git", exact: "1.7.2"),
         .package(url: "https://github.com/skiptools/skip-bridge.git", exact: "0.18.0"),
+        .package(url: "https://github.com/skiptools/skip-android-bridge.git", exact: "0.7.1"),
         .package(
             url: "https://github.com/michele-theleftbit/skip-firebase-swift64.git",
             revision: "247a9d62ff473405854f763dc0b35e7770e174c8"
@@ -30,6 +31,7 @@ let package = Package(
             name: "Ategal",
             dependencies: [
                 "AtegalCore",
+                .product(name: "SkipAndroidBridge", package: "skip-android-bridge"),
                 .product(name: "SkipFuseUI", package: "skip-fuse-ui"),
                 .product(name: "RStudioKit", package: "RStudioKit")
             ],

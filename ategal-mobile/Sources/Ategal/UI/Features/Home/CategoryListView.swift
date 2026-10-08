@@ -17,7 +17,7 @@ struct CategoryListView: View {
         contentView
             .background(ColorsPalette.background)
             .tint(ColorsPalette.primary)
-            .navigationTitle("categoryList-title")
+            .navigationTitle(center.city)
             .navigationBarTitleDisplayMode(.inline)
     }
     
@@ -37,15 +37,8 @@ struct CategoryListView: View {
     
     @ViewBuilder
     private var listView: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(center.city)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundStyle(ColorsPalette.textPrimary)
-            
-            Text("categoryList-subtitle")
-                .primaryTitle()
-        }
+        Text("categoryList-subtitle")
+            .primaryTitle()
             
         ContentList(
             items: center.categories,
@@ -68,8 +61,7 @@ struct CategoryListView: View {
                 phoneNumbers: center.phone,
                 email: center.email
             )
-            .padding(16)
-            .ategalCornerBackground()
+            
         }
         .padding(.top, 16)
     }
@@ -81,15 +73,13 @@ struct CategoryListView: View {
                 .primaryTitle()
             
             VStack(alignment: .leading, spacing: 8) {
-                MapView(place: center.place)
                 LinkView(
                     address: center.address,
                     lat: center.latitude,
                     long: center.longitude
                 )
+                MapView(place: center.place)
             }
-            .padding(16)
-            .ategalCornerBackground()
         }
         .padding(.top, 16)
     }

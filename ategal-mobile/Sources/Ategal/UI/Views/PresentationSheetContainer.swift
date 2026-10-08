@@ -32,11 +32,11 @@ struct PresentationSheetContainer<Content: View>: View {
                 }
                 .padding(16)
             }
+            .background(ColorsPalette.background)
             .navigationTitle(title ?? "")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarWithDismissButton()
         }
-        .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .presentationDetents(detents)
     }

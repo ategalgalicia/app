@@ -8,11 +8,15 @@ import RStudioKit
 extension View {
     
     func ategalCornerBackground() -> some View {
-        self.cornerBackground(ColorsPalette.cardBackground, radius: 16)
+        self.cornerBackground(ColorsPalette.backgroundSecondary, radius: 14)
+    }
+    
+    func ategalCornerPrimaryBackground() -> some View {
+        self.cornerBackground(ColorsPalette.primary, radius: 14)
     }
     
     func ategalCornerBorder() -> some View {
-        self.cornerBorder(ColorsPalette.border, width: 1, radius: 16)
+        self.cornerBorder(ColorsPalette.border, width: 1, radius: 14)
     }
 
     func primaryTitle() -> some View {
@@ -45,8 +49,8 @@ struct ToolbarWithDismissButton: ViewModifier {
 struct PrimaryTitleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.title3)
-            .fontWeight(.regular)
+            .font(.title2)
+            .fontWeight(.medium)
             .foregroundStyle(ColorsPalette.textPrimary)
     }
 }

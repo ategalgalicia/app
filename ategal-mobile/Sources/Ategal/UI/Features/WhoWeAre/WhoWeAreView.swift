@@ -31,7 +31,7 @@ struct WhoWeAreView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 32) {
                 headerView
                 
                 section(
@@ -63,8 +63,6 @@ struct WhoWeAreView: View {
             }
             .padding(16)
         }
-        .navigationTitle("tab-who-we-are")
-        .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedCenter) { selectedCenter in
             cityView(center: selectedCenter)
         }
@@ -75,7 +73,7 @@ struct WhoWeAreView: View {
     @ViewBuilder
     private var headerView: some View {
         VStack(spacing: 16) {
-            Image("logo-icon", bundle: .module)
+            Image(ategal: "logo-icon")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80, height: 80)
@@ -88,14 +86,12 @@ struct WhoWeAreView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
             
             Text("who-we-are-description")
-                .font(.subheadline.weight(.regular))
+                .font(.body.weight(.regular))
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .multilineTextAlignment(.leading)
                 .lineSpacing()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
-        .ategalCornerBackground()
         .combinedAccessibility()
     }
     
@@ -108,7 +104,7 @@ struct WhoWeAreView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(alignment: .center, spacing: 16) {
                 Image(systemName: systemImage)
-                    .font(.body)
+                    .font(.title)
                     .fontWeight(.bold)
                     .foregroundStyle(ColorsPalette.primary)
                     .padding(8)
@@ -116,7 +112,7 @@ struct WhoWeAreView: View {
                     .accessibilityHidden(true)
                 
                 Text(title)
-                    .font(.headline.bold())
+                    .font(.title3.bold())
                     .foregroundStyle(ColorsPalette.textPrimary)
                     .multilineTextAlignment(.leading)
                     .accessibilityHeading(.h2)
@@ -124,8 +120,6 @@ struct WhoWeAreView: View {
             content()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
-        .ategalCornerBackground()
         .combinedAccessibility()
     }
     
@@ -142,29 +136,29 @@ struct WhoWeAreView: View {
                         HStack(alignment: .center, spacing: 8) {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(center.city)
-                                    .font(.subheadline)
+                                    .font(.headline)
                                     .fontWeight(.medium)
                                     .foregroundColor(ColorsPalette.textPrimary)
                                     .multilineTextAlignment(.leading)
                                 
                                 Text(center.address)
-                                    .font(.footnote)
+                                    .font(.subheadline)
                                     .foregroundColor(ColorsPalette.textSecondary)
                                     .multilineTextAlignment(.leading)
                             }
                             Spacer()
                             
                             Text("who-we-are-where-action")
-                                .font(.subheadline)
+                                .font(.body)
                                 .fontWeight(.medium)
                                 .foregroundColor(ColorsPalette.textTertiary)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 8)
-                                .cornerBackground(ColorsPalette.primary)
+                                .ategalCornerPrimaryBackground()
                         }
                         .padding(16)
                     }
-                    .cornerBackground(ColorsPalette.background)
+                    .ategalCornerBackground()
                 }
             }
         }
@@ -173,7 +167,7 @@ struct WhoWeAreView: View {
     @ViewBuilder
     private func subtitleView(_ txt: LocalizedStringKey) -> some View {
         Text(txt)
-            .font(.subheadline.weight(.regular))
+            .font(.body.weight(.regular))
             .foregroundStyle(ColorsPalette.textSecondary)
             .multilineTextAlignment(.leading)
             .lineSpacing()
@@ -184,7 +178,7 @@ struct WhoWeAreView: View {
         Link(destination: URL(string: "https://www.ategal.com")!) {
             HStack(alignment: .center, spacing: 8) {
                 Text("who-we-are-what-we-do-action")
-                    .font(.subheadline)
+                    .font(.body)
                     .fontWeight(.medium)
                     .foregroundStyle(ColorsPalette.textPrimary)
                     .multilineTextAlignment(.leading)
@@ -192,26 +186,26 @@ struct WhoWeAreView: View {
                 Spacer()
                 
                 Text("who-we-are-where-action")
-                    .font(.subheadline)
+                    .font(.body)
                     .fontWeight(.medium)
                     .foregroundColor(ColorsPalette.textTertiary)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                     .buttonStyle(.plain)
-                    .cornerBackground(ColorsPalette.primary)
+                    .ategalCornerPrimaryBackground()
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .cornerBackground(ColorsPalette.background.opacity(0.95))
+        .ategalCornerBackground()
         .cornerBorder()
     }
     
     @ViewBuilder
     private func cityView(center: Center) -> some View {
         PresentationSheetContainer(
-            title: "Ategal",
+            title: center.city,
             detents: {
                 #if canImport(Darwin)
                 [.medium, .large]
@@ -220,12 +214,6 @@ struct WhoWeAreView: View {
                 #endif
             }()
         ) {
-            Text(center.city)
-                .font(.title.bold())
-                .foregroundColor(ColorsPalette.textPrimary)
-            
-            MapView(place: center.place)
-            
             LinkView(
                 phoneNumbers: center.phone,
                 email: center.email,
@@ -233,6 +221,8 @@ struct WhoWeAreView: View {
                 lat: center.latitude,
                 long: center.longitude
             )
+            
+            MapView(place: center.place)
         }
     }
 }
@@ -251,7 +241,10 @@ struct WhoWeAreAsyncView: View {
                 WhoWeAreView(centers: $0)
             }
             .background(ColorsPalette.background)
+            .navigationTitle("tab-who-we-are")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .tint(ColorsPalette.primary)
+        .accessibilityHeading(.h1)
     }
 }

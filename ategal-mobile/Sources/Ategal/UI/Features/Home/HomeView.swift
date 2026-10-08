@@ -52,56 +52,10 @@ struct HomeView: View {
     let appVersion: String
     
     var body: some View {
-        NavigationStack(path: $navigationPath) {
-            contentView
-                .background(ColorsPalette.background)
-                .tint(ColorsPalette.primary)
-                .navigationTitle("ategal-title")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationDestination(for: HomeRoute.self) {
-                    switch $0 {
-                    case .navigateToCalendar:
-                        CalendarAsyncView(
-                            navigationPath: $navigationPath,
-                            wpApiClient: wpApiClient,
-                            centers: centers
-                        )
-                    case .navigateToCityList:
-                        CityListView(
-                            navigationPath: $navigationPath,
-                            centers: centers
-                        )
-                    case .navigateToSearch(let source):
-                        SearchListView(
-                            navigationPath: $navigationPath,
-                            source: source,
-                            centers: centers
-                        )
-                    case .navigateToCategoryList(let center):
-                        CategoryListView(
-                            navigationPath: $navigationPath,
-                            center: center
-                        )
-                    case .navigateToCategory(let category, let center):
-                        CategoryView(
-                            navigationPath: $navigationPath,
-                            category: category,
-                            center: center
-                        )
-                    case .navigateToActivity(let activity, let center):
-                        ActivityView(
-                            activity: activity,
-                            center: center
-                        )
-                    case .deeplink(let payload):
-                        DeeplinkView(
-                            navigationPath: $navigationPath,
-                            payload: payload,
-                            centers: centers
-                        )
-                    }
-                }
-        }
+        contentView
+            .navigationDestination(for: HomeRoute.self) {
+                destinationView(for: $0)
+            }
     }
     
     // MARK: - ViewBuilders
@@ -114,7 +68,7 @@ struct HomeView: View {
                 actionView
                 partnerView
             }
-            .padding(.horizontal, 16)
+            .padding(16)
         }
     }
     
@@ -131,8 +85,6 @@ struct HomeView: View {
                 .primaryTitle()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
-        .ategalCornerBackground()
     }
     
     @ViewBuilder
@@ -148,6 +100,10 @@ struct HomeView: View {
                     Tracking.trackEvent(.homeAction(destination: .calendar))
                 }
             )
+            Divider()
+                .overlay(ColorsPalette.textSecondary.opacity(0.2))
+                .padding(.horizontal, 16)
+                .accessibilityHidden(true)
             itemView(
                 title: "home-center-title",
                 subtitle: "home-center-subtitle",
@@ -158,6 +114,10 @@ struct HomeView: View {
                     Tracking.trackEvent(.homeAction(destination: .centers))
                 }
             )
+            Divider()
+                .overlay(ColorsPalette.textSecondary.opacity(0.2))
+                .padding(.horizontal, 16)
+                .accessibilityHidden(true)
             itemView(
                 title: "home-activity-title",
                 subtitle: "home-activity-subtitle",
@@ -168,6 +128,10 @@ struct HomeView: View {
                     Tracking.trackEvent(.homeAction(destination: .activities))
                 }
             )
+            Divider()
+                .overlay(ColorsPalette.textSecondary.opacity(0.2))
+                .padding(.horizontal, 16)
+                .accessibilityHidden(true)
             itemView(
                 title: "home-resource-title",
                 subtitle: "home-resource-subtitle",
@@ -227,7 +191,7 @@ struct HomeView: View {
     @ViewBuilder
     private var partnerView: some View {
         VStack(alignment: .center, spacing: 8) {
-            Image("xunta-icon", bundle: .module)
+            Image(ategal: "xunta-icon")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 30)
@@ -236,12 +200,57 @@ struct HomeView: View {
             Text(appVersion)
                 .multilineTextAlignment(.center)
                 .font(.caption2)
-                .foregroundStyle(ColorsPalette.textSecondary.opacity(0.2))
+                .foregroundStyle(ColorsPalette.textSecondary.opacity(0.7))
                 .combinedAccessibility()
                 .frame(width: 95)
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .padding(.vertical, 24)
+    }
+    
+    @ViewBuilder
+    private func destinationView(for route: HomeRoute) -> some View {
+        switch route {
+        case .navigateToCalendar:
+            CalendarAsyncView(
+                navigationPath: $navigationPath,
+                wpApiClient: wpApiClient,
+                centers: centers
+            )
+        case .navigateToCityList:
+            CityListView(
+                navigationPath: $navigationPath,
+                centers: centers
+            )
+        case .navigateToSearch(let source):
+            SearchListView(
+                navigationPath: $navigationPath,
+                source: source,
+                centers: centers
+            )
+        case .navigateToCategoryList(let center):
+            CategoryListView(
+                navigationPath: $navigationPath,
+                center: center
+            )
+        case .navigateToCategory(let category, let center):
+            CategoryView(
+                navigationPath: $navigationPath,
+                category: category,
+                center: center
+            )
+        case .navigateToActivity(let activity, let center):
+            ActivityView(
+                activity: activity,
+                center: center
+            )
+        case .deeplink(let payload):
+            DeeplinkView(
+                navigationPath: $navigationPath,
+                payload: payload,
+                centers: centers
+            )
+        }
     }
 }
 
@@ -269,15 +278,22 @@ struct HomeAsyncView: View {
     }
     
     var body: some View {
-        AsyncView {
-            await gistApiClient.fetchCenters()
-        } content: {
-            HomeView(
-                navigationPath: $navigationPath,
-                wpApiClient: wpApiClient,
-                centers: $0,
-                appVersion: appVersion
-            )
+        NavigationStack(path: $navigationPath) {
+            AsyncView {
+                await gistApiClient.fetchCenters()
+            } content: {
+                HomeView(
+                    navigationPath: $navigationPath,
+                    wpApiClient: wpApiClient,
+                    centers: $0,
+                    appVersion: appVersion
+                )
+            }
+            .background(ColorsPalette.background)
+            .navigationTitle("ategal-title")
+            .navigationBarTitleDisplayMode(.inline)
         }
+        .tint(ColorsPalette.primary)
+        .accessibilityHeading(.h1)
     }
 }
