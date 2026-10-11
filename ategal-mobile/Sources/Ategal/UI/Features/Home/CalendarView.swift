@@ -81,7 +81,7 @@ struct CalendarView: View {
                             .contentRectangleShape()
                             .combinedAccessibility()
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(.borderless)
                     .ategalCornerBackground()
                 }
             }

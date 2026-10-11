@@ -109,7 +109,12 @@ struct SearchListView: View {
                 $searchText,
                 placeholder: "list-search-bar".localized
             )
-            .listRowConfiguration()
+            .listRowConfiguration(insets: .init(
+                top: 0,
+                leading: isRegularLayout ? 16 : 0,
+                bottom: 4,
+                trailing: isRegularLayout ? 16 : 0
+            ))
             
             if items.isEmpty {
                 EmptyStateView(txt: source.emptytitle)
@@ -177,52 +182,75 @@ struct SearchListView: View {
     
     @ViewBuilder
     private func activityPicker(selection: Selection) -> some View {
-        PresentationSheetContainer(title: selection.title) {
-            Text("list-picker-activity-title")
-                .primaryTitle()
-            
-            VStack(spacing: 8) {
-                ForEach(selection.centers) { center in
-                    Button {
-                        navigateToActivity(title: selection.title, center: center)
-                    } label: {
-                        Text(center.city)
-                            .font(.body.weight(.regular))
-                            .foregroundStyle(ColorsPalette.textSecondary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .chevronOverlay()
-                            .padding(16)
-                            .contentRectangleShape()
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 16) {
+                    Text("list-picker-activity-title")
+                        .primaryTitle()
+                    
+                    VStack(spacing: 8) {
+                        ForEach(selection.centers) { center in
+                            Button {
+                                navigateToActivity(title: selection.title, center: center)
+                            } label: {
+                                Text(center.city)
+                                    .font(.body.weight(.regular))
+                                    .foregroundStyle(ColorsPalette.textSecondary)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .chevronOverlay()
+                                    .padding(16)
+                                    .contentRectangleShape()
+                            }
+                            .buttonStyle(.plain)
+                            .ategalCornerBackground()
+                        }
                     }
-                    .buttonStyle(.plain)
-                    .ategalCornerBackground()
                 }
+                .padding(.horizontal, 16)
             }
+            .background(ColorsPalette.background)
+            .navigationTitle(selection.title)
+            .navigationBarTitleDisplayMode(.inline)
+            .interactiveDismissDisabled()
+            .presentationDetents([.medium])
+            .toolbarWithDismissButton()
         }
+        .tint(ColorsPalette.primary)
     }
     
     @ViewBuilder
     private func resourcePicker(selection: Selection) -> some View {
         if let item = resourceItemByTitle[selection.title] {
-            PresentationSheetContainer() {
-                Text(item.title)
-                    .primaryTitle()
-                
-                VStack(alignment: .leading, spacing: 16) {
-                    if let description = item.description {
-                        Text(description)
-                            .font(.body)
-                            .multilineTextAlignment(.leading)
+            NavigationStack {
+                ScrollView {
+                    VStack(spacing: 16) {
+                        Text(item.title)
+                            .primaryTitle()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        VStack(alignment: .leading, spacing: 16) {
+                            if let description = item.description {
+                                Text(description)
+                                    .font(.body)
+                                    .multilineTextAlignment(.leading)
+                            }
+                            LinkView(
+                                phoneNumbers: item.phone ?? [],
+                                email: nil,
+                                website: item.web,
+                                address: item.address
+                            )
+                        }
                     }
-                    LinkView(
-                        phoneNumbers: item.phone ?? [],
-                        email: nil,
-                        website: item.web,
-                        address: item.address
-                    )
+                    .padding(.horizontal, 16)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(ColorsPalette.background)
+                .navigationBarTitleDisplayMode(.inline)
+                .interactiveDismissDisabled()
+                .presentationDetents([.medium])
+                .toolbarWithDismissButton()
             }
+            .tint(ColorsPalette.primary)
         }
     }
     

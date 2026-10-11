@@ -31,7 +31,7 @@ struct AtegalSearchBarView: View {
                 .accessibilityHidden(true)
 
             TextField(placeholder, text: $searchText)
-                .font(.subheadline)
+                .font(.body)
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .textFieldStyle(.plain)
                 .autocorrectionDisabled()
@@ -43,7 +43,7 @@ struct AtegalSearchBarView: View {
                 #endif
         }
         .padding(.horizontal, 16)
-        .frame(height: 48)
+        .frame(minHeight: 48)
         .background(ColorsPalette.backgroundSecondary)
         .cornerBorder(ColorsPalette.border, radius: 16)
         .frame(maxWidth: .infinity)

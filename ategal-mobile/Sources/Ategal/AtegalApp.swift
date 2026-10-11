@@ -97,7 +97,6 @@ public final class AtegalAppDelegate : Sendable {
     private func customizeModuleDependencies() {
         let localizationService = AtegalLocalizationService()
         RStudioKit.ModuleDependencies.localizationService = localizationService
-        RStudioKit.ModuleDependencies.accentColor = ColorsPalette.primary
         RStudioKit.ModuleDependencies.primaryColor = ColorsPalette.primary
         RStudioKit.ModuleDependencies.androidCloseIconResourceName = "rs_ic_close"
     }

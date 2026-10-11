@@ -51,12 +51,13 @@ struct ProfileView: View {
                 .toolbar { toolbarContent }
                 .errorAlert($logoutError)
                 .sheet(isPresented: $presentAuthSheet) {
-                    PlatformModalSheet {
-                        AuthView(authManager: authManager)
-                    }
+                    AuthView(authManager: authManager)
                 }
-                .fullScreenCover(isPresented: $presentTutorial) {
+                .sheet(isPresented: $presentTutorial) {
                     TutorialView(isPresented: $presentTutorial)
+                        #if canImport(Darwin)
+                        .presentationCompactAdaptation(.fullScreenCover)
+                        #endif
                 }
                 .alert("auth-logout-action", isPresented: $presentLogoutConfirmation) {
                     Button("cancel", role: .cancel) {}

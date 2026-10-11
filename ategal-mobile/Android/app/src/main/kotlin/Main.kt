@@ -145,7 +145,7 @@ internal fun PresentationRootView(context: ComposeContext) {
     val surfaceColor = androidx.compose.ui.graphics.Color.White
     Material3ColorScheme({ colors, isDark ->
         colors.copy(
-            surface = surfaceColor,
+            surface = androidx.compose.ui.graphics.Color(0xFFF4F7F8),
             surfaceTint = surfaceColor,
             surfaceVariant = surfaceColor,
             surfaceContainer = surfaceColor,

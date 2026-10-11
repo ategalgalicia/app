@@ -38,21 +38,28 @@ struct AuthView: View {
     var socialNetwork: SocialNetwork?
     
     var body: some View {
-        contentView
-            .actionView {
-                VStack(spacing: 8) {
-                    appleButton
-                    googleButton
+        NavigationStack {
+            contentView
+                .background(ColorsPalette.background)
+                .navigationTitle("auth-title".localized)
+                .navigationBarTitleDisplayMode(.inline)
+                .interactiveDismissDisabled()
+                .presentationDetents([.medium])
+                .toolbarWithDismissButton()
+                .actionView {
+                    VStack(spacing: 8) {
+                        appleButton
+                        googleButton
+                    }
                 }
-            }
-            .interactiveDismissDisabled()
-            .presentationDetents([.medium])
-            .performBlockingTask(
-                value: $socialNetwork,
-                successDisplaySeconds: 0,
-                task: { await performAuthenticate($0) }
-            )
-            .errorAlert($taskError)
+                .performBlockingTask(
+                    value: $socialNetwork,
+                    successDisplaySeconds: 0,
+                    task: { await performAuthenticate($0) }
+                )
+                .errorAlert($taskError)
+        }
+        .tint(ColorsPalette.primary)
     }
     
     // MARK: - ViewBuilders
@@ -66,7 +73,7 @@ struct AuthView: View {
                     .scaledToFit()
                     .frame(width: 72, height: 72)
                     .accessibilityHidden(true)
-                    .padding(.top, 16)
+                    .padding(.vertical, 16)
 
                 Text("auth-subtitle")
                     .font(.body)
@@ -74,10 +81,9 @@ struct AuthView: View {
                     .multilineTextAlignment(.center)
                 
                 Text("auth-footer")
-                    .font(.footnote)
+                    .font(.subheadline)
                     .foregroundStyle(ColorsPalette.textSecondary)
                     .multilineTextAlignment(.center)
-                
             }
             .padding(.horizontal, 16)
         }

@@ -90,11 +90,7 @@ struct AtegalSidebarView: View {
                 .frame(width: 18, height: 18)
         }
         .font(.headline)
-        .foregroundStyle(
-            section == selection
-            ? ColorsPalette.textTertiary
-            : ColorsPalette.textPrimary
-        )
+        .foregroundStyle(ColorsPalette.textPrimary)
         .tag(section)
     }
     

@@ -45,9 +45,6 @@ struct TutorialView: View {
 
 struct TutorialStepView: View {
 
-    @Environment(\.horizontalSizeClass)
-    var horizontalSizeClass
-
     let step: TutorialStep
     let onFinish: () -> Void
 
@@ -131,7 +128,7 @@ struct TutorialStepView: View {
             }
         }
         .padding(.horizontal, 16)
-        .frame(maxWidth: horizontalSizeClass == .regular ? 600 : .infinity)
+        .frame(maxWidth: .infinity)
     }
 
     @ViewBuilder

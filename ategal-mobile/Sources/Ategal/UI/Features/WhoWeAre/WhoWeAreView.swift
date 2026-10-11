@@ -31,7 +31,7 @@ struct WhoWeAreView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 32) {
+            VStack(alignment: .leading, spacing: 36) {
                 headerView
                 
                 section(
@@ -102,23 +102,15 @@ struct WhoWeAreView: View {
         @ViewBuilder content: () -> Content
     ) -> some View {
         VStack(alignment: .leading, spacing: 16) {
-            HStack(alignment: .center, spacing: 16) {
-                Image(systemName: systemImage)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundStyle(ColorsPalette.primary)
-                    .padding(8)
-                    .cornerBackground(ColorsPalette.primary.opacity(0.15), radius: 8)
-                    .accessibilityHidden(true)
-                
-                Text(title)
-                    .font(.title3.bold())
-                    .foregroundStyle(ColorsPalette.textPrimary)
-                    .multilineTextAlignment(.leading)
-                    .accessibilityHeading(.h2)
-            }
+            Text(title)
+                .font(.title2.bold())
+                .foregroundStyle(ColorsPalette.textPrimary)
+                .accessibilityHeading(.h2)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
             content()
         }
+        .padding(.top, 16)
         .frame(maxWidth: .infinity, alignment: .leading)
         .combinedAccessibility()
     }
@@ -204,26 +196,38 @@ struct WhoWeAreView: View {
     
     @ViewBuilder
     private func cityView(center: Center) -> some View {
-        PresentationSheetContainer(
-            title: center.city,
-            detents: {
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 16) {
+                    LinkView(
+                        phoneNumbers: center.phone,
+                        email: center.email
+                    )
+                    
+                    LinkView(
+                        address: center.address,
+                        lat: center.latitude,
+                        long: center.longitude
+                    )
+                    MapView(place: center.place)
+                }
+                .padding(.horizontal, 16)
+            }
+            .background(ColorsPalette.background)
+            .navigationTitle(center.city)
+            .navigationBarTitleDisplayMode(.inline)
+            .interactiveDismissDisabled()
+            .presentationDetents({
                 #if canImport(Darwin)
                 [.medium, .large]
                 #else
                 [.large]
                 #endif
-            }()
-        ) {
-            LinkView(
-                phoneNumbers: center.phone,
-                email: center.email,
-                address: center.address,
-                lat: center.latitude,
-                long: center.longitude
+                }()
             )
-            
-            MapView(place: center.place)
+            .toolbarWithDismissButton()
         }
+        .tint(ColorsPalette.primary)
     }
 }
 

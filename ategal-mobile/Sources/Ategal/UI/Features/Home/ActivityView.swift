@@ -104,16 +104,27 @@ struct ActivityView: View {
 
     @ViewBuilder
     private var sheetView: some View {
-        PresentationSheetContainer() {
-            Text("activity-action-subtitle")
-                .font(.callout.weight(.medium))
-                .foregroundStyle(ColorsPalette.textSecondary)
-                .frame(maxWidth: .infinity, alignment: .leading)
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 16) {
+                    Text("activity-action-subtitle")
+                        .font(.callout.weight(.medium))
+                        .foregroundStyle(ColorsPalette.textSecondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
-            LinkView(
-                phoneNumbers: center.phone,
-                email: center.email
-            )
+                    LinkView(
+                        phoneNumbers: center.phone,
+                        email: center.email
+                    )
+                }
+                .padding(.horizontal, 16)
+            }
+            .background(ColorsPalette.background)
+            .navigationBarTitleDisplayMode(.inline)
+            .interactiveDismissDisabled()
+            .presentationDetents([.medium])
+            .toolbarWithDismissButton()
         }
+        .tint(ColorsPalette.primary)
     }
 }

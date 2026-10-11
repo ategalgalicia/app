@@ -104,16 +104,18 @@ struct AtegalMainView: View {
     
     @ViewBuilder
     private var tutorialView: some View {
-        TutorialView(isPresented: Binding(
-            get: { appStatus == .tutorial },
-            set: { isPresented in
-                if !isPresented {
-                    hasCompletedTutorial = true
-                    appStatus = .normal
-                    Tracking.trackEvent(.tutorialComplete)
+        BootstrapFormSheetView {
+            TutorialView(isPresented: Binding(
+                get: { appStatus == .tutorial },
+                set: { isPresented in
+                    if !isPresented {
+                        hasCompletedTutorial = true
+                        appStatus = .normal
+                        Tracking.trackEvent(.tutorialComplete)
+                    }
                 }
-            }
-        ))
+            ))
+        }.background(ColorsPalette.background)
     }
 }
 
