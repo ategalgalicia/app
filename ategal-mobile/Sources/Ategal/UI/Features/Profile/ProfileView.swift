@@ -16,7 +16,10 @@ import RStudioKit
     NavigationStack {
         ProfileView(
             authManager: MockAuthManager(),
-            pushManager: PushManager()
+            pushManager: PushManager(),
+            announcementManager: AnnouncementManager(),
+            gistApiClient: GistAPIClient(),
+            onOpenAnnouncement: { _ in }
         )
         .dynamicTypeSize(.large ... .accessibility5)
     }
@@ -29,12 +32,17 @@ struct ProfileView: View {
     
     let authManager: AuthManager
     let pushManager: PushManager
-
+    let announcementManager: AnnouncementManager
+    let gistApiClient: GistAPIClient
+    let onOpenAnnouncement: (Announcement.Action) -> Void
+    
     @State
-    var presentAuthSheet: Bool = false
-
-    @State
-    var presentTutorial: Bool = false
+    var sheetType: SheetType?
+    enum SheetType: Identifiable, Equatable {
+        case auth
+        case tutorial
+        var id: Int { self.hashValue }
+    }
 
     @State
     var presentLogoutConfirmation: Bool = false
@@ -49,16 +57,8 @@ struct ProfileView: View {
                 .navigationTitle("tab-profile")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar { toolbarContent }
+                .sheet(item: $sheetType) { sheet($0) }
                 .errorAlert($logoutError)
-                .sheet(isPresented: $presentAuthSheet) {
-                    AuthView(authManager: authManager)
-                }
-                .sheet(isPresented: $presentTutorial) {
-                    TutorialView(isPresented: $presentTutorial)
-                        #if canImport(Darwin)
-                        .presentationCompactAdaptation(.fullScreenCover)
-                        #endif
-                }
                 .alert("auth-logout-action", isPresented: $presentLogoutConfirmation) {
                     Button("cancel", role: .cancel) {}
                     Button("auth-logout-action", role: .destructive) {
@@ -88,7 +88,11 @@ struct ProfileView: View {
                 
                 signInView
                 userView
-                pushNotificationsView
+                
+                VStack(spacing: 0) {
+                    inboxView
+                    pushNotificationsView
+                }
                 if !authManager.isLogged {
                     tutorialButton
                 }
@@ -109,7 +113,7 @@ struct ProfileView: View {
                     .multilineTextAlignment(.center)
                 
                 Button {
-                    presentAuthSheet = true
+                    sheetType = .auth
                 } label: {
                     Text("auth-login-action")
                         .font(.headline)
@@ -161,11 +165,34 @@ struct ProfileView: View {
             .padding(.vertical, 16)
         }
     }
+    
+    @ViewBuilder
+    private var inboxView: some View {
+        if authManager.isLogged {
+            NavigationLink {
+                InboxAsyncView(
+                    announcementManager: announcementManager,
+                    gistApiClient: gistApiClient,
+                    onOpenAnnouncement: onOpenAnnouncement
+                )
+            } label: {
+                Text("inbox-title")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.headline)
+                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .chevronOverlay()
+                    .padding(16)
+                    .ategalCornerBackground()
+                    .combinedAccessibility()
+            }
+            .buttonStyle(.plain)
+        }
+    }
 
     @ViewBuilder
     private var tutorialButton: some View {
         Button {
-            presentTutorial = true
+            sheetType = .tutorial
         } label: {
             Label("push-tutorial-profile-action", systemImage: "info.circle")
                 .font(.headline)
@@ -189,6 +216,26 @@ struct ProfileView: View {
             #endif
     }
     
+    @ViewBuilder
+    private func sheet(_ type: SheetType) -> some View {
+        switch type {
+        case .auth:
+            AuthView(authManager: authManager)
+        case .tutorial:
+            TutorialView(isPresented: Binding(
+                get: { sheetType == .tutorial },
+                set: { isPresented in
+                    if !isPresented, sheetType == .tutorial {
+                        sheetType = nil
+                    }
+                }
+            ))
+            #if canImport(Darwin)
+            .presentationCompactAdaptation(.fullScreenCover)
+            #endif
+        }
+    }
+    
     // MARK: - ToolbarContentBuilder
     
     @ToolbarContentBuilder
@@ -196,7 +243,7 @@ struct ProfileView: View {
         if authManager.isLogged {
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Button {
-                    presentTutorial = true
+                    sheetType = .tutorial
                 } label: {
                     toolbarIcon("info.circle")
                 }

@@ -58,7 +58,13 @@ struct AtegalTabView: View {
             
             ProfileView(
                 authManager: world.authManager,
-                pushManager: world.pushManager
+                pushManager: world.pushManager,
+                announcementManager: world.announcementManager,
+                gistApiClient: world.gistApiClient,
+                onOpenAnnouncement: { action in
+                    navigationHome = [.announcement(action)]
+                    selection = .home
+                }
             )
             .tabItem { label(for: .profile) }
             .tag(ContentTab.profile)

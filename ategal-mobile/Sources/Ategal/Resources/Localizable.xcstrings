@@ -1,6 +1,24 @@
 {
   "sourceLanguage" : "gl-ES",
   "strings" : {
+    "announcement-action-label" : {
+      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Acción" } } }
+    },
+    "announcement-action-none" : {
+      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Sen acción" } } }
+    },
+    "announcement-action-activity" : {
+      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Abrir actividade" } } }
+    },
+    "announcement-action-calendar" : {
+      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Abrir calendario" } } }
+    },
+    "announcement-calendar-day" : {
+      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Día do calendario" } } }
+    },
+    "announcement-destination-unavailable" : {
+      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Este destino xa non está dispoñible." } } }
+    },
     "accept" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -60,6 +78,153 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Evento engadido"
+          }
+        }
+      }
+    },
+    "announcement-activities-empty" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non se atoparon actividades"
+          }
+        }
+      }
+    },
+    "announcement-body-label" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mensaxe"
+          }
+        }
+      }
+    },
+    "announcement-compose-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novo aviso"
+          }
+        }
+      }
+    },
+    "announcement-confirm-message" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O aviso estará dispoñible para todas as persoas usuarias que inicien sesión."
+          }
+        }
+      }
+    },
+    "announcement-confirm-title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Publicar este aviso?"
+          }
+        }
+      }
+    },
+    "announcement-error-message" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non se puido confirmar a publicación. Revisa a conexión e os permisos da túa conta. O texto consérvase para volver intentalo."
+          }
+        }
+      }
+    },
+    "announcement-error-title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro ao publicar"
+          }
+        }
+      }
+    },
+    "announcement-limits" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Título: máximo 120 caracteres. Mensaxe: máximo 2.000 caracteres."
+          }
+        }
+      }
+    },
+    "announcement-publish" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Publicar"
+          }
+        }
+      }
+    },
+    "announcement-saving" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gardando…"
+          }
+        }
+      }
+    },
+    "announcement-select-activity" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar actividade"
+          }
+        }
+      }
+    },
+    "announcement-success" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aviso publicado"
+          }
+        }
+      }
+    },
+    "announcement-title-label" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Título"
+          }
+        }
+      }
+    },
+    "announcement-topic-label" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destino"
           }
         }
       }
@@ -450,6 +615,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buscar por recursos"
+          }
+        }
+      }
+    },
+    "inbox-no-data" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aínda non hai avisos"
+          }
+        }
+      }
+    },
+    "inbox-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avisos"
           }
         }
       }

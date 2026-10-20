@@ -31,6 +31,7 @@ import RStudioKit
 // MARK: - HomeRoute
 
 enum HomeRoute: Hashable {
+    case announcement(Announcement.Action)
     case navigateToCalendar
     case navigateToCityList
     case navigateToCategoryList(Center)
@@ -211,6 +212,13 @@ struct HomeView: View {
     @ViewBuilder
     private func destinationView(for route: HomeRoute) -> some View {
         switch route {
+        case .announcement(let action):
+            AnnouncementDestinationView(
+                navigationPath: $navigationPath,
+                action: action,
+                centers: centers,
+                wpApiClient: wpApiClient
+            )
         case .navigateToCalendar:
             CalendarAsyncView(
                 navigationPath: $navigationPath,

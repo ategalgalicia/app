@@ -19,6 +19,9 @@ class World {
     
     let authManager: AuthManager
     let pushManager: PushManager
+
+    @ObservationIgnored
+    lazy var announcementManager = AnnouncementManager()
     
     let appVersion: String
     

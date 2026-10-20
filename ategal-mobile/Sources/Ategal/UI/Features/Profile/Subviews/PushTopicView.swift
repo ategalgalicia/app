@@ -141,7 +141,7 @@ struct PushTopicView: View {
 
 // MARK: - Extensions
 
-private extension PushTopic {
+extension PushTopic {
 
     var title: String {
         switch self {

@@ -73,7 +73,13 @@ struct AtegalSidebarView: View {
         case .profile:
             ProfileView(
                 authManager: world.authManager,
-                pushManager: world.pushManager
+                pushManager: world.pushManager,
+                announcementManager: world.announcementManager,
+                gistApiClient: world.gistApiClient,
+                onOpenAnnouncement: { action in
+                    navigationHome = [.announcement(action)]
+                    selection = .home
+                }
             )
         }
     }
