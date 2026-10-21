@@ -19,6 +19,9 @@ struct AtegalSidebarView: View {
     
     @Binding
     var navigationPost: [PostRoute]
+
+    @Binding
+    var navigationInbox: [InboxRoute]
     
     let world: World
     
@@ -44,6 +47,10 @@ struct AtegalSidebarView: View {
             label(.home)
             label(.whoWeAre)
             label(.posts)
+            if world.authManager.userStatus == .logged {
+                label(.inbox)
+                    .badge(world.announcementManager.unreadCount)
+            }
             label(.profile)
         }
         .listStyle(.sidebar)
@@ -70,16 +77,22 @@ struct AtegalSidebarView: View {
                 apiClient: world.wpApiClient
             )
 
+        case .inbox:
+            if world.authManager.userStatus == .logged {
+                InboxAsyncView(
+                    navigationPath: $navigationInbox,
+                    announcementManager: world.announcementManager,
+                    gistApiClient: world.gistApiClient,
+                    wpApiClient: world.wpApiClient
+                )
+            }
+
         case .profile:
             ProfileView(
                 authManager: world.authManager,
                 pushManager: world.pushManager,
                 announcementManager: world.announcementManager,
-                gistApiClient: world.gistApiClient,
-                onOpenAnnouncement: { action in
-                    navigationHome = [.announcement(action)]
-                    selection = .home
-                }
+                gistApiClient: world.gistApiClient
             )
         }
     }

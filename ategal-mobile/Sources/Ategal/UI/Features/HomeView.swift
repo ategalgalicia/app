@@ -31,12 +31,10 @@ import RStudioKit
 // MARK: - HomeRoute
 
 enum HomeRoute: Hashable {
-    case announcement(Announcement.Action)
     case navigateToCalendar
     case navigateToCityList
     case navigateToCategoryList(Center)
     case navigateToSearch(SearchListView.Source)
-    case deeplink(DeeplinkPayload)
     case navigateToCategory(category: Center.Category, center: Center)
     case navigateToActivity(activity: Center.Category.Activity, center: Center)
 }
@@ -212,38 +210,41 @@ struct HomeView: View {
     @ViewBuilder
     private func destinationView(for route: HomeRoute) -> some View {
         switch route {
-        case .announcement(let action):
-            AnnouncementDestinationView(
-                navigationPath: $navigationPath,
-                action: action,
-                centers: centers,
-                wpApiClient: wpApiClient
-            )
         case .navigateToCalendar:
             CalendarAsyncView(
-                navigationPath: $navigationPath,
+                onOpenDay: { day in
+                    navigationPath.append(.navigateToSearch(.activitiesFilteredByDay(day)))
+                },
                 wpApiClient: wpApiClient,
                 centers: centers
             )
         case .navigateToCityList:
             CityListView(
-                navigationPath: $navigationPath,
+                onOpenCenter: { center in
+                    navigationPath.append(.navigateToCategoryList(center))
+                },
                 centers: centers
             )
         case .navigateToSearch(let source):
             SearchListView(
-                navigationPath: $navigationPath,
                 source: source,
-                centers: centers
+                centers: centers,
+                onOpenActivity: { activity, center in
+                    navigationPath.append(.navigateToActivity(activity: activity, center: center))
+                }
             )
         case .navigateToCategoryList(let center):
             CategoryListView(
-                navigationPath: $navigationPath,
+                onOpenCategory: { category, center in
+                    navigationPath.append(.navigateToCategory(category: category, center: center))
+                },
                 center: center
             )
         case .navigateToCategory(let category, let center):
             CategoryView(
-                navigationPath: $navigationPath,
+                onOpenActivity: { activity, center in
+                    navigationPath.append(.navigateToActivity(activity: activity, center: center))
+                },
                 category: category,
                 center: center
             )
@@ -251,12 +252,6 @@ struct HomeView: View {
             ActivityView(
                 activity: activity,
                 center: center
-            )
-        case .deeplink(let payload):
-            DeeplinkView(
-                navigationPath: $navigationPath,
-                payload: payload,
-                centers: centers
             )
         }
     }

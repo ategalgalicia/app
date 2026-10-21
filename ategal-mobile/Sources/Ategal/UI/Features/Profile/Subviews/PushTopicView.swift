@@ -8,9 +8,6 @@ import AtegalCore
 
 struct PushTopicView: View {
 
-    @UserDefaultsBacked(key: "push-selected-city-topics")
-    var storedPushTopics: Set<PushTopic> = []
-
     @State
     var selectedPushTopics: Set<PushTopic> = []
 
@@ -18,10 +15,12 @@ struct PushTopicView: View {
     var presentCitiesSheet = false
     
     let pushManager: PushManager
+    let announcementManager: AnnouncementManager
 
-    init(pushManager: PushManager) {
+    init(pushManager: PushManager, announcementManager: AnnouncementManager) {
         self.pushManager = pushManager
-        _selectedPushTopics = State(initialValue: storedPushTopics)
+        self.announcementManager = announcementManager
+        _selectedPushTopics = State(initialValue: announcementManager.selectedPushTopics)
     }
     
     var body: some View {
@@ -112,7 +111,7 @@ struct PushTopicView: View {
                                         try await pushManager.unsubscribe(from: topic)
                                         selectedPushTopics.remove(topic)
                                     }
-                                    storedPushTopics = selectedPushTopics
+                                    await announcementManager.setPushTopics(selectedPushTopics)
                                     Tracking.trackEvent(.notificationTopicChanged(
                                         topic: topic,
                                         enabled: isOn

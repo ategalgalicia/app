@@ -16,8 +16,7 @@ struct SearchListView: View {
         case resources
     }
     
-    @Binding
-    var navigationPath: [HomeRoute]
+    let onOpenActivity: (Center.Category.Activity, Center) -> Void
     
     @State
     var searchText: String = ""
@@ -32,7 +31,6 @@ struct SearchListView: View {
     
     @Environment(\.horizontalSizeClass)
     var horizontalSizeClass
-    
     private var isRegularLayout: Bool {
         horizontalSizeClass == .regular
     }
@@ -59,11 +57,11 @@ struct SearchListView: View {
     }
     
     init(
-        navigationPath: Binding<[HomeRoute]>,
         source: Source,
-        centers: [Center]
+        centers: [Center],
+        onOpenActivity: @escaping (Center.Category.Activity, Center) -> Void
     ) {
-        self._navigationPath = navigationPath
+        self.onOpenActivity = onOpenActivity
         self.source = source
 
         switch source {
@@ -266,7 +264,7 @@ struct SearchListView: View {
     
     private func navigateToActivity(title: String, center: Center) {
         guard let activity = center.activity(withTitle: title) else { return }
-        navigationPath.append(.navigateToActivity(activity: activity, center: center))
+        onOpenActivity(activity, center)
         selection = nil
     }
 }

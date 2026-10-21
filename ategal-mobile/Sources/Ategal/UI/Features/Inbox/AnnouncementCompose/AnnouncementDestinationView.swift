@@ -4,30 +4,13 @@ import RStudioKit
 
 struct AnnouncementDestinationView: View {
     @Binding
-    var navigationPath: [HomeRoute]
+    var navigationPath: [InboxRoute]
 
     let action: Announcement.Action
     let centers: [Center]
-    let wpApiClient: WPAPIClient
 
     var body: some View {
-        Group {
-            switch action {
-            case .activity:
-                activityView
-            case .calendar:
-                if let date = action.calendarDate {
-                    CalendarAsyncView(
-                        navigationPath: $navigationPath,
-                        wpApiClient: wpApiClient,
-                        centers: centers,
-                        initialDate: date
-                    )
-                } else {
-                    EmptyStateView(txt: "announcement-destination-unavailable")
-                }
-            }
-        }
+        activityView
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
     }
@@ -44,10 +27,12 @@ struct AnnouncementDestinationView: View {
         } else {
             List {
                 ForEach(matches) { match in
-                    NavigationLink(value: HomeRoute.navigateToActivity(
-                        activity: match.activity,
-                        center: match.center
-                    )) {
+                    Button {
+                        navigationPath.append(.navigateToActivity(
+                            activity: match.activity,
+                            center: match.center
+                        ))
+                    } label: {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(match.activity.title)
                                 .font(.headline)
@@ -62,6 +47,7 @@ struct AnnouncementDestinationView: View {
                         .padding(16)
                         .combinedAccessibility()
                     }
+                    .buttonStyle(.plain)
                     .listRowConfiguration()
                 }
             }

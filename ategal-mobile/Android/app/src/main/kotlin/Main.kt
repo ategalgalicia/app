@@ -124,15 +124,14 @@ open class MainActivity: AppCompatActivity {
     }
 
     private fun handlePushIntent(intent: android.content.Intent?) {
-        // Forwards deeplink data from a push intent to the shared app.
-        intent?.getStringExtra("activity")
-            ?.takeIf { it.isNotBlank() }
-            ?.let { activity ->
-                PushManager.didReceivePushPayload(
-                    activity,
-                    intent.getStringExtra("query").orEmpty()
-                )
-            }
+        val pushIntent = intent ?: return
+        val notificationKeys = listOf(
+            "google.message_id", "gcm.message_id", "message_id", "announcementID"
+        )
+        if (notificationKeys.none { pushIntent.hasExtra(it) }) return
+
+        notificationKeys.forEach { pushIntent.removeExtra(it) }
+        PushManager.didTapNotification()
     }
 
     companion object {

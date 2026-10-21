@@ -12,13 +12,9 @@ import RStudioKit
 
 @available(iOS 18, *)
 #Preview {
-    @Previewable
-    @State
-    
-    var navigationPath: [HomeRoute] = []
     CalendarView(
-        dataSource: .mock(),
-        navigationPath: $navigationPath
+        viewModel: .mock(),
+        onOpenDay: { _ in }
     )
     .dynamicTypeSize(.large ... .accessibility5)
 }
@@ -32,10 +28,9 @@ import AtegalCore
 struct CalendarView: View {
     
     @Bindable
-    var dataSource: CalendarDataSource
+    var viewModel: CalendarViewModel
     
-    @Binding
-    var navigationPath: [HomeRoute]
+    let onOpenDay: (Int) -> Void
         
     @State
     var notification: InAppNotificationEvent?
@@ -65,11 +60,9 @@ struct CalendarView: View {
                 .primaryTitle()
             
             VStack(alignment: .leading, spacing: 8) {
-                ForEach(dataSource.calendar.weekdays, id: \.weekday) { day in
+                ForEach(viewModel.calendar.weekdays, id: \.weekday) { day in
                     Button {
-                        navigationPath.append(.navigateToSearch(
-                            .activitiesFilteredByDay(day.weekday)
-                        ))
+                        onOpenDay(day.weekday)
                     } label: {
                         Text(day.title)
                             .font(.body.weight(.regular))
@@ -91,7 +84,7 @@ struct CalendarView: View {
     
     @ViewBuilder
     private var nextEventsView: some View {
-        if !dataSource.eventDays.isEmpty {
+        if !viewModel.eventDays.isEmpty {
             VStack(alignment: .leading, spacing: 24) {
                 Text("calendar-events-title")
                     .primaryTitle()
@@ -99,7 +92,7 @@ struct CalendarView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
-                        ForEach(dataSource.eventDays, id: \.self) { date in
+                        ForEach(viewModel.eventDays, id: \.self) { date in
                             cell(for: date)
                         }
                     }
@@ -107,7 +100,7 @@ struct CalendarView: View {
                 }
                 
                 VStack(spacing: 8) {
-                    ForEach(dataSource.eventsForSelectedDate) {
+                    ForEach(viewModel.eventsForSelectedDate) {
                         cell(for: $0)
                     }
                 }
@@ -119,12 +112,12 @@ struct CalendarView: View {
     
     @ViewBuilder
     private func cell(for date: Date) -> some View {
-        let selected = dataSource.calendar.isDate(
-            date, inSameDayAs: dataSource.selectedDate
+        let selected = viewModel.calendar.isDate(
+            date, inSameDayAs: viewModel.selectedDate
         )
         Button {
             withAnimation(.smooth(duration: 0.3)) {
-                dataSource.selectedDate = date
+                viewModel.selectedDate = date
             }
         } label: {
             VStack(spacing: 6) {
@@ -214,8 +207,7 @@ struct CalendarView: View {
 
 struct CalendarAsyncView: View {
     
-    @Binding
-    var navigationPath: [HomeRoute]
+    let onOpenDay: (Int) -> Void
     
     let wpApiClient: WPAPIClient
     let centers: [Center]
@@ -223,15 +215,15 @@ struct CalendarAsyncView: View {
     
     var body: some View {
         AsyncView(id: initialDate) {
-            try await CalendarDataSource(
+            try await CalendarViewModel(
                 wpApiClient: wpApiClient,
                 centers: centers,
                 initialDate: initialDate
             )
         } content: {
             CalendarView(
-                dataSource: $0,
-                navigationPath: $navigationPath
+                viewModel: $0,
+                onOpenDay: onOpenDay
             )
         }
         .tint(ColorsPalette.primary)
@@ -241,11 +233,11 @@ struct CalendarAsyncView: View {
     }
 }
 
-// MARK: - CalendarDataSource
+// MARK: - CalendarViewModel
 
 @Observable
 @MainActor
-class CalendarDataSource {
+class CalendarViewModel {
     
     @ObservationIgnored
     var calendar: Calendar
@@ -278,7 +270,7 @@ class CalendarDataSource {
     }
     
     /// For Preview
-    static func mock() -> CalendarDataSource {
+    static func mock() -> CalendarViewModel {
         .init()
     }
     private init() {

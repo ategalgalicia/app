@@ -18,8 +18,7 @@ import RStudioKit
             authManager: MockAuthManager(),
             pushManager: PushManager(),
             announcementManager: AnnouncementManager(),
-            gistApiClient: GistAPIClient(),
-            onOpenAnnouncement: { _ in }
+            gistApiClient: GistAPIClient()
         )
         .dynamicTypeSize(.large ... .accessibility5)
     }
@@ -34,7 +33,6 @@ struct ProfileView: View {
     let pushManager: PushManager
     let announcementManager: AnnouncementManager
     let gistApiClient: GistAPIClient
-    let onOpenAnnouncement: (Announcement.Action) -> Void
     
     @State
     var sheetType: SheetType?
@@ -88,11 +86,7 @@ struct ProfileView: View {
                 
                 signInView
                 userView
-                
-                VStack(spacing: 0) {
-                    inboxView
-                    pushNotificationsView
-                }
+                pushNotificationsView
                 if !authManager.isLogged {
                     tutorialButton
                 }
@@ -157,35 +151,15 @@ struct ProfileView: View {
                 await pushManager.hasPushAuthorization()
             } content: { hasPushAuthorization in
                 if hasPushAuthorization {
-                    PushTopicView(pushManager: pushManager)
+                    PushTopicView(
+                        pushManager: pushManager,
+                        announcementManager: announcementManager
+                    )
                 } else {
                     Text("notification-permission-subtitle")
                 }
             }
             .padding(.vertical, 16)
-        }
-    }
-    
-    @ViewBuilder
-    private var inboxView: some View {
-        if authManager.isLogged {
-            NavigationLink {
-                InboxAsyncView(
-                    announcementManager: announcementManager,
-                    gistApiClient: gistApiClient,
-                    onOpenAnnouncement: onOpenAnnouncement
-                )
-            } label: {
-                Text("inbox-title")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.headline)
-                    .foregroundStyle(ColorsPalette.textPrimary)
-                    .chevronOverlay()
-                    .padding(16)
-                    .ategalCornerBackground()
-                    .combinedAccessibility()
-            }
-            .buttonStyle(.plain)
         }
     }
 

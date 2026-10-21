@@ -29,6 +29,12 @@ struct AtegalMainView: View {
     
     @State
     var navigationPost: [PostRoute] = []
+
+    @State
+    var navigationInbox: [InboxRoute] = []
+
+    @State
+    var openInboxAfterLogin = false
     
     let world: World
 
@@ -48,6 +54,7 @@ struct AtegalMainView: View {
                         selection: $selection,
                         navigationHome: $navigationHome,
                         navigationPost: $navigationPost,
+                        navigationInbox: $navigationInbox,
                         world: world
                     )
                 } else {
@@ -64,16 +71,32 @@ struct AtegalMainView: View {
         .onChange(of: selection) { _, tab in
             Tracking.trackEvent(.tabSelected(tab: tab.rawValue))
         }
+        .onChange(of: world.authManager.userStatus) { _, status in
+            if status != .logged, selection == .inbox {
+                selection = .home
+            } else if status == .logged, openInboxAfterLogin {
+                openInboxAfterLogin = false
+                navigationInbox = []
+                selection = .inbox
+            }
+        }
         // Keeps the FCM topic subscription aligned with the session state.
         .task(id: world.authManager.userStatus) {
             await world.pushManager.refreshUserStatus(
                 world.authManager.userStatus
             )
+            guard !Task.isCancelled else { return }
+            if world.authManager.userStatus == .logged {
+                _ = try? await world.announcementManager.fetchAnnouncements()
+            } else {
+                world.announcementManager.reset()
+            }
         }
         .onAppear {
-            world.pushManager.onReceiveDeeplink { payload in
-                selection = .home
-                navigationHome = [.deeplink(payload)]
+            world.pushManager.onNotificationTap {
+                navigationInbox = []
+                openInboxAfterLogin = world.authManager.userStatus != .logged
+                selection = openInboxAfterLogin ? .profile : .inbox
             }
         }
     }
@@ -87,6 +110,7 @@ struct AtegalMainView: View {
             selection: $selection,
             navigationHome: $navigationHome,
             navigationPost: $navigationPost,
+            navigationInbox: $navigationInbox,
             world: world
         )
     }
@@ -98,6 +122,7 @@ struct AtegalMainView: View {
             selection: $selection,
             navigationHome: $navigationHome,
             navigationPost: $navigationPost,
+            navigationInbox: $navigationInbox,
             world: world
         )
     }
@@ -122,7 +147,7 @@ struct AtegalMainView: View {
 // MARK: - ContentTab
 
 enum ContentTab: String, Hashable {
-    case home, whoWeAre, posts, profile
+    case home, whoWeAre, posts, profile, inbox
     
     var title: LocalizedStringKey {
         switch self {
@@ -130,6 +155,7 @@ enum ContentTab: String, Hashable {
         case .whoWeAre: "tab-who-we-are"
         case .posts: "tab-posts"
         case .profile: "tab-profile"
+        case .inbox: "inbox-title"
         }
     }
     
@@ -139,6 +165,7 @@ enum ContentTab: String, Hashable {
         case .whoWeAre: "info.circle"
         case .posts: "list.bullet"
         case .profile: "person.crop.circle"
+        case .inbox: "tray"
         }
     }
 }

@@ -118,14 +118,6 @@ struct TutorialStepView: View {
                 }
             }
             
-            if let screenshotName = step.screenshotName {
-                Image(ategal: screenshotName)
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.top, 16)
-                    .frame(maxHeight: step.maxScreenshotHeight)
-                    .accessibilityHidden(true)
-            }
         }
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity)
@@ -179,14 +171,7 @@ enum TutorialStep: Hashable {
     case socialLogin
     case permission
     case cities
-
-    var maxScreenshotHeight: CGFloat {
-        switch self {
-        case .socialLogin: 220
-        case .cities: 320
-        default: 280
-        }
-    }
+    case inbox
 
     var progressTitle: LocalizedStringKey {
         switch self {
@@ -194,6 +179,7 @@ enum TutorialStep: Hashable {
         case .socialLogin: "push-tutorial-progress-2"
         case .permission: "push-tutorial-progress-3"
         case .cities: "push-tutorial-progress-4"
+        case .inbox: "push-tutorial-progress-5"
         }
     }
 
@@ -203,6 +189,7 @@ enum TutorialStep: Hashable {
         case .socialLogin: "push-tutorial-social-title"
         case .permission: "push-tutorial-permission-title"
         case .cities: "push-tutorial-cities-title"
+        case .inbox: "push-tutorial-inbox-title"
         }
     }
 
@@ -238,25 +225,10 @@ enum TutorialStep: Hashable {
         case .cities: [
             .paragraph("push-tutorial-cities-message".localized)
         ]
+        case .inbox: [
+            .paragraph("push-tutorial-inbox-message".localized)
+        ]
         }
-    }
-
-    var screenshotName: String? {
-        #if canImport(Darwin)
-        switch self {
-        case .welcome: nil
-        case .socialLogin: "tutorial-login-iphone"
-        case .permission: "tutorial-permission-iphone"
-        case .cities: "tutorial-cities-iphone"
-        }
-        #else
-        switch self {
-        case .welcome: nil
-        case .socialLogin: "tutorial-login-android"
-        case .permission: "tutorial-permission-android"
-        case .cities: "tutorial-cities-iphone"
-        }
-        #endif
     }
 
     var symbol: String? {
@@ -265,6 +237,7 @@ enum TutorialStep: Hashable {
         case .socialLogin: "person.crop.circle"
         case .permission: "bell"
         case .cities: "checkmark.circle"
+        case .inbox: "tray"
         }
     }
 
@@ -273,7 +246,8 @@ enum TutorialStep: Hashable {
         case .welcome: .socialLogin
         case .socialLogin: .permission
         case .permission: .cities
-        case .cities: nil
+        case .cities: .inbox
+        case .inbox: nil
         }
     }
 }

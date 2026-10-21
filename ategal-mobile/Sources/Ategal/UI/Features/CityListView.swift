@@ -8,8 +8,7 @@ import RStudioKit
 
 struct CityListView: View {
     
-    @Binding
-    var navigationPath: [HomeRoute]
+    let onOpenCenter: (Center) -> Void
     
     let centers: [Center]
     
@@ -34,7 +33,7 @@ struct CityListView: View {
                 ContentList(
                     items: centers,
                     title: \.city,
-                    onTap: { navigationPath.append(.navigateToCategoryList($0)) }
+                    onTap: onOpenCenter
                 )
             }
             .padding(16)

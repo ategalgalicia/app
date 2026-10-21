@@ -22,7 +22,8 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
 
     private nonisolated(unsafe) let messaging: Messaging
     private nonisolated(unsafe) let notificationCenter = UNUserNotificationCenter.current()
-    private var deeplinkHandler: DeeplinkHandler?
+    private var notificationTapHandler: (() -> Void)?
+    private var hasPendingNotificationTap = false
 
     public private(set) var isPushAuthorized = false
     
@@ -32,7 +33,8 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
     #endif
     
     #if os(Android)
-    private static var pushPayloadHandler: ((String, String) -> Void)?
+    private static var pushTapHandler: (() -> Void)?
+    private static var hasPendingAndroidNotificationTap = false
     #endif
     
     public override init() {
@@ -46,24 +48,35 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
     /* SKIP @bridge */
     public static func create() -> PushManager {
         let manager = PushManager()
-        pushPayloadHandler = { [weak manager] activity, query in
-            manager?.receivePushPayload(activity, query: query)
+        pushTapHandler = { [weak manager] in
+            manager?.receiveNotificationTap()
+        }
+        if hasPendingAndroidNotificationTap {
+            hasPendingAndroidNotificationTap = false
+            manager.receiveNotificationTap()
         }
         return manager
     }
 
     /* SKIP @bridge */
-    public static func didReceivePushPayload(_ activity: String, query: String) {
-        // Bridge entry point invoked by Android's MainActivity.
+    public static func didTapNotification() {
         Task { @MainActor in
-            pushPayloadHandler?(activity, query)
+            if let pushTapHandler {
+                pushTapHandler()
+            } else {
+                hasPendingAndroidNotificationTap = true
+            }
         }
     }
 
     #endif
     
-    public func onReceiveDeeplink(_ handler: @escaping DeeplinkHandler) {
-        deeplinkHandler = handler
+    public func onNotificationTap(_ handler: @escaping () -> Void) {
+        notificationTapHandler = handler
+        if hasPendingNotificationTap {
+            hasPendingNotificationTap = false
+            handler()
+        }
     }
     
     @MainActor
@@ -148,15 +161,16 @@ public class PushManager: NSObject, @preconcurrency UNUserNotificationCenterDele
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
         _ = messaging.appDidReceiveMessage(userInfo)
-        guard let activity = userInfo["activity"] as? String, !activity.isEmpty else {
-            return
-        }
-        receivePushPayload(activity, query: userInfo["query"] as? String)
+        receiveNotificationTap()
     }
     #endif
     
-    private func receivePushPayload(_ activity: String, query: String?) {
-        deeplinkHandler?( DeeplinkPayload(activity: activity, query: query))
+    private func receiveNotificationTap() {
+        if let notificationTapHandler {
+            notificationTapHandler()
+        } else {
+            hasPendingNotificationTap = true
+        }
     }
     
     // MARK: - MessagingDelegate

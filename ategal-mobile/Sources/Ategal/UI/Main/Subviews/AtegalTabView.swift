@@ -14,6 +14,9 @@ struct AtegalTabView: View {
     
     @Binding
     var navigationPost: [PostRoute]
+
+    @Binding
+    var navigationInbox: [InboxRoute]
     
     let world: World
     
@@ -26,7 +29,7 @@ struct AtegalTabView: View {
                     switch tab {
                     case .home: navigationHome.removeAll()
                     case .posts: navigationPost.removeAll()
-                    case .whoWeAre, .profile:
+                    case .whoWeAre, .profile, .inbox:
                         break
                     }
                 }
@@ -56,15 +59,23 @@ struct AtegalTabView: View {
             .tabItem { label(for: .posts) }
             .tag(ContentTab.posts)
             
+            if world.authManager.userStatus == .logged {
+                InboxAsyncView(
+                    navigationPath: $navigationInbox,
+                    announcementManager: world.announcementManager,
+                    gistApiClient: world.gistApiClient,
+                    wpApiClient: world.wpApiClient
+                )
+                .tabItem { label(for: .inbox) }
+                .badge(world.announcementManager.unreadCount)
+                .tag(ContentTab.inbox)
+            }
+            
             ProfileView(
                 authManager: world.authManager,
                 pushManager: world.pushManager,
                 announcementManager: world.announcementManager,
-                gistApiClient: world.gistApiClient,
-                onOpenAnnouncement: { action in
-                    navigationHome = [.announcement(action)]
-                    selection = .home
-                }
+                gistApiClient: world.gistApiClient
             )
             .tabItem { label(for: .profile) }
             .tag(ContentTab.profile)

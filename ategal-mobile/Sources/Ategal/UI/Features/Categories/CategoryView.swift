@@ -8,8 +8,7 @@ import RStudioKit
 
 struct CategoryView: View {
     
-    @Binding
-    var navigationPath: [HomeRoute]
+    let onOpenActivity: (Center.Category.Activity, Center) -> Void
     
     let category: Center.Category
     let center: Center
@@ -35,9 +34,7 @@ struct CategoryView: View {
                     items: category.activities,
                     title: \.title,
                     onTap: {
-                        navigationPath.append(.navigateToActivity(
-                            activity: $0, center: center
-                        ))
+                        onOpenActivity($0, center)
                     }
                 )
                 resourceView
