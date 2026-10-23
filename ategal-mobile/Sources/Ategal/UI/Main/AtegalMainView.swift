@@ -165,7 +165,7 @@ enum ContentTab: String, Hashable {
         case .whoWeAre: "info.circle"
         case .posts: "list.bullet"
         case .profile: "person.crop.circle"
-        case .inbox: "tray"
+        case .inbox: "envelope"
         }
     }
 }

@@ -18,7 +18,7 @@ public struct Event: Identifiable, Sendable {
             let uid = block.extractValue(for: "UID"),
             let id = uid.components(separatedBy: "@").first,
             let summary = block.extractValue(for: "SUMMARY"),
-            let startRaw = block.extractValue(for: "DTSTART;TZID=Europe/Paris"),
+            let startRaw = block.extractValue(for: "DTSTART"),
             let startDate = DateFormatter.ategalCalendar.date(from: startRaw)
         else {
             return nil
@@ -44,11 +44,23 @@ extension String {
     
     fileprivate func extractValue(for key: String) -> String? {
         let text = self.replacingOccurrences(of: "\r\n", with: "\n")
-        guard let range = text.range(of: "\(key):") else { return nil }
-        let tail = text[range.upperBound...]
-        var lines = tail.split(separator: "\n", omittingEmptySubsequences: false).map(String.init)
-        guard !lines.isEmpty else { return nil }
-        var value = lines.removeFirst()
+        var lines = text.split(separator: "\n", omittingEmptySubsequences: false).map(String.init)
+        guard let index = lines.firstIndex(where: {
+            $0.hasPrefix("\(key):") || $0.hasPrefix("\(key);")
+        }) else {
+            return nil
+        }
+
+        let line = lines.remove(at: index)
+        guard let separator = line.firstIndex(of: ":") else { return nil }
+        var value = String(line[line.index(after: separator)...])
+
+        if index < lines.count {
+            lines = Array(lines[index...])
+        } else {
+            lines = []
+        }
+
         while let next = lines.first, next.first == " " || next.first == "\t" {
             value += next.dropFirst()
             lines.removeFirst()

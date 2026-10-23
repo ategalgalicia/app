@@ -69,36 +69,28 @@ struct TutorialStepView: View {
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .frame(maxWidth: .infinity, alignment: .trailing)
             
-            if let symbol = step.symbol {
-                Label {
-                    Text(step.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(ColorsPalette.textPrimary)
-                } icon: {
+            VStack(spacing: 16) {
+                if let symbol = step.symbol {
                     Image(systemName: symbol)
-                        .font(.largeTitle)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 72, height: 72)
                         .foregroundStyle(ColorsPalette.primary)
                         .accessibilityHidden(true)
-                }
-                .font(.title)
-                .multilineTextAlignment(.center)
-                .padding(.vertical, 16)
-            } else {
-                VStack(spacing: 16) {
+                } else {
                     Image(ategal: "logo-icon")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 72, height: 72)
                         .accessibilityHidden(true)
-
-                    Text(step.title)
-                        .font(.title.bold())
-                        .foregroundStyle(ColorsPalette.textPrimary)
-                        .multilineTextAlignment(.center)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
+                Text(step.title)
+                    .font(.title.bold())
+                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .multilineTextAlignment(.center)
             }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 16)
 
             ForEach(step.messageBlocks, id: \.self) { block in
                 switch block {
@@ -126,7 +118,7 @@ struct TutorialStepView: View {
     @ViewBuilder
     private func tutorialMessageText(_ text: String) -> some View {
         Text(LocalizedStringKey(text))
-            .font(.title3)
+            .font(.title2)
             .lineSpacing(4)
             .foregroundStyle(ColorsPalette.textSecondary)
             .multilineTextAlignment(.leading)
@@ -237,7 +229,7 @@ enum TutorialStep: Hashable {
         case .socialLogin: "person.crop.circle"
         case .permission: "bell"
         case .cities: "checkmark.circle"
-        case .inbox: "tray"
+        case .inbox: "envelope"
         }
     }
 

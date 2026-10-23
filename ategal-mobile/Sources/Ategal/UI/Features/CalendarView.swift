@@ -45,9 +45,9 @@ struct CalendarView: View {
     @ViewBuilder
     var contentView: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                activitiesView
+            VStack(alignment: .leading, spacing: 38) {
                 nextEventsView
+                activitiesView
             }
             .padding(.vertical, 16)
         }

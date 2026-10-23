@@ -122,10 +122,10 @@ struct InboxView: View {
 
     // MARK: - ViewBuilders
 
+    @ViewBuilder
     private func cell(_ item: InboxViewModel.Item) -> some View {
         let isUnread = viewModel.announcementManager.isUnread(item.id)
-
-        return HStack(alignment: .center, spacing: 12) {
+        HStack(alignment: .center, spacing: 8) {
             Circle()
                 .fill(ColorsPalette.primary)
                 .frame(width: 10, height: 10)
@@ -134,12 +134,11 @@ struct InboxView: View {
                 .accessibilityHidden(!isUnread)
 
             VStack(alignment: .leading, spacing: 8) {
-                HStack(alignment: .firstTextBaseline, spacing: 12) {
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
                     Text(item.topic.title)
 
-                    Spacer(minLength: 8)
-
                     Text(item.publishedAt.formatted(.dateTime.day().month(.abbreviated)))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 .font(.caption)
                 .foregroundStyle(ColorsPalette.textSecondary)
@@ -158,7 +157,8 @@ struct InboxView: View {
         .padding(.trailing, 32)
         .frame(maxWidth: .infinity, alignment: .leading)
         .chevronOverlay()
-        .padding(16)
+        .padding(.leading, 8)
+        .padding([.trailing, .vertical], 16)
         .ategalCornerBackground()
         .combinedAccessibility()
     }
