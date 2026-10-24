@@ -59,6 +59,7 @@ struct TutorialStepView: View {
         )
         .navigationBarTitleDisplayMode(.inline)
         .actionView { actionView }
+        .background(ColorsPalette.background)
     }
     
     @ViewBuilder

@@ -95,6 +95,7 @@ struct ProfileView: View {
             .frame(maxWidth: .infinity)
             .animation(.default, value: authManager.userStatus)
         }
+        .background(ColorsPalette.background)
     }
     
     @ViewBuilder
@@ -114,8 +115,8 @@ struct ProfileView: View {
                         .foregroundStyle(ColorsPalette.textTertiary)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 16)
-                        .ategalCornerPrimaryBackground()
                 }
+                .ategalCornerPrimaryBackground()
             }
         }
     }
@@ -173,14 +174,14 @@ struct ProfileView: View {
         Button {
             sheetType = .tutorial
         } label: {
-            Label("push-tutorial-profile-action", systemImage: "info.circle")
+            Label("push-tutorial-navigation-title", systemImage: "info.circle")
                 .font(.body.weight(.medium))
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
-                .ategalCornerBackground()
         }
         .buttonStyle(.plain)
+        .ategalCornerBackground()
     }
 
     @ViewBuilder
@@ -227,7 +228,7 @@ struct ProfileView: View {
                     toolbarIcon("info.circle")
                 }
                 .clipShape(Circle())
-                .accessibilityLabel(Text("push-tutorial-profile-action"))
+                .accessibilityLabel(Text("push-tutorial-navigation-title"))
 
                 Button {
                     presentLogoutConfirmation = true

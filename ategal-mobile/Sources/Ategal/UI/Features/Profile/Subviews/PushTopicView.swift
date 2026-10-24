@@ -24,10 +24,7 @@ struct PushTopicView: View {
     }
     
     var body: some View {
-        VStack(spacing: 8) {
-            generalTopicView
-            citiesView
-        }
+        generalTopicView
         .sheet(isPresented: $presentCitiesSheet) {
             citiesSheet
         }
@@ -37,20 +34,23 @@ struct PushTopicView: View {
     
     @ViewBuilder
     private var generalTopicView: some View {
-        HStack(spacing: 16) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("notification-general-title")
-                    .font(.headline.weight(.semibold))
-                    .foregroundStyle(ColorsPalette.textPrimary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading, spacing: 16) {
+            Text("notification-general-title")
+                .font(.headline.weight(.semibold))
+                .foregroundStyle(ColorsPalette.textPrimary)
+                .frame(maxWidth: .infinity, alignment: .leading)
 
-                Text("notification-general-subtitle")
-                    .font(.body)
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+            Text("notification-general-subtitle")
+                .font(.body)
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
 
-            CheckmarkView(isSelected: true, primaryColor: .gray)
+            Text("notification-general-centers-description")
+                .font(.body)
+                .foregroundStyle(ColorsPalette.textSecondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            citiesView
         }
         .padding(16)
         .ategalCornerBackground()
@@ -63,24 +63,13 @@ struct PushTopicView: View {
         Button {
             presentCitiesSheet = true
         } label: {
-            HStack(spacing: 16) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("notification-cities-title")
-                        .font(.headline.weight(.semibold))
-                        .foregroundStyle(ColorsPalette.textPrimary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                    Text("notification-cities-subtitle")
-                        .font(.body)
-                        .foregroundStyle(ColorsPalette.textSecondary)
-                        .padding(.trailing, 16)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-            }
-            .chevronOverlay()
-            .padding(16)
-            .ategalCornerBackground()
-            .combinedAccessibility()
+            Text("notification-cities-title")
+                .font(.body.weight(.medium))
+                .foregroundStyle(ColorsPalette.primary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .chevronOverlay()
+                .contentRectangleShape()
+                .combinedAccessibility()
         }
         .buttonStyle(.plain)
     }
@@ -136,25 +125,5 @@ struct PushTopicView: View {
             .toolbarWithDismissButton()
         }
         .tint(ColorsPalette.primary)
-    }
-
-}
-
-// MARK: - Extensions
-
-extension PushTopic {
-
-    var title: String {
-        switch self {
-        case .general: "General"
-        case .santiago: "Santiago de Compostela"
-        case .acoruna: "A Coruña"
-        case .ferrol: "Ferrol"
-        case .lalin: "Lalín"
-        case .monterroso: "Monterroso"
-        case .ourense: "Ourense"
-        case .padron: "Padrón"
-        case .vigo: "Vigo"
-        }
     }
 }

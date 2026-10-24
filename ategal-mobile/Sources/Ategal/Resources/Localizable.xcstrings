@@ -93,7 +93,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abrir calendario"
+            "value" : "Ver no calendario"
           }
         }
       }
@@ -177,16 +177,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Publicar este aviso?"
-          }
-        }
-      }
-    },
-    "announcement-destination-unavailable" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este destino xa non está dispoñible."
           }
         }
       }
@@ -528,7 +518,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Que queres facer?"
+            "value" : "Escolle unha categoría"
           }
         }
       }
@@ -781,7 +771,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Queres recibir información personalizada do teu centro?"
+            "value" : "Selecciona un ou varios centros para recibir os seus avisos e actividades específicas."
           }
         }
       }
@@ -792,7 +782,18 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cidades"
+            "value" : "Seleccionar centros"
+          }
+        }
+      }
+    },
+    "notification-general-centers-description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamén podes recibir avisos e actividades dos centros que che interesen."
           }
         }
       }
@@ -803,7 +804,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Novidades para toda a comunidade Ategal"
+            "value" : "Recibirás novidades e avisos útiles para estar ao día de todo o que acontece na asociación."
           }
         }
       }
@@ -814,7 +815,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Información xeral"
+            "value" : "Tes activadas as notificacións xerais de Ategal"
           }
         }
       }
@@ -978,16 +979,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permite os avisos"
-          }
-        }
-      }
-    },
-    "push-tutorial-profile-action" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Guía de acceso e avisos"
           }
         }
       }

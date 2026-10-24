@@ -87,6 +87,7 @@ struct AuthView: View {
             }
             .padding(.horizontal, 16)
         }
+        .background(ColorsPalette.background)
     }
     
     @ViewBuilder

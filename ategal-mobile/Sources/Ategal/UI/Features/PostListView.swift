@@ -74,6 +74,7 @@ struct PostListView: View {
                 .padding([.horizontal, .bottom], 16)
                 .combinedAccessibility()
             }
+            .background(ColorsPalette.background)
         }
     }
     

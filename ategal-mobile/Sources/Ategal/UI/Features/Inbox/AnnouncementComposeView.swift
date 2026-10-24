@@ -25,72 +25,58 @@ struct AnnouncementComposeView: View {
     
     @State
     var actionKind: ActionKind = .none
+    enum ActionKind: String, CaseIterable, Identifiable {
+        case none, activity, calendar
+        var id: String { rawValue }
+    }
     
     @State
-    var selectedActivity: AnnouncementActivityPickerViewModel.Item?
+    var selectedActivity: SelectedActivity?
+    struct SelectedActivity {
+        let activity: Center.Category.Activity
+        let center: Center
+    }
     
     @State
     var calendarDate = Date()
     
     @State
-    var presentActivityPicker = false
-    
-    enum ActionKind: String, CaseIterable, Identifiable {
-        case none, activity, calendar
-        var id: String { rawValue }
-        
-        var title: LocalizedStringKey {
-            switch self {
-            case .none: "announcement-action-none"
-            case .activity: "announcement-action-activity"
-            case .calendar: "announcement-action-calendar"
-            }
-        }
+    var navigationPath: [Route] = []
+    enum Route: Hashable {
+        case activityPicker
     }
     
     let manager: AnnouncementManager
-    let gistApiClient: GistAPIClient
-    
-    private var isValid: Bool {
-        AnnouncementRequest.areFieldsValid(title: title, body: message)
-        && (actionKind != .activity || selectedActivity != nil)
-    }
-    
-    private var announcementAction: Announcement.Action? {
-        switch actionKind {
-        case .none:
-            return nil
-        case .activity:
-            guard let selectedActivity else { return nil }
-            return .activity(
-                title: selectedActivity.activity.title,
-                centerID: selectedActivity.center.id
-            )
-        case .calendar:
-            return .calendar(day: Announcement.Action.calendarDay(from: calendarDate))
-        }
-    }
+    let centers: [Center]
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navigationPath) {
             contentView
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .navigationTitle("announcement-compose-title")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbarWithDismissButton()
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .activityPicker:
+                        SearchListView(
+                            source: .allActivities,
+                            centers: activityCenters,
+                            onOpenActivity: { activity, center in
+                                selectedActivity = .init(
+                                    activity: activity,
+                                    center: center
+                                )
+                                navigationPath.removeLast()
+                            }
+                        )
+                    }
+                }
         }
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .onChange(of: topic) { _, _ in
             selectedActivity = nil
-        }
-        .sheet(isPresented: $presentActivityPicker) {
-            AnnouncementActivityPickerAsyncView(
-                apiClient: gistApiClient,
-                topic: topic
-            ) {
-                selectedActivity = $0
-            }
         }
     }
     
@@ -176,7 +162,7 @@ struct AnnouncementComposeView: View {
             EmptyView()
         case .activity:
             Button {
-                presentActivityPicker = true
+                navigationPath.append(.activityPicker)
             } label: {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("announcement-select-activity")
@@ -209,6 +195,45 @@ struct AnnouncementComposeView: View {
             #endif
             .padding(16)
             .ategalCornerBackground()
+        }
+    }
+    
+    private var activityCenters: [Center] {
+        topic == .general
+            ? centers
+            : centers.filter { $0.city == topic.title }
+    }
+    
+    private var isValid: Bool {
+        AnnouncementRequest.areFieldsValid(title: title, body: message)
+        && (actionKind != .activity || selectedActivity != nil)
+    }
+    
+    private var announcementAction: Announcement.Action? {
+        switch actionKind {
+        case .none:
+            return nil
+        case .activity:
+            guard let selectedActivity else { return nil }
+            return .activity(
+                title: selectedActivity.activity.title,
+                centerID: selectedActivity.center.id
+            )
+        case .calendar:
+            return .calendar(day: Announcement.Action.calendarDay(from: calendarDate))
+        }
+    }
+}
+
+// MARK: - Extensions
+
+private extension AnnouncementComposeView.ActionKind {
+    
+    var title: LocalizedStringKey {
+        switch self {
+        case .none: "announcement-action-none"
+        case .activity: "announcement-action-activity"
+        case .calendar: "announcement-action-calendar"
         }
     }
 }

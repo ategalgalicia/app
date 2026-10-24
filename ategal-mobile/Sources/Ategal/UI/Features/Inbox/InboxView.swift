@@ -38,7 +38,6 @@ struct InboxView: View {
     @Bindable
     var viewModel: InboxViewModel
 
-    let gistApiClient: GistAPIClient
     let wpApiClient: WPAPIClient
 
     @Binding
@@ -68,6 +67,7 @@ struct InboxView: View {
                 }
             }
         }
+        .background(ColorsPalette.background)
         .navigationTitle("inbox-title")
         .navigationBarTitleDisplayMode(.inline)
         .tint(ColorsPalette.primary)
@@ -78,7 +78,7 @@ struct InboxView: View {
         .sheet(isPresented: $presentComposer) {
             AnnouncementComposeView(
                 manager: viewModel.announcementManager,
-                gistApiClient: gistApiClient
+                centers: viewModel.centers
             )
         }
     }
@@ -200,7 +200,6 @@ struct InboxAsyncView: View {
             } content: {
                 InboxView(
                     viewModel: $0,
-                    gistApiClient: gistApiClient,
                     wpApiClient: wpApiClient,
                     navigationPath: $navigationPath
                 )

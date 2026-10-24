@@ -56,6 +56,7 @@ struct WhoWeAreView: View {
             }
             .padding([.horizontal, .bottom], 16)
         }
+        .background(ColorsPalette.background)
         .sheet(item: $selectedCenter) { selectedCenter in
             cityView(center: selectedCenter)
         }
