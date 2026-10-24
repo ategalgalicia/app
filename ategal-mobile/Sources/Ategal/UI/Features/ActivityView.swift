@@ -18,11 +18,9 @@ struct ActivityView: View {
         contentView
             .background(ColorsPalette.background)
             .tint(ColorsPalette.primary)
-            .navigationTitle("ategal-title")
             .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $presentigSheet) {
-                sheetView
-            }
+            .toolbar(.hidden, for: .tabBar)
+            .sheet(isPresented: $presentigSheet) { sheetView }
     }
 
     @ViewBuilder
@@ -34,7 +32,7 @@ struct ActivityView: View {
                 actionView
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 16)
+            .padding(16)
         }
     }
 
@@ -112,19 +110,14 @@ struct ActivityView: View {
     private var sheetView: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 16) {
-                    Text("activity-action-subtitle")
-                        .primaryTitle()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                    LinkView(
-                        phoneNumbers: center.phone,
-                        email: center.email
-                    )
-                }
+                LinkView(
+                    phoneNumbers: center.phone,
+                    email: center.email
+                )
                 .padding(.horizontal, 16)
             }
             .background(ColorsPalette.background)
+            .navigationTitle(String(format: "activity-signup-title".localized, activity.title))
             .navigationBarTitleDisplayMode(.inline)
             .interactiveDismissDisabled()
             .presentationDetents([.medium])

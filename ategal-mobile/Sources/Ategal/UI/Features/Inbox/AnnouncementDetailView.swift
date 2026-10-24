@@ -33,8 +33,11 @@ struct AnnouncementDetailView: View {
                     .accessibilityHeading(.h1)
                 
                 Text(item.topic.title)
-                    .font(.subheadline)
-                    .foregroundStyle(ColorsPalette.textSecondary)
+                    .font(.caption)
+                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .cornerBackground(ColorsPalette.backgroundSecondary, radius: 100)
                 
                 Text(item.publishedAt.formatted())
                     .font(.subheadline)

@@ -25,16 +25,6 @@
         }
       }
     },
-    "activity-action-subtitle" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se queres participar nun curso, podes chamarnos ou escribirnos. Estaremos encantados de axudarche coa inscrición."
-          }
-        }
-      }
-    },
     "activity-schedule" : {
       "localizations" : {
         "gl-ES" : {
@@ -45,13 +35,24 @@
         }
       }
     },
+    "activity-signup-title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inscríbete en %@"
+          }
+        }
+      }
+    },
     "add-event-calendar-action" : {
       "extractionState" : "manual",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Engadir ao calendario"
+            "value" : "Engadir ao meu calendario"
           }
         }
       }
@@ -118,17 +119,6 @@
         }
       }
     },
-    "announcement-activities-empty" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Non se atoparon actividades"
-          }
-        }
-      }
-    },
     "announcement-body-label" : {
       "localizations" : {
         "gl-ES" : {
@@ -159,50 +149,6 @@
         }
       }
     },
-    "announcement-confirm-message" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O aviso estará dispoñible para todas as persoas usuarias que inicien sesión."
-          }
-        }
-      }
-    },
-    "announcement-confirm-title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Publicar este aviso?"
-          }
-        }
-      }
-    },
-    "announcement-error-message" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Non se puido confirmar a publicación. Revisa a conexión e os permisos da túa conta. O texto consérvase para volver intentalo."
-          }
-        }
-      }
-    },
-    "announcement-error-title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erro ao publicar"
-          }
-        }
-      }
-    },
     "announcement-limits" : {
       "localizations" : {
         "gl-ES" : {
@@ -223,34 +169,12 @@
         }
       }
     },
-    "announcement-saving" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gardando…"
-          }
-        }
-      }
-    },
     "announcement-select-activity" : {
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seleccionar actividade"
-          }
-        }
-      }
-    },
-    "announcement-success" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aviso publicado"
           }
         }
       }
@@ -765,17 +689,6 @@
         }
       }
     },
-    "notification-cities-subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Selecciona un ou varios centros para recibir os seus avisos e actividades específicas."
-          }
-        }
-      }
-    },
     "notification-cities-title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -868,7 +781,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inicia sesión para recibir información personalizada do teu centro."
+            "value" : "Accede ao teu perfil para escoller os centros que che interesan e recibir os seus avisos e actividades."
           }
         }
       }
@@ -1200,17 +1113,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quen somos"
-          }
-        }
-      }
-    },
-    "who-we-are-contact" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Como contactar con nós"
           }
         }
       }

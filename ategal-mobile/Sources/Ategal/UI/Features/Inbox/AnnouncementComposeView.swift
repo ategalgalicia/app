@@ -86,24 +86,24 @@ struct AnnouncementComposeView: View {
     private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text("announcement-topic-label")
+                Text("announcement-topic-label".localized)
                     .font(.headline)
                 
-                Picker("announcement-topic-label", selection: $topic) {
+                Picker("announcement-topic-label".localized, selection: $topic) {
                     ForEach(PushTopic.allCases) { topic in
                         Text(topic.title).tag(topic)
                     }
                 }
                 .ategalCornerBackground()
                 
-                Text("announcement-title-label")
+                Text("announcement-title-label".localized)
                     .font(.headline)
                 
-                TextField("announcement-title-label", text: $title)
+                TextField("announcement-title-label".localized, text: $title)
                     .padding(16)
                     .ategalCornerBackground()
                 
-                Text("announcement-body-label")
+                Text("announcement-body-label".localized)
                     .font(.headline)
                 
                 TextEditor(text: $message)
@@ -115,7 +115,7 @@ struct AnnouncementComposeView: View {
                 
                 actionFields
                 
-                Text("announcement-limits")
+                Text("announcement-limits".localized)
                     .font(.footnote)
                     .foregroundStyle(ColorsPalette.textSecondary)
             }
@@ -133,7 +133,7 @@ struct AnnouncementComposeView: View {
                 try await manager.publish(request)
                 dismiss()
             } label: {
-                Text("announcement-publish")
+                Text("announcement-publish".localized)
                     .font(.headline)
                     .foregroundStyle(ColorsPalette.textTertiary)
                     .frame(maxWidth: .infinity)
@@ -147,10 +147,10 @@ struct AnnouncementComposeView: View {
     
     @ViewBuilder
     private var actionFields: some View {
-        Text("announcement-action-label")
+        Text("announcement-action-label".localized)
             .font(.headline)
         
-        Picker("announcement-action-label", selection: $actionKind) {
+        Picker("announcement-action-label".localized, selection: $actionKind) {
             ForEach(ActionKind.allCases) { kind in
                 Text(kind.title).tag(kind)
             }
@@ -165,7 +165,7 @@ struct AnnouncementComposeView: View {
                 navigationPath.append(.activityPicker)
             } label: {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("announcement-select-activity")
+                    Text("announcement-select-activity".localized)
                         .font(.headline)
                     
                     if let selectedActivity {
@@ -186,7 +186,7 @@ struct AnnouncementComposeView: View {
             .buttonStyle(.plain)
         case .calendar:
             DatePicker(
-                "announcement-calendar-day",
+                "announcement-calendar-day".localized,
                 selection: $calendarDate,
                 displayedComponents: .date
             )
@@ -229,11 +229,11 @@ struct AnnouncementComposeView: View {
 
 private extension AnnouncementComposeView.ActionKind {
     
-    var title: LocalizedStringKey {
+    var title: String {
         switch self {
-        case .none: "announcement-action-none"
-        case .activity: "announcement-action-activity"
-        case .calendar: "announcement-action-calendar"
+        case .none: "announcement-action-none".localized
+        case .activity: "announcement-action-activity".localized
+        case .calendar: "announcement-action-calendar".localized
         }
     }
 }

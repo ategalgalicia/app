@@ -79,12 +79,6 @@ struct PushTopicView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
-                    Text("notification-cities-subtitle")
-                        .font(.body)
-                        .foregroundStyle(ColorsPalette.textSecondary)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
                     VStack(spacing: 4) {
                         ForEach(PushTopic.allCases.filter { $0 != .general } ) { topic in
                             let isSelected = selectedPushTopics.contains(topic)
@@ -121,7 +115,7 @@ struct PushTopicView: View {
             .navigationTitle("notification-cities-title".localized)
             .navigationBarTitleDisplayMode(.inline)
             .interactiveDismissDisabled()
-            .presentationDetents([.medium])
+            .presentationDetents([.medium, .large])
             .toolbarWithDismissButton()
         }
         .tint(ColorsPalette.primary)

@@ -69,19 +69,18 @@ struct HomeView: View {
             }
             .padding(.horizontal, 16)
         }
-        .background(ColorsPalette.background)
     }
     
     @ViewBuilder
     private var questionView: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("home-question-title")
+            Text("home-question-title".localized)
                 .font(.largeTitle.bold())
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .multilineTextAlignment(.leading)
                 .accessibilityAddTraits(.isHeader)
             
-            Text("home-question-subtitle")
+            Text("home-question-subtitle".localized)
                 .primaryTitle()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -92,8 +91,8 @@ struct HomeView: View {
     private var actionView: some View {
         VStack(alignment: .leading, spacing: 0) {
             itemView(
-                title: "home-calendar-title",
-                subtitle: "home-calendar-subtitle",
+                title: "home-calendar-title".localized,
+                subtitle: "home-calendar-subtitle".localized,
                 image: "calendar",
                 color: .red,
                 onTap: {
@@ -106,8 +105,8 @@ struct HomeView: View {
                 .accessibilityHidden(true)
 
             itemView(
-                title: "home-center-title",
-                subtitle: "home-center-subtitle",
+                title: "home-center-title".localized,
+                subtitle: "home-center-subtitle".localized,
                 image: "mappin.circle.fill",
                 color: .mint,
                 onTap: {
@@ -119,8 +118,8 @@ struct HomeView: View {
                 .accessibilityHidden(true)
 
             itemView(
-                title: "home-activity-title",
-                subtitle: "home-activity-subtitle",
+                title: "home-activity-title".localized,
+                subtitle: "home-activity-subtitle".localized,
                 image: "list.bullet",
                 color: .indigo,
                 onTap: { navigationPath.append(.navigateToSearch(
@@ -132,8 +131,8 @@ struct HomeView: View {
                 .accessibilityHidden(true)
 
             itemView(
-                title: "home-resource-title",
-                subtitle: "home-resource-subtitle",
+                title: "home-resource-title".localized,
+                subtitle: "home-resource-subtitle".localized,
                 image: "info.circle",
                 color: .orange,
                 onTap: {
@@ -148,8 +147,8 @@ struct HomeView: View {
     
     @ViewBuilder
     private func itemView(
-        title: LocalizedStringKey,
-        subtitle: LocalizedStringKey,
+        title: String,
+        subtitle: String,
         image: String,
         color: Color,
         onTap: @escaping ActionHandler
@@ -292,7 +291,8 @@ struct HomeAsyncView: View {
                     appVersion: appVersion
                 )
             }
-            .navigationTitle("ategal-title")
+            .background(ColorsPalette.background)
+            .navigationTitle("ategal-title".localized)
             .navigationBarTitleDisplayMode(.inline)
         }
         .background(ColorsPalette.background)

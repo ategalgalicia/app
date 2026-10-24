@@ -103,9 +103,10 @@ struct ProfileView: View {
         if !authManager.isLogged {
             VStack(spacing: 16) {
                 Text("profile-sign-in-subtitle")
-                    .font(.body)
+                    .font(.headline.weight(.semibold))
                     .foregroundStyle(ColorsPalette.textSecondary)
-                    .multilineTextAlignment(.center)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Button {
                     sheetType = .auth

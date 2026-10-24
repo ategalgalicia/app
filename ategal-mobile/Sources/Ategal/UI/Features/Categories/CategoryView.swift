@@ -19,6 +19,7 @@ struct CategoryView: View {
             .tint(ColorsPalette.primary)
             .navigationTitle(category.title)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.hidden, for: .tabBar)
     }
     
     // MARK: - ViewBuilders

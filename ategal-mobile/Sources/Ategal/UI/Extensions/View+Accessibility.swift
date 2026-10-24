@@ -7,7 +7,7 @@ import SwiftUI
 extension View {
     
     @ViewBuilder
-    func accessibility(label: LocalizedStringKey, hint: LocalizedStringKey? = nil) -> some View {
+    func accessibility(label: String, hint: String? = nil) -> some View {
         #if canImport(Darwin)
         if let hint = hint {
             self.accessibilityLabel(label)

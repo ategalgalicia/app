@@ -67,10 +67,8 @@ struct InboxView: View {
                 }
             }
         }
-        .background(ColorsPalette.background)
         .navigationTitle("inbox-title")
         .navigationBarTitleDisplayMode(.inline)
-        .tint(ColorsPalette.primary)
         .toolbar { toolbarContent }
         .navigationDestination(for: InboxRoute.self) {
             destinationView($0)
@@ -134,6 +132,11 @@ struct InboxView: View {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
                     Text(item.topic.title)
+                        .font(.caption)
+                        .foregroundStyle(ColorsPalette.textPrimary)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .cornerBackground(ColorsPalette.backgroundSecondary, radius: 100)
 
                     Text(item.publishedAt.formatted(.dateTime.day().month(.abbreviated)))
                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -204,9 +207,12 @@ struct InboxAsyncView: View {
                     navigationPath: $navigationPath
                 )
             }
+            .background(ColorsPalette.background)
         }
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
         .accessibilityHeading(.h1)
     }
 }

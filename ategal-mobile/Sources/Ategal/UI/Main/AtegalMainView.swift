@@ -149,13 +149,13 @@ struct AtegalMainView: View {
 enum ContentTab: String, Hashable {
     case home, whoWeAre, posts, profile, inbox
     
-    var title: LocalizedStringKey {
+    var title: String {
         switch self {
-        case .home: "tab-home"
-        case .whoWeAre: "tab-who-we-are"
-        case .posts: "tab-posts"
-        case .profile: "tab-profile"
-        case .inbox: "inbox-title"
+        case .home: "tab-home".localized
+        case .whoWeAre: "tab-who-we-are".localized
+        case .posts: "tab-posts".localized
+        case .profile: "tab-profile".localized
+        case .inbox: "inbox-title".localized
         }
     }
     

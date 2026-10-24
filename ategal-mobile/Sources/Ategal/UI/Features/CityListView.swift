@@ -18,6 +18,7 @@ struct CityListView: View {
             .tint(ColorsPalette.primary)
             .navigationTitle("city-list-title")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.hidden, for: .tabBar)
     }
     
     @ViewBuilder

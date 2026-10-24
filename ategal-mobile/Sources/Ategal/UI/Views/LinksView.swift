@@ -61,18 +61,25 @@ struct MapLinkButton: View {
     
     @State
     var showDirectionsDialog = false
+
+    private var directionsLabel: some View {
+        Text("map-directions-action".localized)
+            .font(.body.weight(.medium))
+            .foregroundStyle(ColorsPalette.textPrimary)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .chevronOverlay()
+            .contentRectangleShape()
+            .padding(.horizontal, 16)
+            .padding(.vertical, 16)
+            .ategalCornerBackground()
+    }
     
     var body: some View {
         #if canImport(Darwin)
         Button {
             showDirectionsDialog = true
         } label: {
-            CTAButton(
-                title: "map-directions-action".localized,
-                kind: .icon("mappin.circle.fill")
-            )
-                .ategalCornerBackground()
-                .ategalCornerBorder()
+            directionsLabel
         }
         .confirmationDialog(
             Text(verbatim: ""), isPresented: $showDirectionsDialog, titleVisibility: .hidden
@@ -91,11 +98,9 @@ struct MapLinkButton: View {
         }
         #else
         if let url = LinkHelper.shared.androidMapsURL(for: address) {
-            LinkButton(
-                title: "map-directions-action".localized,
-                kind: .icon("mappin.circle.fill"),
-                url: url
-            )
+            Link(destination: url) {
+                directionsLabel
+            }
         }
         #endif
     }

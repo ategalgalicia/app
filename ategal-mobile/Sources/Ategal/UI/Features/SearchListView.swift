@@ -80,6 +80,7 @@ struct SearchListView: View {
     var body: some View {
         contentView
             .scrollDismissesKeyboard(.immediately)
+            .toolbar(.hidden, for: .tabBar)
             .background(ColorsPalette.background)
             .navigationTitle(source.title)
             .navigationBarTitleDisplayMode(.inline)

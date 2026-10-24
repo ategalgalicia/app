@@ -1,5 +1,5 @@
 {
-  "originHash" : "c6426d25a52383c338dbf10347eeeffdbcdd4d5ef368d562da62306cff267475",
+  "originHash" : "ed1c083527e6b5003398c94594374dd9ee322983a8099b13b169917317449b9e",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -150,8 +150,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip.git",
       "state" : {
-        "revision" : "2d1573ab56761bc334272d8ef4f16566c49970d8",
-        "version" : "1.9.16"
+        "revision" : "5693198fd045a8ba1abf3e18405584ec3184fd0c",
+        "version" : "1.9.19"
       }
     },
     {

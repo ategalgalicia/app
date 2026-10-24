@@ -36,14 +36,6 @@ struct CalendarView: View {
     var notification: InAppNotificationEvent?
     
     var body: some View {
-        contentView
-            .showInAppNotification($notification)
-    }
-    
-    // MARK: - ViewBuilders
-    
-    @ViewBuilder
-    var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 38) {
                 nextEventsView
@@ -51,7 +43,15 @@ struct CalendarView: View {
             }
             .padding(.vertical, 16)
         }
+        .toolbar(.hidden, for: .tabBar)
+        .showInAppNotification($notification)
+        .background(ColorsPalette.background)
+        .tint(ColorsPalette.primary)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
     }
+    
+    // MARK: - ViewBuilders
     
     @ViewBuilder
     private var activitiesView: some View {
@@ -168,15 +168,15 @@ struct CalendarView: View {
         AsyncButton {
             if await LinkHelper.shared.addToAppleCalendar(event: event) {
                 notification = .message(
-                    String(localized: "add-event-calendar-title"),
-                    message: String(localized: "add-event-calendar-subtitle"),
+                    "add-event-calendar-title".localized,
+                    message: "add-event-calendar-subtitle".localized,
                     icon: Image(systemName: "checkmark.circle.fill"),
                     backgroundColor: ColorsPalette.primary
                 )
             } else {
                 notification = .error(
-                    String(localized: "error"),
-                    message: String(localized: "error-message")
+                    "error".localized,
+                    message: "error-message".localized
                 )
             }
         } label: {

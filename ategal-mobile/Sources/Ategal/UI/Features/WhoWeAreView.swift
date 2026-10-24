@@ -35,28 +35,27 @@ struct WhoWeAreView: View {
                 headerView
                 
                 section(
-                    title: "who-we-are-what-we-do",
+                    title: "who-we-are-what-we-do".localized,
                     content: {
                         VStack(alignment: .leading, spacing: 16) {
-                            subtitleView("who-we-are-what-we-do-description")
+                            subtitleView("who-we-are-what-we-do-description".localized)
                             webButton
                         }
                     }
                 )
                 
                 section(
-                    title: "who-we-are-where",
+                    title: "who-we-are-where".localized,
                     content: {
                         VStack(alignment: .leading, spacing: 24) {
                             centersView
-                            subtitleView("who-we-are-contact-description")
+                            subtitleView("who-we-are-contact-description".localized)
                         }
                     }
                 )
             }
             .padding([.horizontal, .bottom], 16)
         }
-        .background(ColorsPalette.background)
         .sheet(item: $selectedCenter) { selectedCenter in
             cityView(center: selectedCenter)
         }
@@ -67,14 +66,14 @@ struct WhoWeAreView: View {
     @ViewBuilder
     private var headerView: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("ategal-title")
+            Text("ategal-title".localized)
                 .font(.title2.weight(.semibold))
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .multilineTextAlignment(.leading)
                 .accessibilityHeading(.h1)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text("who-we-are-description")
+            Text("who-we-are-description".localized)
                 .font(.body.weight(.regular))
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .multilineTextAlignment(.leading)
@@ -86,7 +85,7 @@ struct WhoWeAreView: View {
     
     @ViewBuilder
     private func section<Content: View>(
-        title: LocalizedStringKey,
+        title: String,
         @ViewBuilder content: () -> Content
     ) -> some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -104,7 +103,7 @@ struct WhoWeAreView: View {
     @ViewBuilder
     private var centersView: some View {
         VStack(alignment: .leading, spacing: 16) {
-            subtitleView("who-we-are-where-description")
+            subtitleView("who-we-are-where-description".localized)
             
             VStack(spacing: 8) {
                 ForEach(centers) { center in
@@ -114,7 +113,7 @@ struct WhoWeAreView: View {
                         HStack(alignment: .center, spacing: 8) {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(center.city)
-                                    .font(.title3.weight(.semibold))
+                                    .font(.headline.weight(.semibold))
                                     .foregroundColor(ColorsPalette.textPrimary)
                                     .multilineTextAlignment(.leading)
                                 
@@ -123,7 +122,7 @@ struct WhoWeAreView: View {
                                     .foregroundColor(ColorsPalette.textSecondary)
                                     .multilineTextAlignment(.leading)
                             }
-                            Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             
                             Image(systemName: "arrow.forward.square")
                                 .accessibilityHidden(true)
@@ -135,7 +134,8 @@ struct WhoWeAreView: View {
                                 .padding(.vertical, 8)
                                 .ategalCornerPrimaryBackground()
                         }
-                        .padding(16)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
                     }
                     .ategalCornerBackground()
                 }
@@ -144,7 +144,7 @@ struct WhoWeAreView: View {
     }
     
     @ViewBuilder
-    private func subtitleView(_ txt: LocalizedStringKey) -> some View {
+    private func subtitleView(_ txt: String) -> some View {
         Text(txt)
             .font(.body.weight(.regular))
             .foregroundStyle(ColorsPalette.textSecondary)
@@ -157,7 +157,7 @@ struct WhoWeAreView: View {
     private var webButton: some View {
         Link(destination: URL(string: "https://www.ategal.com")!) {
             HStack(alignment: .center, spacing: 8) {
-                Text("who-we-are-what-we-do-action")
+                Text("who-we-are-what-we-do-action".localized)
                     .font(.body)
                     .fontWeight(.medium)
                     .foregroundStyle(ColorsPalette.textPrimary)
@@ -228,7 +228,8 @@ struct WhoWeAreAsyncView: View {
             } content: {
                 WhoWeAreView(centers: $0)
             }
-            .navigationTitle("tab-who-we-are")
+            .background(ColorsPalette.background)
+            .navigationTitle("tab-who-we-are".localized)
             .navigationBarTitleDisplayMode(.inline)
         }
         .background(ColorsPalette.background)
