@@ -51,7 +51,6 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             contentView
-                .background(ColorsPalette.background)
                 .navigationTitle("tab-profile")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar { toolbarContent }
@@ -70,6 +69,7 @@ struct ProfileView: View {
                     Text("auth-logout-confirmation-message")
                 }
         }
+        .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
     }
     
@@ -78,7 +78,7 @@ struct ProfileView: View {
     @ViewBuilder
     private var contentView: some View {
         ScrollView {
-            VStack(spacing: 16) {
+            VStack(spacing: 24) {
                 Image(systemName: "person.crop.circle")
                     .font(.system(size: 72))
                     .foregroundStyle(ColorsPalette.primary)
@@ -91,7 +91,7 @@ struct ProfileView: View {
                     tutorialButton
                 }
             }
-            .padding(16)
+            .padding(.horizontal, 16)
             .frame(maxWidth: .infinity)
             .animation(.default, value: authManager.userStatus)
         }
@@ -110,7 +110,7 @@ struct ProfileView: View {
                     sheetType = .auth
                 } label: {
                     Text("auth-login-action")
-                        .font(.headline)
+                        .font(.body.weight(.medium))
                         .foregroundStyle(ColorsPalette.textTertiary)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 16)
@@ -132,8 +132,9 @@ struct ProfileView: View {
                         Text(lastName)
                     }
                 }
-                .font(.title2.bold())
+                .font(.title2.weight(.semibold))
                 .foregroundStyle(ColorsPalette.textPrimary)
+                .accessibilityHeading(.h1)
 
                 if let email = user.email {
                     Label(email, systemImage: "envelope")
@@ -157,9 +158,13 @@ struct ProfileView: View {
                     )
                 } else {
                     Text("notification-permission-subtitle")
+                        .font(.body)
+                        .foregroundStyle(ColorsPalette.textSecondary)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
                 }
             }
-            .padding(.vertical, 16)
+            .padding(.vertical, 8)
         }
     }
 
@@ -169,7 +174,7 @@ struct ProfileView: View {
             sheetType = .tutorial
         } label: {
             Label("push-tutorial-profile-action", systemImage: "info.circle")
-                .font(.headline)
+                .font(.body.weight(.medium))
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)

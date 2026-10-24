@@ -40,12 +40,12 @@ struct PushTopicView: View {
         HStack(spacing: 16) {
             VStack(alignment: .leading, spacing: 4) {
                 Text("notification-general-title")
-                    .font(.headline)
+                    .font(.headline.weight(.semibold))
                     .foregroundStyle(ColorsPalette.textPrimary)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 Text("notification-general-subtitle")
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundStyle(ColorsPalette.textSecondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -66,12 +66,12 @@ struct PushTopicView: View {
             HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("notification-cities-title")
-                        .font(.headline)
+                        .font(.headline.weight(.semibold))
                         .foregroundStyle(ColorsPalette.textPrimary)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     Text("notification-cities-subtitle")
-                        .font(.subheadline)
+                        .font(.body)
                         .foregroundStyle(ColorsPalette.textSecondary)
                         .padding(.trailing, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -93,13 +93,15 @@ struct PushTopicView: View {
                     Text("notification-cities-subtitle")
                         .font(.body)
                         .foregroundStyle(ColorsPalette.textSecondary)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
                     VStack(spacing: 4) {
                         ForEach(PushTopic.allCases.filter { $0 != .general } ) { topic in
                             let isSelected = selectedPushTopics.contains(topic)
                             HStack(spacing: 16) {
                                 Text(topic.title)
-                                    .font(.headline)
+                                    .font(.headline.weight(.semibold))
                                     .foregroundStyle(ColorsPalette.textPrimary)
                                     .frame(maxWidth: .infinity, alignment: .leading)
 

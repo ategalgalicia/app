@@ -49,8 +49,9 @@ struct ToolbarWithDismissButton: ViewModifier {
 struct PrimaryTitleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.title2)
-            .fontWeight(.medium)
+            .font(.title2.weight(.semibold))
             .foregroundStyle(ColorsPalette.textPrimary)
+            .multilineTextAlignment(.leading)
+            .accessibilityHeading(.h2)
     }
 }

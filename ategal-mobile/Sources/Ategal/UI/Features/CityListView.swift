@@ -25,10 +25,7 @@ struct CityListView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 Text("city-list-subtitle")
-                    .font(.title2.bold())
-                    .foregroundStyle(ColorsPalette.textPrimary)
-                    .multilineTextAlignment(.leading)
-                    .accessibilityHeading(.h1)
+                    .primaryTitle()
                     
                 ContentList(
                     items: centers,
@@ -36,7 +33,7 @@ struct CityListView: View {
                     onTap: onOpenCenter
                 )
             }
-            .padding(16)
+            .padding(.horizontal, 16)
         }
     }
 }

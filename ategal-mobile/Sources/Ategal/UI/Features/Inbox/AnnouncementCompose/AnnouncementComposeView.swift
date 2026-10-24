@@ -7,38 +7,38 @@ import AtegalCore
 import RStudioKit
 
 struct AnnouncementComposeView: View {
-
+    
     @Environment(\.dismiss)
     var dismiss
-
+    
     @State
     var title = ""
-
+    
     @State
     var message = ""
-
+    
     @State
     var documentID = UUID().uuidString
-
+    
     @State
     var topic: PushTopic = .general
-
+    
     @State
     var actionKind: ActionKind = .none
-
+    
     @State
     var selectedActivity: AnnouncementActivityPickerViewModel.Item?
-
+    
     @State
     var calendarDate = Date()
-
+    
     @State
     var presentActivityPicker = false
-
+    
     enum ActionKind: String, CaseIterable, Identifiable {
         case none, activity, calendar
         var id: String { rawValue }
-
+        
         var title: LocalizedStringKey {
             switch self {
             case .none: "announcement-action-none"
@@ -53,9 +53,9 @@ struct AnnouncementComposeView: View {
     
     private var isValid: Bool {
         AnnouncementRequest.areFieldsValid(title: title, body: message)
-            && (actionKind != .activity || selectedActivity != nil)
+        && (actionKind != .activity || selectedActivity != nil)
     }
-
+    
     private var announcementAction: Announcement.Action? {
         switch actionKind {
         case .none:
@@ -70,16 +70,16 @@ struct AnnouncementComposeView: View {
             return .calendar(day: Announcement.Action.calendarDay(from: calendarDate))
         }
     }
-
+    
     var body: some View {
         NavigationStack {
             contentView
-            .foregroundStyle(ColorsPalette.textPrimary)
-            .background(ColorsPalette.background)
-            .navigationTitle("announcement-compose-title")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarWithDismissButton()
+                .foregroundStyle(ColorsPalette.textPrimary)
+                .navigationTitle("announcement-compose-title")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbarWithDismissButton()
         }
+        .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .onChange(of: topic) { _, _ in
             selectedActivity = nil
@@ -102,21 +102,21 @@ struct AnnouncementComposeView: View {
             VStack(alignment: .leading, spacing: 16) {
                 Text("announcement-topic-label")
                     .font(.headline)
-
+                
                 Picker("announcement-topic-label", selection: $topic) {
                     ForEach(PushTopic.allCases) { topic in
                         Text(topic.title).tag(topic)
                     }
                 }
                 .ategalCornerBackground()
-
+                
                 Text("announcement-title-label")
                     .font(.headline)
                 
                 TextField("announcement-title-label", text: $title)
                     .padding(16)
                     .ategalCornerBackground()
-
+                
                 Text("announcement-body-label")
                     .font(.headline)
                 
@@ -126,9 +126,9 @@ struct AnnouncementComposeView: View {
                     .padding(12)
                     .ategalCornerBackground()
                     .accessibilityLabel(Text("announcement-body-label"))
-
+                
                 actionFields
-
+                
                 Text("announcement-limits")
                     .font(.footnote)
                     .foregroundStyle(ColorsPalette.textSecondary)
@@ -158,19 +158,19 @@ struct AnnouncementComposeView: View {
             .opacity(isValid ? 1 : 0.5)
         }
     }
-
+    
     @ViewBuilder
     private var actionFields: some View {
         Text("announcement-action-label")
             .font(.headline)
-
+        
         Picker("announcement-action-label", selection: $actionKind) {
             ForEach(ActionKind.allCases) { kind in
                 Text(kind.title).tag(kind)
             }
         }
         .ategalCornerBackground()
-
+        
         switch actionKind {
         case .none:
             EmptyView()
@@ -181,7 +181,7 @@ struct AnnouncementComposeView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("announcement-select-activity")
                         .font(.headline)
-
+                    
                     if let selectedActivity {
                         Text(selectedActivity.activity.title)
                         Text(selectedActivity.center.city)
@@ -204,7 +204,7 @@ struct AnnouncementComposeView: View {
                 selection: $calendarDate,
                 displayedComponents: .date
             )
-            #if !os(Android)
+            #if canImport(Darwin)
             .environment(\.calendar, Calendar(identifier: .gregorian))
             #endif
             .padding(16)

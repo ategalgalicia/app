@@ -71,7 +71,7 @@ struct PostListView: View {
                         }
                     )
                 }
-                .padding(16)
+                .padding([.horizontal, .bottom], 16)
                 .combinedAccessibility()
             }
         }
@@ -128,10 +128,10 @@ struct PostListAsyncView: View {
                     navigationPath: $navigationPath
                 )
             }
-            .background(ColorsPalette.background)
             .navigationTitle("tab-posts")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .accessibilityHeading(.h1)
     }

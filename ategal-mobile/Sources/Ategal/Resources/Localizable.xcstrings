@@ -1,23 +1,8 @@
 {
   "sourceLanguage" : "gl-ES",
   "strings" : {
-    "announcement-action-label" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Acción" } } }
-    },
-    "announcement-action-none" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Sen acción" } } }
-    },
-    "announcement-action-activity" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Abrir actividade" } } }
-    },
-    "announcement-action-calendar" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Abrir calendario" } } }
-    },
-    "announcement-calendar-day" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Día do calendario" } } }
-    },
-    "announcement-destination-unavailable" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Este destino xa non está dispoñible." } } }
+    "%lld" : {
+
     },
     "accept" : {
       "extractionState" : "manual",
@@ -60,6 +45,17 @@
         }
       }
     },
+    "add-event-calendar-action" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engadir ao calendario"
+          }
+        }
+      }
+    },
     "add-event-calendar-subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -82,6 +78,46 @@
         }
       }
     },
+    "announcement-action-activity" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir actividade"
+          }
+        }
+      }
+    },
+    "announcement-action-calendar" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir calendario"
+          }
+        }
+      }
+    },
+    "announcement-action-label" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acción"
+          }
+        }
+      }
+    },
+    "announcement-action-none" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen acción"
+          }
+        }
+      }
+    },
     "announcement-activities-empty" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -99,6 +135,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mensaxe"
+          }
+        }
+      }
+    },
+    "announcement-calendar-day" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Día do calendario"
           }
         }
       }
@@ -131,6 +177,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Publicar este aviso?"
+          }
+        }
+      }
+    },
+    "announcement-destination-unavailable" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este destino xa non está dispoñible."
           }
         }
       }
@@ -402,7 +458,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Que día che interesa?"
+            "value" : "Explora por día"
           }
         }
       }
@@ -412,7 +468,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vindeiros eventos"
+            "value" : "Próximos eventos de Ategal"
           }
         }
       }
@@ -442,7 +498,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Explora actividades ou busca recursos que che interesen"
+            "value" : "Actividades do centro"
           }
         }
       }
@@ -452,7 +508,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se non atopas o que precisas pregúntanos, podemos axudarte"
+            "value" : "Necesitas axuda?"
           }
         }
       }
@@ -462,7 +518,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Atendémoste directamente na sede"
+            "value" : "Onde estamos?"
           }
         }
       }
@@ -472,7 +528,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escolle unha categoría para descubrir cursos, recursos e actividades relacionadas"
+            "value" : "Que queres facer?"
           }
         }
       }
@@ -482,7 +538,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona un centro e descubre os cursos, recursos e actividades dispoñibles"
+            "value" : "Escolle o teu centro para ver as súas actividades e recursos"
           }
         }
       }
@@ -524,7 +580,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Idiomas, cultura, saúde e máis…"
+            "value" : "Escolle unha actividade para coñecela mellor"
           }
         }
       }
@@ -534,7 +590,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar por actividades"
+            "value" : "Ver todas as actividades"
           }
         }
       }
@@ -544,7 +600,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descubre plans para hoxe preto de ti"
+            "value" : "Consulta as actividades de Ategal por día"
           }
         }
       }
@@ -554,7 +610,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar por días"
+            "value" : "Ver próximos eventos"
           }
         }
       }
@@ -564,7 +620,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Explora o teu centro e descubre todo o que ofrece"
+            "value" : "Escolle a túa cidade para coñecer o teu centro"
           }
         }
       }
@@ -574,7 +630,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar por cidade"
+            "value" : "Ver centros de Ategal"
           }
         }
       }
@@ -604,7 +660,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Atopa a información que precisas"
+            "value" : "Consulta documentos e información de interese"
           }
         }
       }
@@ -614,7 +670,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar por recursos"
+            "value" : "Ver información útil"
           }
         }
       }
@@ -640,7 +696,14 @@
       }
     },
     "inbox-unread" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Sen ler" } } }
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen ler"
+          }
+        }
+      }
     },
     "list-activity-no-data" : {
       "localizations" : {
@@ -698,6 +761,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buscar"
+          }
+        }
+      }
+    },
+    "map-directions-action" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Como chegar"
           }
         }
       }
@@ -839,6 +912,26 @@
         }
       }
     },
+    "push-tutorial-inbox-message" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consulta os avisos xerais e os dos centros aos que estás subscrito. Un punto azul indica os avisos que aínda non liches. Abre cada aviso para ler a información completa."
+          }
+        }
+      }
+    },
+    "push-tutorial-inbox-title" : {
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os teus avisos nun só lugar"
+          }
+        }
+      }
+    },
     "push-tutorial-navigation-title" : {
       "localizations" : {
         "gl-ES" : {
@@ -940,13 +1033,14 @@
       }
     },
     "push-tutorial-progress-5" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Paso 5 de 5" } } }
-    },
-    "push-tutorial-inbox-title" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Os teus avisos nun só lugar" } } }
-    },
-    "push-tutorial-inbox-message" : {
-      "localizations" : { "gl-ES" : { "stringUnit" : { "state" : "translated", "value" : "Consulta os avisos xerais e os dos centros aos que estás subscrito. Un punto azul indica os avisos que aínda non liches. Abre cada aviso para ler a información completa." } } }
+      "localizations" : {
+        "gl-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paso 5 de 5"
+          }
+        }
+      }
     },
     "push-tutorial-social-android-message-1" : {
       "localizations" : {
@@ -1063,7 +1157,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recursos relacionados que poden serche útiles"
+            "value" : "Información e recursos útiles"
           }
         }
       }
@@ -1120,6 +1214,7 @@
       }
     },
     "who-we-are-contact" : {
+      "extractionState" : "stale",
       "localizations" : {
         "gl-ES" : {
           "stringUnit" : {
@@ -1184,17 +1279,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Onde estamos"
-          }
-        }
-      }
-    },
-    "who-we-are-where-action" : {
-      "localizations" : {
-        "gl-ES" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ir"
+            "value" : "Contactar con nós"
           }
         }
       }

@@ -64,7 +64,7 @@ struct InboxView: View {
                             .ategalCornerBorder()
                         }
                     }
-                    .padding(16)
+                    .padding(.horizontal, 16)
                 }
             }
         }
@@ -92,8 +92,6 @@ struct InboxView: View {
             AnnouncementDetailView(
                 navigationPath: $navigationPath,
                 item: item,
-                wpApiClient: wpApiClient,
-                centers: viewModel.centers
             )
             .onAppear {
                 viewModel.announcementManager.markRead(item.id)
@@ -140,7 +138,7 @@ struct InboxView: View {
                     Text(item.publishedAt.formatted(.dateTime.day().month(.abbreviated)))
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
-                .font(.caption)
+                .font(.subheadline)
                 .foregroundStyle(ColorsPalette.textSecondary)
 
                 Text(item.title)
@@ -207,8 +205,8 @@ struct InboxAsyncView: View {
                     navigationPath: $navigationPath
                 )
             }
-            .background(ColorsPalette.background)
         }
+        .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .accessibilityHeading(.h1)
     }

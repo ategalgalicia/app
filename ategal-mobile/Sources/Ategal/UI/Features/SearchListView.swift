@@ -29,12 +29,6 @@ struct SearchListView: View {
         let centers: [Center]
     }
     
-    @Environment(\.horizontalSizeClass)
-    var horizontalSizeClass
-    private var isRegularLayout: Bool {
-        horizontalSizeClass == .regular
-    }
-    
     private var activitiesByTitle: [String: [Center]] = [:]
     private var resourceItemByTitle: [String: Center.Category.Resource] = [:]
     
@@ -85,9 +79,18 @@ struct SearchListView: View {
     
     var body: some View {
         contentView
+            .scrollDismissesKeyboard(.immediately)
             .background(ColorsPalette.background)
             .navigationTitle(source.title)
             .navigationBarTitleDisplayMode(.inline)
+            .topSafeAreaBar {
+                AtegalSearchBarView(
+                    $searchText,
+                    placeholder: "list-search-bar".localized
+                )
+                .padding(.horizontal, 16)
+                .padding(.bottom, 8)
+            }
             .sheet(item: $selection) {
                 switch source {
                 case .allActivities, .activitiesFilteredByDay, .activitiesFilteredByText:
@@ -102,29 +105,18 @@ struct SearchListView: View {
     
     @ViewBuilder
     private var contentView: some View {
-        List {
-            AtegalSearchBarView(
-                $searchText,
-                placeholder: "list-search-bar".localized
-            )
-            .listRowConfiguration(insets: .init(
-                top: 0,
-                leading: isRegularLayout ? 16 : 0,
-                bottom: 4,
-                trailing: isRegularLayout ? 16 : 0
-            ))
-            
-            if items.isEmpty {
-                EmptyStateView(txt: source.emptytitle)
-                    .listRowConfiguration()
-            } else {
-                ForEach(items, id: \.self) {
-                    cell(for: $0)
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: 8) {
+                if items.isEmpty {
+                    EmptyStateView(txt: source.emptytitle)
+                } else {
+                    ForEach(items, id: \.self) {
+                        cell(for: $0)
+                    }
                 }
             }
+            .padding([.horizontal, .bottom], 16)
         }
-        .listConfiguration()
-        .scrollDismissesKeyboard(.immediately)
     }
     
     @ViewBuilder
@@ -135,8 +127,8 @@ struct SearchListView: View {
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 Text(title)
-                    .font(.body.weight(.regular))
-                    .foregroundStyle(ColorsPalette.textSecondary)
+                    .font(.body.weight(.medium))
+                    .foregroundStyle(ColorsPalette.textPrimary)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .chevronOverlay()
@@ -153,12 +145,6 @@ struct SearchListView: View {
         }
         .buttonStyle(.borderless)
         .ategalCornerBorder()
-        .listRowConfiguration(insets: .init(
-            top: 4,
-            leading: isRegularLayout ? 16 : 0,
-            bottom: 4,
-            trailing: isRegularLayout ? 16 : 0
-        ))
         .contentCapsuleShape()
     }
     

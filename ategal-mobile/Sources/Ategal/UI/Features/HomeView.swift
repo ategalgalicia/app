@@ -67,7 +67,7 @@ struct HomeView: View {
                 actionView
                 partnerView
             }
-            .padding(16)
+            .padding(.horizontal, 16)
         }
     }
     
@@ -84,6 +84,7 @@ struct HomeView: View {
                 .primaryTitle()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.bottom, 16)
     }
     
     @ViewBuilder
@@ -99,10 +100,10 @@ struct HomeView: View {
                     Tracking.trackEvent(.homeAction(destination: .calendar))
                 }
             )
-            Divider()
-                .overlay(ColorsPalette.textSecondary.opacity(0.2))
-                .padding(.horizontal, 16)
+
+            PlatformDivider()
                 .accessibilityHidden(true)
+
             itemView(
                 title: "home-center-title",
                 subtitle: "home-center-subtitle",
@@ -113,10 +114,9 @@ struct HomeView: View {
                     Tracking.trackEvent(.homeAction(destination: .centers))
                 }
             )
-            Divider()
-                .overlay(ColorsPalette.textSecondary.opacity(0.2))
-                .padding(.horizontal, 16)
+            PlatformDivider()
                 .accessibilityHidden(true)
+
             itemView(
                 title: "home-activity-title",
                 subtitle: "home-activity-subtitle",
@@ -127,10 +127,9 @@ struct HomeView: View {
                     Tracking.trackEvent(.homeAction(destination: .activities))
                 }
             )
-            Divider()
-                .overlay(ColorsPalette.textSecondary.opacity(0.2))
-                .padding(.horizontal, 16)
+            PlatformDivider()
                 .accessibilityHidden(true)
+
             itemView(
                 title: "home-resource-title",
                 subtitle: "home-resource-subtitle",
@@ -292,10 +291,10 @@ struct HomeAsyncView: View {
                     appVersion: appVersion
                 )
             }
-            .background(ColorsPalette.background)
             .navigationTitle("ategal-title")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .accessibilityHeading(.h1)
     }

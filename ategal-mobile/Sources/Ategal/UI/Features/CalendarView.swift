@@ -65,9 +65,10 @@ struct CalendarView: View {
                         onOpenDay(day.weekday)
                     } label: {
                         Text(day.title)
-                            .font(.body.weight(.regular))
-                            .foregroundStyle(ColorsPalette.textSecondary)
+                            .font(.body.weight(.medium))
+                            .foregroundStyle(ColorsPalette.textPrimary)
                             .multilineTextAlignment(.leading)
+                            .padding(.trailing, 32)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .chevronOverlay()
                             .padding(16)
@@ -152,6 +153,17 @@ struct CalendarView: View {
     
     @ViewBuilder
     private func cell(for event: Event) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            label(for: event)
+            addToCalendarButton(for: event)
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .ategalCornerBackground()
+    }
+
+    @ViewBuilder
+    private func addToCalendarButton(for event: Event) -> some View {
         #if canImport(Darwin)
         AsyncButton {
             if await LinkHelper.shared.addToAppleCalendar(event: event) {
@@ -168,22 +180,29 @@ struct CalendarView: View {
                 )
             }
         } label: {
-            label(for: event)
+            addToCalendarLabel
         }
-        .ategalCornerBackground()
         #else
         Link(destination: LinkHelper.shared.androidCalendar(for: event)) {
-            label(for: event)
+            addToCalendarLabel
         }
-        .ategalCornerBackground()
         #endif
+    }
+
+    @ViewBuilder
+    private var addToCalendarLabel: some View {
+        Label("add-event-calendar-action", systemImage: "calendar")
+            .font(.body.weight(.semibold))
+            .foregroundStyle(ColorsPalette.primary)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.top, 4)
     }
     
     @ViewBuilder
     private func label(for event: Event) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(event.title)
-                .font(.headline.bold())
+                .font(.headline.weight(.semibold))
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .lineLimit(2)
             
@@ -198,8 +217,6 @@ struct CalendarView: View {
             }
         }
         .multilineTextAlignment(.leading)
-        .padding(16)
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
@@ -253,8 +270,12 @@ class CalendarViewModel {
         self.calendar = .ategal
         self.centers = centers
         let events = await wpApiClient.fetchCalendarEvents()
-        self.events = events
-        self.selectedDate = initialDate ?? events
+        let today = calendar.startOfDay(for: Date())
+        let upcomingEvents = events.filter {
+            $0.startDate >= today
+        }
+        self.events = upcomingEvents
+        self.selectedDate = initialDate ?? upcomingEvents
             .sorted { $0.startDate < $1.startDate }
             .first?.startDate ?? Date()
     }

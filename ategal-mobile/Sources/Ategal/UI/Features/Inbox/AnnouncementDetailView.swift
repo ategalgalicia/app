@@ -1,5 +1,4 @@
 import SwiftUI
-import AtegalCore
 import RStudioKit
 
 struct AnnouncementDetailView: View {
@@ -7,15 +6,14 @@ struct AnnouncementDetailView: View {
     var navigationPath: [InboxRoute]
 
     let item: InboxViewModel.Item
-    let wpApiClient: WPAPIClient
-    let centers: [Center]
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Text(item.title)
-                    .font(.title2.bold())
+                    .font(.title2.weight(.semibold))
                     .foregroundStyle(ColorsPalette.textPrimary)
+                    .multilineTextAlignment(.leading)
                     .accessibilityHeading(.h1)
 
                 Text(item.topic.title)
@@ -23,15 +21,17 @@ struct AnnouncementDetailView: View {
                     .foregroundStyle(ColorsPalette.textSecondary)
 
                 Text(item.publishedAt.formatted())
-                    .font(.footnote)
+                    .font(.subheadline)
                     .foregroundStyle(ColorsPalette.textSecondary)
 
                 Text(item.body)
                     .font(.body)
                     .foregroundStyle(ColorsPalette.textPrimary)
+                    .multilineTextAlignment(.leading)
+                    .lineSpacing(4)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(16)
+            .padding(.horizontal, 16)
             .combinedAccessibility()
         }
         .background(ColorsPalette.background)

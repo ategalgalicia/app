@@ -18,49 +18,58 @@ struct AnnouncementActivityPickerView: View {
     let onSelect: (AnnouncementActivityPickerViewModel.Item) -> Void
 
     var body: some View {
-        List {
-            AtegalSearchBarView(
-                $viewModel.searchText,
-                placeholder: "list-search-bar".localized
-            )
-            .listRowConfiguration()
+        contentView
+            .scrollDismissesKeyboard(.immediately)
+            .navigationTitle("announcement-select-activity")
+            .toolbarWithDismissButton()
+            .topSafeAreaBar {
+                AtegalSearchBarView(
+                    $viewModel.searchText,
+                    placeholder: "list-search-bar".localized
+                )
+                .padding(.horizontal, 16)
+                .padding(.bottom, 8)
+            }
+    }
+    
+    // MARK: - ViewBuilders
+    
+    @ViewBuilder
+    private var contentView: some View {
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: 8) {
+                if viewModel.filteredItems.isEmpty {
+                    EmptyStateView(txt: "announcement-activities-empty")
+                } else {
+                    ForEach(viewModel.filteredItems) { item in
+                        Button {
+                            onSelect(item)
+                            dismiss()
+                        } label: {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(item.activity.title)
+                                    .font(.headline)
+                                    .foregroundStyle(ColorsPalette.textPrimary)
 
-            if viewModel.filteredItems.isEmpty {
-                EmptyStateView(txt: "announcement-activities-empty")
-                    .listRowConfiguration()
-            } else {
-                ForEach(viewModel.filteredItems) { item in
-                    Button {
-                        onSelect(item)
-                        dismiss()
-                    } label: {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(item.activity.title)
-                                .font(.headline)
-                                .foregroundStyle(ColorsPalette.textPrimary)
+                                Text(item.center.city)
+                                    .font(.subheadline)
+                                    .foregroundStyle(ColorsPalette.textSecondary)
 
-                            Text(item.center.city)
-                                .font(.subheadline)
-                                .foregroundStyle(ColorsPalette.textSecondary)
-
-                            Text(item.activity.schedule.joined(separator: "\n"))
-                                .font(.footnote)
-                                .foregroundStyle(ColorsPalette.textSecondary)
+                                Text(item.activity.schedule.joined(separator: "\n"))
+                                    .font(.footnote)
+                                    .foregroundStyle(ColorsPalette.textSecondary)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(16)
+                            .ategalCornerBackground()
+                            .combinedAccessibility()
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(16)
-                        .ategalCornerBackground()
-                        .combinedAccessibility()
+                        .buttonStyle(.plain)
                     }
-                    .buttonStyle(.plain)
-                    .listRowConfiguration()
                 }
             }
+            .padding(.horizontal, 16)
         }
-        .listConfiguration()
-        .scrollDismissesKeyboard(.immediately)
-        .navigationTitle("announcement-select-activity")
-        .toolbarWithDismissButton()
     }
 }
 

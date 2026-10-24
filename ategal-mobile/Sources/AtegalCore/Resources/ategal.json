@@ -49,9 +49,9 @@
                         "weekday": [1,3],
                         "schedule": [
                             "Luns e Mércores",
-                            "Nivel medio 17:00h a 18:00h",
-                            "Nivel avanzado 18:00h a 19:00h",
-                            "Nivel inicial 19:00h a 20:00h"
+                            "Nivel medio 17:00 a 18:00",
+                            "Nivel avanzado 18:00 a 19:00",
+                            "Nivel inicial 19:00 a 20:00"
                         ],
                         "description": "Con este curso aprenderás a falar con máis confianza sobre a túa vida, os teus plans e o que está a suceder no mundo. Practicarás os tempos verbais máis importantes do inglés, descubrirás novo vocabulario útil (sobre saúde, tecnoloxía, cultura, roupa, etc.) e perfeccionarás a túa capacidade para expresar a túa opinión, dar consellos e debater diferentes puntos de vista. Ao final do curso, serás capaz de expresarte en conversas da vida real con maior fluidez e confianza. O temario proposto, adaptado a cada nivel, é flexible e pode ir adaptándose segundo os intereses do grupo.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -65,7 +65,7 @@
                         "title": "Conversa Inglés",
                         "weekday": [4],
                         "schedule": [
-                            "Xoves de 17:00 a 18:00h"
+                            "Xoves de 17:00 a 18:00"
                         ],
                         "description": "Mellora o teu inglés de forma natural e divertida. As nosas clases de conversa ofrecen temas sinxelos, práctica guiada e un ambiente acolledor onde perder o medo a falar, mentres aprendes ao teu ritmo.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -79,7 +79,7 @@
                         "title": "Cultura francófona",
                         "weekday": [2],
                         "schedule": [
-                            "Martes de 18:00h a 19:00h"
+                            "Martes de 18:00 a 19:00"
                         ],
                         "description": "Descubre o mundo francófono: máis alá do francés, unha cultura que che levará nunha viaxe a través do cine, a música, os sabores e as tradicións. O alumnado participará no proceso de aprendizaxe a través do traballo de campo, descubrindo cidades e países de fala francesa, transformando esta experiencia nunha forma de aprendizaxe inmersiva e cooperativa.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -93,7 +93,7 @@
                         "title": "Literatura",
                         "weekday": [1],
                         "schedule": [
-                            "Luns de 18:00h a 19:00h"
+                            "Luns de 18:00 a 19:00"
                         ],
                         "description": "Un espazo para reconectar con grandes obras, autores inesquecibles e, sobre todo, coa túa propia creatividade. É unha viaxe no tempo: dos mitos clásicos á literatura contemporánea, con encontros con autores como Cervantes, García Márquez, Borges, Lorca... e moitos máis, e lecturas compartidas nun ambiente amigable e íntimo.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -107,7 +107,7 @@
                         "title": "Historia",
                         "weekday": [4],
                         "schedule": [
-                            "Xoves de 19:00h a 20:00h"
+                            "Xoves de 19:00 a 20:00"
                         ],
                         "description": "Queres aprender, da man da profesora e dunha maneira distinta, as etapas da historia de Galicia e España? Empaparaste de cultura, charlas, imaxes e anécdotas, con roteiros pola cidade, visitas culturais e viaxes. Tes que ver a historia coñecida dende outra perspectiva.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -121,7 +121,7 @@
                         "title": "Historia da arte",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores de 19:00h a 20:00h"
+                            "Mércores de 19:00 a 20:00"
                         ],
                         "description": "Nas nosas clases de Historia da Arte non necesitas saber nada de arte, só ter curiosidade. Aprenderás dun xeito claro, visual e entretido, viaxando no tempo dende as pinturas rupestres ata a arte moderna; recoñecerás estilos e artistas e comprenderás o que fai que unha pintura, escultura ou edificio sexa único. Conectando a arte e a vida, aprenderás como cada época reflicte a súa sociedade, os seus valores e as súas emocións. Gozarás da arte: os museos, as exposicións e mesmo a arte da túa cidade adquirirán un novo significado.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -194,7 +194,7 @@
                         "title": "Tecnoloxía inicial/básica",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e xoves de 11:30h a 12:30h"
+                            "Martes e xoves de 11:30 a 12:30"
                         ],
                         "description": "Este curso está deseñado para persoas que queiran iniciarse no mundo da tecnoloxía dun xeito cómodo e sen complicacións. Ao longo do curso, ensinarémosche paso a paso como usar as funcións básicas do teu teléfono móbil e as aplicacións máis útiles para o uso diario.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -208,7 +208,7 @@
                         "title": "Tecnoloxía avanzada",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e xoves de 18:00h a 19:00h"
+                            "Martes e xoves de 18:00 a 19:00"
                         ],
                         "description": "Neste curso axudarémosche a afondar no uso de ferramentas dixitais tanto no teu teléfono móbil como no teu ordenador. Aprenderás a xestionar ficheiros na nube, mellorarás as túas habilidades en aplicacións como WhatsApp e correo electrónico, e dominarás programas de ofimática como Word e Excel. Ademais, mostrarémosche como navegar por internet de forma máis eficiente e segura, así como usar aplicacións útiles na túa vida diaria.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -222,7 +222,7 @@
                         "title": "Tecnoloxía temática",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e xoves de 18:00h a 19:00h"
+                            "Martes e xoves de 18:00 a 19:00"
                         ],
                         "description": "Ao longo deste curso aprenderás a usar ferramentas que facilitarán a túa organización persoal, mellorarán a túa edición de fotos e vídeos e che permitirán descubrir o potencial creativo das aplicacións de deseño e música. Ademais, familiarizaraste coa intelixencia artificial e con como aplicala para realizar tarefas cotiás de forma máis rápida e sinxela, como xestionar citas médicas, facer compras seguras ou planificar as túas finanzas.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -236,7 +236,7 @@
                         "title": "Pintura",
                         "weekday": [1],
                         "schedule": [
-                            "Luns de 17:00h a 19:00h"
+                            "Luns de 17:00 a 19:00"
                         ],
                         "description": "Esta actividade é unha clase práctica na cal, a través de distintas técnicas (acrílico, óleo, carbonciño, etc., a elixir), poderás expresarte. É un lugar onde se comparte cos/as compañeiros/as un espazo de socialización para crear arte, onde se activa a creatividade e a imaxinación, así como un ambiente agradable e participativo.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -250,7 +250,7 @@
                         "title": "Acuarela",
                         "weekday": [5],
                         "schedule": [
-                            "Venres de 11:30h a 13:00h"
+                            "Venres de 11:30 a 13:00"
                         ],
                         "description": "Espazo creativo no que, paso a paso, experimentas coas cores, a auga e o papel. Aprendes técnicas básicas e efectos de luz e transparencias, ao tempo que desenvolves a túa expresión persoal nun ambiente relaxado e inspirado.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -264,7 +264,7 @@
                         "title": "Restauración",
                         "weekday": [5],
                         "schedule": [
-                            "Venres de 11:00h a 13:00h"
+                            "Venres de 11:00 a 13:00"
                         ],
                         "description": "Esta actividade convídate non só a “restaurar” un moble ou un obxecto antigo, senón tamén a “transformalo” esteticamente segundo o gusto desexado: moderno, vintage, rústico, shabby chic, etc. A profesora mostrarache e guiarache no uso de diferentes técnicas como: limpeza e desinfección, lixado e ferramentas, reparación de gretas, aplicación de tinguiduras, ceras, vernices ou pinturas decorativas, e técnicas especiais como decapado, pátinas, envellecemento ou tapizado.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -278,7 +278,7 @@
                         "title": "Coro/música instrumental",
                         "weekday": [1,3],
                         "schedule": [
-                            "Luns e mércores de 17:30h a 18:30h"
+                            "Luns e mércores de 17:30 a 18:30"
                         ],
                         "description": "Con esta actividade ofrecemos un espazo para o desfrute, a aprendizaxe e o intercambio a través do canto en grupo, acompañado da práctica dun instrumento se se desexa, promovendo a expresión artística e o benestar emocional. Poderás aprender repertorios musicais, fortalecer a axilidade mental e preparar pezas musicais para ensaios ou presentacións, xerando unha sensación de satisfacción e fomentando o entusiasmo pola aprendizaxe.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -298,8 +298,8 @@
                         "title": "Ioga",
                         "weekday": [1,2,4],
                         "schedule": [
-                            "Luns de 11:30h a 12:30h",
-                            "Martes e xoves de 10:30h a 11:30h"
+                            "Luns de 11:30 a 12:30",
+                            "Martes e xoves de 10:30 a 11:30"
                         ],
                         "description": "O ioga Hatha é unha práctica que combina movemento físico, respiración e relaxación. Está deseñada para manter o corpo activo, a mente tranquila e mellorar a calidade de vida. Os principais beneficios que se pretende con esta actividade son: manter as articulacións móbiles, fortalecer as costas, as pernas e os brazos, mellorar o equilibrio e a postura, axudar a respirar mellor e a relaxar a mente, promovendo o benestar emocional.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -313,7 +313,7 @@
                         "title": "Pilates",
                         "weekday": [3,5],
                         "schedule": [
-                            "Mércores e venres de 11:00h a 12:00h"
+                            "Mércores e venres de 11:00 a 12:00"
                         ],
                         "description": "Esta actividade mantente activo, áxil e con máis enerxía na túa vida diaria. Os beneficios que notarás son: fortalecemento de músculos e articulacións sen forzar o teu corpo, mellora na túa postura e no teu equilibrio, reducindo o risco de caídas, gañar flexibilidade e mobilidade para sentirte máis libre nos teus movementos e vivir momentos de relaxación e benestar. As sesións realízanse a través de exercicios sinxelos, con apoio en cadeira e colchoneta, adaptados a cada persoa.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -327,7 +327,7 @@
                         "title": "Ximnasia",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e xoves de 19:00h a 20:00h"
+                            "Martes e xoves de 19:00 a 20:00"
                         ],
                         "description": "Combinacións de exercicios baseados en xestos da vida cotiá e na práctica deportiva, fortalecendo os músculos a través do traballo de forza e resistencia, desenvolvendo a capacidade aeróbica con exercicios dinámicos, mellorando a flexibilidade e a mobilidade articular e traballando a coordinación xeral (equilibrio, ritmo). Promóvese así a corrección postural e as habilidades mentais: atención, percepción e concentración.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -341,7 +341,7 @@
                         "title": "Baile",
                         "weekday": [1],
                         "schedule": [
-                            "Luns de 18:30 a 19:30h"
+                            "Luns de 18:30 a 19:30"
                         ],
                         "description": "¡Descubre a alegría do movemento! As nosas clases de baile para maiores combinan pasos sinxelos, música motivadora e un ambiente agradable que che invita a gozar mentres melloras o teu equilibrio e benestar. Ven divertirte, actívate e comparte bos momentos ao teu propio ritmo.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -355,7 +355,7 @@
                         "title": "Memoria",
                         "weekday": [4],
                         "schedule": [
-                            "Xoves de 17:30h a 19:00h"
+                            "Xoves de 17:30 a 19:00"
                         ],
                         "description": "Espazo onde se levan a cabo exercicios prácticos baseados en xogos de lembranza, empregando imaxes, palabras e experiencias cotiás para estimular a memoria a curto e longo prazo. O obxectivo é reforzar as capacidades cognitivas, favorecer a atención e promover a participación nun ambiente lúdico e motivador.",
                         "address": "Rúa Virxe da Cerca 31, 15703. Santiago de Compostela",
@@ -528,7 +528,7 @@
                         "title": "Inglés para viaxeiros",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e Xoves 17:00h a 18:00h"
+                            "Martes e Xoves 17:00 a 18:00"
                         ],
                         "description": "Está deseñado para persoas que desexen adquirir vocabulario e expresións básicas de inglés útiles para viaxar. Céntrase en situacións prácticas como saudar, pedir comida, navegar polo aeroporto, facer reservas de hotel e preguntar por indicacións. A través de actividades sinxelas, gravacións de audio, xogos e simulacións, promove a confianza á hora de comunicarse noutra lingua. O curso prioriza a comprensión e o uso oral, adaptándose ao ritmo e ao nivel do grupo, cun enfoque divertido e funcional.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -541,7 +541,7 @@
                         "title": "Historia da literatura",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 12:00h a 13:00h"
+                            "Venres 12:00 a 13:00"
                         ],
                         "description": "A actividade aborda a literatura de distintas épocas, en paralelo coa historia da arte do mesmo período. O curso explora o contexto histórico e cultural, as ideas do humanismo e a influencia da literatura. Tamén analiza os principais autores e obras de Italia, Inglaterra, Francia e España, destacando o seu impacto na evolución da literatura europea. A metodoloxía combina apuntamentos de clase, lecturas comentadas e material audiovisual para fomentar o gozo e a participación.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -554,7 +554,7 @@
                         "title": "Sociedade e arte",
                         "weekday": [1,3],
                         "schedule": [
-                            "Luns e Mércores 12:00h a 13:00h"
+                            "Luns e Mércores 12:00 a 13:00"
                         ],
                         "description": "Céntrase no estudo das distintas etapas da historia e arte, abarcando o seu contexto histórico e cultural, así como as principais características do movemento en Italia, España e outros países europeos. Analízanse as disciplinas da arquitectura, a escultura e a pintura, xunto coas obras e os artistas máis representativos da época. Todo isto faise cunha abordaxe participativa e accesible para o alumnado.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -622,9 +622,9 @@
                         "title": "Novas tecnoloxías",
                         "weekday": [1,2,3,4,5],
                         "schedule": [
-                            "Luns e Mércores 18:00h a 19:00h",
-                            "Martes e Xoves 12:00h a 13:00h e 17:00h a 19:00h",
-                            "Mércores e Venres 11:00h a 12:00h"
+                            "Luns e Mércores 18:00 a 19:00",
+                            "Martes e Xoves 12:00 a 13:00 e 17:00 a 19:00",
+                            "Mércores e Venres 11:00 a 12:00"
                         ],
                         "description": "Uso básico de dispositivos móbiles, ordenadores e intelixencia artificial. A través de clases prácticas e accesibles, os participantes aprenderán a manexar os seus dispositivos para comunicarse, buscar información, organizar a súa vida diaria e manterse conectados. Tamén explorarán como usar asistentes virtuais (como Siri ou Alexa), tradutores automáticos e ferramentas como ChatGPT para resolver dúbidas ou facilitar tarefas cotiás. O curso promove a autonomía dixital, a seguridade en liña e o aproveitamento da tecnoloxía moderna para mellorar a súa calidade de vida.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -637,7 +637,7 @@
                         "title": "Rondalla e coro",
                         "weekday": [2],
                         "schedule": [
-                            "Martes 10:00h a 12:00h"
+                            "Martes 10:00 a 12:00"
                         ],
                         "description": "Dirixido a persoas apaixonadas pola música e o canto que desexen participar nunha actividade musical en grupo. Combina a aprendizaxe e a prática do canto coral coa interpretación de instrumentos tradicionais de rondalla como guitarras, laúdes e bandurrias. Abórdase unha variedade de repertorios, desde música popular ata pezas tradicionais, fomentando a coordinación, a memoria musical e o gozo colectivo. O curso promove a expresión artística, a camaradería e o benestar emocional a través da música.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -650,7 +650,7 @@
                         "title": "Pintura e debuxo",
                         "weekday": [1],
                         "schedule": [
-                            "Luns 17:00h a 19:00h"
+                            "Luns 17:00 a 19:00"
                         ],
                         "description": "Deseñado para persoas interesadas na arte, este programa explora diversas técnicas como o óleo, a acuarela, o lapis, o carboncillo e a pintura sobre tea. A través de exercicios prácticos e guiados, abórdanse aspectos como a cor, a luz, a proporción e a composición. Foméntase a expresión persoal, a relaxación e o desenvolvemento de habilidades artísticas nun ambiente divertido adaptado ao ritmo de cada persoa.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -669,8 +669,8 @@
                         "title": "Taichí",
                         "weekday": [1,2,4],
                         "schedule": [
-                            "Martes e Xoves 10:00h a 11:00h e 12:00h a 13:00h",
-                            "Luns e Xoves 19:00h a 20:00h"
+                            "Martes e Xoves 10:00 a 11:00 e 12:00 a 13:00",
+                            "Luns e Xoves 19:00 a 20:00"
                         ],
                         "description": "É o deporte máis practicado no mundo. Orixinalmente unha arte marcial chinesa, presenta movementos lentos, fluídos e harmoniosos. Relaxante e revitalizante. Ofrece meditación en movemento. O chi kung, unha técnica terapéutica de ximnasia chinesa, tamén se practica a miúdo na mesma clase. As clases están adaptadas a este grupo de idade e ensínanse de pé (sen traballo no chan). A clase da tarde é de nivel avanzado. Permite unha mellora constante na complexidade técnica e, en niveis máis avanzados, utilízanse abanos e espadas, así como traballo en parella.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -683,7 +683,7 @@
                         "title": "Ioga e pilates",
                         "weekday": [1,3],
                         "schedule": [
-                            "Luns e Mércores 11:30h a 12:30h"
+                            "Luns e Mércores 11:30 a 12:30"
                         ],
                         "description": "Unha combinación de ámbalas dúas disciplinas, adaptada á persoa e ás características desta. O ioga é unha antiga disciplina hindú baseada en posturas estáticas divididas en estiramentos musculares, posturas de forza, equilibrios (tanto de pé como no chan sobre unha colchoneta), exercicios de respiración e relaxación. O pilates é en si mesmo unha combinación de ioga e ximnasia moderna con traballo constante para mellorar a postura corporal.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -696,7 +696,7 @@
                         "title": "Ximnasia suave",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 12:00h a 13:00h"
+                            "Venres 12:00 a 13:00"
                         ],
                         "description": "Esta é a clase máis suave, tanto física como tecnicamente. Os exercicios que traballan todo o corpo realízanse de pé e sentado nunha cadeira (sen traballo no chan) para mellorar a mobilidade, a axilidade, o equilibrio e a forza.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -709,7 +709,7 @@
                         "title": "Kin-jo",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 19:30h a 20:30h"
+                            "Venres 19:30 a 20:30"
                         ],
                         "description": "É a disciplina máis moderna que combina a sabedoría do tai chi, o ioga e as artes marciais clásicas para rexenerar e liberar toda a tensión. Tamén se lle chama a arte marcial da felicidade. O primeiro nivel é moi suave e doado de aprender. Despois aumenta progresivamente en dificultade física e técnica. En niveis máis avanzados, practícase cunha vara de bambú e tamén cunha espada e un escudo de madeira.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -722,7 +722,7 @@
                         "title": "Memoria para maiores",
                         "weekday": [3,5],
                         "schedule": [
-                            "Mércores e Venres 17:00h a 18:00h"
+                            "Mércores e Venres 17:00 a 18:00"
                         ],
                         "description": "O obxectivo é mellorar a memoria e outras funcións cognitivas en adultos maiores a través de técnicas prácticas como flashcards, imaxes e xogos mentais. Combínase coa plataforma dixital NeuronUP, que ofrece exercicios interactivos personalizados. O obxectivo é estimular a mente, promover a autonomía e mellorar a calidade de vida dun xeito ameno e adaptado ao ritmo de cada persoa.",
                         "address": "Rúa Fonseca 8, 15004 A Coruña",
@@ -919,7 +919,7 @@
                         "title": "Francés",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e Xoves 18:00h a 19:00h"
+                            "Martes e Xoves 18:00 a 19:00"
                         ],
                         "description": "Nas aulas de Francés, brindamos a posibilidade de aprender o idioma de man dunha profesora nativa. Isto implica non só a calidade na pronuncia do aprendido, senón tamén o poder aproximarse ás expresións locais ou costumes dos lugares francófonos que o noso alumnado desexe visitar.",
                         "address": "Galiano 17, 1º, 15402 Ferrol",
@@ -933,10 +933,10 @@
                         "title": "Historia da arte",
                         "weekday": [4,5],
                         "schedule": [
-                            "Xoves 17:00h a 18:30h",
-                            "Xoves 18:30h a 20:00h",
-                            "Venres 17:00h a 18:30h",
-                            "Venres 18:30h a 20:00h"
+                            "Xoves 17:00 a 18:30",
+                            "Xoves 18:30 a 20:00",
+                            "Venres 17:00 a 18:30",
+                            "Venres 18:30 a 20:00"
                         ],
                         "description": "As nosas clases de Historia da arte buscan entender a arte e a súa evolución explorando as relacións entre historia, cultura e creatividade, implicando ao noso alumnado con temas e actividades que resulten atractivas para os seus intereses: xogos, repaso da actualidade, visita a exposicións, excursións… Ademais, poñemos á súa disposición todos os contidos, incluídas as gravacións de cada sesión, na nosa plataforma.",
                         "address": "Galiano 17, 1º, 15402 Ferrol",
@@ -950,7 +950,7 @@
                         "title": "Historias da historia",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores, 17:00h a 18:30h"
+                            "Mércores, 17:00 a 18:30"
                         ],
                         "description": "Ofrecemos unha actividade dedicada a tratar temas históricos desde un punto de vista diferente, abarcando desde asuntos de actualidade ata personaxes e feitos de calquera outra época e lugar. Todos os nosos contidos desenvólvense buscando a participación do alumnado e poñendo á súa disposición na nosa plataforma todo o material utilizado en clase.",
                         "address": "Galiano 17, 1º, 15402 Ferrol",
@@ -964,7 +964,7 @@
                         "title": "Clube de cinema",
                         "weekday": [1],
                         "schedule": [
-                            "Luns de 18:00h a 19:30h"
+                            "Luns de 18:00 a 19:30"
                         ],
                         "description": "Ver películas é unha das actividades de lecer que máis adoitamos practicar tanto en salas públicas como nas nosas casas. O obxectivo do noso Club de Cinema é coñecer a fondo a linguaxe cinematográfica para saber ver e comentar películas redescubriendo o cinema de sempre sen perder de vista as novas tendencias.",
                         "address": "Galiano 17, 1º, 15402 Ferrol",
@@ -1032,7 +1032,7 @@
                         "title": "Informática",
                         "weekday": [1],
                         "schedule": [
-                            "Luns de 18:00h a 20:00h"
+                            "Luns de 18:00 a 20:00"
                         ],
                         "description": "Coas nosas clases de Informática, o alumnado poderá obter unha base consistente no ámbito tecnolóxico, que está cada vez máis presente nas nosas vidas. Ensinámoslles sobre as diferentes ferramentas, desde ofimática ata detectar o spam e as páxinas web que poidan proporcionar información incorrecta, ademais traballamos cos móbiles para sacarlles o máximo proveito.",
                         "address": "Galiano 17, 1º, 15402 Ferrol",
@@ -1052,7 +1052,7 @@
                         "title": "Ximnasia",
                         "weekday": [1,3],
                         "schedule": [
-                            "Luns e Mércores de 11:00h a 12:00h"
+                            "Luns e Mércores de 11:00 a 12:00"
                         ],
                         "description": "O envellecemento activo é aquello que os nosos alumnos buscan, polo que lles proporcionamos o poder exercitar o corpo coas nosas clases de Ximnasia. Estes exercicios, sinxelos pero eficaces, son ideais para quen busca mellorar a resistencia física e manterse en forma.",
                         "address": "Galiano 17, 1º, 15402 Ferrol",
@@ -1066,7 +1066,7 @@
                         "title": "Talleres de memoria",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores de 18:30h a 19:30h"
+                            "Mércores de 18:30 a 19:30"
                         ],
                         "description": "Non só nos preocupamos pola saúde física, no noso Obradoiro de memoria buscamos exercitar a mente. Procuramos traballar distintas áreas da memoria ben con exercicios ou xogos axeitados para iso.",
                         "address": "Galiano 17, 1º, 15402 Ferrol",
@@ -1267,7 +1267,7 @@
                         "title": "Historia da arte",
                         "weekday": [2],
                         "schedule": [
-                            "Martes 17:30h a 19:00h"
+                            "Martes 17:30 a 19:00"
                         ],
                         "description": "Nas nosas clases de Historia da Arte non é preciso ter coñecementos previos sobre arte, abonda con manter a curiosidade. Irás aprendendo e descubrindo dun xeito ameno, visual e comprensible. Poderás identificar estilos e creadores, entendendo que fai especial a cada cadro, escultura ou edificio. Ao relacionar a arte coa vida, verás como cada período histórico amosa a súa sociedade, os seus valores e sentimentos. Así, gozarás da arte con outros ollos realizando visitas a museos e exposicións que cobran un novo sentido.",
                         "address": "Lalín Arena, Avenida José Cuíña, 42, Lalín",
@@ -1280,8 +1280,8 @@
                         "title": "Inglés",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 10:30h a 11:30h",
-                            "Venres 11:30h a 12:30h"
+                            "Venres 10:30 a 11:30",
+                            "Venres 11:30 a 12:30"
                         ],
                         "description": "Neste curso, aprenderás a falar en inglés sobre a túa vida, os teus plans e o que pasa ao teu redor. Practicarás os tempos verbais básicos e máis usados, descubrirás vocabulario útil (sobre saúde, tecnoloxía, cultura, roupa, etc.) e mellorarás a túa capacidade para expresar opinións, dar consellos e participar en pequenas conversacións. Ao rematar, poderás comunicarte con máis fluidez e confianza en situacións da vida diaria.",
                         "address": "Espazo Xove Lalín, Rúa Penatoares 2, Lalín",
@@ -1334,7 +1334,7 @@
                         "title": "Informática de iniciación",
                         "weekday": [3,5],
                         "schedule": [
-                            "Mércores e venres 10:30h a 11:30h"
+                            "Mércores e venres 10:30 a 11:30"
                         ],
                         "description": "Unha clase de novas tecnoloxías de nivel inicial é un punto de partida para familiarizarse co uso básico do ordenador e do móbil. Aprenderás de maneira sinxela e práctica a manexar ferramentas útiles para o día a día, gañando confianza no mundo dixital. Aplicacións como a cámara, WhatsApp, correo electrónico, etc.",
                         "address": "Aula Cemit, Rúa do Parque s/n, no Auditorio Municipal, Lalín",
@@ -1347,7 +1347,7 @@
                         "title": "Informática avanzada",
                         "weekday": [3,5],
                         "schedule": [
-                            "Mércores e venres 11:30h a 12:30h"
+                            "Mércores e venres 11:30 a 12:30"
                         ],
                         "description": "Unha clase de novas tecnoloxías de nivel avanzado permite afondar no uso de ferramentas dixitais, explorando aplicacións máis complexas e solucións prácticas. Potenciarás as túas competencias tecnolóxicas, mellorando a produtividade, a seguridade en liña e a xestión eficiente da información. Ferramentas de almacenamento na nube, redes sociais, Google Calendar, etc.",
                         "address": "Aula Cemit, Rúa do Parque s/n, no Auditorio Municipal, Lalín",
@@ -1360,7 +1360,7 @@
                         "title": "Pintura",
                         "weekday": [2],
                         "schedule": [
-                            "Martes 10:00h a 11:30h"
+                            "Martes 10:00 a 11:30"
                         ],
                         "description": "Esta actividade é unha clase práctica na cal, a través de distintas técnicas como acrílico, óleo, carbonciño, etc. (a elixir), poderás expresarte. Lugar onde se comparte coas compañeiras e compañeiros un espazo de socialización para crear arte, onde se activa a creatividade e a imaxinación, así como un ambiente agradable e participativo.",
                         "address": "Lalín Arena, Avenida José Cuíña, 42, Lalín",
@@ -1373,7 +1373,7 @@
                         "title": "Acuarela",
                         "weekday": [2],
                         "schedule": [
-                            "Martes 11:45h a 13:15h"
+                            "Martes 11:45 a 13:15"
                         ],
                         "description": "Espazo creativo no que, paso a paso, experimentas coas cores, a auga e o papel. Aprendes técnicas básicas e efectos de luz e transparencias ao tempo que desenvolves a túa expresión persoal nun ambiente relaxado e inspirado.",
                         "address": "Lalín Arena, Avenida José Cuíña, 42, Lalín",
@@ -1392,8 +1392,8 @@
                         "title": "Memoria",
                         "weekday": [4],
                         "schedule": [
-                            "Xoves 16:00h a 17:30h",
-                            "Xoves 17:30h a 19:00h"
+                            "Xoves 16:00 a 17:30",
+                            "Xoves 17:30 a 19:00"
                         ],
                         "description": "Un lugar pensado para realizar actividades prácticas a través de xogos de memoria, utilizando imaxes, palabras e situacións da vida diaria como estímulo. A finalidade é exercitar a memoria tanto inmediata coma prolongada, fortalecer as funcións cognitivas, mellorar a atención e fomentar a participación nunha contorna entretida e motivadora.",
                         "address": "Lalín Arena, Avenida José Cuíña, 42, Lalín",
@@ -1544,7 +1544,7 @@
                     {
                         "title": "Informática para maiores",
                         "weekday": [5],
-                        "schedule": ["Venres de 16:00h a 18:00h"],
+                        "schedule": ["Venres de 16:00 a 18:00"],
                         "description": "Espazo onde se levan a cabo aprendizaxes técnicas nas novas tecnoloxías, correo electrónico, relacións institucionais, e-saúde, banca electrónica, redes sociais, acercamento á familia (whatsapp, videoconferencias).",
                         "address": "Espazo Lorenzo Varela. Rúa Falcatrueiros, S/N, 27551",
                         "phone": [
@@ -1569,7 +1569,7 @@
                     {
                         "title": "Ximnasia de mantemento",
                         "weekday": [1,3,4],
-                        "schedule": ["Luns, mércores e xoves de 16:00h a 19:00h"],
+                        "schedule": ["Luns, mércores e xoves de 16:00 a 19:00"],
                         "description": "Combinacións de exercicios baseados en xestos da vida cotiá e a práctica deportiva, fortalecendo ós músculos a través do traballo de forza e resistencia, desenvolvendo a capacidade aeróbica, mellora da flexibilidade e coordinación. Promóvese tamén a corrección postural, atención, percepción e concentración.",
                         "address": "Espazo Lorenzo Varela. Rúa Falcatrueiros, S/N, 27551",
                         "phone": [
@@ -1580,7 +1580,7 @@
                     {
                         "title": "Obradoiro de memoria",
                         "weekday": [2,4],
-                        "schedule": ["Martes e xoves das 16:00h ás 20:00h"],
+                        "schedule": ["Martes e xoves das 16:00 ás 20:00"],
                         "description": "Exercicios prácticos baseados en xogos de lembranza con imaxes, palabras e experiencias cotiás para estimular a memoria a curto e longo prazo. Busca reforzar as capacidades cognitivas, favorecer a atención e promover un ambiente motivador.",
                         "address": "Espazo Lorenzo Varela. Rúa Falcatrueiros, S/N, 27551",
                         "phone": [
@@ -1620,7 +1620,7 @@
                         "title": "Francés",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores 12:00h a 13:00h"
+                            "Mércores 12:00 a 13:00"
                         ],
                         "description": "Achegamento á lingua francesa para entender, comprender e poder comunicarse. Nas clases fálase en francés, lense libros e visualízanse curtametraxes.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1634,7 +1634,7 @@
                         "title": "Literatura",
                         "weekday": [1],
                         "schedule": [
-                            "Xoves de 12:00h a 13:00h"
+                            "Xoves de 12:00 a 13:00"
                         ],
                         "description": "Espazo para gozar da lectura, coñecer autores inesquecibles e deixar voar a creatividade. Viaxe dende os mitos clásicos ata a literatura contemporánea, con lecturas compartidas.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1648,7 +1648,7 @@
                         "title": "Historia de Ourense",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores 18:30h a 19:30h"
+                            "Mércores 18:30 a 19:30"
                         ],
                         "description": "Percorrido polas historias, lendas e anécdotas máis curiosas da cidade. Entre termas, rúas e segredos, visitas culturais para descubrir Ourense con outra ollada.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1662,7 +1662,7 @@
                         "title": "Historia da arte",
                         "weekday": [1],
                         "schedule": [
-                            "Luns 18:30h a 19:30h"
+                            "Luns 18:30 a 19:30"
                         ],
                         "description": "Viaxe amena pola Historia da Arte para descubrir cadros, esculturas e movementos cunha ollada accesible, chea de curiosidades e anécdotas.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1676,7 +1676,7 @@
                         "title": "Galego",
                         "weekday": [2],
                         "schedule": [
-                            "Martes de 18:00h a 19:00h"
+                            "Martes de 18:00 a 19:00"
                         ],
                         "description": "Sesións centradas na aprendizaxe activa da lingua galega mediante exercicios comunicativos, xogos lingüísticos e actividades participativas para mellorar a comprensión e expresión oral e escrita.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1690,8 +1690,8 @@
                         "title": "Antropoloxía",
                         "weekday": [3],
                         "schedule": [
-                            "Martes de 11:30h a 12:30h",
-                            "Mércores de 18:00h a 19:00h"
+                            "Martes de 11:30 a 12:30",
+                            "Mércores de 18:00 a 19:00"
                         ],
                         "description": "Percorrido práctico e divertido polo mundo das culturas; xogos, comparación de costumes e curiosidades para comprender o que nos fai únicos como seres humanos.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1763,7 +1763,7 @@
                         "title": "Tecnoloxía",
                         "weekday": [2],
                         "schedule": [
-                            "Xoves de 19:00h a 20:00h"
+                            "Xoves de 19:00 a 20:00"
                         ],
                         "description": "Trucos e boas prácticas para sacarlle partido ao móbil: WhatsApp, apps útiles e configuracións prácticas nun curso ameno e sen medo.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1777,7 +1777,7 @@
                         "title": "Teatro",
                         "weekday": [1],
                         "schedule": [
-                            "Luns de 17:00h a 18:30h"
+                            "Luns de 17:00 a 18:30"
                         ],
                         "description": "Creatividade e confianza nun entorno respectuoso e adaptado. Metodoloxía activa e participativa, fomentando a autonomía e o protagonismo do alumnado.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1791,7 +1791,7 @@
                         "title": "Artes plásticas",
                         "weekday": [1],
                         "schedule": [
-                            "Venres de 11:00h a 13:00h"
+                            "Venres de 11:00 a 13:00"
                         ],
                         "description": "Desenvolvemento da expresión artística persoal con diferentes técnicas e materiais. Ambiente distendido e participativo.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1805,7 +1805,7 @@
                         "title": "Baile",
                         "weekday": [1,3],
                         "schedule": [
-                            "Luns e Mércores de 10:00h a 11:00h"
+                            "Luns e Mércores de 10:00 a 11:00"
                         ],
                         "description": "Movemento ao ritmo da música para adestrar memoria, coordinación e mobilidade. Actividade que remata con enerxía e bo ánimo.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1825,8 +1825,8 @@
                         "title": "Ioga",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e Xoves de 10:00h a 11:00h",
-                            "Martes e Xoves de 11:00h a 12:00h"
+                            "Martes e Xoves de 10:00 a 11:00",
+                            "Martes e Xoves de 11:00 a 12:00"
                         ],
                         "description": "Ioga para Seniors: movemento suave con conciencia, combinando ioga, mobilidade e pilates para manter axilidade e coidar corpo e mente.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1840,10 +1840,10 @@
                         "title": "Memoria",
                         "weekday": [5],
                         "schedule": [
-                            "Martes de 17:00h a 18:00h",
-                            "Xoves de 18:00h a 19:00h",
-                            "Venres de 17:30h a 18:30h",
-                            "Venres de 18:30h a 19:30h"
+                            "Martes de 17:00 a 18:00",
+                            "Xoves de 18:00 a 19:00",
+                            "Venres de 17:30 a 18:30",
+                            "Venres de 18:30 a 19:30"
                         ],
                         "description": "Actividades prácticas con técnicas de estimulación cognitiva para fortalecer funcións cerebrais e mellorar a concentración nun ambiente motivador.",
                         "address": "Rúa Progreso 66, 32003. Ourense",
@@ -1941,7 +1941,7 @@
                         "title": "Arte",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores 17:00h a 18:30h"
+                            "Mércores 17:00 a 18:30"
                         ],
                         "description": "Nas nosas clases de Historia da Arte non é preciso ter coñecementos previos, abonda con manter a curiosidade. Irás descubrindo, dun xeito ameno, visual e comprensible. Poderás identificar estilos e creadores e entender que fai especial a cada cadro, escultura ou edificio. Ao relacionar a arte coa vida, verás como cada período histórico amosa a súa sociedade, os seus valores e sentimentos. Realizaranse visitas a museos e exposicións, cobrando un novo sentido.",
                         "address": "Campo do Souto 2, 15900. Padrón",
@@ -1954,7 +1954,7 @@
                         "title": "Historia de España e de Galicia",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores 18:30h a 19:30h"
+                            "Mércores 18:30 a 19:30"
                         ],
                         "description": "Achegamento á historia de España e Galicia con explicacións, charlas participativas, imaxes e anécdotas. Inclúe visitas culturais e viaxes para unha visión directa e práctica do patrimonio.",
                         "address": "Campo do Souto 2, 15900. Padrón",
@@ -1967,7 +1967,7 @@
                         "title": "Inglés (nivel 0)",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 16:00h a 17:30h"
+                            "Venres 16:00 a 17:30"
                         ],
                         "description": "Curso para iniciar os primeiros pasos no inglés sen coñecementos previos. Aprendizaxe de vocabulario e estruturas básicas para a comunicación en situacións cotiás. Sesións prácticas e dinámicas, adaptadas ao ritmo do grupo.",
                         "address": "Campo do Souto 2, 15900. Padrón",
@@ -1980,7 +1980,7 @@
                         "title": "Inglés (nivel 1)",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 17:30h a 19:00h"
+                            "Venres 17:30 a 19:00"
                         ],
                         "description": "Ampliación de vocabulario e práctica de estruturas máis complexas para gañar confianza ao falar, escribir e comprender. Clases participativas con conversación, lecturas, audios e xogos de rol.",
                         "address": "Campo do Souto 2, 15900. Padrón",
@@ -2012,15 +2012,15 @@
                         "schedule": [
                             "Padrón:",
                             "Luns e mércores",
-                            "09:00h a 09:50h, 09:55h a 10:45h, 10:55h a 11:45h",
-                            "Luns 17:30h a 18:30h",
-                            "Mércores 16:30h a 17:30h",
+                            "09:00 a 09:50, 09:55 a 10:45, 10:55 a 11:45",
+                            "Luns 17:30 a 18:30",
+                            "Mércores 16:30 a 17:30",
                             "Carcacía:",
-                            "Martes e xoves 09:30h a 10:30h",
+                            "Martes e xoves 09:30 a 10:30",
                             "Extramundi:",
-                            "Martes e xoves 19:00h a 20:00h",
+                            "Martes e xoves 19:00 a 20:00",
                             "Angueira de Suso:",
-                            "Luns e mércores 17:00h a 18:00h"
+                            "Luns e mércores 17:00 a 18:00"
                         ],
                         "description": "Actividade divertida e saudable para fortalecer músculos, mellorar a flexibilidade e activar o corpo no día a día, adaptada ao ritmo de cada persoa.",
                         "address": "Campo do Souto 2, 15900. Padrón",
@@ -2034,9 +2034,9 @@
                         "weekday": [1,5],
                         "schedule": [
                             "Padrón:",
-                            "Luns 16:30h a 17:30h e venres 16:30h a 17:30h",
+                            "Luns 16:30 a 17:30 e venres 16:30 a 17:30",
                             "Extramundi:",
-                            "Luns e venres 17:45h a 18:45h"
+                            "Luns e venres 17:45 a 18:45"
                         ],
                         "description": "Actividade para mellorar a postura, fortalecer a zona lumbar e aliviar tensións con exercicios suaves e adaptados.",
                         "address": "Campo do Souto 2, 15900. Padrón",
@@ -2050,11 +2050,11 @@
                         "weekday": [1,3],
                         "schedule": [
                             "Padrón:",
-                            "Luns 17:00h a 18:30h",
+                            "Luns 17:00 a 18:30",
                             "Carcacía:",
-                            "Mércores 18:30h a 20:00h",
+                            "Mércores 18:30 a 20:00",
                             "Angueira de Suso:",
-                            "Luns 18:45h a 20:15h"
+                            "Luns 18:45 a 20:15"
                         ],
                         "description": "Exercicios prácticos baseados en xogos de lembranza para estimular a memoria e favorecer a atención.",
                         "address": "Campo do Souto 2, 15900. Padrón",
@@ -2173,7 +2173,7 @@
                         "title": "Inglés",
                         "weekday": [1],
                         "schedule": [
-                            "Luns 17:15h a 18:15h"
+                            "Luns 17:15 a 18:15"
                         ],
                         "description": "Inglés práctico para a vida cotiá. Clases de nivel básico-medio con predominio do oral e vocabulario enfocado ás viaxes, ao lecer, a internet, a música e o cine.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2187,7 +2187,7 @@
                         "title": "Historia da arte",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores 17:30h a 18:30h"
+                            "Mércores 17:30 a 18:30"
                         ],
                         "description": "Análise dos distintos períodos artísticos e das obras e artistas máis destacados ao longo da historia. Faranse monográficos, visitas e presentacións audiovisuais.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2201,7 +2201,7 @@
                         "title": "Literatura",
                         "weekday": [3],
                         "schedule": [
-                            "Mércores 18:30h a 19:30h"
+                            "Mércores 18:30 a 19:30"
                         ],
                         "description": "Achegamento á literatura no mundo: ficcións comparadas, paradigmas históricos da interpretación literaria, lectura e análise de textos.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2215,7 +2215,7 @@
                         "title": "Visións da historia",
                         "weekday": [4],
                         "schedule": [
-                            "Xoves 18:00h a 19:00h"
+                            "Xoves 18:00 a 19:00"
                         ],
                         "description": "Análise de distintos períodos históricos, centrándose en acontecementos ou persoeiros destacados ou silenciados.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2229,7 +2229,7 @@
                         "title": "Un tema, unha hora",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 17:15h a 18:15h"
+                            "Venres 17:15 a 18:15"
                         ],
                         "description": "Actividade de lectura, escoita e debate sobre temas actuais, fragmentos literarios ou biografías, con material facilitado na aula.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2301,7 +2301,7 @@
                         "title": "Informática xeral",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 16:30h a 17:30h"
+                            "Venres 16:30 a 17:30"
                         ],
                         "description": "Coñecementos básicos de informática a nivel usuario: banca online, xestións administrativas, internet segura, intelixencia artificial. Na aula facilítase o ordenador.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2315,7 +2315,7 @@
                         "title": "Manexo de móbil e tableta",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 17:30h a 18:30h"
+                            "Venres 17:30 a 18:30"
                         ],
                         "description": "Manexo básico de móbil e tableta: conexión, xestión de apps, cámara e seguridade. É necesario traer un dispositivo Android ou tableta.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2329,7 +2329,7 @@
                         "title": "Debuxo e pintura",
                         "weekday": [1],
                         "schedule": [
-                            "Luns 17:30h a 19:30h"
+                            "Luns 17:30 a 19:30"
                         ],
                         "description": "Aprende nocións básicas de debuxo e pintura ou perfecciona técnicas como óleo, pastel ou acuarela, desenvolvendo a imaxinación e as habilidades motoras.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2343,7 +2343,7 @@
                         "title": "Canta con nós",
                         "weekday": [1],
                         "schedule": [
-                            "Luns 18:30h a 20:00h"
+                            "Luns 18:30 a 20:00"
                         ],
                         "description": "Clase grupal de canto con técnicas de respiración e expresión corporal, co obxectivo de interpretar unha canción en grupo ao final do curso.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2357,7 +2357,7 @@
                         "title": "Colorterapia",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 17:00h a 18:30h"
+                            "Venres 17:00 a 18:30"
                         ],
                         "description": "Actividade de colorear semellante ás mandalas. Mellora a concentración, a atención e a creatividade. Os materiais fornécense na aula.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2371,7 +2371,7 @@
                         "title": "Baile",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e Xoves 17:00h a 18:00h"
+                            "Martes e Xoves 17:00 a 18:00"
                         ],
                         "description": "Clases de baile grupal con quecemento, aprendizaxe de coreografías e estiramentos. Axuda a mellorar a memoria e a coordinación.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2391,7 +2391,7 @@
                         "title": "Taichí",
                         "weekday": [2,4],
                         "schedule": [
-                            "Martes e Xoves 10:00h a 11:00h"
+                            "Martes e Xoves 10:00 a 11:00"
                         ],
                         "description": "Disciplina ancestral que ofrece relaxación, reduce o estrés e mellora a flexibilidade e o equilibrio físico e mental.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2405,7 +2405,7 @@
                         "title": "Ximnasia",
                         "weekday": [2,4],
                         "schedule": [
-                            "Luns e Xoves 11:30h a 12:30h"
+                            "Luns e Xoves 11:30 a 12:30"
                         ],
                         "description": "Ximnasia suave adaptada, con traballos de forza, equilibrio, elasticidade e coordinación empregando distintos materiais.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2419,7 +2419,7 @@
                         "title": "Obradoiro de memoria",
                         "weekday": [4],
                         "schedule": [
-                            "Xoves 18:15h a 19:15h"
+                            "Xoves 18:15 a 19:15"
                         ],
                         "description": "Exercicios de escritura, actividades orais e dinámicas para traballar a memoria, a linguaxe e a psicomotricidade fina.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2433,7 +2433,7 @@
                         "title": "Ximnasia cerebral",
                         "weekday": [5],
                         "schedule": [
-                            "Venres 18:30h a 19:30h"
+                            "Venres 18:30 a 19:30"
                         ],
                         "description": "Exercicios e xogos para mellorar a concentración, a memoria e a coordinación entre mente e corpo.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",
@@ -2447,7 +2447,7 @@
                         "title": "Obradoiro de benestar emocional",
                         "weekday": [2],
                         "schedule": [
-                            "Martes 18:15h a 20:15h"
+                            "Martes 18:15 a 20:15"
                         ],
                         "description": "Clase grupal para potenciar o benestar emocional e aprender estratexias para xestionar emocións no día a día.",
                         "address": "Rúa Travesa do Pino 2, 36205 Vigo",

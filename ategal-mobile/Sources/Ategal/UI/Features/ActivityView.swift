@@ -34,14 +34,14 @@ struct ActivityView: View {
                 actionView
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(16)
+            .padding(.horizontal, 16)
         }
     }
 
     private var headerView: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(activity.title)
-                .font(.title2.bold())
+                .font(.title2.weight(.semibold))
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .multilineTextAlignment(.leading)
                 .accessibilityHeading(.h1)
@@ -50,7 +50,7 @@ struct ActivityView: View {
                 .font(.body)
                 .foregroundStyle(ColorsPalette.textSecondary)
                 .multilineTextAlignment(.leading)
-                .lineSpacing()
+                .lineSpacing(4)
         }
     }
 
@@ -59,8 +59,9 @@ struct ActivityView: View {
         VStack(alignment: .leading, spacing: 10) {
             Label {
                 Text("activity-schedule")
-                    .font(.headline)
+                    .font(.headline.weight(.semibold))
                     .foregroundStyle(ColorsPalette.textPrimary)
+                    .accessibilityHeading(.h2)
             } icon: {
                 Image(systemName: "calendar")
                     .font(.body)
@@ -72,11 +73,16 @@ struct ActivityView: View {
             }
 
             VStack(alignment: .leading, spacing: 8) {
-                ForEach(activity.schedule, id: \.self) { schedule in
+                ForEach(Array(activity.schedule.enumerated()), id: \.offset) { index, schedule in
                     Text(schedule)
-                        .font(.subheadline.weight(.medium))
+                        .font(.body)
                         .foregroundStyle(ColorsPalette.textPrimary)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, 6)
+
+                    if index < activity.schedule.count - 1 {
+                        PlatformDivider()
+                    }
                 }
             }
         }
@@ -92,7 +98,7 @@ struct ActivityView: View {
             Tracking.trackEvent(.activityContactOpen(centerName: center.city))
         } label: {
             Label("activity-action", systemImage: "arrow.forward")
-                .font(.headline.weight(.semibold))
+                .font(.body.weight(.semibold))
                 .frame(maxWidth: .infinity)
                 .padding(16)
                 .foregroundStyle(ColorsPalette.textTertiary)
@@ -108,8 +114,7 @@ struct ActivityView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     Text("activity-action-subtitle")
-                        .font(.callout.weight(.medium))
-                        .foregroundStyle(ColorsPalette.textSecondary)
+                        .primaryTitle()
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     LinkView(

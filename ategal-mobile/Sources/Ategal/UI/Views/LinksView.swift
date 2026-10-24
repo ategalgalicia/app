@@ -47,7 +47,7 @@ struct LinkView: View {
                 LinkButton(title: email, kind: .icon("envelope.fill"), url: url)
             }
             if let website, let url = LinkHelper.shared.websiteURL(from: website) {
-                LinkButton(title: website, kind: .icon("star.fill"), url: url)
+                LinkButton(title: website, kind: .icon("arrow.forward.square"), url: url)
             }
         }
     }
@@ -67,7 +67,10 @@ struct MapLinkButton: View {
         Button {
             showDirectionsDialog = true
         } label: {
-            CTAButton(title: address, kind: .icon("mappin.circle.fill"))
+            CTAButton(
+                title: "map-directions-action".localized,
+                kind: .icon("mappin.circle.fill")
+            )
                 .ategalCornerBackground()
                 .ategalCornerBorder()
         }
@@ -88,7 +91,11 @@ struct MapLinkButton: View {
         }
         #else
         if let url = LinkHelper.shared.androidMapsURL(for: address) {
-            LinkButton(title: address, kind: .icon("mappin.circle.fill"), url: url)
+            LinkButton(
+                title: "map-directions-action".localized,
+                kind: .icon("mappin.circle.fill"),
+                url: url
+            )
         }
         #endif
     }

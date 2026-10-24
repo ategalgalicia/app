@@ -48,8 +48,10 @@ struct AtegalSidebarView: View {
             label(.whoWeAre)
             label(.posts)
             if world.authManager.userStatus == .logged {
-                label(.inbox)
-                    .badge(world.announcementManager.unreadCount)
+                label(
+                    .inbox,
+                    badge: world.announcementManager.unreadCount
+                )
             }
             label(.profile)
         }
@@ -98,11 +100,29 @@ struct AtegalSidebarView: View {
     }
     
     @ViewBuilder
-    private func label(_ section: ContentTab) -> some View {
+    private func label(
+        _ section: ContentTab,
+        badge: Int? = nil
+    ) -> some View {
         Label {
-            Text(section.title)
+            HStack(spacing: 8) {
+                Text(section.title)
+
+                if let badge, badge > 0 {
+                    Text("\(badge)")
+                        .font(.caption2.weight(.medium))
+                        .lineLimit(1)
+                        .fixedSize()
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 2)
+                        .background(ColorsPalette.primary)
+                        .foregroundStyle(ColorsPalette.textTertiary)
+                        .clipShape(Capsule())
+                        .accessibilityValue(Text("\(badge)"))
+                }
+            }
         } icon: {
-            Image(section.icon)
+            Image(systemName: section.icon)
                 .renderingMode(.template)
                 .resizable()
                 .scaledToFit()
@@ -120,6 +140,7 @@ struct AtegalSidebarView: View {
         guard let section, section != selection else { return }
         navigationHome.removeAll()
         navigationPost.removeAll()
+        navigationInbox.removeAll()
         selection = section
     }
 }

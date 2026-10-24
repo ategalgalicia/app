@@ -30,8 +30,8 @@ struct ContentList<Item: Identifiable>: View {
     private func row(for item: Item) -> some View {
         let title = item[keyPath: title]
         Text(title)
-            .font(.body.weight(.regular))
-            .foregroundStyle(ColorsPalette.textSecondary)
+            .font(.body.weight(.medium))
+            .foregroundStyle(ColorsPalette.textPrimary)
             .multilineTextAlignment(.leading)
             .padding(.trailing, 32)
             .frame(maxWidth: .infinity, alignment: .leading)

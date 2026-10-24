@@ -15,7 +15,6 @@ struct LinkButton: View {
         Link(destination: url) {
             CTAButton(title: title, kind: kind)
         }
-        .ategalCornerBorder()
     }
 }
 

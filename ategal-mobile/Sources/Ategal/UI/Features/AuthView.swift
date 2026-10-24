@@ -40,7 +40,6 @@ struct AuthView: View {
     var body: some View {
         NavigationStack {
             contentView
-                .background(ColorsPalette.background)
                 .navigationTitle("auth-title".localized)
                 .navigationBarTitleDisplayMode(.inline)
                 .interactiveDismissDisabled()
@@ -59,6 +58,7 @@ struct AuthView: View {
                 )
                 .errorAlert($taskError)
         }
+        .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
     }
     

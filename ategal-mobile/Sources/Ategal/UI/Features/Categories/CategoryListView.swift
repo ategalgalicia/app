@@ -30,7 +30,7 @@ struct CategoryListView: View {
                 contactView
                 mapView
             }
-            .padding(16)
+            .padding([.horizontal, .bottom], 16)
         }
     }
     
@@ -69,14 +69,7 @@ struct CategoryListView: View {
             Text("categoryList-footer-map")
                 .primaryTitle()
             
-            VStack(alignment: .leading, spacing: 8) {
-                LinkView(
-                    address: center.address,
-                    lat: center.latitude,
-                    long: center.longitude
-                )
-                MapView(place: center.place)
-            }
+            MapView(place: center.place)
         }
         .padding(.top, 16)
     }

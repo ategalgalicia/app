@@ -36,7 +36,18 @@ struct MapView: View {
     }
     
     var body: some View {
-        contentView
+        ZStack(alignment: .bottomTrailing) {
+            contentView
+
+            if let place = places.first {
+                MapLinkButton(
+                    address: place.address,
+                    lat: place.latitude,
+                    lon: place.longitude
+                )
+                .padding(8)
+            }
+        }
             .frame(height: 200)
             .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
     }
@@ -94,7 +105,9 @@ struct MapComposer: ContentComposer {
             },
             uiSettings = MapUiSettings(
                 scrollGesturesEnabled = false,
-                zoomGesturesEnabled = true
+                zoomGesturesEnabled = true,
+                zoomControlsEnabled = false,
+                mapToolbarEnabled = false
             )
         ) {
             for i in latitudes.indices {
