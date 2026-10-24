@@ -124,5 +124,6 @@ struct ActivityView: View {
             .toolbarWithDismissButton()
         }
         .tint(ColorsPalette.primary)
+        .background(ColorsPalette.background)
     }
 }

@@ -40,15 +40,15 @@ struct PushTopicView: View {
                 .foregroundStyle(ColorsPalette.textPrimary)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            Text("notification-general-subtitle")
-                .font(.body)
-                .foregroundStyle(ColorsPalette.textSecondary)
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-            Text("notification-general-centers-description")
-                .font(.body)
-                .foregroundStyle(ColorsPalette.textSecondary)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("notification-general-subtitle")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Text("notification-general-centers-description")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .font(.body)
+            .foregroundStyle(ColorsPalette.textSecondary)
 
             citiesView
         }

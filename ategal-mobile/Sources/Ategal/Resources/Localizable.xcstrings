@@ -831,7 +831,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Consulta os avisos xerais e os dos centros aos que estás subscrito. Un punto azul indica os avisos que aínda non liches. Abre cada aviso para ler a información completa."
+            "value" : "Consulta os **avisos xerais** e os dos centros aos que estás subscrito. Un **punto azul** indica os avisos que aínda non liches. **Abre cada aviso** para ler a información completa."
           }
         }
       }

@@ -94,13 +94,21 @@ struct AnnouncementComposeView: View {
                         Text(topic.title).tag(topic)
                     }
                 }
+                #if os(Android)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                #endif
                 .ategalCornerBackground()
                 
                 Text("announcement-title-label".localized)
                     .font(.headline)
                 
                 TextField("announcement-title-label".localized, text: $title)
+                    #if canImport(Darwin)
                     .padding(16)
+                    #else
+                    .textFieldStyle(.plain)
+                    #endif
                     .ategalCornerBackground()
                 
                 Text("announcement-body-label".localized)
@@ -109,7 +117,11 @@ struct AnnouncementComposeView: View {
                 TextEditor(text: $message)
                     .frame(minHeight: 180)
                     .scrollContentBackground(.hidden)
+                    #if canImport(Darwin)
                     .padding(12)
+                    #else
+                    .textFieldStyle(.plain)
+                    #endif
                     .ategalCornerBackground()
                     .accessibilityLabel(Text("announcement-body-label"))
                 
@@ -121,8 +133,9 @@ struct AnnouncementComposeView: View {
             }
             .padding(16)
         }
-        .actionView {
+        .ategalBottomActionBar {
             AsyncButton {
+                guard isValid else { return }
                 let request = AnnouncementRequest(
                     id: documentID,
                     title: title,
@@ -141,7 +154,7 @@ struct AnnouncementComposeView: View {
                     .ategalCornerPrimaryBackground()
             }
             .disabled(!isValid)
-            .opacity(isValid ? 1 : 0.5)
+            .opacity(isValid ? 1 : 0.3)
         }
     }
     
@@ -155,6 +168,10 @@ struct AnnouncementComposeView: View {
                 Text(kind.title).tag(kind)
             }
         }
+        #if os(Android)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        #endif
         .ategalCornerBackground()
         
         switch actionKind {
@@ -185,14 +202,28 @@ struct AnnouncementComposeView: View {
             }
             .buttonStyle(.plain)
         case .calendar:
-            DatePicker(
-                "announcement-calendar-day".localized,
-                selection: $calendarDate,
-                displayedComponents: .date
-            )
-            #if canImport(Darwin)
-            .environment(\.calendar, Calendar(identifier: .gregorian))
-            #endif
+            HStack(alignment: .center, spacing: 16) {
+                Text("announcement-calendar-day".localized)
+                    .font(.headline)
+                    .foregroundStyle(ColorsPalette.textPrimary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                DatePicker(
+                    "announcement-calendar-day".localized,
+                    selection: $calendarDate,
+                    displayedComponents: .date
+                )
+                .labelsHidden()
+                .accessibilityLabel(Text("announcement-calendar-day"))
+                
+                #if canImport(Darwin)
+                .environment(\.calendar, Calendar(identifier: .gregorian))
+                #else
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .cornerBackground(ColorsPalette.background, radius: 10)
+                #endif
+            }
             .padding(16)
             .ategalCornerBackground()
         }

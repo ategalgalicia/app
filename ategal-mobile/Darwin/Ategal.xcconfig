@@ -28,8 +28,8 @@ INFOPLIST_KEY_UIStatusBarStyle[sdk=iphone*] = UIStatusBarStyleDefault
 INFOPLIST_KEY_UISupportedInterfaceOrientations[sdk=iphone*] = UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown
 INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription[sdk=iphone*] = Permite que Ategal acceda ao teu calendario para engadir actividades.
 
-IPHONEOS_DEPLOYMENT_TARGET = 17.0
-MACOSX_DEPLOYMENT_TARGET = 14.0
+IPHONEOS_DEPLOYMENT_TARGET = 18.0
+MACOSX_DEPLOYMENT_TARGET = 15.0
 SUPPORTS_MACCATALYST = NO
 
 // iPhone + iPad

@@ -124,7 +124,7 @@ struct WhoWeAreView: View {
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            Image(systemName: "arrow.forward.square")
+                            Image(systemName: "arrow.forward")
                                 .accessibilityHidden(true)
                                 .foregroundStyle(ColorsPalette.textTertiary)
                                 .frame(width: 24)
@@ -165,7 +165,7 @@ struct WhoWeAreView: View {
                 
                 Spacer()
                 
-                Image(systemName: "arrow.forward.square")
+                Image(systemName: "arrow.forward")
                     .accessibilityHidden(true)
                     .foregroundStyle(ColorsPalette.textTertiary)
                     .frame(width: 24)

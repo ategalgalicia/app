@@ -6,6 +6,7 @@ import SwiftUI
 import RStudioKit
 
 struct AnnouncementDetailView: View {
+    
     @Binding
     var navigationPath: [InboxRoute]
 
@@ -33,14 +34,14 @@ struct AnnouncementDetailView: View {
                     .accessibilityHeading(.h1)
                 
                 Text(item.topic.title)
-                    .font(.caption)
+                    .font(.caption.weight(.medium))
                     .foregroundStyle(ColorsPalette.textPrimary)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
-                    .cornerBackground(ColorsPalette.backgroundSecondary, radius: 100)
+                    .ategalCornerBackground()
                 
                 Text(item.publishedAt.formatted())
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundStyle(ColorsPalette.textSecondary)
                 
                 Text(item.body)

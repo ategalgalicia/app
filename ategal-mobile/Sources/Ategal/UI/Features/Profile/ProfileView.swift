@@ -78,17 +78,27 @@ struct ProfileView: View {
     @ViewBuilder
     private var contentView: some View {
         ScrollView {
-            VStack(spacing: 24) {
+            VStack(spacing: 16) {
                 Image(systemName: "person.crop.circle")
                     .font(.system(size: 72))
                     .foregroundStyle(ColorsPalette.primary)
                     .accessibilityHidden(true)
                 
-                signInView
-                userView
-                pushNotificationsView
-                if !authManager.isLogged {
-                    tutorialButton
+                if authManager.isLogged {
+                    userView
+                    pushNotificationsView
+                } else {
+                    Text("profile-sign-in-subtitle")
+                        .font(.headline.weight(.semibold))
+                        .foregroundStyle(ColorsPalette.textSecondary)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, 32)
+                    
+                    VStack(spacing: 8) {
+                        signinButton
+                        tutorialButton
+                    }
                 }
             }
             .padding(.horizontal, 16)
@@ -99,32 +109,8 @@ struct ProfileView: View {
     }
     
     @ViewBuilder
-    private var signInView: some View {
-        if !authManager.isLogged {
-            VStack(spacing: 16) {
-                Text("profile-sign-in-subtitle")
-                    .font(.headline.weight(.semibold))
-                    .foregroundStyle(ColorsPalette.textSecondary)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                Button {
-                    sheetType = .auth
-                } label: {
-                    Text("auth-login-action")
-                        .font(.body.weight(.medium))
-                        .foregroundStyle(ColorsPalette.textTertiary)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                }
-                .ategalCornerPrimaryBackground()
-            }
-        }
-    }
-    
-    @ViewBuilder
     private var userView: some View {
-        if authManager.isLogged, let user = authManager.fetchUser() {
+        if let user = authManager.fetchUser() {
             VStack(spacing: 8) {
                 HStack(spacing: 4) {
                     if let firstName = user.firstName {
@@ -144,12 +130,13 @@ struct ProfileView: View {
                         .foregroundStyle(ColorsPalette.textSecondary)
                 }
             }
+            .padding(.bottom, 16)
         }
     }
     
     @ViewBuilder
     private var pushNotificationsView: some View {
-        if authManager.isLogged, pushManager.isPushAuthorized {
+        if pushManager.isPushAuthorized {
             AsyncView(id: pushManager.isPushAuthorized) {
                 await pushManager.hasPushAuthorization()
             } content: { hasPushAuthorization in
@@ -169,6 +156,20 @@ struct ProfileView: View {
             .padding(.vertical, 8)
         }
     }
+    
+    @ViewBuilder
+    private var signinButton: some View {
+        Button {
+            sheetType = .auth
+        } label: {
+            Text("auth-login-action")
+                .font(.body.weight(.medium))
+                .foregroundStyle(ColorsPalette.textTertiary)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+        }
+        .ategalCornerPrimaryBackground()
+    }
 
     @ViewBuilder
     private var tutorialButton: some View {
@@ -183,18 +184,6 @@ struct ProfileView: View {
         }
         .buttonStyle(.plain)
         .ategalCornerBackground()
-    }
-
-    @ViewBuilder
-    private func toolbarIcon(_ systemName: String) -> some View {
-        Image(systemName: systemName)
-            #if os(Android)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 24, height: 24)
-            .padding(8)
-            .background(ColorsPalette.backgroundSecondary)
-            #endif
     }
     
     @ViewBuilder

@@ -58,7 +58,7 @@ struct TutorialStepView: View {
             step == .welcome ? "push-tutorial-navigation-title".localized : ""
         )
         .navigationBarTitleDisplayMode(.inline)
-        .actionView { actionView }
+        .ategalBottomActionBar { actionView }
         .background(ColorsPalette.background)
     }
     

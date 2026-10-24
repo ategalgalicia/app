@@ -144,7 +144,9 @@ internal fun PresentationRootView(context: ComposeContext) {
     val surfaceColor = androidx.compose.ui.graphics.Color.White
     Material3ColorScheme({ colors, isDark ->
         colors.copy(
-            surface = androidx.compose.ui.graphics.Color(0xFFF4F7F8),
+            background = androidx.compose.ui.graphics.Color(0xFFF0F8FB),
+            // Android needs a slightly bluer tone because colors render differently than on iOS.
+            surface = androidx.compose.ui.graphics.Color(0xFFF0F8FB),
             surfaceTint = surfaceColor,
             surfaceVariant = surfaceColor,
             surfaceContainer = surfaceColor,

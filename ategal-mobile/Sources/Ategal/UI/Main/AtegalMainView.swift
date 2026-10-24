@@ -146,8 +146,10 @@ struct AtegalMainView: View {
 
 // MARK: - ContentTab
 
-enum ContentTab: String, Hashable {
+enum ContentTab: String, Hashable, Identifiable {
     case home, whoWeAre, posts, profile, inbox
+
+    var id: ContentTab { self }
     
     var title: String {
         switch self {

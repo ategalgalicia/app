@@ -55,7 +55,7 @@ struct PostListView: View {
     @ViewBuilder
     private var contentView: some View {
         if posts.isEmpty {
-            EmptyStateView(txt: "posts-no-data")
+            EmptyStateView(txt: "posts-no-data".localized)
         } else {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
@@ -99,7 +99,7 @@ struct PostListView: View {
                     .multilineTextAlignment(.leading)
                     .lineSpacing()
             }
-            .padding(16)
+            .padding([.horizontal, .bottom], 16)
             .combinedAccessibility()
         }
         .background(ColorsPalette.background)

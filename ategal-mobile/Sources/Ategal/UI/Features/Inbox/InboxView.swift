@@ -47,41 +47,42 @@ struct InboxView: View {
     var presentComposer = false
 
     var body: some View {
-        Group {
-            if viewModel.items.isEmpty {
-                EmptyStateView(txt: "inbox-no-data")
-            } else {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 8) {
-                        ForEach(viewModel.items) { item in
-                            Button {
-                                navigationPath.append(.detail(item))
-                            } label: {
-                                cell(item)
-                            }
-                            .buttonStyle(.plain)
-                            .ategalCornerBorder()
-                        }
-                    }
-                    .padding(.horizontal, 16)
+        if viewModel.items.isEmpty {
+            EmptyStateView(txt: "inbox-no-data".localized)
+        } else {
+            contentView
+                .navigationTitle("inbox-title")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar { toolbarContent }
+                .navigationDestination(for: InboxRoute.self) { destinationView($0) }
+                .sheet(isPresented: $presentComposer) {
+                    AnnouncementComposeView(
+                        manager: viewModel.announcementManager,
+                        centers: viewModel.centers
+                    )
                 }
-            }
-        }
-        .navigationTitle("inbox-title")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar { toolbarContent }
-        .navigationDestination(for: InboxRoute.self) {
-            destinationView($0)
-        }
-        .sheet(isPresented: $presentComposer) {
-            AnnouncementComposeView(
-                manager: viewModel.announcementManager,
-                centers: viewModel.centers
-            )
         }
     }
 
     // MARK: - Navigation
+    
+    @ViewBuilder
+    private var contentView: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(viewModel.items) { item in
+                    Button {
+                        navigationPath.append(.detail(item))
+                    } label: {
+                        cell(item)
+                    }
+                    .buttonStyle(.plain)
+                    .ategalCornerBorder()
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+    }
 
     @ViewBuilder
     private func destinationView(_ route: InboxRoute) -> some View {
@@ -89,18 +90,14 @@ struct InboxView: View {
         case .detail(let item):
             AnnouncementDetailView(
                 navigationPath: $navigationPath,
-                item: item,
+                item: item
             )
-            .onAppear {
-                viewModel.announcementManager.markRead(item.id)
-            }
+            .onAppear { viewModel.announcementManager.markRead(item.id) }
         case .navigateToActivity(let activity, let center):
             ActivityView(activity: activity, center: center)
         case .calendar(let date):
             CalendarAsyncView(
-                onOpenDay: { day in
-                    navigationPath.append(.search(.activitiesFilteredByDay(day), centerID: nil))
-                },
+                onOpenDay: { navigationPath.append(.search(.activitiesFilteredByDay($0), centerID: nil)) },
                 wpApiClient: wpApiClient,
                 centers: viewModel.centers,
                 initialDate: date
@@ -126,40 +123,37 @@ struct InboxView: View {
                 .fill(ColorsPalette.primary)
                 .frame(width: 10, height: 10)
                 .opacity(isUnread ? 1 : 0)
-                .accessibilityLabel(Text("inbox-unread"))
+                .accessibilityLabel("inbox-unread")
                 .accessibilityHidden(!isUnread)
 
             VStack(alignment: .leading, spacing: 8) {
-                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                HStack(alignment: .center, spacing: 8) {
                     Text(item.topic.title)
-                        .font(.caption)
+                        .font(.caption.weight(.medium))
                         .foregroundStyle(ColorsPalette.textPrimary)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 8)
-                        .cornerBackground(ColorsPalette.backgroundSecondary, radius: 100)
-
+                    
                     Text(item.publishedAt.formatted(.dateTime.day().month(.abbreviated)))
+                        .font(.caption)
+                        .foregroundStyle(ColorsPalette.textSecondary)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
-                .font(.subheadline)
-                .foregroundStyle(ColorsPalette.textSecondary)
 
                 Text(item.title)
-                    .font(.headline)
+                    .font(.headline.weight(.semibold))
                     .foregroundStyle(ColorsPalette.textPrimary)
                     .accessibilityHeading(.h2)
 
                 item.body.truncatedText()
-                    .font(.subheadline)
+                    .font(.body)
                     .foregroundStyle(ColorsPalette.textSecondary)
             }
         }
         .multilineTextAlignment(.leading)
-        .padding(.trailing, 32)
+        .padding(.trailing, 24)
         .frame(maxWidth: .infinity, alignment: .leading)
         .chevronOverlay()
-        .padding(.leading, 8)
-        .padding([.trailing, .vertical], 16)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 16)
         .ategalCornerBackground()
         .combinedAccessibility()
     }
@@ -173,9 +167,10 @@ struct InboxView: View {
                 Button {
                     presentComposer = true
                 } label: {
-                    Image(systemName: "plus")
+                    toolbarIcon("plus")
                 }
-                .accessibilityLabel(Text("announcement-compose-title"))
+                .accessibilityLabel(Text("push-tutorial-navigation-title"))
+                .clipShape(Circle())
             }
         }
     }
@@ -212,7 +207,6 @@ struct InboxAsyncView: View {
         .background(ColorsPalette.background)
         .tint(ColorsPalette.primary)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar(.hidden, for: .tabBar)
         .accessibilityHeading(.h1)
     }
 }

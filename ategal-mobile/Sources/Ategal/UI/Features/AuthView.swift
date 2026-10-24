@@ -45,7 +45,7 @@ struct AuthView: View {
                 .interactiveDismissDisabled()
                 .presentationDetents([.medium])
                 .toolbarWithDismissButton()
-                .actionView {
+                .ategalBottomActionBar {
                     VStack(spacing: 8) {
                         appleButton
                         googleButton

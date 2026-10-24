@@ -47,7 +47,7 @@ struct LinkView: View {
                 LinkButton(title: email, kind: .icon("envelope.fill"), url: url)
             }
             if let website, let url = LinkHelper.shared.websiteURL(from: website) {
-                LinkButton(title: website, kind: .icon("arrow.forward.square"), url: url)
+                LinkButton(title: website, kind: .icon("arrow.forward"), url: url)
             }
         }
     }
