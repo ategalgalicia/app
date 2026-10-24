@@ -8,9 +8,9 @@ struct ColorsPalette {
     static let primary              = Color(hex: "#008DCB")
     #if os(Android)
     // Android needs a slightly bluer tone because colors render differently than on iOS.
-    static let background           = Color(hex: "#F0F8FB")
+    static let background           = Color(hex: "#F2F8FA")
     #else
-    static let background           = Color(hex: "#F4F7F8")
+    static let background           = Color(hex: "#F5F7F8")
     #endif
     static let backgroundSecondary  = Color(hex: "#FFFFFF")
     static let textPrimary          = Color(hex: "#1A1A1A")
