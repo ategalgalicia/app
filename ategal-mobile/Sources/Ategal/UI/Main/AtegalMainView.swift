@@ -68,6 +68,7 @@ struct AtegalMainView: View {
                 tutorialView
             }
         }
+        .applyAccessibility()
         .onChange(of: selection) { _, tab in
             Tracking.trackEvent(.tabSelected(tab: tab.rawValue))
         }

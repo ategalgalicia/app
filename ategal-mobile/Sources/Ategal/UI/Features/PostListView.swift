@@ -58,9 +58,10 @@ struct PostListView: View {
             EmptyStateView(txt: "posts-no-data".localized)
         } else {
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
+                LazyVStack(alignment: .leading, spacing: 8) {
                     Text("posts-subtitle")
                         .primaryTitle()
+                        .padding(.bottom, 16)
                     
                     ContentList(
                         items: posts,
@@ -119,7 +120,7 @@ struct PostListAsyncView: View {
     var body: some View {
         NavigationStack(path: $navigationPath) {
             AsyncView {
-                try await apiClient.fetchPosts()
+                await apiClient.fetchPosts()
             } content: {
                 PostListView(
                     posts: $0,

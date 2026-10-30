@@ -28,11 +28,13 @@ struct CityListView: View {
                 Text("city-list-subtitle")
                     .primaryTitle()
                     
-                ContentList(
-                    items: centers,
-                    title: \.city,
-                    onTap: onOpenCenter
-                )
+                VStack(alignment: .leading, spacing: 8) {
+                    ContentList(
+                        items: centers,
+                        title: \.city,
+                        onTap: onOpenCenter
+                    )
+                }
             }
             .padding(.horizontal, 16)
         }

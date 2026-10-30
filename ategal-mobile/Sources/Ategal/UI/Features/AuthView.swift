@@ -17,7 +17,6 @@ import AuthenticationServices
 #Preview {
     NavigationStack {
         AuthView(authManager: MockAuthManager())
-            .dynamicTypeSize(.large ... .accessibility5)
     }
 }
 #endif

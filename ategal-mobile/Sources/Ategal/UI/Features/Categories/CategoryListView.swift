@@ -26,27 +26,26 @@ struct CategoryListView: View {
     @ViewBuilder
     private var contentView: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                listView
+            LazyVStack(alignment: .leading, spacing: 8) {
+                Text("categoryList-subtitle")
+                    .primaryTitle()
+                    .padding(.bottom, center.categories.isEmpty ? 0 : 16)
+
+                ContentList(
+                    items: center.categories,
+                    title: \.title,
+                    onTap: {
+                        onOpenCategory($0, center)
+                    }
+                )
+
                 contactView
+                    .padding(.top, 16)
                 mapView
+                    .padding(.top, 16)
             }
             .padding([.horizontal, .bottom], 16)
         }
-    }
-    
-    @ViewBuilder
-    private var listView: some View {
-        Text("categoryList-subtitle")
-            .primaryTitle()
-            
-        ContentList(
-            items: center.categories,
-            title: \.title,
-            onTap: {
-                onOpenCategory($0, center)
-            }
-        )
     }
     
     @ViewBuilder

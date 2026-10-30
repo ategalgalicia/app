@@ -1,5 +1,5 @@
 {
-  "originHash" : "ed1c083527e6b5003398c94594374dd9ee322983a8099b13b169917317449b9e",
+  "originHash" : "2262f58f89388b33c332ef25579b48f71fc97b7452a533d199bc849cf61dfada",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleSignIn-iOS",
       "state" : {
-        "revision" : "7823e518f5d4db765ccac3e140dd3265ef0a1cf1",
-        "version" : "10.0.0"
+        "revision" : "bfaebbc04a4d13ed7a89b0fc1fb8ad66b362cc1c",
+        "version" : "10.1.0"
       }
     },
     {
@@ -150,8 +150,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip.git",
       "state" : {
-        "revision" : "5693198fd045a8ba1abf3e18405584ec3184fd0c",
-        "version" : "1.9.19"
+        "revision" : "9a24b76b0681d8175d86911307494599e2ec47df",
+        "version" : "1.9.20"
       }
     },
     {
@@ -204,8 +204,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip-fuse-ui.git",
       "state" : {
-        "revision" : "e4590b7616589c21eca791a77914d1d062bc67fa",
-        "version" : "1.19.1"
+        "revision" : "091bc4e25797a2024da35386cdafbf9222852f09",
+        "version" : "1.19.3"
       }
     },
     {
@@ -240,8 +240,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip-ui.git",
       "state" : {
-        "revision" : "d170d85b9b337b82b630439c633aea2d0eb6ca3e",
-        "version" : "1.64.0"
+        "revision" : "cb5bb93282a629e46a3e3d385b155f8698bb1c96",
+        "version" : "1.66.0"
       }
     },
     {

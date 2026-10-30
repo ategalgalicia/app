@@ -23,7 +23,6 @@ import RStudioKit
             centers: [],
             appVersion: "Versión 1.0.0"
         )
-        .dynamicTypeSize(.large ... .accessibility5)
     }
 }
 #endif
@@ -133,7 +132,7 @@ struct HomeView: View {
             itemView(
                 title: "home-resource-title".localized,
                 subtitle: "home-resource-subtitle".localized,
-                image: "info.circle",
+                image: "bookmark",
                 color: .orange,
                 onTap: {
                     navigationPath.append(.navigateToSearch(.resources))
@@ -173,7 +172,6 @@ struct HomeView: View {
                     Text(subtitle)
                         .font(.subheadline)
                         .foregroundStyle(ColorsPalette.textSecondary)
-                        .lineLimit(2)
                         .multilineTextAlignment(.leading)
                 }
                 .combinedAccessibility()

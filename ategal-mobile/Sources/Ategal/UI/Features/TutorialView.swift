@@ -13,7 +13,6 @@ import RStudioKit
 #Preview {
     NavigationStack {
         TutorialView(isPresented: .constant(false))
-            .dynamicTypeSize(.large ... .accessibility5)
     }
 }
 #endif
@@ -229,7 +228,7 @@ enum TutorialStep: Hashable {
         case .welcome: nil
         case .socialLogin: "person.crop.circle"
         case .permission: "bell"
-        case .cities: "checkmark.circle"
+        case .cities: "mappin.circle"
         case .inbox: "envelope"
         }
     }

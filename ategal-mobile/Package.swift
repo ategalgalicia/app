@@ -11,16 +11,16 @@ let package = Package(
         .library(name: "AtegalCore", type: .dynamic, targets: ["AtegalCore"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/skiptools/skip.git", exact: "1.9.19"),
+        .package(url: "https://github.com/skiptools/skip.git", exact: "1.9.20"),
         .package(url: "https://github.com/skiptools/skip-model.git", exact: "1.8.1"),
-        .package(url: "https://github.com/skiptools/skip-ui.git", exact: "1.64.0"),
+        .package(url: "https://github.com/skiptools/skip-ui.git", exact: "1.66.0"),
         .package(url: "https://github.com/skiptools/skip-fuse.git", exact: "1.0.3"),
-        .package(url: "https://github.com/skiptools/skip-fuse-ui.git", exact: "1.19.1"),
+        .package(url: "https://github.com/skiptools/skip-fuse-ui.git", exact: "1.19.3"),
         .package(url: "https://github.com/skiptools/skip-unit.git", exact: "1.7.2"),
         .package(url: "https://github.com/skiptools/skip-bridge.git", exact: "0.18.0"),
         .package(url: "https://github.com/skiptools/skip-android-bridge.git", exact: "0.7.4"),
         .package(url: "https://github.com/skiptools/skip-firebase.git", exact: "0.21.0"),
-        .package(url: "https://github.com/google/GoogleSignIn-iOS", exact: "10.0.0"),
+        .package(url: "https://github.com/google/GoogleSignIn-iOS", exact: "10.1.0"),
         .package(path: "../../../MR/RStudioKit")
     ],
     targets: [

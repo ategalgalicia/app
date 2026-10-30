@@ -16,7 +16,6 @@ import RStudioKit
         viewModel: .mock(),
         onOpenDay: { _ in }
     )
-    .dynamicTypeSize(.large ... .accessibility5)
 }
 #endif
 
@@ -204,7 +203,6 @@ struct CalendarView: View {
             Text(event.title)
                 .font(.headline.weight(.semibold))
                 .foregroundStyle(ColorsPalette.textPrimary)
-                .lineLimit(2)
             
             Text(event.startDate.formatted())
                 .font(.subheadline.weight(.regular))

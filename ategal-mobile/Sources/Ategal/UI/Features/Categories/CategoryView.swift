@@ -27,9 +27,10 @@ struct CategoryView: View {
     @ViewBuilder
     private var contentView: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
+            LazyVStack(alignment: .leading, spacing: 8) {
                 Text("category-subtitle")
                     .primaryTitle()
+                    .padding(.bottom, category.activities.isEmpty ? 0 : 16)
                 
                 ContentList(
                     items: category.activities,
@@ -38,26 +39,20 @@ struct CategoryView: View {
                         onOpenActivity($0, center)
                     }
                 )
-                resourceView
-            }
-            .padding(16)
-        }
-    }
-    
-    @ViewBuilder
-    private var resourceView: some View {
-        if let resources = category.resources, !resources.isEmpty {
-            VStack(alignment: .leading, spacing: 24) {
-                Text("resource-header-title")
-                    .primaryTitle()
-                
-                VStack(alignment: .leading, spacing: 32) {
-                    ForEach(resources) {
-                        resourceCell($0)
+
+                if let resources = category.resources, !resources.isEmpty {
+                    Text("resource-header-title")
+                        .primaryTitle()
+                        .padding(.top, 32)
+                        .padding(.bottom, 16)
+
+                    ForEach(resources) { resource in
+                        resourceCell(resource)
+                            .padding(.top, resource.id == resources.first?.id ? 0 : 24)
                     }
                 }
             }
-            .padding(.top, 16)
+            .padding(16)
         }
     }
     

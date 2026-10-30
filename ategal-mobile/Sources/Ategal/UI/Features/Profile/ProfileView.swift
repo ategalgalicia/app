@@ -20,7 +20,6 @@ import RStudioKit
             announcementManager: AnnouncementManager(),
             gistApiClient: GistAPIClient()
         )
-        .dynamicTypeSize(.large ... .accessibility5)
     }
 }
 #endif

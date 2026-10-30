@@ -94,7 +94,7 @@ extension View {
     @ViewBuilder
     func applyAccessibility() -> some View {
         #if canImport(Darwin)
-        self.dynamicTypeSize(.large ... .accessibility5)
+        self.dynamicTypeSize(.small ... .accessibility2)
         #else
         self
         #endif

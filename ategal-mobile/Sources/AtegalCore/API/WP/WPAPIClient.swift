@@ -14,7 +14,7 @@ public class WPAPIClient: APIClient, @unchecked Sendable {
         super.init(environment: environment, fetcher: networkFetcher)
     }
     
-    public func fetchPosts() async throws -> [Post] {
+    public func fetchPosts() async -> [Post] {
         do {
             return try await fetch(
                 WPEndpoint.getPosts, as: [Post].self

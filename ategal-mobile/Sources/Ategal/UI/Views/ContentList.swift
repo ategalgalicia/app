@@ -11,16 +11,14 @@ struct ContentList<Item: Identifiable>: View {
     let onTap: Handler?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            ForEach(items) { item in
-                Button {
-                    onTap?(item)
-                } label: {
-                    row(for: item)
-                }
-                .buttonStyle(.plain)
-                .ategalCornerBorder()
+        ForEach(items) { item in
+            Button {
+                onTap?(item)
+            } label: {
+                row(for: item)
             }
+            .buttonStyle(.plain)
+            .ategalCornerBorder()
         }
     }
     

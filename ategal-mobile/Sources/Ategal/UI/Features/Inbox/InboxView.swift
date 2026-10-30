@@ -47,40 +47,40 @@ struct InboxView: View {
     var presentComposer = false
 
     var body: some View {
-        if viewModel.items.isEmpty {
-            EmptyStateView(txt: "inbox-no-data".localized)
-        } else {
-            contentView
-                .navigationTitle("inbox-title")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar { toolbarContent }
-                .navigationDestination(for: InboxRoute.self) { destinationView($0) }
-                .sheet(isPresented: $presentComposer) {
-                    AnnouncementComposeView(
-                        manager: viewModel.announcementManager,
-                        centers: viewModel.centers
-                    )
-                }
-        }
+        contentView
+            .navigationTitle("inbox-title")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { toolbarContent }
+            .navigationDestination(for: InboxRoute.self) { destinationView($0) }
+            .sheet(isPresented: $presentComposer) {
+                AnnouncementComposeView(
+                    manager: viewModel.announcementManager,
+                    centers: viewModel.centers
+                )
+            }
     }
 
     // MARK: - Navigation
     
     @ViewBuilder
     private var contentView: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(viewModel.items) { item in
-                    Button {
-                        navigationPath.append(.detail(item))
-                    } label: {
-                        cell(item)
+        if viewModel.items.isEmpty {
+            EmptyStateView(txt: "inbox-no-data".localized)
+        } else {
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 8) {
+                    ForEach(viewModel.items) { item in
+                        Button {
+                            navigationPath.append(.detail(item))
+                        } label: {
+                            cell(item)
+                        }
+                        .buttonStyle(.plain)
+                        .ategalCornerBorder()
                     }
-                    .buttonStyle(.plain)
-                    .ategalCornerBorder()
                 }
+                .padding(.horizontal, 16)
             }
-            .padding(.horizontal, 16)
         }
     }
 

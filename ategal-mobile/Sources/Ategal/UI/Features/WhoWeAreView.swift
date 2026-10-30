@@ -15,7 +15,6 @@ import RStudioKit
         WhoWeAreView(
             centers: []
         )
-        .dynamicTypeSize(.large ... .accessibility5)
     }
 }
 #endif
