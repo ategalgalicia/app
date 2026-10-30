@@ -5,7 +5,7 @@
 import SwiftUI
 
 struct ColorsPalette {
-    static let primary              = Color(hex: "#008DCB")
+    static let primary              = Color(hex: "#0074A8")
     #if os(Android)
     // Android needs a slightly bluer tone because colors render differently than on iOS.
     static let background           = Color(hex: "#F2F8FA")

@@ -169,7 +169,7 @@ struct InboxView: View {
                 } label: {
                     toolbarIcon("plus")
                 }
-                .accessibilityLabel(Text("push-tutorial-navigation-title"))
+                .accessibilityLabel(Text("announcement-compose-title"))
                 .clipShape(Circle())
             }
         }

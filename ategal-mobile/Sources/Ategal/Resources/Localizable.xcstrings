@@ -484,7 +484,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Produciuse un erro. Ténta o de novo máis tarde"
+            "value" : "Algo saíu mal. Téntao de novo máis tarde."
           }
         }
       }
@@ -514,7 +514,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Consulta as actividades de Ategal por día"
+            "value" : "Consulta os eventos e as actividades por día"
           }
         }
       }
@@ -739,7 +739,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para recibir novidades de Ategal e dos teus centros, activa as notificacións nos axustes do dispositivo."
+            "value" : "Para recibir novidades de Ategal e dos teus centros, activa as notificacións nos axustes do teu móbil."
           }
         }
       }
@@ -791,7 +791,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Marca as **cidades** das que queres recibir avisos. Podes cambiar esta selección máis adiante."
+            "value" : "Escolle os **centros** dos que queres recibir avisos. Podes cambiar esta selección máis adiante."
           }
         }
       }
@@ -831,7 +831,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Consulta os **avisos xerais** e os dos centros aos que estás subscrito. Un **punto azul** indica os avisos que aínda non liches. **Abre cada aviso** para ler a información completa."
+            "value" : "Consulta os **avisos xerais** e os dos centros que escolliches. Un **punto azul** indica os avisos que aínda non liches. **Abre cada aviso** para ler a información completa."
           }
         }
       }
@@ -1072,7 +1072,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reintentar"
+            "value" : "Tentar de novo"
           }
         }
       }
@@ -1132,7 +1132,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ATEGAL é unha asociación sen ánimo de lucro, fundada en 1978, que se dedica a organizar actividades formativas, culturais e de lecer en diversos centros de Galicia. Dirixida a persoas de 55 anos ou máis, a nosa misión é mellorar o benestar persoal, promover a saúde integral e potenciar a calidade de vida das persoas a través da súa participación activa en actividades socio-culturais e a convivencia interxeracional."
+            "value" : "ATEGAL é unha asociación sen ánimo de lucro fundada en 1978. Organizamos actividades de formación, cultura e lecer en distintos centros de Galicia.\n\nAs actividades están dirixidas a persoas de 55 anos ou máis. Queremos mellorar o seu benestar e a súa calidade de vida, coidando a saúde e fomentando a participación e a convivencia entre persoas de distintas idades."
           }
         }
       }
@@ -1162,7 +1162,7 @@
         "gl-ES" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ofrecemos actividades en catro grandes áreas:\n• Cultural (historia da arte, literatura, idiomas…)\n• Ocupacional (Música, tecnoloxía e competencias dixitais…)\n• Saúde e benestar (Ioga, pilates, estimulación cognitiva…)\n• Lecer (Celebracións, visita a exposicións, saídas culturais...)\n\nO noso obxectivo é apostar pola educación e a convivencia para promover a autonomía das persoas e formalas para alcanzar un bo vivir."
+            "value" : "Ofrecemos actividades en catro áreas:\n• Cultura: historia da arte, literatura, idiomas…\n• Actividades ocupacionais: música, tecnoloxía e competencias dixitais…\n• Saúde e benestar: ioga, pilates, estimulación cognitiva…\n• Lecer: celebracións, visitas a exposicións e saídas culturais…\n\nQueremos axudar ás persoas a aprender, convivir e manter a súa autonomía para vivir mellor."
           }
         }
       }
