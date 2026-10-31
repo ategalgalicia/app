@@ -14,5 +14,6 @@
   "violenceRealistic": "NONE",
   "gambling": false,
   "lootBox": false,
+  "socialMedia": false,
   "unrestrictedWebAccess": false
 }
