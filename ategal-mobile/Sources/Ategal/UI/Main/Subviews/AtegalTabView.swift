@@ -90,9 +90,19 @@ struct AtegalTabView: View {
     
     @ViewBuilder
     private func label(for tab: ContentTab) -> some View {
-        Label(tab.title, systemImage: tab.icon)
-            .foregroundStyle(ColorsPalette.textPrimary)
-            .frame(maxWidth: .infinity, alignment: .leading)
+        Label {
+            Text(tab.title)
+                .font(.caption2.weight(.medium))
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+        } icon: {
+            Image(systemName: tab.icon)
+                #if os(Android)
+                .foregroundStyle(selection == tab ? Color.white : ColorsPalette.textPrimary)
+                #endif
+        }
+        .foregroundStyle(ColorsPalette.textPrimary)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

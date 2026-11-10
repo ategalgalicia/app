@@ -57,7 +57,8 @@ extension View {
             .composeModifier {
                 AtegalTabBarModifier(
                     backgroundColor: ColorsPalette.backgroundSecondary,
-                    borderColor: ColorsPalette.border
+                    borderColor: ColorsPalette.border,
+                    indicatorColor: ColorsPalette.primary
                 )
             }
         #else
@@ -132,6 +133,7 @@ struct AtegalNavigationBarModifier: ContentModifier {
 struct AtegalTabBarModifier: ContentModifier {
     let backgroundColor: Color
     let borderColor: Color
+    let indicatorColor: Color
 
     func modify(view: any View) -> any View {
         view.material3NavigationBar { options in
@@ -149,7 +151,10 @@ struct AtegalTabBarModifier: ContentModifier {
                     )
                 },
                 containerColor: composeBackgroundColor,
-                tonalElevation: 0.dp
+                tonalElevation: 0.dp,
+                itemColors: options.itemColors.copy(
+                    selectedIndicatorColor: indicatorColor.asComposeColor()
+                )
             )
         }
     }

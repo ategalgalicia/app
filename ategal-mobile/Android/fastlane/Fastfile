@@ -52,6 +52,6 @@ lane :release do |options|
     aab: '../.build/Android/app/outputs/bundle/release/app-release.aab',
     track: options[:track] || "production",
     skip_upload_images: false,
-    skip_upload_screenshots: false
+    skip_upload_screenshots: true
   )
 end

@@ -1,5 +1,5 @@
 {
-  "originHash" : "2262f58f89388b33c332ef25579b48f71fc97b7452a533d199bc849cf61dfada",
+  "originHash" : "f172c9754cfc22e098b350bfec4b3b718ab62f3853ee57763df4cccfafe3bbcd",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -177,8 +177,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip-firebase.git",
       "state" : {
-        "revision" : "cb4db7acf37f603c33b05d563171875adc679ead",
-        "version" : "0.21.0"
+        "revision" : "85444469d66aa19e4a092fadbed3dcc1f2ede8c4",
+        "version" : "0.21.1"
       }
     },
     {
@@ -186,8 +186,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip-foundation.git",
       "state" : {
-        "revision" : "c5d74ef694ba21a0d42542ef58b598b638f2b7fc",
-        "version" : "1.4.7"
+        "revision" : "ba10460923b9e495bbd54ad494b8b0cb3dd7ba26",
+        "version" : "1.4.9"
       }
     },
     {
@@ -204,8 +204,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip-fuse-ui.git",
       "state" : {
-        "revision" : "091bc4e25797a2024da35386cdafbf9222852f09",
-        "version" : "1.19.3"
+        "revision" : "05e0a3f9b373d7c7178f8279f82d23592bbb779c",
+        "version" : "1.19.4"
       }
     },
     {
@@ -240,8 +240,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/skiptools/skip-ui.git",
       "state" : {
-        "revision" : "cb5bb93282a629e46a3e3d385b155f8698bb1c96",
-        "version" : "1.66.0"
+        "revision" : "c96c24b170363345cb472fa75bc69727a7782c0d",
+        "version" : "1.66.3"
       }
     },
     {
