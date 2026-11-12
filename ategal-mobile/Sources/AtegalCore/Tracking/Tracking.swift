@@ -72,6 +72,13 @@ public actor Tracking {
     public static func bootstrap() {
         FirebaseApp.configure()
     }
+
+    public static func recordError(_ error: Error, operation: String) {
+        Crashlytics.crashlytics().record(
+            error: error,
+            userInfo: ["operation": operation]
+        )
+    }
     
     public static func trackEvent(_ event: Event) {
         var eventParameters = event.parameters

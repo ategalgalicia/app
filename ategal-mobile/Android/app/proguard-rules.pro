@@ -10,3 +10,4 @@
 -keep class **._ModuleBundleAccessor_* { *; }
 -keep class ategal.core.** { *; }
 -keep class ategal.module.** { *; }
+-keep class com.google.firebase.firestore.FieldValue { *; }

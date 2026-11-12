@@ -21,6 +21,7 @@ let package = Package(
         .package(url: "https://github.com/skiptools/skip-android-bridge.git", exact: "0.7.4"),
         .package(url: "https://github.com/skiptools/skip-firebase.git", exact: "0.21.1"),
         .package(url: "https://github.com/google/GoogleSignIn-iOS", exact: "10.1.0"),
+        .package(url: "https://github.com/skiptools/swift-android-native.git", exact: "1.5.3"),
         .package(path: "../../../MR/RStudioKit")
     ],
     targets: [

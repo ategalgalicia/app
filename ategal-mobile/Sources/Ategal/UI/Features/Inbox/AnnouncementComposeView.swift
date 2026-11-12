@@ -135,16 +135,21 @@ struct AnnouncementComposeView: View {
         }
         .ategalBottomActionBar {
             AsyncButton {
-                guard isValid else { return }
-                let request = AnnouncementRequest(
-                    id: documentID,
-                    title: title,
-                    body: message,
-                    topic: topic,
-                    action: announcementAction
-                )
-                try await manager.publish(request)
-                dismiss()
+                do {
+                    guard isValid else { return }
+                    let request = AnnouncementRequest(
+                        id: documentID,
+                        title: title,
+                        body: message,
+                        topic: topic,
+                        action: announcementAction
+                    )
+                    try await manager.publish(request)
+                    resetForm()
+                    dismiss()
+                } catch {
+                    Tracking.recordError(error, operation: "announcement_publication")
+                }
             } label: {
                 Text("announcement-publish".localized)
                     .font(.headline)
@@ -229,6 +234,17 @@ struct AnnouncementComposeView: View {
         }
     }
     
+    private func resetForm() {
+        title = ""
+        message = ""
+        documentID = UUID().uuidString
+        topic = .general
+        actionKind = .none
+        selectedActivity = nil
+        calendarDate = Date()
+        navigationPath = []
+    }
+
     private var activityCenters: [Center] {
         topic == .general
             ? centers
